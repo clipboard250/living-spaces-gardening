@@ -1,1099 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Living Spaces Gardening | Native Florida Landscaping | St. Petersburg, FL</title>
-  <meta name="description" content="Native Florida landscape design, hardscaping, and garden maintenance in Tampa Bay. Florida Master Naturalist-led team. Founded 2018. Call or text 727-710-7400." />
-  <meta property="og:title" content="Living Spaces Gardening | Native Florida Landscaping" />
-  <meta property="og:description" content="Your yard should be beautiful AND alive. Native plant design, hardscaping, and habitat gardens in Tampa Bay." />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Living Spaces Gardening",
-    "description": "Native Florida landscape design, hardscaping, and garden maintenance in Tampa Bay.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "2621 4th Ave S",
-      "addressLocality": "St. Petersburg",
-      "addressRegion": "FL",
-      "postalCode": "33712"
-    },
-    "telephone": "+17277107400",
-    "url": "https://livingspacesgardening.com",
-    "foundingDate": "2018",
-    "areaServed": "Tampa Bay, FL"
-  }
-  </script>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --terracotta: #9e4732;
-      --turquoise: #508e8a;
-      --sand: #f8f5eb;
-      --mustard: #c9802e;
-      --cocoa: #63403c;
-      --charcoal: #3b3836;
-      --white: #ffffff;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Noto Sans', sans-serif;
-      background: var(--sand);
-      color: var(--charcoal);
-      font-size: 17px;
-      line-height: 1.65;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.1rem 2.5rem;
-      background: rgba(248, 245, 235, 0.95);
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid rgba(158, 71, 50, 0.12);
-    }
-
-    .nav-logo {
-      font-family: 'Noto Sans', sans-serif;
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--charcoal);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--terracotta); }
-
-    .nav-cta {
-      background: var(--terracotta);
-      color: var(--sand) !important;
-      padding: 0.55rem 1.2rem;
-      border-radius: 3px;
-    }
-
-    .nav-cta:hover { background: var(--cocoa); color: var(--sand) !important; }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 0 2.5rem 5rem;
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(
-        160deg,
-        #2d4a35 0%,
-        #3d6b47 30%,
-        #4a7c55 55%,
-        #5c8a5e 75%,
-        #6b9467 100%
-      );
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter></defs><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.08"/></svg>');
-      opacity: 0.4;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(30, 40, 25, 0.72) 0%, rgba(30,40,25,0.1) 60%, transparent 100%);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 780px;
-    }
-
-    .hero-eyebrow {
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--mustard);
-      margin-bottom: 1.2rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.2s forwards;
-    }
-
-    .hero h1 {
-      font-family: 'Noto Serif', serif;
-      font-size: clamp(2.6rem, 6vw, 4.8rem);
-      font-weight: 700;
-      line-height: 1.1;
-      color: var(--sand);
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.9s ease 0.4s forwards;
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      color: #a8d5a2;
-    }
-
-    .hero-sub {
-      font-size: 1.1rem;
-      color: rgba(248, 245, 235, 0.82);
-      max-width: 540px;
-      margin-bottom: 2.2rem;
-      opacity: 0;
-      animation: fadeUp 0.9s ease 0.6s forwards;
-    }
-
-    .hero-btns {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp 0.9s ease 0.8s forwards;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      background: var(--terracotta);
-      color: var(--sand);
-      padding: 0.9rem 2rem;
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 4px;
-      transition: background 0.2s, transform 0.15s;
-    }
-
-    .btn-primary:hover { background: var(--cocoa); transform: translateY(-2px); }
-
-    .btn-ghost {
-      display: inline-block;
-      border: 2px solid rgba(248,245,235,0.5);
-      color: var(--sand);
-      padding: 0.9rem 2rem;
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 4px;
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .btn-ghost:hover { border-color: var(--sand); background: rgba(248,245,235,0.1); }
-
-    /* ── SECTIONS ── */
-    section { padding: 5.5rem 2.5rem; }
-
-    .container { max-width: 1100px; margin: 0 auto; }
-
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--mustard);
-      margin-bottom: 1rem;
-    }
-
-    .section-title {
-      font-family: 'Noto Serif', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      line-height: 1.2;
-      color: var(--charcoal);
-      margin-bottom: 1.5rem;
-    }
-
-    .section-title em {
-      font-style: italic;
-      color: var(--terracotta);
-    }
-
-    /* ── YOUR YARD SECTION ── */
-    .yard-section {
-      background: var(--charcoal);
-      color: var(--sand);
-    }
-
-    .yard-section .section-title { color: var(--sand); }
-    .yard-section .section-label { color: var(--mustard); }
-
-    .yard-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      margin-top: 3rem;
-    }
-
-    .yard-text p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: rgba(248,245,235,0.85);
-      margin-bottom: 1.2rem;
-    }
-
-    .yard-text p strong { color: var(--sand); }
-
-    .yard-callouts {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .callout {
-      border-left: 3px solid var(--mustard);
-      padding-left: 1.2rem;
-    }
-
-    .callout h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--sand);
-      margin-bottom: 0.3rem;
-    }
-
-    .callout p {
-      font-size: 0.92rem;
-      color: rgba(248,245,235,0.7);
-      line-height: 1.6;
-    }
-
-    /* ── SERVICES ── */
-    .services-section { background: var(--sand); }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .service-card {
-      background: var(--white);
-      border-radius: 6px;
-      padding: 2rem;
-      border-top: 3px solid var(--turquoise);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(80,142,138,0.12); }
-
-    .service-icon {
-      width: 44px;
-      height: 44px;
-      background: var(--turquoise);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.1rem;
-      font-size: 1.3rem;
-    }
-
-    .service-card h3 {
-      font-family: 'Noto Serif', serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--charcoal);
-      margin-bottom: 0.6rem;
-    }
-
-    .service-card .outcome {
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      margin-bottom: 0.5rem;
-    }
-
-    .service-card p {
-      font-size: 0.93rem;
-      color: var(--cocoa);
-      line-height: 1.65;
-    }
-
-    .service-sms {
-      display: inline-block;
-      margin-top: 1rem;
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--turquoise);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-    }
-
-    .service-sms:hover { color: var(--terracotta); }
-
-    /* ── GALLERY ── */
-    .gallery-section { background: var(--cocoa); }
-    .gallery-section .section-title { color: var(--sand); }
-    .gallery-section .section-label { color: var(--mustard); }
-
-    .gallery-intro {
-      color: rgba(248,245,235,0.8);
-      max-width: 580px;
-      margin-bottom: 3rem;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-    }
-
-    .gallery-item {
-      border-radius: 6px;
-      overflow: hidden;
-      background: rgba(248,245,235,0.08);
-      aspect-ratio: 4/3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .gallery-item.tall { grid-row: span 2; aspect-ratio: unset; }
-
-    .gallery-placeholder {
-      width: 100%;
-      height: 100%;
-      min-height: 200px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      color: rgba(248,245,235,0.35);
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-align: center;
-      padding: 1rem;
-    }
-
-    .gallery-placeholder svg { opacity: 0.3; }
-
-    .gallery-caption {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(30,25,20,0.85), transparent);
-      padding: 1rem;
-      color: var(--sand);
-      font-size: 0.83rem;
-      opacity: 0;
-      transition: opacity 0.25s;
-    }
-
-    .gallery-item:hover .gallery-caption { opacity: 1; }
-
-    /* ── REVIEWS ── */
-    .reviews-section { background: var(--sand); }
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .review-card {
-      background: var(--white);
-      border-radius: 6px;
-      padding: 1.8rem;
-      position: relative;
-    }
-
-    .review-card::before {
-      content: '"';
-      font-family: 'Noto Serif', serif;
-      font-size: 4rem;
-      color: var(--mustard);
-      opacity: 0.3;
-      position: absolute;
-      top: 0.5rem;
-      left: 1.2rem;
-      line-height: 1;
-    }
-
-    .stars {
-      color: var(--mustard);
-      font-size: 1rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .review-card p {
-      font-size: 0.95rem;
-      color: var(--charcoal);
-      line-height: 1.7;
-      margin-bottom: 1rem;
-      font-style: italic;
-    }
-
-    .reviewer {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--terracotta);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .review-card.featured {
-      background: var(--turquoise);
-      grid-column: span 1;
-    }
-
-    .review-card.featured::before { color: var(--sand); }
-    .review-card.featured p { color: var(--sand); }
-    .review-card.featured .stars { color: var(--mustard); }
-    .review-card.featured .reviewer { color: rgba(248,245,235,0.8); }
-
-    /* ── MEET KIAMESHA ── */
-    .meet-section {
-      background: var(--terracotta);
-      color: var(--sand);
-    }
-
-    .meet-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .meet-image-placeholder {
-      background: rgba(248,245,235,0.15);
-      border-radius: 8px;
-      aspect-ratio: 3/4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(248,245,235,0.4);
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .meet-section .section-label { color: var(--mustard); }
-
-    .meet-section .section-title {
-      color: var(--sand);
-      margin-bottom: 1.5rem;
-    }
-
-    .meet-text p {
-      font-size: 1.05rem;
-      color: rgba(248,245,235,0.88);
-      line-height: 1.8;
-      margin-bottom: 1.2rem;
-    }
-
-    .credentials {
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-      margin-top: 2rem;
-    }
-
-    .cred-item {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      font-size: 0.9rem;
-      color: rgba(248,245,235,0.85);
-    }
-
-    .cred-item::before {
-      content: '✓';
-      width: 22px;
-      height: 22px;
-      background: rgba(248,245,235,0.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: var(--sand);
-    }
-
-    /* ── CTA ── */
-    .cta-section { background: var(--charcoal); }
-
-    .cta-inner {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .cta-section .section-label { color: var(--mustard); text-align: center; }
-
-    .cta-section .section-title {
-      color: var(--sand);
-      text-align: center;
-      margin-bottom: 0.8rem;
-    }
-
-    .cta-sub {
-      color: rgba(248,245,235,0.7);
-      margin-bottom: 2.5rem;
-      font-size: 1rem;
-    }
-
-    .sms-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-      margin-bottom: 2rem;
-    }
-
-    .sms-btn {
-      display: block;
-      background: var(--turquoise);
-      color: var(--sand);
-      padding: 1rem 1.8rem;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 700;
-      transition: background 0.2s, transform 0.15s;
-      text-align: left;
-    }
-
-    .sms-btn:hover { background: var(--mustard); transform: translateX(4px); }
-
-    .sms-btn span {
-      display: block;
-      font-size: 0.75rem;
-      font-weight: 400;
-      opacity: 0.75;
-      margin-top: 0.2rem;
-    }
-
-    .catchall-btn {
-      background: rgba(248,245,235,0.1);
-      border: 2px solid rgba(248,245,235,0.25);
-    }
-
-    .catchall-btn:hover { background: rgba(248,245,235,0.18); transform: none; }
-
-    .pricing-note {
-      font-size: 0.9rem;
-      color: rgba(248,245,235,0.6);
-      margin-bottom: 2.5rem;
-    }
-
-    .pricing-note strong { color: var(--mustard); }
-
-    .form-divider {
-      border-top: 1px solid rgba(248,245,235,0.12);
-      padding-top: 2rem;
-      margin-top: 1rem;
-    }
-
-    .form-label {
-      font-size: 0.85rem;
-      color: rgba(248,245,235,0.5);
-      margin-bottom: 1.2rem;
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      background: rgba(248,245,235,0.08);
-      border: 1px solid rgba(248,245,235,0.18);
-      border-radius: 4px;
-      padding: 0.85rem 1rem;
-      font-family: 'Noto Sans', sans-serif;
-      font-size: 0.95rem;
-      color: var(--sand);
-      width: 100%;
-      transition: border-color 0.2s;
-    }
-
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder {
-      color: rgba(248,245,235,0.35);
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--turquoise);
-    }
-
-    .contact-form textarea { min-height: 120px; resize: vertical; }
-
-    .contact-form button {
-      background: var(--terracotta);
-      color: var(--sand);
-      border: none;
-      padding: 0.95rem;
-      border-radius: 4px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .contact-form button:hover { background: var(--cocoa); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #1e1c1a;
-      color: rgba(248,245,235,0.6);
-      padding: 3rem 2.5rem;
-    }
-
-    .footer-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 3rem;
-    }
-
-    .footer-brand {
-      font-family: 'Noto Sans', sans-serif;
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--sand);
-      margin-bottom: 0.8rem;
-    }
-
-    .footer-tagline {
-      font-size: 0.88rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    footer h4 {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--mustard);
-      margin-bottom: 0.8rem;
-    }
-
-    footer p, footer a {
-      font-size: 0.9rem;
-      color: rgba(248,245,235,0.6);
-      text-decoration: none;
-      line-height: 2;
-    }
-
-    footer a:hover { color: var(--sand); }
-
-    .footer-bottom {
-      max-width: 1100px;
-      margin: 2rem auto 0;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(248,245,235,0.08);
-      font-size: 0.8rem;
-      color: rgba(248,245,235,0.3);
-      display: flex;
-      justify-content: space-between;
-    }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── MOBILE ── */
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.2rem; }
-      .nav-links { display: none; }
-      section { padding: 4rem 1.2rem; }
-      .hero { padding: 0 1.2rem 4rem; }
-      .yard-grid,
-      .meet-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .services-grid { grid-template-columns: 1fr; }
-      .reviews-grid { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; }
-      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .footer-bottom { flex-direction: column; gap: 0.5rem; }
-      .meet-image-placeholder { aspect-ratio: 4/3; }
-    }
-
-    @media (max-width: 480px) {
-      .gallery-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 2.2rem; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Living Spaces Gardening | Native Florida Landscape Design | St. Petersburg</title>
+<meta name="description" content="Native Florida landscape design, hardscaping & habitat gardens in Tampa Bay. Florida Master Naturalist-led. Founded 2018. Text 727-710-7400.">
+<meta property="og:url" content="https://www.livingspacesgardening.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Living Spaces Gardening | Native Florida Landscape Design">
+<meta property="og:description" content="Your yard should be alive, not just pretty. Native plants, hardscaping & habitat gardens in Tampa Bay.">
+<meta property="og:image" content="https://www.livingspacesgardening.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/LSG-favicon.png">
+<link rel="apple-touch-icon" href="assets/LSG-favicon.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Living Spaces Gardening","description":"Native Florida landscape design, hardscaping, and habitat gardens in Tampa Bay","telephone":"+17277107400","url":"https://www.livingspacesgardening.com","address":{"@type":"PostalAddress","streetAddress":"2621 4th Ave S","addressLocality":"St. Petersburg","addressRegion":"FL","postalCode":"33712"},"foundingDate":"2018","areaServed":"Tampa Bay, FL","serviceType":["Native Landscape Design","Hardscape Design","Irrigation","Permaculture Design","Specimen Tree Sourcing","Garden Maintenance"]}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--terra:#9e4732;--teal:#508e8a;--mustard:#c9802e;--cocoa:#63403c;--sand:#f8f5eb;--charcoal:#3b3836;--muted:#8a7a75;--white:#ffffff}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--charcoal);color:var(--charcoal);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 5%;transition:background .4s,box-shadow .4s}
+nav.scrolled{background:rgba(248,245,235,.97);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(99,64,60,.1)}
+.nav-logo img{height:42px}
+.nav-links{display:flex;gap:2.5rem;align-items:center;list-style:none}
+.nav-links a{font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.85);transition:color .2s}
+nav.scrolled .nav-links a{color:var(--charcoal)}
+.nav-links a:hover{color:var(--teal)!important}
+.nav-cta{background:var(--terra)!important;color:#fff!important;padding:.6rem 1.4rem;border-radius:2px;font-size:.75rem;font-weight:600;letter-spacing:.1em;transition:background .2s,transform .2s!important}
+.nav-cta:hover{background:var(--cocoa)!important;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.4rem}
+.hamburger span{display:block;width:22px;height:1.5px;background:#fff;transition:.3s}
+nav.scrolled .hamburger span{background:var(--charcoal)}
+.hero{height:100vh;min-height:640px;position:relative;display:flex;align-items:flex-end;padding:0 5% 7%;background:var(--charcoal)}
+.hero-bg{position:absolute;inset:0;overflow:hidden}
+.hero-bg-img{position:absolute;inset:0;background:linear-gradient(160deg,#1a3a2a 0%,#2d5a3a 25%,#9e4732 60%,#3b3836 100%)}
+.hero-bg-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(80,142,138,.25) 0%,transparent 60%),radial-gradient(ellipse at 20% 80%,rgba(201,128,46,.15) 0%,transparent 50%)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(59,56,54,.95) 0%,rgba(59,56,54,.4) 50%,rgba(26,58,42,.2) 100%)}
+.hero-content{position:relative;z-index:2;max-width:820px}
+.hero-tag{display:inline-flex;align-items:center;gap:.6rem;color:rgba(255,255,255,.7);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;margin-bottom:1.75rem}
+.hero-tag span{display:inline-block;width:32px;height:1px;background:var(--teal)}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.8rem,6vw,5.2rem);line-height:1.05;color:#fff;margin-bottom:1.5rem;font-weight:400}
+.hero h1 em{font-style:italic;color:#a8d4cf}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,.65);font-weight:300;line-height:1.8;max-width:480px;margin-bottom:3rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:.7rem;background:var(--terra);color:#fff;padding:1rem 2.2rem;border-radius:2px;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s;white-space:nowrap}
+.btn-primary:hover{background:var(--cocoa);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:.6rem;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.85);padding:1rem 2.2rem;border-radius:2px;font-size:.8rem;font-weight:400;letter-spacing:.06em;text-decoration:none;transition:border-color .2s,background .2s;white-space:nowrap}
+.btn-ghost:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.06)}
+.marquee-wrap{background:var(--terra);overflow:hidden;padding:.85rem 0;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)}
+.marquee-track{display:flex;gap:0;white-space:nowrap;animation:marquee 28s linear infinite}
+.marquee-track span{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.9);font-weight:500;padding:0 2.5rem}
+.marquee-track span::after{content:'✦';margin-left:2.5rem;opacity:.5}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.intro{display:grid;grid-template-columns:1fr 1fr;min-height:500px}
+.intro-img{background:linear-gradient(135deg,#2d5a3a 0%,#63403c 100%);position:relative;overflow:hidden;min-height:400px}
+.intro-img-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:rgba(255,255,255,.25);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase}
+.intro-img-placeholder svg{width:48px;height:48px;opacity:.3}
+.intro-text{background:var(--sand);padding:5rem 5%;display:flex;flex-direction:column;justify-content:center}
+.eyebrow{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:.75rem}
+.eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--teal)}
+.intro-text h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.15;color:var(--charcoal);margin-bottom:1.5rem;font-weight:400}
+.intro-text h2 em{font-style:italic;color:var(--terra)}
+.intro-text p{font-size:.9rem;color:var(--muted);line-height:1.9;margin-bottom:1rem;font-weight:300}
+.text-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--teal);font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(80,142,138,.3);padding-bottom:.15rem;transition:border-color .2s,gap .2s;margin-top:.5rem}
+.text-link:hover{border-color:var(--teal);gap:.8rem}
+.services{background:var(--charcoal);padding:7rem 5%}
+.services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;gap:2rem;flex-wrap:wrap}
+.services-header h2{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.5vw,3rem);color:#fff;font-weight:400;line-height:1.1}
+.services-header p{font-size:.85rem;color:rgba(255,255,255,.45);max-width:300px;line-height:1.7;text-align:right;font-weight:300}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06)}
+.service-card{background:var(--charcoal);padding:2.5rem 2rem;transition:background .3s;position:relative;cursor:default}
+.service-card:hover{background:#2a2725}
+.service-num{font-size:.62rem;letter-spacing:.2em;color:var(--teal);font-weight:600;margin-bottom:1.5rem;display:block}
+.service-img-slot{width:100%;aspect-ratio:16/9;margin-bottom:1.5rem;background:linear-gradient(135deg,rgba(80,142,138,.15) 0%,rgba(99,64,60,.2) 100%);border-radius:2px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.12);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase}
+.service-card h3{font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;margin-bottom:.75rem;font-weight:400}
+.service-card p{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.75;font-weight:300;margin-bottom:1.5rem}
+.service-sms{display:inline-flex;align-items:center;gap:.4rem;color:var(--teal);font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s}
+.service-card:hover .service-sms{opacity:1;transform:none}
+.service-card-full{grid-column:1/-1;display:grid;grid-template-columns:1fr 2fr;gap:0;background:rgba(80,142,138,.06);border-top:1px solid rgba(80,142,138,.2)}
+.service-card-full .service-img-slot{aspect-ratio:auto;height:100%;min-height:180px;margin:0;border-radius:0}
+.service-card-full .service-content{padding:2.5rem 2rem}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:auto;gap:4px;background:#1a1816}
+.gallery-item{overflow:hidden;position:relative;cursor:pointer;background:linear-gradient(135deg,#2d5a3a,#3b3836)}
+.gallery-item:first-child{grid-row:span 2;aspect-ratio:auto}
+.gallery-item:not(:first-child){aspect-ratio:4/3}
+.gallery-placeholder{width:100%;height:100%;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;transition:transform .6s ease}
+.gallery-item:hover .gallery-placeholder{transform:scale(1.04)}
+.gallery-placeholder svg{width:36px;height:36px;color:rgba(255,255,255,.15)}
+.gallery-placeholder span{color:rgba(255,255,255,.12);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase}
+.gallery-overlay{position:absolute;bottom:0;left:0;right:0;padding:1.5rem;background:linear-gradient(to top,rgba(59,56,54,.9) 0%,transparent 100%);transform:translateY(100%);transition:transform .3s ease}
+.gallery-item:hover .gallery-overlay{transform:none}
+.gallery-overlay p{color:#fff;font-size:.72rem;letter-spacing:.08em;font-weight:500}
+.reviews{background:var(--sand);padding:7rem 5%}
+.reviews-header{margin-bottom:3.5rem}
+.reviews-header h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);color:var(--charcoal);font-weight:400}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.review-card{background:#fff;padding:2rem 1.75rem;border-radius:2px;border-top:3px solid transparent;transition:border-color .3s,transform .3s}
+.review-card:hover{border-color:var(--teal);transform:translateY(-3px)}
+.review-card.featured{background:var(--teal);border-top-color:rgba(255,255,255,.3)}
+.stars{color:var(--mustard);font-size:.85rem;letter-spacing:.1em;margin-bottom:1rem}
+.review-card.featured .stars{color:rgba(255,255,255,.8)}
+.review-text{font-size:.85rem;line-height:1.75;color:var(--charcoal);font-weight:300;margin-bottom:1.25rem;font-style:italic}
+.review-card.featured .review-text{color:rgba(255,255,255,.9)}
+.review-name{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+.review-card.featured .review-name{color:rgba(255,255,255,.7)}
+.review-project{font-size:.7rem;color:var(--muted);margin-top:.2rem;font-weight:300}
+.review-card.featured .review-project{color:rgba(255,255,255,.5)}
+.about{display:grid;grid-template-columns:1fr 1fr;background:var(--charcoal)}
+.about-photo{background:linear-gradient(160deg,#2d5a3a 0%,#9e4732 100%);position:relative;min-height:560px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:2rem}
+.about-photo-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem}
+.about-photo-placeholder svg{width:64px;height:64px;color:rgba(255,255,255,.15)}
+.about-photo-placeholder span{color:rgba(255,255,255,.15);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase}
+.about-overlay{position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(to top,rgba(59,56,54,.6) 0%,transparent 100%)}
+.about-content{padding:5rem 5%;display:flex;flex-direction:column;justify-content:center}
+.about-content .eyebrow{color:var(--teal);margin-bottom:1.25rem}
+.about-content h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,2.8vw,2.5rem);color:#fff;font-weight:400;line-height:1.15;margin-bottom:1.5rem}
+.about-content h2 em{font-style:italic;color:#a8d4cf}
+.about-content p{font-size:.87rem;color:rgba(255,255,255,.6);line-height:1.9;margin-bottom:.9rem;font-weight:300}
+.creds-list{list-style:none;margin-top:2rem;display:flex;flex-direction:column;gap:.6rem}
+.creds-list li{font-size:.75rem;color:rgba(255,255,255,.5);display:flex;align-items:flex-start;gap:.75rem;line-height:1.5}
+.creds-list li::before{content:'—';color:var(--teal);font-weight:600;flex-shrink:0}
+.cta{background:var(--terra);padding:8rem 5%;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;top:-60%;left:-20%;width:80%;height:200%;background:radial-gradient(ellipse,rgba(255,255,255,.08) 0%,transparent 70%);pointer-events:none}
+.cta::after{content:'';position:absolute;bottom:-40%;right:-10%;width:60%;height:160%;background:radial-gradient(ellipse,rgba(99,64,60,.4) 0%,transparent 70%);pointer-events:none}
+.cta-inner{position:relative;z-index:2;max-width:640px;margin:0 auto}
+.cta .eyebrow{color:rgba(255,255,255,.6);justify-content:center;margin-bottom:1.25rem}
+.cta .eyebrow::before{background:rgba(255,255,255,.4)}
+.cta h2{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3.5rem);color:#fff;font-weight:400;line-height:1.1;margin-bottom:1.25rem}
+.cta h2 em{font-style:italic}
+.cta p{font-size:.93rem;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:3rem;font-weight:300}
+.cta-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;max-width:520px;margin:0 auto 1.5rem}
+.cta-sms-btn{display:block;padding:1rem 1.25rem;border:1px solid rgba(255,255,255,.3);border-radius:2px;color:#fff;text-decoration:none;font-size:.78rem;font-weight:400;text-align:left;line-height:1.4;transition:background .2s,border-color .2s}
+.cta-sms-btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
+.cta-sms-btn .btn-label{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);display:block;margin-bottom:.25rem}
+.cta-sms-wide{grid-column:1/-1;background:#fff!important;color:var(--terra)!important;text-align:center;font-weight:600;letter-spacing:.06em;font-size:.82rem;border:none!important}
+.cta-sms-wide:hover{background:var(--sand)!important}
+.cta-note{color:rgba(255,255,255,.4);font-size:.72rem;margin-top:1rem}
+.pricing-note{background:rgba(255,255,255,.1);border-radius:2px;padding:.75rem 1.25rem;display:inline-block;margin-top:1.5rem;font-size:.75rem;color:rgba(255,255,255,.7);font-weight:300;letter-spacing:.03em}
+footer{background:#1a1816;padding:3rem 5%;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:2rem}
+.footer-logo img{height:36px}
+.footer-center{text-align:center}
+footer p{color:rgba(255,255,255,.25);font-size:.72rem;font-weight:300}
+.footer-right{text-align:right}
+.footer-right a{color:rgba(255,255,255,.35);text-decoration:none;font-size:.72rem;transition:color .2s}
+.footer-right a:hover{color:var(--teal)}
+.sister-site{color:var(--teal)!important;font-weight:500}
+.sms-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(26,24,22,.75);align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.sms-overlay.open{display:flex}
+.sms-modal{background:var(--sand);border-radius:3px;padding:2.75rem;max-width:460px;width:90%;position:relative}
+.sms-close{position:absolute;top:1.1rem;right:1.1rem;background:none;border:none;font-size:1.25rem;cursor:pointer;color:var(--muted);width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background .2s}
+.sms-close:hover{background:rgba(0,0,0,.06)}
+.sms-modal .eyebrow{margin-bottom:.6rem}
+.sms-modal h3{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:.5rem;font-weight:400}
+.sms-sub{font-size:.82rem;color:var(--muted);margin-bottom:1.75rem;line-height:1.6;font-weight:300}
+.sms-options{display:flex;flex-direction:column;gap:.6rem}
+.sms-option{display:flex;align-items:center;gap:.75rem;padding:.9rem 1.1rem;border:1.5px solid rgba(80,142,138,.2);border-radius:2px;color:var(--charcoal);text-decoration:none;font-size:.83rem;transition:background .2s,border-color .2s;line-height:1.4;font-weight:400;background:#fff}
+.sms-option:hover{background:var(--sand);border-color:var(--teal)}
+.sms-option span{opacity:.4;font-size:1.1rem;flex-shrink:0}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.fade-up.visible{opacity:1;transform:none}
+@keyframes heroIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero-tag{animation:heroIn .8s ease .2s both}
+.hero h1{animation:heroIn .9s ease .4s both}
+.hero-sub{animation:heroIn .8s ease .6s both}
+.hero-actions{animation:heroIn .8s ease .75s both}
+@media(max-width:960px){
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--sand);padding:1.5rem 5%;gap:1.25rem;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+  .nav-links.open a{color:var(--charcoal)}
+  .hamburger{display:flex}
+  .intro{grid-template-columns:1fr}
+  .intro-img{min-height:300px}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .service-card-full{grid-template-columns:1fr}
+  .service-card-full .service-img-slot{height:200px;min-height:unset}
+  .gallery{grid-template-columns:1fr}
+  .gallery-item:first-child{grid-row:span 1}
+  .reviews-grid{grid-template-columns:1fr 1fr}
+  .about{grid-template-columns:1fr}
+  .about-photo{min-height:360px}
+  .cta-grid{grid-template-columns:1fr}
+  footer{grid-template-columns:1fr;text-align:center}
+  .footer-right{text-align:center}
+}
+@media(max-width:600px){
+  .services-grid{grid-template-columns:1fr}
+  .reviews-grid{grid-template-columns:1fr}
+  .hero h1{font-size:2.4rem}
+  nav{padding:1rem 4%}
+}
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="#" class="nav-logo">Living Spaces Gardening</a>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#work">Our Work</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact" class="nav-cta">Text Us</a></li>
+<nav id="nav">
+  <div class="nav-logo">
+    <img src="assets/LSG-logo-white.png" alt="Living Spaces Gardening" id="navLogoImg">
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Our Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#" onclick="openSMS(event)" class="nav-cta">Text Us</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-bg-img"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">
+      <span></span>
+      Native Landscape Design — Tampa Bay, Florida
+    </div>
+    <h1>Your yard should be<br><em>alive,</em> not just pretty.</h1>
+    <p class="hero-sub">We design native Florida landscapes that look incredible, support local wildlife, and actually thrive — without constant maintenance or irrigation.</p>
+    <div class="hero-actions">
+      <a href="#" onclick="openSMS(event)" class="btn-primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        Text Us Your Project
+      </a>
+      <a href="#services" class="btn-ghost">See Our Services ↓</a>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Florida Master Naturalist</span>
+    <span>First FANN Credentialed in Florida</span>
+    <span>Native Plant Design</span>
+    <span>Hardscape &amp; Habitat</span>
+    <span>Featured in Homes &amp; Gardens</span>
+    <span>Wilcox Nursery Plants</span>
+    <span>Serving Tampa Bay Since 2018</span>
+    <span>Florida Master Naturalist</span>
+    <span>First FANN Credentialed in Florida</span>
+    <span>Native Plant Design</span>
+    <span>Hardscape &amp; Habitat</span>
+    <span>Featured in Homes &amp; Gardens</span>
+    <span>Wilcox Nursery Plants</span>
+    <span>Serving Tampa Bay Since 2018</span>
+  </div>
+</div>
+
+<section class="intro" id="intro">
+  <div class="intro-img">
+    <div class="intro-img-placeholder">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 22V12M12 12C12 7 7 3 2 3c0 5 4 9 10 9zM12 12c0-5 5-9 10-9 0 5-4 9-10 9z"/></svg>
+      <span>Your Photo Here</span>
+    </div>
+  </div>
+  <div class="intro-text">
+    <p class="eyebrow fade-up">The Living Spaces Difference</p>
+    <h2 class="fade-up">Stop fighting your own yard.<br><em>Work with it.</em></h2>
+    <p class="fade-up">Florida's climate is intense. Most landscaping fights it — with irrigation systems that run daily, plants that die every summer, and designs that look great in a catalog but struggle in your actual soil.</p>
+    <p class="fade-up">We do the opposite. We look at what your yard actually is — the sun, the drainage, the soil type — and design something that belongs there. Native plants that Florida grew without your help for ten thousand years.</p>
+    <a href="#services" class="text-link fade-up">See what we design →</a>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-header">
+    <div>
+      <p class="eyebrow" style="color:var(--teal);">What We Do</p>
+      <h2 class="fade-up">Every service,<br>built for <em style="font-style:italic;color:#a8d4cf;">your</em> yard.</h2>
+    </div>
+    <p class="fade-up">We start with what's already there. Then we design something that gets better every year — not just in year one.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <span class="service-num">01</span>
+      <div class="service-img-slot">Photo: Native landscape</div>
+      <h3>Florida Native Landscape Design</h3>
+      <p>Designed for your specific soil, sun, and drainage. Plants that belong in Florida — beautiful in every season, without the maintenance spiral.</p>
+      <a href="sms:7277107400?body=Hi!%20I%27d%20like%20to%20talk%20about%20a%20native%20Florida%20landscape%20design%20for%20my%20yard." class="service-sms">Get a consultation →</a>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-num">02</span>
+      <div class="service-img-slot">Photo: Hardscape design</div>
+      <h3>Hardscape Design</h3>
+      <p>Patios, paths, and structures that make your outdoor space feel complete. We integrate hardscape with native planting so everything coheres.</p>
+      <a href="sms:7277107400?body=Hi!%20I%27d%20like%20to%20talk%20about%20hardscape%20design%20for%20my%20yard." class="service-sms">Get a consultation →</a>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-num">03</span>
+      <div class="service-img-slot">Photo: Irrigation install</div>
+      <h3>Irrigation</h3>
+      <p>Smart irrigation that works with your native planting — not against it. Less water, lower bills, healthier plants. Right-sizing for the long run.</p>
+      <a href="sms:7277107400?body=Hi!%20I%27d%20like%20to%20talk%20about%20irrigation%20for%20my%20yard." class="service-sms">Get a consultation →</a>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-num">04</span>
+      <div class="service-img-slot">Photo: Permaculture garden</div>
+      <h3>Permaculture Design</h3>
+      <p>Design your yard as a living system — edible plants, composting, water catchment. Beautiful and genuinely productive. Your yard working for you.</p>
+      <a href="sms:7277107400?body=Hi!%20I%27m%20interested%20in%20permaculture%20design%20for%20my%20yard." class="service-sms">Get a consultation →</a>
+    </div>
+    <div class="service-card fade-up">
+      <span class="service-num">05</span>
+      <div class="service-img-slot">Photo: Specimen tree</div>
+      <h3>Specimen Tree Sourcing</h3>
+      <p>The right tree is the anchor of a great yard. We source from Wilcox Nursery and trusted Florida growers — the species still thriving in 30 years.</p>
+      <a href="sms:7277107400?body=Hi!%20I%27d%20like%20help%20finding%20the%20right%20tree%20for%20my%20yard." class="service-sms">Get a consultation →</a>
+    </div>
+    <div class="service-card service-card-full fade-up">
+      <div class="service-img-slot">Photo: Garden maintenance</div>
+      <div class="service-content">
+        <span class="service-num">06</span>
+        <h3>Garden Maintenance</h3>
+        <p style="color:rgba(255,255,255,.45);font-size:.8rem;line-height:1.75;margin-bottom:1.5rem;">A good design deserves good care. We offer ongoing maintenance that keeps your yard looking exactly how it was meant to look — seasonal pruning, mulching, plant health, and the knowledge to keep it thriving year after year.</p>
+        <a href="sms:7277107400?body=Hi!%20I%27m%20interested%20in%20garden%20maintenance%20for%20my%20yard." class="service-sms" style="opacity:1;transform:none;color:var(--teal);">Talk to us about maintenance →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gallery" id="gallery">
+  <div class="gallery-item">
+    <div class="gallery-placeholder">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <span>St Pete Native Front Yard</span>
+    </div>
+    <div class="gallery-overlay"><p>Before → After: Native front yard, St. Petersburg</p></div>
+  </div>
+  <div class="gallery-item">
+    <div class="gallery-placeholder" style="background:linear-gradient(135deg,#3d6040,#63403c);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <span>Dunedin New Home</span>
+    </div>
+    <div class="gallery-overlay"><p>New construction landscape, Dunedin</p></div>
+  </div>
+  <div class="gallery-item">
+    <div class="gallery-placeholder" style="background:linear-gradient(135deg,#5a3830,#2d4a3a);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <span>Tampa Bay Rain Garden</span>
+    </div>
+    <div class="gallery-overlay"><p>Rain garden install, Tampa Bay area</p></div>
+  </div>
+  <div class="gallery-item">
+    <div class="gallery-placeholder" style="background:linear-gradient(135deg,#2d3a5a,#63403c);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <span>Clearwater Butterfly Garden</span>
+    </div>
+    <div class="gallery-overlay"><p>Butterfly habitat garden, Clearwater</p></div>
+  </div>
+</div>
+
+<section class="reviews" id="reviews">
+  <div class="reviews-header">
+    <p class="eyebrow fade-up">Client Stories</p>
+    <h2 class="fade-up">Real yards.<br>Real results.</h2>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card featured fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"She completely transformed our backyard into a habitat garden. We have birds, butterflies, and pollinators we've never seen before. The yard basically takes care of itself now."</p>
+      <p class="review-name">Marcie T.</p>
+      <p class="review-project">Native habitat garden, St. Petersburg</p>
+    </div>
+    <div class="review-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Kiamesha's design made our new construction house feel like a home. She matched plants to our specific conditions — sun, drainage, soil type — and everything came in exactly as she said it would."</p>
+      <p class="review-name">Marcus &amp; Delia R.</p>
+      <p class="review-project">Full landscape design, Dunedin</p>
+    </div>
+    <div class="review-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"I've tried three other landscapers. Kiamesha is the first one who actually listened to what I wanted and designed something my yard could support long-term. Worth every penny."</p>
+      <p class="review-name">Sandra H.</p>
+      <p class="review-project">Native landscape redesign, Tampa</p>
+    </div>
+    <div class="review-card fade-up" style="grid-column:span 2;">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"The team installed our rain garden and native border in two days. Tidiest crew I've ever had on my property. Kiamesha checked in three times the first week to make sure everything was establishing. This is what good service looks like."</p>
+      <p class="review-name">James &amp; Priya A.</p>
+      <p class="review-project">Rain garden + native border, St. Petersburg</p>
+    </div>
+    <div class="review-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"I wanted something that looked like a real garden, not a wildlife preserve. She delivered both. My neighbors stop and ask about it every week."</p>
+      <p class="review-name">Theresa B.</p>
+      <p class="review-project">Butterfly + pollinator garden, Clearwater</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-photo">
+    <div class="about-photo-placeholder">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span>Photo: Kiamesha Wray</span>
+    </div>
+    <div class="about-overlay"></div>
+  </div>
+  <div class="about-content">
+    <p class="eyebrow fade-up">Meet Kiamesha</p>
+    <h2 class="fade-up">The woman who knows what<br>your yard <em>wants to be.</em></h2>
+    <p class="fade-up">Kiamesha Wray founded Living Spaces Gardening in 2018 after years watching beautiful, capable Florida yards get beaten into submission by generic landscaping that fought the climate instead of working with it.</p>
+    <p class="fade-up">She's a Florida Master Naturalist (2014) and among the first FANN-credentialed professionals in the state — credentials that mean she doesn't just know plants, she understands ecosystems. Featured in Homes &amp; Gardens magazine (November 2025) and sources plants from Wilcox Nursery, one of Florida's most respected native growers.</p>
+    <ul class="creds-list fade-up">
+      <li>Florida Master Naturalist (University of Florida, 2014)</li>
+      <li>First FANN-credentialed professional in Florida</li>
+      <li>Featured: Homes &amp; Gardens Magazine, November 2025</li>
+      <li>Plant sourcing partner: Wilcox Nursery</li>
+      <li>Serving Tampa Bay since 2018</li>
     </ul>
-  </nav>
+  </div>
+</section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <p class="hero-eyebrow">Native Florida Landscape Design · St. Petersburg, FL</p>
-      <h1>Your yard should be<br><em>alive,</em> not just pretty.</h1>
-      <p class="hero-sub">Most Florida yards fight the climate every single day. We design yards that belong here — beautiful, low-maintenance, and full of the butterflies and birds that used to be everywhere.</p>
-      <div class="hero-btns">
-        <a href="sms:7277107400&body=Hi%2C%20I%27d%20love%20to%20talk%20about%20my%20yard." class="btn-primary">Text Us About Your Yard</a>
-        <a href="#services" class="btn-ghost">See What We Do</a>
-      </div>
+<section class="cta" id="contact">
+  <div class="cta-inner">
+    <p class="eyebrow">Start Here</p>
+    <h2>What does your<br>yard <em>need?</em></h2>
+    <p>Pick a message below and we'll open your texts — ready to go. Or just say hi. Consultations are $125, applied toward your design if you move forward. Designs start at $350.</p>
+    <div class="cta-grid">
+      <a href="sms:7277107400?body=Hi!%20I%20want%20a%20native%20Florida%20yard%20that%20takes%20care%20of%20itself." class="cta-sms-btn">
+        <span class="btn-label">Most Popular</span>
+        I want a yard that takes care of itself
+      </a>
+      <a href="sms:7277107400?body=Hi!%20I%20need%20help%20picking%20the%20right%20plants%20for%20my%20specific%20yard." class="cta-sms-btn">
+        <span class="btn-label">Plant Selection</span>
+        Help me pick the right plants
+      </a>
+      <a href="sms:7277107400?body=Hi!%20I%27d%20love%20to%20talk%20about%20hardscaping%20%E2%80%94%20patios%2C%20paths%2C%20or%20structures." class="cta-sms-btn">
+        <span class="btn-label">Hardscape</span>
+        Let's talk about hardscaping
+      </a>
+      <a href="sms:7277107400?body=Hi!%20I%20need%20help%20keeping%20my%20garden%20healthy%20and%20maintained." class="cta-sms-btn">
+        <span class="btn-label">Maintenance</span>
+        I need help with ongoing care
+      </a>
+      <a href="sms:7277107400?body=Hi!%20I%27m%20not%20sure%20what%20I%20need%20yet%20%E2%80%94%20can%20we%20talk%20about%20my%20yard?" class="cta-sms-btn cta-sms-wide">
+        💬 &nbsp; I'm not sure yet — let's just talk
+      </a>
     </div>
-  </section>
+    <p class="cta-note">We respond within one business day · 727-710-7400</p>
+    <p class="pricing-note">$125 consultation · applied toward design if you move forward · designs from $350</p>
+  </div>
+</section>
 
-  <!-- YOUR YARD SECTION -->
-  <section class="yard-section" id="approach">
-    <div class="container">
-      <p class="section-label">Why It Matters</p>
-      <h2 class="section-title">Stop fighting<br>your own yard.</h2>
-      <div class="yard-grid">
-        <div class="yard-text">
-          <p>If you've been replacing dead sod every summer, watching your plants struggle through the heat, or just feeling like your yard never quite looks right — it's not you. It's the plants.</p>
-          <p>Florida has its own rules. The salt, the floods, the brutal summer sun — most landscaping just isn't built for it. <strong>Native plants are.</strong> They've been doing this for thousands of years without any help.</p>
-          <p>We design yards that are beautiful the way Florida is beautiful — wild and alive and effortless once they get going. A yard that attracts butterflies. That survives a storm. That you actually enjoy spending time in.</p>
-          <a href="sms:7277107400&body=Hi%2C%20I%27d%20love%20to%20learn%20more%20about%20native%20plant%20design%20for%20my%20yard." class="btn-primary" style="margin-top:0.5rem;">Let's Talk About Your Yard</a>
-        </div>
-        <div class="yard-callouts">
-          <div class="callout">
-            <h3>Built for Florida's climate</h3>
-            <p>Salt air, heavy rains, August heat waves, flooding — native plants handle all of it without you lifting a finger.</p>
-          </div>
-          <div class="callout">
-            <h3>Actually low-maintenance</h3>
-            <p>Once established, a native yard takes care of itself. No more fighting to keep things alive.</p>
-          </div>
-          <div class="callout">
-            <h3>Your yard becomes a habitat</h3>
-            <p>Pollinators, birds, butterflies — they all come back when the plants they need are there.</p>
-          </div>
-          <div class="callout">
-            <h3>The most beautiful yard on the street</h3>
-            <p>Native doesn't mean wild and messy. Our designs are stunning. Your neighbors will ask who did it.</p>
-          </div>
-        </div>
-      </div>
+<footer>
+  <div class="footer-logo">
+    <img src="assets/LSG-logo-sand.png" alt="Living Spaces Gardening">
+  </div>
+  <div class="footer-center">
+    <p>&copy; 2025 Living Spaces Gardening · St. Petersburg, FL · 727-710-7400</p>
+  </div>
+  <div class="footer-right">
+    <a href="https://www.livingrestorations.com" class="sister-site">Living Restorations ↗</a><br>
+    <a href="mailto:info@livingspacesgardening.com" style="margin-top:.35rem;display:inline-block;">Contact</a>
+  </div>
+</footer>
+
+<div class="sms-overlay" id="smsModal">
+  <div class="sms-modal">
+    <button class="sms-close" onclick="closeSMS()" aria-label="Close">&times;</button>
+    <p class="eyebrow">Get in Touch</p>
+    <h3>What's going on with your yard?</h3>
+    <p class="sms-sub">Pick a message — we'll open your texts ready to send.</p>
+    <div class="sms-options">
+      <a href="sms:7277107400?body=Hi!%20I%20want%20a%20native%20Florida%20yard%20that%20takes%20care%20of%20itself." class="sms-option"><span>🌿</span> I want a yard that takes care of itself</a>
+      <a href="sms:7277107400?body=Hi!%20I%20need%20help%20picking%20the%20right%20plants%20for%20my%20yard." class="sms-option"><span>🌺</span> Help me pick the right plants</a>
+      <a href="sms:7277107400?body=Hi!%20I%27d%20love%20to%20talk%20about%20hardscaping%20for%20my%20yard." class="sms-option"><span>🪨</span> Let's talk hardscaping</a>
+      <a href="sms:7277107400?body=Hi!%20I%20need%20help%20keeping%20my%20garden%20healthy." class="sms-option"><span>✂️</span> I need garden maintenance</a>
+      <a href="sms:7277107400?body=Hi!%20I%27m%20not%20sure%20what%20I%20need%20yet%20%E2%80%94%20can%20we%20talk%20about%20my%20yard?" class="sms-option"><span>💬</span> Not sure yet — let's just talk</a>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- SERVICES -->
-  <section class="services-section" id="services">
-    <div class="container">
-      <p class="section-label">What We Do</p>
-      <h2 class="section-title">We handle it <em>all.</em></h2>
-      <div class="services-grid">
-
-        <div class="service-card">
-          <div class="service-icon">🌿</div>
-          <div class="outcome">Stop replacing dead plants</div>
-          <h3>Florida Native Landscape Design</h3>
-          <p>A full custom design built for your specific yard, soil, and sun — using plants that were made for Florida. Plants from Wilcox Nursery that will still be thriving in ten years.</p>
-          <a href="sms:7277107400&body=Hi%2C%20I%27m%20interested%20in%20native%20landscape%20design%20for%20my%20yard." class="service-sms">→ Text us about this</a>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">🪨</div>
-          <div class="outcome">A yard that tells a story</div>
-          <h3>Hardscape Design</h3>
-          <p>Pathways, dry river beds, patios, and stone features that give your yard structure and character. Design that works with the plants, not against them.</p>
-          <a href="sms:7277107400&body=Hi%2C%20I%27d%20love%20to%20talk%20about%20hardscape%20design%20for%20my%20yard." class="service-sms">→ Text us about this</a>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">💧</div>
-          <div class="outcome">Stop worrying about watering</div>
-          <h3>Irrigation</h3>
-          <p>Smart irrigation systems designed around your native plantings. Water where it's needed, when it's needed — and nowhere else.</p>
-          <a href="sms:7277107400&body=Hi%2C%20I%27m%20interested%20in%20irrigation%20for%20my%20yard." class="service-sms">→ Text us about this</a>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">🌀</div>
-          <div class="outcome">A yard that feeds itself</div>
-          <h3>Permaculture Design</h3>
-          <p>A system that gives back — plants that improve your soil, manage water naturally, and create a self-sustaining cycle you barely have to think about.</p>
-          <a href="sms:7277107400&body=Hi%2C%20I%27d%20love%20to%20talk%20about%20permaculture%20design." class="service-sms">→ Text us about this</a>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">🌳</div>
-          <div class="outcome">The right tree in the right place</div>
-          <h3>Specimen Tree Sourcing & Planting</h3>
-          <p>We find the right specimen trees for your property and plant them correctly — so they thrive for decades, not just seasons.</p>
-          <a href="sms:7277107400&body=Hi%2C%20I%27m%20interested%20in%20specimen%20tree%20planting." class="service-sms">→ Text us about this</a>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">✂️</div>
-          <div class="outcome">Keep it looking good year-round</div>
-          <h3>Garden Maintenance & Monitoring</h3>
-          <p>Ongoing care that keeps your garden healthy as it matures. We check in, trim what needs trimming, and make sure everything's doing what it's supposed to.</p>
-          <a href="sms:7277107400&body=Hi%2C%20I%27m%20interested%20in%20garden%20maintenance." class="service-sms">→ Text us about this</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section class="gallery-section" id="work">
-    <div class="container">
-      <p class="section-label">Our Work</p>
-      <h2 class="section-title">See the difference.</h2>
-      <p class="gallery-intro">Every yard is different. Every design is custom. Here's some of what we've done for homeowners across Tampa Bay.</p>
-
-      <div class="gallery-grid">
-        <div class="gallery-item tall">
-          <div class="gallery-placeholder">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            Photo coming soon<br/>Full front yard — native design
-          </div>
-          <div class="gallery-caption">St. Petersburg · Native front yard with dry river bed</div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            Photo coming soon
-          </div>
-          <div class="gallery-caption">Dunedin · Native planting design, new home</div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            Photo coming soon
-          </div>
-          <div class="gallery-caption">Tampa Bay · Rain garden installation</div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            Photo coming soon
-          </div>
-          <div class="gallery-caption">St. Pete · Hardscape + Wilcox Nursery specimens</div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            Photo coming soon
-          </div>
-          <div class="gallery-caption">Clearwater · Native butterfly garden</div>
-        </div>
-      </div>
-
-      <p style="color:rgba(248,245,235,0.4); font-size:0.82rem; margin-top:1.5rem; font-style:italic;">Real project photos from Ether coming soon. These captions reflect actual completed projects.</p>
-    </div>
-  </section>
-
-  <!-- REVIEWS -->
-  <section class="reviews-section" id="reviews">
-    <div class="container">
-      <p class="section-label">What People Say</p>
-      <h2 class="section-title">Don't take our<br>word for it.</h2>
-      <div class="reviews-grid">
-
-        <div class="review-card featured">
-          <div class="stars">★★★★★</div>
-          <p>Kiamesha is knowledgeable and an excellent communicator. Installation went smoothly and the crew did a great job.</p>
-          <div class="reviewer">Verified Client</div>
-        </div>
-
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>Kiamesha, Justis, Osiris and Ether were a terrific team — Florida native yard, rain garden is my favorite part!</p>
-          <div class="reviewer">Tampa Bay Homeowner</div>
-        </div>
-
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>Kiamesha, Justice, and their team — dry river bed, native plants from Wilcox Nursery, design on point. Cannot recommend more strongly.</p>
-          <div class="reviewer">St. Pete Client</div>
-        </div>
-
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>Front yard revamp with native plants and hardscaping. Low-maintenance exactly like they said. Neighbor compliments constantly. Exceeded my expectations.</p>
-          <div class="reviewer">Verified Client</div>
-        </div>
-
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>Kia and her team did an amazing job at our new home in Dunedin. Native planting design, showed up when they said, fair price. Couldn't be happier.</p>
-          <div class="reviewer">Dunedin Homeowner</div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- MEET KIAMESHA -->
-  <section class="meet-section" id="about">
-    <div class="container">
-      <div class="meet-grid">
-        <div class="meet-image-placeholder">
-          Photo of Kiamesha<br/>coming soon
-        </div>
-        <div class="meet-text">
-          <p class="section-label">Meet the Team</p>
-          <h2 class="section-title">She knows this land.</h2>
-          <p>Kiamesha Wray has been a Florida Master Naturalist since 2014. She grew up learning the ecology of this state — her mother was an archaeologist who studied the Tocobaga tribe, the people who called this land home long before anyone paved it over. That history shapes the way Kiamesha sees every yard she walks into.</p>
-          <p>She's one of the first FANN (Florida Association of Native Nurseries) credentialed professionals in the state. When she looks at your yard, she's not just thinking about what looks good. She's thinking about what belongs there, what will thrive, what your piece of Florida could look like if it got to be itself again.</p>
-          <p>Living Spaces Gardening has been doing this work since 2018, alongside Kiamesha's team — Justis, Osiris, and Ether — who bring the same care and craft to every project.</p>
-          <p style="color:rgba(248,245,235,0.7); font-style:italic; font-size:0.95rem;">As featured in Homes & Gardens magazine, November 2025.</p>
-          <div class="credentials">
-            <div class="cred-item">Florida Master Naturalist — certified 2014</div>
-            <div class="cred-item">First FANN credentialed professionals in Florida</div>
-            <div class="cred-item">Plants sourced from Wilcox Nursery</div>
-            <div class="cred-item">Featured in Homes & Gardens, Nov 2025</div>
-            <div class="cred-item">Serving Tampa Bay since 2018</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section" id="contact">
-    <div class="container">
-      <div class="cta-inner">
-        <p class="section-label">Ready to Start</p>
-        <h2 class="section-title">Text us about<br>your yard.</h2>
-        <p class="cta-sub">Tap a button below and your message app opens with a note already written. Just hit send.</p>
-
-        <div class="sms-buttons">
-          <a href="sms:7277107400&body=Hi%2C%20I%20want%20a%20yard%20that%20takes%20care%20of%20itself." class="sms-btn">
-            I want a yard that takes care of itself.
-            <span>Native plant design + habitat restoration</span>
-          </a>
-          <a href="sms:7277107400&body=Hi%2C%20I%20need%20help%20picking%20the%20right%20plants%20for%20my%20yard." class="sms-btn">
-            Help me pick the right plants for my yard.
-            <span>Florida native landscape design</span>
-          </a>
-          <a href="sms:7277107400&body=Hi%2C%20I%27d%20love%20to%20talk%20about%20hardscaping%20for%20my%20property." class="sms-btn">
-            I'd love to talk about hardscaping.
-            <span>Pathways, dry river beds, patios, stone features</span>
-          </a>
-          <a href="sms:7277107400&body=Hi%2C%20I%20need%20help%20keeping%20my%20garden%20healthy." class="sms-btn">
-            I need help keeping my garden healthy.
-            <span>Garden maintenance & monitoring</span>
-          </a>
-          <a href="sms:7277107400&body=Hi%2C%20I%27m%20not%20sure%20what%20I%20need%20yet%20but%20I%27d%20love%20to%20talk." class="sms-btn catchall-btn">
-            I'm not sure what I need yet — let's talk.
-            <span>No pressure. We'll figure it out together.</span>
-          </a>
-        </div>
-
-        <p class="pricing-note">
-          <strong>$125 consultation fee</strong> — applied to your design cost when you move forward.<br>
-          Designs start at $350.
-        </p>
-
-        <div class="form-divider">
-          <p class="form-label">Prefer email? No problem.</p>
-          <form class="contact-form" onsubmit="return false;">
-            <input type="text" placeholder="Your name" />
-            <input type="email" placeholder="Your email" />
-            <input type="tel" placeholder="Your phone number (optional)" />
-            <textarea placeholder="Tell us about your yard and what you're hoping for..."></textarea>
-            <button type="submit">Send Message</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">Living Spaces Gardening</div>
-        <p class="footer-tagline">Native Florida landscape design, hardscaping, and habitat gardens in Tampa Bay. Founded 2018.</p>
-        <p><a href="tel:7277107400">(727) 710-7400</a></p>
-        <p>2621 4th Ave S, St. Petersburg, FL 33712</p>
-      </div>
-      <div>
-        <h4>Services</h4>
-        <p><a href="#services">Native Landscape Design</a></p>
-        <p><a href="#services">Hardscape Design</a></p>
-        <p><a href="#services">Irrigation</a></p>
-        <p><a href="#services">Permaculture Design</a></p>
-        <p><a href="#services">Specimen Trees</a></p>
-        <p><a href="#services">Garden Maintenance</a></p>
-      </div>
-      <div>
-        <h4>Service Area</h4>
-        <p>St. Petersburg</p>
-        <p>Tampa</p>
-        <p>Clearwater</p>
-        <p>Dunedin</p>
-        <p>Pinellas County</p>
-        <p>Hillsborough County</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Living Spaces Gardening. All rights reserved.</span>
-      <span>Sister site: <a href="https://livingrestorations.com">Living Restorations</a></span>
-    </div>
-  </footer>
-
+<script>
+var nav=document.getElementById('nav');
+var navLogoImg=document.getElementById('navLogoImg');
+window.addEventListener('scroll',function(){
+  var s=window.scrollY>60;
+  nav.classList.toggle('scrolled',s);
+  if(navLogoImg)navLogoImg.src=s?'assets/LSG-logo-dark.png':'assets/LSG-logo-white.png';
+});
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('open');}
+document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open');});});
+function openSMS(e){if(e)e.preventDefault();document.getElementById('smsModal').classList.add('open');document.body.style.overflow='hidden';}
+function closeSMS(){document.getElementById('smsModal').classList.remove('open');document.body.style.overflow='';}
+document.getElementById('smsModal').addEventListener('click',function(e){if(e.target===this)closeSMS();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSMS();});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(entry,i){if(entry.isIntersecting){setTimeout(function(){entry.target.classList.add('visible');},i*80);obs.unobserve(entry.target);}});},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el);});
+</script>
 </body>
 </html>
