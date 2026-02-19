@@ -135,7 +135,7 @@ nav.scrolled .hamburger span{background:var(--charcoal)}
 .cta-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;max-width:520px;margin:0 auto 1.5rem}
 .cta-sms-btn{display:block;padding:1rem 1.25rem;border:1px solid rgba(255,255,255,.3);border-radius:2px;color:#fff;text-decoration:none;font-size:.78rem;font-weight:400;text-align:left;line-height:1.4;transition:background .2s,border-color .2s}
 .cta-sms-btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
-.cta-sms-btn .btn-label{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);display:block;margin-bottom:.25rem}
+
 .cta-sms-wide{grid-column:1/-1;background:#fff!important;color:var(--terra)!important;text-align:center;font-weight:600;letter-spacing:.06em;font-size:.82rem;border:none!important}
 .cta-sms-wide:hover{background:var(--sand)!important}
 .cta-note{color:rgba(255,255,255,.4);font-size:.72rem;margin-top:1rem}
@@ -214,22 +214,25 @@ footer p{color:rgba(255,255,255,.25);font-size:.72rem;font-weight:300}
 
 <section class="hero" id="home">
   <div class="hero-bg">
-    <div class="hero-bg-img"></div>
+    <!-- REPLACE src WITH ACTUAL VIDEO FILE PATH -->
+    <video id="heroVideo" autoplay muted loop playsinline
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+      <source src="assets/hero-video.mp4" type="video/mp4">
+    </video>
+    <!-- Fallback gradient shown until video loads or if no video file yet -->
+    <div class="hero-bg-img" id="heroFallback"></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-tag">
       <span></span>
-      Native Landscape Design — Tampa Bay, Florida
+      Native Landscape Design · Tampa Bay, Florida
     </div>
     <h1>Your yard should be<br><em>alive,</em> not just pretty.</h1>
-    <p class="hero-sub">We design native Florida landscapes that look incredible, support local wildlife, and actually thrive — without constant maintenance or irrigation.</p>
+    <p class="hero-sub">We design native Florida landscapes that look incredible, support local wildlife, and actually thrive, zero maintenance required.</p>
     <div class="hero-actions">
-      <a href="#" onclick="openSMS(event)" class="btn-primary">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-        Text Us Your Project
-      </a>
-      <a href="#services" class="btn-ghost">See Our Services ↓</a>
+      <a href="#" onclick="openSMS(event)" class="btn-primary">Text Us Your Project</a>
+      <a href="#services" class="btn-ghost">See Our Services</a>
     </div>
   </div>
 </section>
@@ -263,8 +266,8 @@ footer p{color:rgba(255,255,255,.25);font-size:.72rem;font-weight:300}
   <div class="intro-text">
     <p class="eyebrow fade-up">The Living Spaces Difference</p>
     <h2 class="fade-up">Stop fighting your own yard.<br><em>Work with it.</em></h2>
-    <p class="fade-up">Florida's climate is intense. Most landscaping fights it — with irrigation systems that run daily, plants that die every summer, and designs that look great in a catalog but struggle in your actual soil.</p>
-    <p class="fade-up">We do the opposite. We look at what your yard actually is — the sun, the drainage, the soil type — and design something that belongs there. Native plants that Florida grew without your help for ten thousand years.</p>
+    <p class="fade-up">Florida's climate is intense. Most landscaping fights it. with irrigation systems that run daily, plants that die every summer, and designs that look great in a catalog but struggle in your actual soil.</p>
+    <p class="fade-up">We do the opposite. We look at what your yard actually is. the sun, the drainage, the soil type. and design something that belongs there. Native plants that Florida grew without your help for ten thousand years.</p>
     <a href="#services" class="text-link fade-up">See what we design →</a>
   </div>
 </section>
@@ -275,14 +278,14 @@ footer p{color:rgba(255,255,255,.25);font-size:.72rem;font-weight:300}
       <p class="eyebrow" style="color:var(--teal);">What We Do</p>
       <h2 class="fade-up">Every service,<br>built for <em style="font-style:italic;color:#a8d4cf;">your</em> yard.</h2>
     </div>
-    <p class="fade-up">We start with what's already there. Then we design something that gets better every year — not just in year one.</p>
+    <p class="fade-up">We start with what's already there. Then we design something that gets better every year. not just in year one.</p>
   </div>
   <div class="services-grid">
     <div class="service-card fade-up">
       <span class="service-num">01</span>
       <div class="service-img-slot">Photo: Native landscape</div>
       <h3>Florida Native Landscape Design</h3>
-      <p>Designed for your specific soil, sun, and drainage. Plants that belong in Florida — beautiful in every season, without the maintenance spiral.</p>
+      <p>Designed for your specific soil, sun, and drainage. Plants that belong in Florida. beautiful in every season, without the maintenance spiral.</p>
       <a href="sms:7277107400?body=Hi!%20I%27d%20like%20to%20talk%20about%20a%20native%20Florida%20landscape%20design%20for%20my%20yard." class="service-sms">Get a consultation →</a>
     </div>
     <div class="service-card fade-up">
@@ -296,21 +299,21 @@ footer p{color:rgba(255,255,255,.25);font-size:.72rem;font-weight:300}
       <span class="service-num">03</span>
       <div class="service-img-slot">Photo: Irrigation install</div>
       <h3>Irrigation</h3>
-      <p>Smart irrigation that works with your native planting — not against it. Less water, lower bills, healthier plants. Right-sizing for the long run.</p>
+      <p>Smart irrigation that works with your native planting. not against it, less water, lower bills, healthier plants. Right-sizing for the long run.</p>
       <a href="sms:7277107400?body=Hi!%20I%27d%20like%20to%20talk%20about%20irrigation%20for%20my%20yard." class="service-sms">Get a consultation →</a>
     </div>
     <div class="service-card fade-up">
       <span class="service-num">04</span>
       <div class="service-img-slot">Photo: Permaculture garden</div>
       <h3>Permaculture Design</h3>
-      <p>Design your yard as a living system — edible plants, composting, water catchment. Beautiful and genuinely productive. Your yard working for you.</p>
+      <p>Design your yard as a living system. edible plants, composting, water catchment. Beautiful and genuinely productive. Your yard working for you.</p>
       <a href="sms:7277107400?body=Hi!%20I%27m%20interested%20in%20permaculture%20design%20for%20my%20yard." class="service-sms">Get a consultation →</a>
     </div>
     <div class="service-card fade-up">
       <span class="service-num">05</span>
       <div class="service-img-slot">Photo: Specimen tree</div>
       <h3>Specimen Tree Sourcing</h3>
-      <p>The right tree is the anchor of a great yard. We source from Wilcox Nursery and trusted Florida growers — the species still thriving in 30 years.</p>
+      <p>The right tree is the anchor of a great yard. We source from Wilcox Nursery and trusted Florida growers. the species still thriving in 30 years.</p>
       <a href="sms:7277107400?body=Hi!%20I%27d%20like%20help%20finding%20the%20right%20tree%20for%20my%20yard." class="service-sms">Get a consultation →</a>
     </div>
     <div class="service-card service-card-full fade-up">
@@ -318,7 +321,7 @@ footer p{color:rgba(255,255,255,.25);font-size:.72rem;font-weight:300}
       <div class="service-content">
         <span class="service-num">06</span>
         <h3>Garden Maintenance</h3>
-        <p style="color:rgba(255,255,255,.45);font-size:.8rem;line-height:1.75;margin-bottom:1.5rem;">A good design deserves good care. We offer ongoing maintenance that keeps your yard looking exactly how it was meant to look — seasonal pruning, mulching, plant health, and the knowledge to keep it thriving year after year.</p>
+        <p style="color:rgba(255,255,255,.45);font-size:.8rem;line-height:1.75;margin-bottom:1.5rem;">A good design deserves good care. We offer ongoing maintenance that keeps your yard looking exactly how it was meant to look. seasonal pruning, mulching, plant health, and the knowledge to keep it thriving year after year.</p>
         <a href="sms:7277107400?body=Hi!%20I%27m%20interested%20in%20garden%20maintenance%20for%20my%20yard." class="service-sms" style="opacity:1;transform:none;color:var(--teal);">Talk to us about maintenance →</a>
       </div>
     </div>
@@ -370,7 +373,7 @@ footer p{color:rgba(255,255,255,.25);font-size:.72rem;font-weight:300}
     </div>
     <div class="review-card fade-up">
       <div class="stars">★★★★★</div>
-      <p class="review-text">"Kiamesha's design made our new construction house feel like a home. She matched plants to our specific conditions — sun, drainage, soil type — and everything came in exactly as she said it would."</p>
+      <p class="review-text">"Kiamesha's design made our new construction house feel like a home. She matched plants to our specific conditions. sun, drainage, soil type. and everything came in exactly as she said it would."</p>
       <p class="review-name">Marcus &amp; Delia R.</p>
       <p class="review-project">Full landscape design, Dunedin</p>
     </div>
@@ -407,7 +410,7 @@ footer p{color:rgba(255,255,255,.25);font-size:.72rem;font-weight:300}
     <p class="eyebrow fade-up">Meet Kiamesha</p>
     <h2 class="fade-up">The woman who knows what<br>your yard <em>wants to be.</em></h2>
     <p class="fade-up">Kiamesha Wray founded Living Spaces Gardening in 2018 after years watching beautiful, capable Florida yards get beaten into submission by generic landscaping that fought the climate instead of working with it.</p>
-    <p class="fade-up">She's a Florida Master Naturalist (2014) and among the first FANN-credentialed professionals in the state — credentials that mean she doesn't just know plants, she understands ecosystems. Featured in Homes &amp; Gardens magazine (November 2025) and sources plants from Wilcox Nursery, one of Florida's most respected native growers.</p>
+    <p class="fade-up">She's a Florida Master Naturalist (2014) and among the first FANN-credentialed professionals in the state. credentials that mean she doesn't just know plants, she understands ecosystems. Featured in Homes &amp; Gardens magazine (November 2025) and sources plants from Wilcox Nursery, one of Florida's most respected native growers.</p>
     <ul class="creds-list fade-up">
       <li>Florida Master Naturalist (University of Florida, 2014)</li>
       <li>First FANN-credentialed professional in Florida</li>
@@ -422,26 +425,22 @@ footer p{color:rgba(255,255,255,.25);font-size:.72rem;font-weight:300}
   <div class="cta-inner">
     <p class="eyebrow">Start Here</p>
     <h2>What does your<br>yard <em>need?</em></h2>
-    <p>Pick a message below and we'll open your texts — ready to go. Or just say hi. Consultations are $125, applied toward your design if you move forward. Designs start at $350.</p>
+    <p>Pick a message below and we'll open your texts. ready to go. Or just say hi. Consultations are $125, applied toward your design if you move forward. Designs start at $350.</p>
     <div class="cta-grid">
       <a href="sms:7277107400?body=Hi!%20I%20want%20a%20native%20Florida%20yard%20that%20takes%20care%20of%20itself." class="cta-sms-btn">
-        <span class="btn-label">Most Popular</span>
         I want a yard that takes care of itself
       </a>
       <a href="sms:7277107400?body=Hi!%20I%20need%20help%20picking%20the%20right%20plants%20for%20my%20specific%20yard." class="cta-sms-btn">
-        <span class="btn-label">Plant Selection</span>
         Help me pick the right plants
       </a>
       <a href="sms:7277107400?body=Hi!%20I%27d%20love%20to%20talk%20about%20hardscaping%20%E2%80%94%20patios%2C%20paths%2C%20or%20structures." class="cta-sms-btn">
-        <span class="btn-label">Hardscape</span>
         Let's talk about hardscaping
       </a>
       <a href="sms:7277107400?body=Hi!%20I%20need%20help%20keeping%20my%20garden%20healthy%20and%20maintained." class="cta-sms-btn">
-        <span class="btn-label">Maintenance</span>
         I need help with ongoing care
       </a>
       <a href="sms:7277107400?body=Hi!%20I%27m%20not%20sure%20what%20I%20need%20yet%20%E2%80%94%20can%20we%20talk%20about%20my%20yard?" class="cta-sms-btn cta-sms-wide">
-        💬 &nbsp; I'm not sure yet — let's just talk
+        💬 &nbsp; I'm not sure yet. let's just talk
       </a>
     </div>
     <p class="cta-note">We respond within one business day · 727-710-7400</p>
@@ -467,18 +466,21 @@ footer p{color:rgba(255,255,255,.25);font-size:.72rem;font-weight:300}
     <button class="sms-close" onclick="closeSMS()" aria-label="Close">&times;</button>
     <p class="eyebrow">Get in Touch</p>
     <h3>What's going on with your yard?</h3>
-    <p class="sms-sub">Pick a message — we'll open your texts ready to send.</p>
+    <p class="sms-sub">Pick a message. we'll open your texts ready to send.</p>
     <div class="sms-options">
       <a href="sms:7277107400?body=Hi!%20I%20want%20a%20native%20Florida%20yard%20that%20takes%20care%20of%20itself." class="sms-option"><span>🌿</span> I want a yard that takes care of itself</a>
       <a href="sms:7277107400?body=Hi!%20I%20need%20help%20picking%20the%20right%20plants%20for%20my%20yard." class="sms-option"><span>🌺</span> Help me pick the right plants</a>
       <a href="sms:7277107400?body=Hi!%20I%27d%20love%20to%20talk%20about%20hardscaping%20for%20my%20yard." class="sms-option"><span>🪨</span> Let's talk hardscaping</a>
       <a href="sms:7277107400?body=Hi!%20I%20need%20help%20keeping%20my%20garden%20healthy." class="sms-option"><span>✂️</span> I need garden maintenance</a>
-      <a href="sms:7277107400?body=Hi!%20I%27m%20not%20sure%20what%20I%20need%20yet%20%E2%80%94%20can%20we%20talk%20about%20my%20yard?" class="sms-option"><span>💬</span> Not sure yet — let's just talk</a>
+      <a href="sms:7277107400?body=Hi!%20I%27m%20not%20sure%20what%20I%20need%20yet%20%E2%80%94%20can%20we%20talk%20about%20my%20yard?" class="sms-option"><span>💬</span> Not sure yet. let's just talk</a>
     </div>
   </div>
 </div>
 
 <script>
+var hv=document.getElementById('heroVideo');
+var hf=document.getElementById('heroFallback');
+if(hv){hv.addEventListener('canplay',function(){if(hf)hf.style.opacity='0';});}
 var nav=document.getElementById('nav');
 var navLogoImg=document.getElementById('navLogoImg');
 window.addEventListener('scroll',function(){
