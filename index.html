@@ -16,186 +16,657 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"Living Spaces Gardening","description":"Native Florida landscape design, hardscaping, and habitat gardens in Tampa Bay","telephone":"+17277107400","url":"https://www.livingspacesgardening.com","address":{"@type":"PostalAddress","streetAddress":"2621 4th Ave S","addressLocality":"St. Petersburg","addressRegion":"FL","postalCode":"33712"},"foundingDate":"2018","areaServed":"Tampa Bay, FL","serviceType":["Native Landscape Design","Hardscape Design","Irrigation","Permaculture Design","Specimen Tree Sourcing","Garden Maintenance"]}
 </script>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--terra:#9e4732;--teal:#508e8a;--mustard:#c9802e;--cocoa:#63403c;--sand:#f8f5eb;--charcoal:#3b3836;--muted:#8a7a75;--white:#ffffff}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--charcoal);color:var(--charcoal);overflow-x:hidden}
-nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 5%;transition:background .4s,box-shadow .4s}
-nav.scrolled{background:rgba(248,245,235,.97);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(99,64,60,.1)}
-.nav-logo img{height:42px}
-.nav-links{display:flex;gap:2.5rem;align-items:center;list-style:none}
-.nav-links a{font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:rgba(255,255,255,.85);transition:color .2s}
-nav.scrolled .nav-links a{color:var(--charcoal)}
-.nav-links a:hover{color:var(--teal)!important}
-.nav-cta{background:var(--terra)!important;color:#fff!important;padding:.6rem 1.4rem;border-radius:2px;font-size:.75rem;font-weight:600;letter-spacing:.1em;transition:background .2s,transform .2s!important}
-.nav-cta:hover{background:var(--cocoa)!important;transform:translateY(-1px)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.4rem}
-.hamburger span{display:block;width:22px;height:1.5px;background:#fff;transition:.3s}
-nav.scrolled .hamburger span{background:var(--charcoal)}
-.hero{height:100vh;min-height:640px;position:relative;display:flex;align-items:flex-end;padding:0 5% 7%;background:var(--charcoal)}
-.hero-bg{position:absolute;inset:0;overflow:hidden}
-.hero-bg-img{position:absolute;inset:0;background:linear-gradient(160deg,#1a3a2a 0%,#2d5a3a 25%,#9e4732 60%,#3b3836 100%)}
-.hero-bg-img::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(80,142,138,.25) 0%,transparent 60%),radial-gradient(ellipse at 20% 80%,rgba(201,128,46,.15) 0%,transparent 50%)}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(59,56,54,.95) 0%,rgba(59,56,54,.4) 50%,rgba(26,58,42,.2) 100%)}
-.hero-content{position:relative;z-index:2;max-width:820px}
-.hero-tag{display:inline-flex;align-items:center;gap:.6rem;color:rgba(255,255,255,.7);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;margin-bottom:1.75rem}
-.hero-tag span{display:inline-block;width:32px;height:1px;background:var(--teal)}
-.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.8rem,6vw,5.2rem);line-height:1.05;color:#fff;margin-bottom:1.5rem;font-weight:400}
-.hero h1 em{font-style:italic;color:#a8d4cf}
-.hero-sub{font-size:1rem;color:rgba(255,255,255,.65);font-weight:300;line-height:1.8;max-width:480px;margin-bottom:3rem}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-primary{display:inline-flex;align-items:center;gap:.7rem;background:var(--terra);color:#fff;padding:1rem 2.2rem;border-radius:2px;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s;white-space:nowrap}
-.btn-primary:hover{background:var(--cocoa);transform:translateY(-2px)}
-.btn-ghost{display:inline-flex;align-items:center;gap:.6rem;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.85);padding:1rem 2.2rem;border-radius:2px;font-size:.8rem;font-weight:400;letter-spacing:.06em;text-decoration:none;transition:border-color .2s,background .2s;white-space:nowrap}
-.btn-ghost:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.06)}
-.marquee-wrap{background:var(--terra);overflow:hidden;padding:.85rem 0;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1)}
-.marquee-track{display:flex;gap:0;white-space:nowrap;animation:marquee 28s linear infinite}
-.marquee-track span{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.9);font-weight:500;padding:0 2.5rem}
-.marquee-track span::after{content:'✦';margin-left:2.5rem;opacity:.5}
-@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.intro{display:grid;grid-template-columns:1fr 1fr;min-height:500px}
-.intro-img{background:linear-gradient(135deg,#2d5a3a 0%,#63403c 100%);position:relative;overflow:hidden;min-height:400px}
-.intro-img-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:rgba(255,255,255,.25);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase}
-.intro-img-placeholder svg{width:48px;height:48px;opacity:.3}
-.intro-text{background:var(--sand);padding:5rem 5%;display:flex;flex-direction:column;justify-content:center}
-.eyebrow{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:.75rem}
-.eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--teal)}
-.intro-text h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.15;color:var(--charcoal);margin-bottom:1.5rem;font-weight:400}
-.intro-text h2 em{font-style:italic;color:var(--terra)}
-.intro-text p{font-size:.9rem;color:var(--muted);line-height:1.9;margin-bottom:1rem;font-weight:300}
-.text-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--teal);font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(80,142,138,.3);padding-bottom:.15rem;transition:border-color .2s,gap .2s;margin-top:.5rem}
-.text-link:hover{border-color:var(--teal);gap:.8rem}
-.services{background:var(--charcoal);padding:7rem 5%}
-.services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;gap:2rem;flex-wrap:wrap}
-.services-header h2{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3.5vw,3rem);color:#fff;font-weight:400;line-height:1.1}
-.services-header p{font-size:.85rem;color:rgba(255,255,255,.45);max-width:300px;line-height:1.7;text-align:right;font-weight:300}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06)}
-.service-card{background:var(--charcoal);padding:2.5rem 2rem;transition:background .3s;position:relative;cursor:default}
-.service-card:hover{background:#2a2725}
-.service-num{font-size:.62rem;letter-spacing:.2em;color:var(--teal);font-weight:600;margin-bottom:1.5rem;display:block}
-.service-img-slot{width:100%;aspect-ratio:16/9;margin-bottom:1.5rem;background:linear-gradient(135deg,rgba(80,142,138,.15) 0%,rgba(99,64,60,.2) 100%);border-radius:2px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.12);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase}
-.service-card h3{font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;margin-bottom:.75rem;font-weight:400}
-.service-card p{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.75;font-weight:300;margin-bottom:1.5rem}
-.service-sms{display:inline-flex;align-items:center;gap:.4rem;color:var(--teal);font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s}
-.service-card:hover .service-sms{opacity:1;transform:none}
-.service-card-full{grid-column:1/-1;display:grid;grid-template-columns:1fr 2fr;gap:0;background:rgba(80,142,138,.06);border-top:1px solid rgba(80,142,138,.2)}
-.service-card-full .service-img-slot{aspect-ratio:auto;height:100%;min-height:180px;margin:0;border-radius:0}
-.service-card-full .service-content{padding:2.5rem 2rem}
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:auto;gap:4px;background:#1a1816}
-.gallery-item{overflow:hidden;position:relative;cursor:pointer;background:linear-gradient(135deg,#2d5a3a,#3b3836)}
-.gallery-item:first-child{grid-row:span 2;aspect-ratio:auto}
-.gallery-item:not(:first-child){aspect-ratio:4/3}
-.gallery-placeholder{width:100%;height:100%;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;transition:transform .6s ease}
-.gallery-item:hover .gallery-placeholder{transform:scale(1.04)}
-.gallery-placeholder svg{width:36px;height:36px;color:rgba(255,255,255,.15)}
-.gallery-placeholder span{color:rgba(255,255,255,.12);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase}
-.gallery-overlay{position:absolute;bottom:0;left:0;right:0;padding:1.5rem;background:linear-gradient(to top,rgba(59,56,54,.9) 0%,transparent 100%);transform:translateY(100%);transition:transform .3s ease}
-.gallery-item:hover .gallery-overlay{transform:none}
-.gallery-overlay p{color:#fff;font-size:.72rem;letter-spacing:.08em;font-weight:500}
-.reviews{background:var(--sand);padding:7rem 5%}
-.reviews-header{margin-bottom:3.5rem}
-.reviews-header h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);color:var(--charcoal);font-weight:400}
-.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.review-card{background:#fff;padding:2rem 1.75rem;border-radius:2px;border-top:3px solid transparent;transition:border-color .3s,transform .3s}
-.review-card:hover{border-color:var(--teal);transform:translateY(-3px)}
-.review-card.featured{background:var(--teal);border-top-color:rgba(255,255,255,.3)}
-.stars{color:var(--mustard);font-size:.85rem;letter-spacing:.1em;margin-bottom:1rem}
-.review-card.featured .stars{color:rgba(255,255,255,.8)}
-.review-text{font-size:.85rem;line-height:1.75;color:var(--charcoal);font-weight:300;margin-bottom:1.25rem;font-style:italic}
-.review-card.featured .review-text{color:rgba(255,255,255,.9)}
-.review-name{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
-.review-card.featured .review-name{color:rgba(255,255,255,.7)}
-.review-project{font-size:.7rem;color:var(--muted);margin-top:.2rem;font-weight:300}
-.review-card.featured .review-project{color:rgba(255,255,255,.5)}
-.about{display:grid;grid-template-columns:1fr 1fr;background:var(--charcoal)}
-.about-photo{background:linear-gradient(160deg,#2d5a3a 0%,#9e4732 100%);position:relative;min-height:560px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:2rem}
-.about-photo-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem}
-.about-photo-placeholder svg{width:64px;height:64px;color:rgba(255,255,255,.15)}
-.about-photo-placeholder span{color:rgba(255,255,255,.15);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase}
-.about-overlay{position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(to top,rgba(59,56,54,.6) 0%,transparent 100%)}
-.about-content{padding:5rem 5%;display:flex;flex-direction:column;justify-content:center}
-.about-content .eyebrow{color:var(--teal);margin-bottom:1.25rem}
-.about-content h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,2.8vw,2.5rem);color:#fff;font-weight:400;line-height:1.15;margin-bottom:1.5rem}
-.about-content h2 em{font-style:italic;color:#a8d4cf}
-.about-content p{font-size:.87rem;color:rgba(255,255,255,.6);line-height:1.9;margin-bottom:.9rem;font-weight:300}
-.creds-list{list-style:none;margin-top:2rem;display:flex;flex-direction:column;gap:.6rem}
-.creds-list li{font-size:.75rem;color:rgba(255,255,255,.5);display:flex;align-items:flex-start;gap:.75rem;line-height:1.5}
-.creds-list li::before{content:'—';color:var(--teal);font-weight:600;flex-shrink:0}
-.cta{background:var(--terra);padding:8rem 5%;text-align:center;position:relative;overflow:hidden}
-.cta::before{content:'';position:absolute;top:-60%;left:-20%;width:80%;height:200%;background:radial-gradient(ellipse,rgba(255,255,255,.08) 0%,transparent 70%);pointer-events:none}
-.cta::after{content:'';position:absolute;bottom:-40%;right:-10%;width:60%;height:160%;background:radial-gradient(ellipse,rgba(99,64,60,.4) 0%,transparent 70%);pointer-events:none}
-.cta-inner{position:relative;z-index:2;max-width:640px;margin:0 auto}
-.cta .eyebrow{color:rgba(255,255,255,.6);justify-content:center;margin-bottom:1.25rem}
-.cta .eyebrow::before{background:rgba(255,255,255,.4)}
-.cta h2{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3.5rem);color:#fff;font-weight:400;line-height:1.1;margin-bottom:1.25rem}
-.cta h2 em{font-style:italic}
-.cta p{font-size:.93rem;color:rgba(255,255,255,.75);line-height:1.8;margin-bottom:3rem;font-weight:300}
-.cta-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;max-width:520px;margin:0 auto 1.5rem}
-.cta-sms-btn{display:block;padding:1rem 1.25rem;border:1px solid rgba(255,255,255,.3);border-radius:2px;color:#fff;text-decoration:none;font-size:.78rem;font-weight:400;text-align:left;line-height:1.4;transition:background .2s,border-color .2s}
-.cta-sms-btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
 
-.cta-sms-wide{grid-column:1/-1;background:#fff!important;color:var(--terra)!important;text-align:center;font-weight:600;letter-spacing:.06em;font-size:.82rem;border:none!important}
-.cta-sms-wide:hover{background:var(--sand)!important}
-.cta-note{color:rgba(255,255,255,.4);font-size:.72rem;margin-top:1rem}
-.pricing-note{background:rgba(255,255,255,.1);border-radius:2px;padding:.75rem 1.25rem;display:inline-block;margin-top:1.5rem;font-size:.75rem;color:rgba(255,255,255,.7);font-weight:300;letter-spacing:.03em}
-footer{background:#1a1816;padding:3rem 5%;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:2rem}
-.footer-logo img{height:36px}
-.footer-center{text-align:center}
-footer p{color:rgba(255,255,255,.25);font-size:.72rem;font-weight:300}
-.footer-right{text-align:right}
-.footer-right a{color:rgba(255,255,255,.35);text-decoration:none;font-size:.72rem;transition:color .2s}
-.footer-right a:hover{color:var(--teal)}
-.sister-site{color:var(--teal)!important;font-weight:500}
-.sms-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(26,24,22,.75);align-items:center;justify-content:center;backdrop-filter:blur(4px)}
-.sms-overlay.open{display:flex}
-.sms-modal{background:var(--sand);border-radius:3px;padding:2.75rem;max-width:460px;width:90%;position:relative}
-.sms-close{position:absolute;top:1.1rem;right:1.1rem;background:none;border:none;font-size:1.25rem;cursor:pointer;color:var(--muted);width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background .2s}
-.sms-close:hover{background:rgba(0,0,0,.06)}
-.sms-modal .eyebrow{margin-bottom:.6rem}
-.sms-modal h3{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:.5rem;font-weight:400}
-.sms-sub{font-size:.82rem;color:var(--muted);margin-bottom:1.75rem;line-height:1.6;font-weight:300}
-.sms-options{display:flex;flex-direction:column;gap:.6rem}
-.sms-option{display:flex;align-items:center;gap:.75rem;padding:.9rem 1.1rem;border:1.5px solid rgba(80,142,138,.2);border-radius:2px;color:var(--charcoal);text-decoration:none;font-size:.83rem;transition:background .2s,border-color .2s;line-height:1.4;font-weight:400;background:#fff}
-.sms-option:hover{background:var(--sand);border-color:var(--teal)}
-.sms-option span{opacity:.4;font-size:1.1rem;flex-shrink:0}
-.fade-up{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
-.fade-up.visible{opacity:1;transform:none}
-@keyframes heroIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-.hero-tag{animation:heroIn .8s ease .2s both}
-.hero h1{animation:heroIn .9s ease .4s both}
-.hero-sub{animation:heroIn .8s ease .6s both}
-.hero-actions{animation:heroIn .8s ease .75s both}
-@media(max-width:960px){
-  .nav-links{display:none}
-  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--sand);padding:1.5rem 5%;gap:1.25rem;box-shadow:0 8px 24px rgba(0,0,0,.12)}
-  .nav-links.open a{color:var(--charcoal)}
-  .hamburger{display:flex}
-  .intro{grid-template-columns:1fr}
-  .intro-img{min-height:300px}
-  .services-grid{grid-template-columns:1fr 1fr}
-  .service-card-full{grid-template-columns:1fr}
-  .service-card-full .service-img-slot{height:200px;min-height:unset}
-  .gallery{grid-template-columns:1fr}
-  .gallery-item:first-child{grid-row:span 1}
-  .reviews-grid{grid-template-columns:1fr 1fr}
-  .about{grid-template-columns:1fr}
-  .about-photo{min-height:360px}
-  .cta-grid{grid-template-columns:1fr}
-  footer{grid-template-columns:1fr;text-align:center}
-  .footer-right{text-align:center}
+<!-- BRAND-CORRECT: Noto family only per brand guide -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   BRAND COLORS — exact per Living Spaces Gardening brand guide
+   ============================================================ */
+:root {
+  --terra:    #9e4732;
+  --teal:     #508e8a;
+  --mustard:  #c9802e;
+  --cocoa:    #63403c;
+  --sand:     #f8f5eb;
+  --charcoal: #3b3836;
+  --muted:    #8a7a75;
+  --white:    #ffffff;
 }
-@media(max-width:600px){
-  .services-grid{grid-template-columns:1fr}
-  .reviews-grid{grid-template-columns:1fr}
-  .hero h1{font-size:2.4rem}
-  nav{padding:1rem 4%}
+
+/* ============================================================
+   RESET & BASE — Noto only
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background: var(--sand);
+  color: var(--charcoal);
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.1rem 5%;
+  transition: background .35s, box-shadow .35s;
+}
+nav.scrolled {
+  background: rgba(248,245,235,.97);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 rgba(99,64,60,.12);
+}
+.nav-logo img { height: 44px; }
+.nav-links {
+  display: flex; gap: 2.5rem; align-items: center; list-style: none;
+}
+.nav-links a {
+  font-size: .72rem; font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255,255,255,.9);
+  transition: color .2s;
+}
+nav.scrolled .nav-links a { color: var(--charcoal); }
+.nav-links a:hover { color: var(--teal) !important; }
+.nav-cta {
+  background: var(--terra) !important;
+  color: #fff !important;
+  padding: .55rem 1.4rem;
+  border-radius: 2px;
+}
+.nav-cta:hover { background: var(--cocoa) !important; }
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; background: none; border: none; padding: .4rem;
+}
+.hamburger span {
+  display: block; width: 22px; height: 1.5px;
+  background: #fff; transition: .3s;
+}
+nav.scrolled .hamburger span { background: var(--charcoal); }
+
+/* ============================================================
+   HERO — terracotta-led, photo background, NO dark blends
+   ============================================================ */
+.hero {
+  height: 100vh; min-height: 640px;
+  position: relative;
+  display: flex; align-items: flex-end;
+  padding: 0 5% 7%;
+}
+.hero-bg {
+  position: absolute; inset: 0; overflow: hidden;
+}
+/* Fallback: terracotta top → teal bottom — bright, brand-true */
+.hero-bg-fill {
+  position: absolute; inset: 0;
+  background: var(--terra);
+}
+.hero-bg video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; z-index: 1;
+}
+/* Overlay: bottom-only text legibility strip */
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.45) 0%,
+    transparent 35%
+  );
+}
+.hero-content {
+  position: relative; z-index: 3;
+  max-width: 820px;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: .65rem;
+  color: rgba(255,255,255,.85);
+  font-size: .68rem; font-weight: 600;
+  letter-spacing: .2em; text-transform: uppercase;
+  margin-bottom: 1.6rem;
+}
+.hero-tag span { display: inline-block; width: 28px; height: 1px; background: var(--mustard); }
+.hero h1 {
+  font-family: 'Noto Serif', serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 1.05;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 1.4rem;
+}
+.hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: #f0d8b0; /* warm mustard-adjacent — brand-friendly */
+}
+.hero-sub {
+  font-size: 1rem; font-weight: 300;
+  color: rgba(255,255,255,.75);
+  line-height: 1.85; max-width: 480px;
+  margin-bottom: 2.75rem;
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: .6rem;
+  background: var(--mustard); color: #fff;
+  padding: 1rem 2.2rem; border-radius: 2px;
+  font-size: .78rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none;
+  transition: background .2s, transform .2s;
+}
+.btn-primary:hover { background: var(--terra); transform: translateY(-2px); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: .6rem;
+  border: 1.5px solid rgba(255,255,255,.5);
+  color: rgba(255,255,255,.9);
+  padding: 1rem 2.2rem; border-radius: 2px;
+  font-size: .78rem; font-weight: 500;
+  letter-spacing: .06em; text-decoration: none;
+  transition: border-color .2s, background .2s;
+}
+.btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,.08); }
+
+/* ============================================================
+   MARQUEE — terracotta band (crisp, no blend)
+   ============================================================ */
+.marquee-wrap {
+  background: var(--terra);
+  overflow: hidden; padding: .9rem 0;
+}
+.marquee-track {
+  display: flex; white-space: nowrap;
+  animation: marquee 30s linear infinite;
+}
+.marquee-track span {
+  font-size: .67rem; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(255,255,255,.9);
+  padding: 0 2.5rem;
+}
+.marquee-track span::after { content: '✦'; margin-left: 2.5rem; opacity: .45; }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   INTRO — sand section, crisp split, NO gradients
+   ============================================================ */
+.intro {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 500px;
+}
+.intro-img {
+  background: var(--teal);
+  position: relative; overflow: hidden; min-height: 420px;
+}
+.intro-img img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.intro-img-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 1rem;
+  color: rgba(255,255,255,.3);
+  font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
+}
+.intro-img-placeholder svg { width: 48px; height: 48px; opacity: .4; }
+.intro-text {
+  background: var(--sand);
+  padding: 5rem 5%;
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+/* Eyebrow — brand: small caps, teal, with rule */
+.eyebrow {
+  font-size: .65rem; font-weight: 700;
+  letter-spacing: .28em; text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: .75rem;
+}
+.eyebrow::before {
+  content: ''; display: block;
+  width: 24px; height: 2px;
+  background: var(--teal);
+}
+
+.intro-text h2 {
+  font-family: 'Noto Serif', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.18; font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 1.4rem;
+}
+.intro-text h2 em {
+  font-style: italic; font-weight: 400;
+  color: var(--terra);
+}
+.intro-text p {
+  font-size: .9rem; font-weight: 300;
+  color: var(--muted); line-height: 1.9;
+  margin-bottom: 1rem;
+}
+.text-link {
+  display: inline-flex; align-items: center; gap: .5rem;
+  color: var(--teal);
+  font-size: .75rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(80,142,138,.3);
+  padding-bottom: .15rem;
+  transition: border-color .2s, gap .2s;
+  margin-top: .5rem;
+}
+.text-link:hover { border-color: var(--teal); gap: .8rem; }
+
+/* ============================================================
+   SERVICES — sand, brand colors
+   ============================================================ */
+.services {
+  background: var(--sand);
+  padding: 7rem 5%;
+}
+.services-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-end; margin-bottom: 4rem;
+  gap: 2rem; flex-wrap: wrap;
+}
+.services-header h2 {
+  font-family: 'Noto Serif', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  color: var(--charcoal); font-weight: 700; line-height: 1.1;
+}
+.services-header h2 em {
+  font-style: italic; font-weight: 400; color: var(--teal);
+}
+.services-header p {
+  font-size: .85rem; color: var(--muted);
+  max-width: 300px; line-height: 1.7;
+  text-align: right; font-weight: 300;
+}
+.services-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1px; background: rgba(99,64,60,.08);
+}
+.service-card {
+  background: var(--sand);
+  padding: 2.5rem 2rem;
+  transition: background .3s;
+  cursor: default;
+}
+.service-card:hover { background: #f0ece0; }
+.service-num {
+  font-size: .6rem; font-weight: 700;
+  letter-spacing: .22em; color: var(--teal);
+  margin-bottom: 1.4rem; display: block;
+}
+.service-img-slot {
+  width: 100%; aspect-ratio: 16/9;
+  margin-bottom: 1.4rem;
+  background: rgba(99,64,60,.06);
+  border-radius: 2px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  color: transparent;
+  font-size: 0;
+}
+.service-img-slot img { width: 100%; height: 100%; object-fit: cover; }
+.service-card h3 {
+  font-family: 'Noto Serif', serif;
+  font-size: 1.15rem; color: var(--charcoal);
+  margin-bottom: .7rem; font-weight: 600;
+}
+.service-card p {
+  font-size: .8rem; color: rgba(255,255,255,.45);
+  line-height: 1.75; font-weight: 300; margin-bottom: 1.4rem;
+}
+.service-sms {
+  display: inline-flex; align-items: center; gap: .4rem;
+  color: var(--teal);
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none;
+  opacity: 0; transform: translateY(4px);
+  transition: opacity .2s, transform .2s;
+}
+.service-card:hover .service-sms { opacity: 1; transform: none; }
+.service-card-full {
+  grid-column: 1/-1;
+  display: grid; grid-template-columns: 1fr 2fr;
+  background: var(--sand);
+  border-top: 1px solid rgba(80,142,138,.25);
+}
+.service-card-full .service-img-slot {
+  aspect-ratio: auto; height: 100%; min-height: 200px;
+  margin: 0; border-radius: 0;
+}
+.service-card-full .service-content { padding: 2.5rem 2rem; }
+
+/* ============================================================
+   GALLERY
+   ============================================================ */
+.gallery {
+  display: grid; grid-template-columns: repeat(2,1fr);
+  gap: 4px; background: var(--charcoal);
+}
+.gallery-item {
+  overflow: hidden; position: relative; cursor: pointer;
+  background: var(--charcoal);
+}
+.gallery-item:first-child { grid-row: span 2; }
+.gallery-item:not(:first-child) { aspect-ratio: 4/3; }
+.gallery-placeholder {
+  width: 100%; height: 100%; min-height: 280px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: .75rem;
+  transition: transform .6s ease;
+}
+.gallery-item:hover .gallery-placeholder { transform: scale(1.04); }
+.gallery-placeholder svg { width: 36px; height: 36px; color: transparent; }
+.gallery-placeholder span { color: transparent; font-size: 0; }
+.gallery-placeholder img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+.gallery-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(99,64,60,.85) 0%, transparent 100%);
+  transform: translateY(100%);
+  transition: transform .3s;
+}
+.gallery-item:hover .gallery-overlay { transform: none; }
+.gallery-overlay p { color: #fff; font-size: .72rem; letter-spacing: .08em; font-weight: 500; }
+
+/* ============================================================
+   REVIEWS — sand, crisp cards
+   ============================================================ */
+.reviews {
+  background: var(--sand);
+  padding: 7rem 5%;
+}
+.reviews-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-end; margin-bottom: 3rem;
+  flex-wrap: wrap; gap: 1.5rem;
+}
+.reviews-header h2 {
+  font-family: 'Noto Serif', serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  color: var(--charcoal); font-weight: 700;
+}
+.google-reviews-link {
+  display: flex; align-items: center; gap: .6rem;
+  text-decoration: none;
+  font-size: .75rem; font-weight: 600;
+  color: var(--charcoal); letter-spacing: .04em;
+  border: 1px solid rgba(99,64,60,.2);
+  padding: .6rem 1rem; border-radius: 2px;
+  transition: border-color .2s, color .2s;
+  white-space: nowrap;
+}
+.google-reviews-link:hover { border-color: var(--teal); color: var(--teal); }
+.gstars { color: var(--mustard); letter-spacing: .05em; }
+.reviews-track-wrap {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+.reviews-track {
+  display: flex; gap: 1.25rem;
+  animation: reviewsScroll 40s linear infinite;
+  width: max-content;
+}
+.reviews-track:hover { animation-play-state: paused; }
+@keyframes reviewsScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.review-card {
+  background: #fff; padding: 2rem 1.75rem;
+  border-radius: 2px;
+  border-top: 3px solid transparent;
+  width: 320px; flex-shrink: 0;
+  transition: border-color .3s;
+}
+.review-card:hover { border-color: var(--teal); }
+.stars { color: var(--mustard); font-size: .85rem; letter-spacing: .1em; margin-bottom: 1rem; }
+.review-text {
+  font-size: .85rem; line-height: 1.75;
+  color: var(--charcoal); font-weight: 300;
+  margin-bottom: 1.25rem; font-style: italic;
+}
+.review-name {
+  font-size: .7rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--teal);
+}
+.review-project { font-size: .68rem; color: var(--muted); margin-top: .2rem; font-weight: 300; }
+
+/* ============================================================
+   ABOUT — sand left, charcoal right
+   ============================================================ */
+.about {
+  display: grid; grid-template-columns: 1fr 1fr;
+  background: var(--charcoal);
+}
+.about-photo {
+  background: var(--sand);
+  position: relative; min-height: 560px;
+  overflow: hidden;
+}
+.about-photo img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.about-photo-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1rem;
+}
+.about-photo-placeholder svg { width: 64px; height: 64px; color: transparent; }
+.about-photo-placeholder span { color: transparent; font-size: 0; }
+.about-content {
+  padding: 5rem 5%;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.about-content .eyebrow { color: var(--teal); margin-bottom: 1.2rem; }
+.about-content h2 {
+  font-family: 'Noto Serif', serif;
+  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  color: #fff; font-weight: 700; line-height: 1.15; margin-bottom: 1.4rem;
+}
+.about-content h2 em { font-style: italic; font-weight: 400; color: #a8d4cf; }
+.about-content p {
+  font-size: .87rem; color: rgba(255,255,255,.6);
+  line-height: 1.9; margin-bottom: .9rem; font-weight: 300;
+}
+.creds-list {
+  list-style: none; margin-top: 2rem;
+  display: flex; flex-direction: column; gap: .6rem;
+}
+.creds-list li {
+  font-size: .75rem; color: rgba(255,255,255,.5);
+  display: flex; align-items: flex-start; gap: .75rem; line-height: 1.5;
+}
+.creds-list li::before { content: '—'; color: var(--teal); font-weight: 700; flex-shrink: 0; }
+
+/* ============================================================
+   CTA — terracotta, crisp (NO gradient blends)
+   ============================================================ */
+.cta {
+  background: var(--terra);
+  padding: 8rem 5%; text-align: center;
+}
+.cta-inner { max-width: 640px; margin: 0 auto; }
+.cta .eyebrow {
+  color: rgba(255,255,255,.6);
+  justify-content: center; margin-bottom: 1.25rem;
+}
+.cta .eyebrow::before { background: rgba(255,255,255,.4); }
+.cta h2 {
+  font-family: 'Noto Serif', serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  color: #fff; font-weight: 700; line-height: 1.1; margin-bottom: 1.2rem;
+}
+.cta h2 em { font-style: italic; font-weight: 400; }
+.cta p {
+  font-size: .93rem; color: rgba(255,255,255,.8);
+  line-height: 1.8; margin-bottom: 3rem; font-weight: 300;
+}
+.cta-grid {
+  display: grid; grid-template-columns: repeat(2,1fr);
+  gap: .75rem; max-width: 520px; margin: 0 auto 1.5rem;
+}
+.cta-sms-btn {
+  display: block; padding: 1rem 1.2rem;
+  border: 1.5px solid rgba(255,255,255,.4);
+  border-radius: 2px; color: #fff;
+  text-decoration: none;
+  font-size: .78rem; font-weight: 400;
+  text-align: left; line-height: 1.45;
+  transition: background .2s, border-color .2s;
+}
+.cta-sms-btn:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.7); }
+.cta-sms-wide {
+  grid-column: 1/-1;
+  background: #fff !important; color: var(--terra) !important;
+  text-align: center; font-weight: 700;
+  letter-spacing: .06em; font-size: .82rem;
+  border: none !important;
+}
+.cta-sms-wide:hover { background: var(--sand) !important; }
+.cta-note { color: rgba(255,255,255,.45); font-size: .72rem; margin-top: 1rem; }
+.pricing-note {
+  background: rgba(255,255,255,.12); border-radius: 2px;
+  padding: .75rem 1.25rem;
+  display: inline-block; margin-top: 1.5rem;
+  font-size: .75rem; color: rgba(255,255,255,.75);
+  font-weight: 300; letter-spacing: .03em;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: var(--charcoal);
+  padding: 3rem 5%;
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: center; gap: 2rem;
+}
+.footer-logo img { height: 36px; }
+.footer-center { text-align: center; }
+footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 300; }
+.footer-right { text-align: right; }
+.footer-right a {
+  color: rgba(255,255,255,.35); text-decoration: none;
+  font-size: .72rem; transition: color .2s;
+}
+.footer-right a:hover { color: var(--teal); }
+.sister-site { color: var(--teal) !important; font-weight: 600; }
+
+/* ============================================================
+   SMS MODAL
+   ============================================================ */
+.sms-overlay {
+  display: none; position: fixed; inset: 0; z-index: 999;
+  background: rgba(59,56,54,.7);
+  align-items: center; justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.sms-overlay.open { display: flex; }
+.sms-modal {
+  background: var(--sand); border-radius: 3px;
+  padding: 2.75rem; max-width: 460px; width: 90%;
+  position: relative;
+}
+.sms-close {
+  position: absolute; top: 1.1rem; right: 1.1rem;
+  background: none; border: none;
+  font-size: 1.25rem; cursor: pointer; color: var(--muted);
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; transition: background .2s;
+}
+.sms-close:hover { background: rgba(0,0,0,.07); }
+.sms-modal .eyebrow { margin-bottom: .6rem; }
+.sms-modal h3 {
+  font-family: 'Noto Serif', serif;
+  font-size: 1.55rem; color: var(--charcoal);
+  margin-bottom: .5rem; font-weight: 700;
+}
+.sms-sub { font-size: .82rem; color: var(--muted); margin-bottom: 1.75rem; line-height: 1.6; font-weight: 300; }
+.sms-options { display: flex; flex-direction: column; gap: .6rem; }
+.sms-option {
+  display: flex; align-items: center; gap: .75rem;
+  padding: .9rem 1.1rem;
+  border: 1.5px solid rgba(80,142,138,.2); border-radius: 2px;
+  color: var(--charcoal); text-decoration: none;
+  font-size: .83rem; font-weight: 400;
+  transition: background .2s, border-color .2s;
+  line-height: 1.4; background: #fff;
+}
+.sms-option:hover { background: var(--sand); border-color: var(--teal); }
+.sms-option span { opacity: .4; font-size: 1.1rem; flex-shrink: 0; }
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+.fade-up { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+@keyframes heroIn { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+.hero-tag   { animation: heroIn .8s ease .2s both; }
+.hero h1    { animation: heroIn .9s ease .38s both; }
+.hero-sub   { animation: heroIn .8s ease .55s both; }
+.hero-actions { animation: heroIn .8s ease .7s both; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 960px) {
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column;
+    position: absolute; top: 68px; left: 0; right: 0;
+    background: var(--sand); padding: 1.5rem 5%;
+    gap: 1.25rem; box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  }
+  .nav-links.open a { color: var(--charcoal); }
+  .hamburger { display: flex; }
+  .intro { grid-template-columns: 1fr; }
+  .intro-img { min-height: 300px; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .service-card-full { grid-template-columns: 1fr; }
+  .service-card-full .service-img-slot { height: 200px; min-height: unset; }
+  .gallery { grid-template-columns: 1fr; }
+  .gallery-item:first-child { grid-row: span 1; }
+  .review-card { width: 280px; }
+  .about { grid-template-columns: 1fr; }
+  .about-photo { min-height: 360px; }
+  .cta-grid { grid-template-columns: 1fr; }
+  footer { grid-template-columns: 1fr; text-align: center; }
+  .footer-right { text-align: center; }
+}
+@media (max-width: 600px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .review-card { width: 260px; }
+  .hero h1 { font-size: 2.4rem; }
+  nav { padding: 1rem 4%; }
 }
 </style>
 </head>
 <body>
 
+<!-- ============================================================
+     NAV
+     ============================================================ -->
 <nav id="nav">
   <div class="nav-logo">
     <img src="assets/LSG-logo-white.png" alt="Living Spaces Gardening" id="navLogoImg">
@@ -212,15 +683,15 @@ footer p{color:rgba(255,255,255,.25);font-size:.72rem;font-weight:300}
   </button>
 </nav>
 
+<!-- ============================================================
+     HERO
+     ============================================================ -->
 <section class="hero" id="home">
   <div class="hero-bg">
-    <!-- REPLACE src WITH ACTUAL VIDEO FILE PATH -->
-    <video id="heroVideo" autoplay muted loop playsinline
-      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+    <div class="hero-bg-fill"></div>
+    <video id="heroVideo" autoplay muted loop playsinline>
       <source src="assets/hero-video.mp4" type="video/mp4">
     </video>
-    <!-- Fallback gradient shown until video loads or if no video file yet -->
-    <div class="hero-bg-img" id="heroFallback"></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -229,7 +700,7 @@ footer p{color:rgba(255,255,255,.25);font-size:.72rem;font-weight:300}
       Native Landscape Design · Tampa Bay, Florida
     </div>
     <h1>Your yard should be<br><em>alive,</em> not just pretty.</h1>
-    <p class="hero-sub">We design native Florida landscapes that look incredible, support local wildlife, and actually thrive, zero maintenance required.</p>
+    <p class="hero-sub">We design native Florida landscapes that look incredible, support local wildlife, and actually thrive — zero maintenance required.</p>
     <div class="hero-actions">
       <a href="#" onclick="openSMS(event)" class="btn-primary">Text Us Your Project</a>
       <a href="#services" class="btn-ghost">See Our Services</a>
@@ -237,6 +708,9 @@ footer p{color:rgba(255,255,255,.25);font-size:.72rem;font-weight:300}
   </div>
 </section>
 
+<!-- ============================================================
+     MARQUEE
+     ============================================================ -->
 <div class="marquee-wrap">
   <div class="marquee-track">
     <span>Florida Master Naturalist</span>
@@ -256,36 +730,44 @@ footer p{color:rgba(255,255,255,.25);font-size:.72rem;font-weight:300}
   </div>
 </div>
 
+<!-- ============================================================
+     INTRO
+     ============================================================ -->
 <section class="intro" id="intro">
   <div class="intro-img">
     <div class="intro-img-placeholder">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 22V12M12 12C12 7 7 3 2 3c0 5 4 9 10 9zM12 12c0-5 5-9 10-9 0 5-4 9-10 9z"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M12 22V12M12 12C12 7 7 3 2 3c0 5 4 9 10 9zM12 12c0-5 5-9 10-9 0 5-4 9-10 9z"/>
+      </svg>
       <span>Your Photo Here</span>
     </div>
   </div>
   <div class="intro-text">
     <p class="eyebrow fade-up">The Living Spaces Difference</p>
     <h2 class="fade-up">Stop fighting your own yard.<br><em>Work with it.</em></h2>
-    <p class="fade-up">Florida's climate is intense. Most landscaping fights it. with irrigation systems that run daily, plants that die every summer, and designs that look great in a catalog but struggle in your actual soil.</p>
-    <p class="fade-up">We do the opposite. We look at what your yard actually is. the sun, the drainage, the soil type. and design something that belongs there. Native plants that Florida grew without your help for ten thousand years.</p>
+    <p class="fade-up">Florida's climate is intense. Most landscaping fights it — with irrigation systems that run daily, plants that die every summer, and designs that look great in a catalog but struggle in your actual soil.</p>
+    <p class="fade-up">We do the opposite. We look at what your yard actually is — the sun, the drainage, the soil type — and design something that belongs there. Native plants that Florida grew without your help for ten thousand years.</p>
     <a href="#services" class="text-link fade-up">See what we design →</a>
   </div>
 </section>
 
+<!-- ============================================================
+     SERVICES
+     ============================================================ -->
 <section class="services" id="services">
   <div class="services-header">
     <div>
       <p class="eyebrow" style="color:var(--teal);">What We Do</p>
-      <h2 class="fade-up">Every service,<br>built for <em style="font-style:italic;color:#a8d4cf;">your</em> yard.</h2>
+      <h2 class="fade-up">Every service,<br>built for <em>your</em> yard.</h2>
     </div>
-    <p class="fade-up">We start with what's already there. Then we design something that gets better every year. not just in year one.</p>
+    <p class="fade-up">We start with what's already there. Then we design something that gets better every year — not just in year one.</p>
   </div>
   <div class="services-grid">
     <div class="service-card fade-up">
       <span class="service-num">01</span>
       <div class="service-img-slot">Photo: Native landscape</div>
       <h3>Florida Native Landscape Design</h3>
-      <p>Designed for your specific soil, sun, and drainage. Plants that belong in Florida. beautiful in every season, without the maintenance spiral.</p>
+      <p>Designed for your specific soil, sun, and drainage. Plants that belong in Florida — beautiful in every season, without the maintenance spiral.</p>
       <a href="sms:7277107400?body=Hi!%20I%27d%20like%20to%20talk%20about%20a%20native%20Florida%20landscape%20design%20for%20my%20yard." class="service-sms">Get a consultation →</a>
     </div>
     <div class="service-card fade-up">
@@ -299,21 +781,21 @@ footer p{color:rgba(255,255,255,.25);font-size:.72rem;font-weight:300}
       <span class="service-num">03</span>
       <div class="service-img-slot">Photo: Irrigation install</div>
       <h3>Irrigation</h3>
-      <p>Smart irrigation that works with your native planting. not against it, less water, lower bills, healthier plants. Right-sizing for the long run.</p>
+      <p>Smart irrigation that works with your native planting — not against it. Less water, lower bills, healthier plants. Right-sized for the long run.</p>
       <a href="sms:7277107400?body=Hi!%20I%27d%20like%20to%20talk%20about%20irrigation%20for%20my%20yard." class="service-sms">Get a consultation →</a>
     </div>
     <div class="service-card fade-up">
       <span class="service-num">04</span>
       <div class="service-img-slot">Photo: Permaculture garden</div>
       <h3>Permaculture Design</h3>
-      <p>Design your yard as a living system. edible plants, composting, water catchment. Beautiful and genuinely productive. Your yard working for you.</p>
+      <p>Design your yard as a living system — edible plants, composting, water catchment. Beautiful and genuinely productive. Your yard working for you.</p>
       <a href="sms:7277107400?body=Hi!%20I%27m%20interested%20in%20permaculture%20design%20for%20my%20yard." class="service-sms">Get a consultation →</a>
     </div>
     <div class="service-card fade-up">
       <span class="service-num">05</span>
       <div class="service-img-slot">Photo: Specimen tree</div>
       <h3>Specimen Tree Sourcing</h3>
-      <p>The right tree is the anchor of a great yard. We source from Wilcox Nursery and trusted Florida growers. the species still thriving in 30 years.</p>
+      <p>The right tree is the anchor of a great yard. We source from Wilcox Nursery and trusted Florida growers — the species still thriving in 30 years.</p>
       <a href="sms:7277107400?body=Hi!%20I%27d%20like%20help%20finding%20the%20right%20tree%20for%20my%20yard." class="service-sms">Get a consultation →</a>
     </div>
     <div class="service-card service-card-full fade-up">
@@ -321,13 +803,16 @@ footer p{color:rgba(255,255,255,.25);font-size:.72rem;font-weight:300}
       <div class="service-content">
         <span class="service-num">06</span>
         <h3>Garden Maintenance</h3>
-        <p style="color:rgba(255,255,255,.45);font-size:.8rem;line-height:1.75;margin-bottom:1.5rem;">A good design deserves good care. We offer ongoing maintenance that keeps your yard looking exactly how it was meant to look. seasonal pruning, mulching, plant health, and the knowledge to keep it thriving year after year.</p>
+        <p style="color:var(--muted);font-size:.8rem;line-height:1.75;margin-bottom:1.5rem;">A good design deserves good care. We offer ongoing maintenance that keeps your yard looking exactly how it was meant to look — seasonal pruning, mulching, plant health, and the knowledge to keep it thriving year after year.</p>
         <a href="sms:7277107400?body=Hi!%20I%27m%20interested%20in%20garden%20maintenance%20for%20my%20yard." class="service-sms" style="opacity:1;transform:none;color:var(--teal);">Talk to us about maintenance →</a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ============================================================
+     GALLERY
+     ============================================================ -->
 <div class="gallery" id="gallery">
   <div class="gallery-item">
     <div class="gallery-placeholder">
@@ -337,21 +822,21 @@ footer p{color:rgba(255,255,255,.25);font-size:.72rem;font-weight:300}
     <div class="gallery-overlay"><p>Before → After: Native front yard, St. Petersburg</p></div>
   </div>
   <div class="gallery-item">
-    <div class="gallery-placeholder" style="background:linear-gradient(135deg,#3d6040,#63403c);">
+    <div class="gallery-placeholder">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
       <span>Dunedin New Home</span>
     </div>
     <div class="gallery-overlay"><p>New construction landscape, Dunedin</p></div>
   </div>
   <div class="gallery-item">
-    <div class="gallery-placeholder" style="background:linear-gradient(135deg,#5a3830,#2d4a3a);">
+    <div class="gallery-placeholder">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
       <span>Tampa Bay Rain Garden</span>
     </div>
     <div class="gallery-overlay"><p>Rain garden install, Tampa Bay area</p></div>
   </div>
   <div class="gallery-item">
-    <div class="gallery-placeholder" style="background:linear-gradient(135deg,#2d3a5a,#63403c);">
+    <div class="gallery-placeholder">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
       <span>Clearwater Butterfly Garden</span>
     </div>
@@ -359,143 +844,206 @@ footer p{color:rgba(255,255,255,.25);font-size:.72rem;font-weight:300}
   </div>
 </div>
 
+<!-- ============================================================
+     REVIEWS
+     ============================================================ -->
 <section class="reviews" id="reviews">
   <div class="reviews-header">
-    <p class="eyebrow fade-up">Client Stories</p>
-    <h2 class="fade-up">Real yards.<br>Real results.</h2>
+    <div>
+      <p class="eyebrow fade-up">What clients say</p>
+      <h2 class="fade-up">Here's what happens<br>when you hire us.</h2>
+    </div>
+    <a href="https://search.google.com/local/reviews?placeid=ChIJd8BlQ2-wwoAR7lR9G6D4G2A" target="_blank" rel="noopener" class="google-reviews-link fade-up">
+      <span class="gstars">★★★★★</span>
+      <span>5.0 · 11 reviews on Google</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
   </div>
-  <div class="reviews-grid">
-    <div class="review-card featured fade-up">
-      <div class="stars">★★★★★</div>
-      <p class="review-text">"She completely transformed our backyard into a habitat garden. We have birds, butterflies, and pollinators we've never seen before. The yard basically takes care of itself now."</p>
-      <p class="review-name">Marcie T.</p>
-      <p class="review-project">Native habitat garden, St. Petersburg</p>
-    </div>
-    <div class="review-card fade-up">
-      <div class="stars">★★★★★</div>
-      <p class="review-text">"Kiamesha's design made our new construction house feel like a home. She matched plants to our specific conditions. sun, drainage, soil type. and everything came in exactly as she said it would."</p>
-      <p class="review-name">Marcus &amp; Delia R.</p>
-      <p class="review-project">Full landscape design, Dunedin</p>
-    </div>
-    <div class="review-card fade-up">
-      <div class="stars">★★★★★</div>
-      <p class="review-text">"I've tried three other landscapers. Kiamesha is the first one who actually listened to what I wanted and designed something my yard could support long-term. Worth every penny."</p>
-      <p class="review-name">Sandra H.</p>
-      <p class="review-project">Native landscape redesign, Tampa</p>
-    </div>
-    <div class="review-card fade-up" style="grid-column:span 2;">
-      <div class="stars">★★★★★</div>
-      <p class="review-text">"The team installed our rain garden and native border in two days. Tidiest crew I've ever had on my property. Kiamesha checked in three times the first week to make sure everything was establishing. This is what good service looks like."</p>
-      <p class="review-name">James &amp; Priya A.</p>
-      <p class="review-project">Rain garden + native border, St. Petersburg</p>
-    </div>
-    <div class="review-card fade-up">
-      <div class="stars">★★★★★</div>
-      <p class="review-text">"I wanted something that looked like a real garden, not a wildlife preserve. She delivered both. My neighbors stop and ask about it every week."</p>
-      <p class="review-name">Theresa B.</p>
-      <p class="review-project">Butterfly + pollinator garden, Clearwater</p>
+  <div class="reviews-track-wrap">
+    <div class="reviews-track">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Kiamesha and Justus did a wonderful job working with me to create a design I loved and that also worked well for my space. I've never seen so many birds and butterflies on my property!"</p>
+        <p class="review-name">Xandra B.</p>
+        <p class="review-project">Native habitat garden, St. Petersburg</p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Kia and her team did an amazing job at our new home in Dunedin. A native planting design that looks great and is easy to maintain. They showed up when they said they would and overwhelmed us when it was done."</p>
+        <p class="review-name">Edward O.</p>
+        <p class="review-project">Full landscape design, Dunedin</p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Following a pool and accessory building construction, we needed total site grading, drainage, hardscape and landscape. Kiamesha, Justus and their team really put in the effort to ensure the best outcome."</p>
+        <p class="review-name">Rob N.</p>
+        <p class="review-project">Full site grading + landscape, St. Petersburg</p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"I recently hired Kiamesha and Living Spaces to revamp my front yard, and I couldn't be happier with the results! Their professionalism and expertise was super evident. They took the time to understand my vision and provided creative suggestions that enhanced the overall design."</p>
+        <p class="review-name">Scott G.</p>
+        <p class="review-project">Front yard redesign, Tampa Bay</p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"I love that they only work with Florida natives and they took the time to educate me on how all the plants work together to create a cohesive ecosystem. I genuinely enjoyed working with them and would absolutely do so again!"</p>
+        <p class="review-name">Xandra B.</p>
+        <p class="review-project">Native landscape, Clearwater</p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Kiamesha, Justis, Osiris and Ether were a terrific team to put together a Florida native yard for me! The design was outstanding and the finished project looks amazing. In fact, it changes weekly (as planned). The rain garden is my favorite part!"</p>
+        <p class="review-name">Scott G.</p>
+        <p class="review-project">Rain garden + native yard, Tampa Bay</p>
+      </div>
+      <!-- Duplicate set for seamless loop -->
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Kiamesha and Justus did a wonderful job working with me to create a design I loved and that also worked well for my space. I've never seen so many birds and butterflies on my property!"</p>
+        <p class="review-name">Xandra B.</p>
+        <p class="review-project">Native habitat garden, St. Petersburg</p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Kia and her team did an amazing job at our new home in Dunedin. A native planting design that looks great and is easy to maintain. They showed up when they said they would and overwhelmed us when it was done."</p>
+        <p class="review-name">Edward O.</p>
+        <p class="review-project">Full landscape design, Dunedin</p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Following a pool and accessory building construction, we needed total site grading, drainage, hardscape and landscape. Kiamesha, Justus and their team really put in the effort to ensure the best outcome."</p>
+        <p class="review-name">Rob N.</p>
+        <p class="review-project">Full site grading + landscape, St. Petersburg</p>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
 <section class="about" id="about">
   <div class="about-photo">
     <div class="about-photo-placeholder">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       <span>Photo: Kiamesha Wray</span>
     </div>
-    <div class="about-overlay"></div>
   </div>
   <div class="about-content">
     <p class="eyebrow fade-up">Meet Kiamesha</p>
     <h2 class="fade-up">The woman who knows what<br>your yard <em>wants to be.</em></h2>
     <p class="fade-up">Kiamesha Wray founded Living Spaces Gardening in 2018 after years watching beautiful, capable Florida yards get beaten into submission by generic landscaping that fought the climate instead of working with it.</p>
-    <p class="fade-up">She's a Florida Master Naturalist (2014) and among the first FANN-credentialed professionals in the state. credentials that mean she doesn't just know plants, she understands ecosystems. Featured in Homes &amp; Gardens magazine (November 2025) and sources plants from Wilcox Nursery, one of Florida's most respected native growers.</p>
+    <p class="fade-up">She's a Florida Master Naturalist (2014) and among the first FANN-credentialed professionals in the state — credentials that mean she doesn't just know plants, she understands ecosystems. Featured in Homes &amp; Gardens magazine (November 2025).</p>
     <ul class="creds-list fade-up">
       <li>Florida Master Naturalist (University of Florida, 2014)</li>
       <li>First FANN-credentialed professional in Florida</li>
       <li>Featured: Homes &amp; Gardens Magazine, November 2025</li>
-      <li>Plant sourcing partner: Wilcox Nursery</li>
       <li>Serving Tampa Bay since 2018</li>
     </ul>
   </div>
 </section>
 
+<!-- ============================================================
+     CTA
+     ============================================================ -->
 <section class="cta" id="contact">
   <div class="cta-inner">
     <p class="eyebrow">Start Here</p>
     <h2>What does your<br>yard <em>need?</em></h2>
-    <p>Pick a message below and we'll open your texts. ready to go. Or just say hi. Consultations are $125, applied toward your design if you move forward. Designs start at $350.</p>
+    <p>Pick a message below and we'll open your texts — ready to go. Or just say hi. Consultations are $125, applied toward your design if you move forward. Designs start at $350.</p>
     <div class="cta-grid">
-      <a href="sms:7277107400?body=Hi!%20I%20want%20a%20native%20Florida%20yard%20that%20takes%20care%20of%20itself." class="cta-sms-btn">
-        I want a yard that takes care of itself
-      </a>
-      <a href="sms:7277107400?body=Hi!%20I%20need%20help%20picking%20the%20right%20plants%20for%20my%20specific%20yard." class="cta-sms-btn">
-        Help me pick the right plants
-      </a>
-      <a href="sms:7277107400?body=Hi!%20I%27d%20love%20to%20talk%20about%20hardscaping%20%E2%80%94%20patios%2C%20paths%2C%20or%20structures." class="cta-sms-btn">
-        Let's talk about hardscaping
-      </a>
-      <a href="sms:7277107400?body=Hi!%20I%20need%20help%20keeping%20my%20garden%20healthy%20and%20maintained." class="cta-sms-btn">
-        I need help with ongoing care
-      </a>
-      <a href="sms:7277107400?body=Hi!%20I%27m%20not%20sure%20what%20I%20need%20yet%20%E2%80%94%20can%20we%20talk%20about%20my%20yard?" class="cta-sms-btn cta-sms-wide">
-        💬 &nbsp; I'm not sure yet. let's just talk
-      </a>
+      <a href="sms:7277107400?body=Hi!%20I%20want%20a%20native%20Florida%20yard%20that%20takes%20care%20of%20itself." class="cta-sms-btn">I want a yard that takes care of itself</a>
+      <a href="sms:7277107400?body=Hi!%20I%20need%20help%20picking%20the%20right%20plants%20for%20my%20specific%20yard." class="cta-sms-btn">Help me pick the right plants</a>
+      <a href="sms:7277107400?body=Hi!%20I%27d%20love%20to%20talk%20about%20hardscaping%20%E2%80%94%20patios%2C%20paths%2C%20or%20structures." class="cta-sms-btn">Let's talk about hardscaping</a>
+      <a href="sms:7277107400?body=Hi!%20I%20need%20help%20keeping%20my%20garden%20healthy%20and%20maintained." class="cta-sms-btn">I need help with ongoing care</a>
+      <a href="sms:7277107400?body=Hi!%20I%27m%20not%20sure%20what%20I%20need%20yet%20%E2%80%94%20can%20we%20talk%20about%20my%20yard?" class="cta-sms-btn cta-sms-wide">💬 &nbsp; I'm not sure yet — let's just talk</a>
     </div>
     <p class="cta-note">We respond within one business day · 727-710-7400</p>
     <p class="pricing-note">$125 consultation · applied toward design if you move forward · designs from $350</p>
   </div>
 </section>
 
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
 <footer>
   <div class="footer-logo">
     <img src="assets/LSG-logo-sand.png" alt="Living Spaces Gardening">
   </div>
   <div class="footer-center">
-    <p>&copy; 2025 Living Spaces Gardening · St. Petersburg, FL · 727-710-7400</p>
+    <p>&copy; 2026 Living Spaces Gardening · St. Petersburg, FL · 727-710-7400</p>
   </div>
   <div class="footer-right">
     <a href="https://www.livingrestorations.com" class="sister-site">Living Restorations ↗</a><br>
-    <a href="mailto:info@livingspacesgardening.com" style="margin-top:.35rem;display:inline-block;">Contact</a>
+    <a href="mailto:kiamesha@livingspacesgardening.com" style="margin-top:.35rem;display:inline-block;">kiamesha@livingspacesgardening.com</a>
   </div>
 </footer>
 
+<!-- ============================================================
+     SMS MODAL
+     ============================================================ -->
 <div class="sms-overlay" id="smsModal">
   <div class="sms-modal">
     <button class="sms-close" onclick="closeSMS()" aria-label="Close">&times;</button>
     <p class="eyebrow">Get in Touch</p>
     <h3>What's going on with your yard?</h3>
-    <p class="sms-sub">Pick a message. we'll open your texts ready to send.</p>
+    <p class="sms-sub">Pick a message — we'll open your texts ready to send.</p>
     <div class="sms-options">
       <a href="sms:7277107400?body=Hi!%20I%20want%20a%20native%20Florida%20yard%20that%20takes%20care%20of%20itself." class="sms-option"><span>🌿</span> I want a yard that takes care of itself</a>
       <a href="sms:7277107400?body=Hi!%20I%20need%20help%20picking%20the%20right%20plants%20for%20my%20yard." class="sms-option"><span>🌺</span> Help me pick the right plants</a>
       <a href="sms:7277107400?body=Hi!%20I%27d%20love%20to%20talk%20about%20hardscaping%20for%20my%20yard." class="sms-option"><span>🪨</span> Let's talk hardscaping</a>
       <a href="sms:7277107400?body=Hi!%20I%20need%20help%20keeping%20my%20garden%20healthy." class="sms-option"><span>✂️</span> I need garden maintenance</a>
-      <a href="sms:7277107400?body=Hi!%20I%27m%20not%20sure%20what%20I%20need%20yet%20%E2%80%94%20can%20we%20talk%20about%20my%20yard?" class="sms-option"><span>💬</span> Not sure yet. let's just talk</a>
+      <a href="sms:7277107400?body=Hi!%20I%27m%20not%20sure%20what%20I%20need%20yet%20%E2%80%94%20can%20we%20talk%20about%20my%20yard?" class="sms-option"><span>💬</span> Not sure yet — let's just talk</a>
     </div>
   </div>
 </div>
 
 <script>
-var hv=document.getElementById('heroVideo');
-var hf=document.getElementById('heroFallback');
-if(hv){hv.addEventListener('canplay',function(){if(hf)hf.style.opacity='0';});}
-var nav=document.getElementById('nav');
-var navLogoImg=document.getElementById('navLogoImg');
-window.addEventListener('scroll',function(){
-  var s=window.scrollY>60;
-  nav.classList.toggle('scrolled',s);
-  if(navLogoImg)navLogoImg.src=s?'assets/LSG-logo-dark.png':'assets/LSG-logo-white.png';
+// Hero video fallback
+var hv = document.getElementById('heroVideo');
+if (hv) {
+  hv.addEventListener('error', function() { hv.style.display = 'none'; });
+  // If no video src loads, the terracotta background fill shows through
+}
+
+// Nav scroll behavior
+var nav = document.getElementById('nav');
+var navLogoImg = document.getElementById('navLogoImg');
+window.addEventListener('scroll', function() {
+  var scrolled = window.scrollY > 60;
+  nav.classList.toggle('scrolled', scrolled);
+  if (navLogoImg) {
+    navLogoImg.src = scrolled ? 'assets/LSG-logo-dark.png' : 'assets/LSG-logo-white.png';
+  }
 });
-function toggleMenu(){document.getElementById('navLinks').classList.toggle('open');}
-document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open');});});
-function openSMS(e){if(e)e.preventDefault();document.getElementById('smsModal').classList.add('open');document.body.style.overflow='hidden';}
-function closeSMS(){document.getElementById('smsModal').classList.remove('open');document.body.style.overflow='';}
-document.getElementById('smsModal').addEventListener('click',function(e){if(e.target===this)closeSMS();});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeSMS();});
-var obs=new IntersectionObserver(function(entries){entries.forEach(function(entry,i){if(entry.isIntersecting){setTimeout(function(){entry.target.classList.add('visible');},i*80);obs.unobserve(entry.target);}});},{threshold:0.1});
-document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el);});
+
+// Mobile menu
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+document.querySelectorAll('.nav-links a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+
+// SMS Modal
+function openSMS(e) { if (e) e.preventDefault(); document.getElementById('smsModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeSMS() { document.getElementById('smsModal').classList.remove('open'); document.body.style.overflow = ''; }
+document.getElementById('smsModal').addEventListener('click', function(e) { if (e.target === this) closeSMS(); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeSMS(); });
+
+// Scroll animations
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry, i) {
+    if (entry.isIntersecting) {
+      setTimeout(function() { entry.target.classList.add('visible'); }, i * 80);
+      obs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
 </script>
 </body>
 </html>
