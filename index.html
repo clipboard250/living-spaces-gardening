@@ -669,7 +669,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 300; }
      ============================================================ -->
 <nav id="nav">
   <div class="nav-logo">
-    <img src="assets/LSG-logo-white.png" alt="Living Spaces Gardening" id="navLogoImg">
+    <img src="assets/logo-sand.png" alt="Living Spaces Gardening" id="navLogoImg">
   </div>
   <ul class="nav-links" id="navLinks">
     <li><a href="#services">Services</a></li>
@@ -718,14 +718,14 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 300; }
     <span>Native Plant Design</span>
     <span>Hardscape &amp; Habitat</span>
     <span>Featured in Homes &amp; Gardens</span>
-    <span>Wilcox Nursery Plants</span>
+    
     <span>Serving Tampa Bay Since 2018</span>
     <span>Florida Master Naturalist</span>
     <span>First FANN Credentialed in Florida</span>
     <span>Native Plant Design</span>
     <span>Hardscape &amp; Habitat</span>
     <span>Featured in Homes &amp; Gardens</span>
-    <span>Wilcox Nursery Plants</span>
+    
     <span>Serving Tampa Bay Since 2018</span>
   </div>
 </div>
@@ -795,7 +795,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 300; }
       <span class="service-num">05</span>
       <div class="service-img-slot">Photo: Specimen tree</div>
       <h3>Specimen Tree Sourcing</h3>
-      <p>The right tree is the anchor of a great yard. We source from Wilcox Nursery and trusted Florida growers — the species still thriving in 30 years.</p>
+      <p>The right tree is the anchor of a great yard. We source from trusted Florida native plant growers — the species still thriving in 30 years.</p>
       <a href="sms:7277107400?body=Hi!%20I%27d%20like%20help%20finding%20the%20right%20tree%20for%20my%20yard." class="service-sms">Get a consultation →</a>
     </div>
     <div class="service-card service-card-full fade-up">
@@ -969,14 +969,14 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 300; }
      ============================================================ -->
 <footer>
   <div class="footer-logo">
-    <img src="assets/LSG-logo-sand.png" alt="Living Spaces Gardening">
+    <img src="assets/logo-terracota.png" alt="Living Spaces Gardening">
   </div>
   <div class="footer-center">
     <p>&copy; 2026 Living Spaces Gardening · St. Petersburg, FL · 727-710-7400</p>
   </div>
   <div class="footer-right">
     <a href="https://www.livingrestorations.com" class="sister-site">Living Restorations ↗</a><br>
-    <a href="mailto:kiamesha@livingspacesgardening.com" style="margin-top:.35rem;display:inline-block;">kiamesha@livingspacesgardening.com</a>
+    <a href="/cdn-cgi/l/email-protection#315a58505c54425950715d5847585f5642415052544256504355545f585f561f525e5c" style="margin-top:.35rem;display:inline-block;"><span class="__cf_email__" data-cfemail="0f64666e626a7c676e4f6366796661687c7f6e6c6a7c686e7d6b6a61666168216c6062">[email&#160;protected]</span></a>
   </div>
 </footer>
 
@@ -999,7 +999,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 300; }
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Hero video fallback
 var hv = document.getElementById('heroVideo');
 if (hv) {
@@ -1014,7 +1014,7 @@ window.addEventListener('scroll', function() {
   var scrolled = window.scrollY > 60;
   nav.classList.toggle('scrolled', scrolled);
   if (navLogoImg) {
-    navLogoImg.src = scrolled ? 'assets/LSG-logo-dark.png' : 'assets/LSG-logo-white.png';
+    navLogoImg.src = scrolled ? 'assets/logo-terracota.png' : 'assets/logo-sand.png';
   }
 });
 
@@ -1037,13 +1037,4 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
 // Scroll animations
 var obs = new IntersectionObserver(function(entries) {
   entries.forEach(function(entry, i) {
-    if (entry.isIntersecting) {
-      setTimeout(function() { entry.target.classList.add('visible'); }, i * 80);
-      obs.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
-</script>
-</body>
-</html>
+    if (entry.isInt
