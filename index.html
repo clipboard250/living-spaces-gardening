@@ -47,10 +47,38 @@ body {
 }
 
 /* ============================================================
+   CONTACT BAR
+   ============================================================ */
+.contact-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 301;
+  background: var(--charcoal);
+  padding: .45rem 5%;
+  display: flex; justify-content: flex-end; align-items: center;
+  gap: 1.5rem;
+}
+.contact-bar a {
+  color: rgba(255,255,255,.65);
+  text-decoration: none;
+  font-size: .68rem; font-weight: 500;
+  letter-spacing: .03em;
+  transition: color .2s;
+}
+.contact-bar a:hover { color: var(--teal); }
+.contact-bar .cb-call {
+  background: var(--teal);
+  color: #fff;
+  padding: .25rem .85rem;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: .65rem;
+}
+.contact-bar .cb-call:hover { background: var(--terra); }
+
+/* ============================================================
    NAV
    ============================================================ */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+  position: fixed; top: 32px; left: 0; right: 0; z-index: 300;
   display: flex; justify-content: space-between; align-items: center;
   padding: 1.1rem 5%;
   transition: background .35s, box-shadow .35s;
@@ -66,9 +94,9 @@ nav.scrolled {
 }
 .nav-links a {
   font-size: .72rem; font-weight: 600;
-  letter-spacing: .14em; text-transform: uppercase;
+  letter-spacing: .06em; text-transform: none;
   text-decoration: none;
-  color: rgba(255,255,255,.9);
+  color: var(--charcoal);
   transition: color .2s;
 }
 nav.scrolled .nav-links a { color: var(--charcoal); }
@@ -86,7 +114,7 @@ nav.scrolled .nav-links a { color: var(--charcoal); }
 }
 .hamburger span {
   display: block; width: 22px; height: 1.5px;
-  background: #fff; transition: .3s;
+  background: var(--charcoal); transition: .3s;
 }
 nav.scrolled .hamburger span { background: var(--charcoal); }
 
@@ -104,7 +132,7 @@ nav.scrolled .hamburger span { background: var(--charcoal); }
 }
 .hero-bg-fill {
   position: absolute; inset: 0;
-  background: var(--terra);
+  background: var(--sand);
 }
 .hero-bg video {
   position: absolute; inset: 0;
@@ -115,8 +143,9 @@ nav.scrolled .hamburger span { background: var(--charcoal); }
   position: absolute; inset: 0; z-index: 2;
   background: linear-gradient(
     to top,
-    rgba(0,0,0,.45) 0%,
-    transparent 35%
+    rgba(59,56,54,.55) 0%,
+    rgba(59,56,54,.15) 50%,
+    transparent 100%
   );
 }
 .hero-content {
@@ -125,7 +154,7 @@ nav.scrolled .hamburger span { background: var(--charcoal); }
 }
 .hero-tag {
   display: inline-flex; align-items: center; gap: .65rem;
-  color: rgba(255,255,255,.85);
+  color: var(--muted);
   font-size: .68rem; font-weight: 600;
   letter-spacing: .2em; text-transform: uppercase;
   margin-bottom: 1.6rem;
@@ -135,42 +164,46 @@ nav.scrolled .hamburger span { background: var(--charcoal); }
   font-family: 'Noto Sans', sans-serif;
   font-size: clamp(2.8rem, 6vw, 5rem);
   line-height: 1.05;
-  color: #fff;
+  color: var(--charcoal);
   font-weight: 700;
   margin-bottom: 1.4rem;
 }
 .hero h1 em {
   font-style: normal;
   font-weight: 700;
-  color: var(--mustard);
+  color: var(--terra);
 }
 .hero-sub {
   font-size: 1rem; font-weight: 400;
-  color: rgba(255,255,255,.75);
+  color: var(--muted);
   line-height: 1.85; max-width: 480px;
   margin-bottom: 2.75rem;
 }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-.btn-primary {
-  display: inline-flex; align-items: center; gap: .6rem;
-  background: var(--mustard); color: #fff;
-  padding: 1rem 2.2rem; border-radius: 2px;
-  font-size: .78rem; font-weight: 700;
-  letter-spacing: .08em; text-transform: uppercase;
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: .6rem;
+  min-height: 52px;
+  padding: 0 2.2rem;
+  border-radius: 2px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: .78rem; font-weight: 600;
+  letter-spacing: .03em; text-transform: none;
   text-decoration: none;
-  transition: background .2s, transform .2s;
+  cursor: pointer;
+  transition: background .2s, transform .2s, border-color .2s;
 }
-.btn-primary:hover { background: var(--terra); transform: translateY(-2px); }
+.btn-primary {
+  background: var(--mustard); color: #fff;
+  border: 1.5px solid var(--mustard);
+}
+.btn-primary:hover { background: var(--terra); border-color: var(--terra); transform: translateY(-2px); }
 .btn-ghost {
-  display: inline-flex; align-items: center; gap: .6rem;
-  border: 1.5px solid rgba(255,255,255,.5);
-  color: rgba(255,255,255,.9);
-  padding: 1rem 2.2rem; border-radius: 2px;
-  font-size: .78rem; font-weight: 500;
-  letter-spacing: .06em; text-decoration: none;
-  transition: border-color .2s, background .2s;
+  background: transparent;
+  border: 1.5px solid var(--charcoal);
+  color: var(--charcoal);
 }
-.btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,.08); }
+.btn-ghost:hover { border-color: var(--teal); color: var(--teal); background: transparent; }
 
 /* ============================================================
    MARQUEE
@@ -212,15 +245,15 @@ nav.scrolled .hamburger span { background: var(--charcoal); }
 .intro-img-placeholder {
   position: absolute; inset: 0;
   background: var(--sand);
-  border: 2px dashed rgba(158,71,50,.3);
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   gap: .75rem;
 }
-.intro-ph-mark { width: 100px; height: auto; opacity: .5; }
-.intro-ph-label {
-  font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
-  font-weight: 700; color: var(--terra); opacity: .6;
+.intro-ph-mark { width: 80px; height: auto; opacity: .12; }
+.ph-label {
+  font-size: .58rem; letter-spacing: .04em;
+  font-weight: 500; color: var(--muted); opacity: .5;
+  margin-top: .5rem;
 }
 .intro-text {
   background: var(--sand);
@@ -313,11 +346,13 @@ nav.scrolled .hamburger span { background: var(--charcoal); }
 .service-img-slot {
   width: 100%; aspect-ratio: 16/9;
   margin-bottom: 1.4rem;
-  background: rgba(99,64,60,.06);
+  background: rgba(248,245,235,.8);
   border-radius: 2px; overflow: hidden;
   display: flex; align-items: center; justify-content: center;
-  color: transparent;
-  font-size: 0;
+  position: relative;
+}
+.service-img-slot .ph-logo {
+  width: 48px; height: auto; opacity: .1;
 }
 .service-img-slot img { width: 100%; height: 100%; object-fit: cover; }
 .service-card h3 {
@@ -367,16 +402,18 @@ nav.scrolled .hamburger span { background: var(--charcoal); }
 .gallery-placeholder {
   width: 100%; height: 100%; min-height: 280px;
   background: var(--sand);
-  border: 2px dashed rgba(158,71,50,.25);
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   gap: .75rem;
   transition: transform .6s ease;
 }
 .gallery-item:hover .gallery-placeholder { transform: scale(1.04); }
-.gallery-placeholder span {
-  font-size: .6rem; letter-spacing: .18em; font-weight: 700;
-  text-transform: uppercase; color: var(--terra); opacity: .65;
+.gallery-placeholder .ph-logo {
+  width: 60px; height: auto; opacity: .1;
+}
+.gallery-placeholder .ph-label {
+  font-size: .58rem; letter-spacing: .04em;
+  font-weight: 500; color: var(--muted); opacity: .5;
 }
 .gallery-overlay {
   position: absolute; bottom: 0; left: 0; right: 0;
@@ -471,13 +508,15 @@ nav.scrolled .hamburger span { background: var(--charcoal); }
 .about-photo-placeholder {
   position: absolute; inset: 0;
   background: var(--sand);
-  border: 2px dashed rgba(158,71,50,.3);
   display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 1rem;
+  align-items: center; justify-content: center; gap: .75rem;
 }
-.about-photo-placeholder span {
-  font-size: .65rem; letter-spacing: .18em; font-weight: 700;
-  text-transform: uppercase; color: var(--terra); opacity: .65;
+.about-photo-placeholder .ph-logo {
+  width: 80px; height: auto; opacity: .12;
+}
+.about-photo-placeholder .ph-label {
+  font-size: .58rem; letter-spacing: .04em;
+  font-weight: 500; color: var(--muted); opacity: .5;
 }
 .about-content {
   padding: 5rem 5%;
@@ -666,6 +705,8 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
   .review-card { width: 260px; }
   .hero h1 { font-size: 2.4rem; }
   nav { padding: 1rem 4%; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { width: 100%; }
 }
 </style>
 </head>
@@ -674,16 +715,21 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
 <!-- ============================================================
      NAV
      ============================================================ -->
+<div class="contact-bar">
+  <a href="mailto:kiamesha@livingspacesgardening.com">kiamesha@livingspacesgardening.com</a>
+  <a href="tel:7277107400" class="cb-call">Call Kiamesha</a>
+</div>
+
 <nav id="nav">
   <div class="nav-logo">
-    <img src="assets/LSG-logo-white.png" alt="Living Spaces Gardening" id="navLogoImg">
+    <img src="assets/Living-Spaces-Gardening-Half-Moon-Logo-Terracota.jpg" alt="Living Spaces Gardening" id="navLogoImg">
   </div>
   <ul class="nav-links" id="navLinks">
     <li><a href="#services">Services</a></li>
-    <li><a href="#gallery">Our Work</a></li>
+    <li><a href="#gallery">Our work</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#" onclick="openSMS(event)" class="nav-cta">Text Us</a></li>
+    <li><a href="#" onclick="openSMS(event)" class="nav-cta">Text us</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -706,8 +752,8 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
     <h1>Your yard should be <em>alive</em>. Not just pretty.</h1>
     <p class="hero-sub">Native plants, hardscaping, and habitat gardens built for Tampa Bay. Florida Master Naturalist–led · Serving since 2018.</p>
     <div class="hero-actions">
-      <a href="#" onclick="openSMS(event)" class="btn-primary">Text Us Your Project</a>
-      <a href="#services" class="btn-ghost">See Our Services</a>
+      <a href="#" onclick="openSMS(event)" class="btn btn-primary">Text us your project</a>
+      <a href="#services" class="btn btn-ghost">See our services</a>
     </div>
   </div>
 </section>
@@ -736,8 +782,8 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
 <section class="intro" id="intro">
   <div class="intro-img">
     <div class="intro-img-placeholder">
-      <img class="intro-ph-mark" src="assets/LSG-favicon.png" alt="">
-      <span class="intro-ph-label">Photo Coming Soon</span>
+      <img class="intro-ph-mark" src="assets/Living-Spaces-Gardening-Half-Moon-Logo-Terracota.jpg" alt="">
+      <span class="ph-label">intro-photo.jpg</span>
     </div>
   </div>
   <div class="intro-text">
@@ -762,7 +808,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
 
     <div class="service-card">
       <span class="service-num">01</span>
-      <div class="service-img-slot"></div>
+      <div class="service-img-slot"><img class="ph-logo" src="assets/Living-Spaces-Gardening-Half-Moon-Logo-Terracota.jpg" alt=""></div>
       <h3>Native Landscape Design</h3>
       <p>A full yard design built around plants that belong in Florida. We match every element to your soil, sun, and water so it thrives without constant maintenance.</p>
       <a href="sms:7277107400?body=Hi!%20I%20want%20a%20native%20Florida%20yard%20that%20takes%20care%20of%20itself." class="service-sms">Text about this →</a>
@@ -770,7 +816,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
 
     <div class="service-card">
       <span class="service-num">02</span>
-      <div class="service-img-slot"></div>
+      <div class="service-img-slot"><img class="ph-logo" src="assets/Living-Spaces-Gardening-Half-Moon-Logo-Terracota.jpg" alt=""></div>
       <h3>Hardscape Design</h3>
       <p>Patios, pathways, dry river beds, retaining walls, and stonework that anchors your landscape and extends your living space.</p>
       <a href="sms:7277107400?body=Hi!%20I%27d%20love%20to%20talk%20about%20hardscaping%20for%20my%20yard." class="service-sms">Text about this →</a>
@@ -778,7 +824,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
 
     <div class="service-card">
       <span class="service-num">03</span>
-      <div class="service-img-slot"></div>
+      <div class="service-img-slot"><img class="ph-logo" src="assets/Living-Spaces-Gardening-Half-Moon-Logo-Terracota.jpg" alt=""></div>
       <h3>Irrigation</h3>
       <p>Smart irrigation designed to conserve water while keeping your landscape healthy through Florida's dry season.</p>
       <a href="sms:7277107400?body=Hi!%20I%20need%20help%20with%20irrigation%20for%20my%20yard." class="service-sms">Text about this →</a>
@@ -786,7 +832,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
 
     <div class="service-card">
       <span class="service-num">04</span>
-      <div class="service-img-slot"></div>
+      <div class="service-img-slot"><img class="ph-logo" src="assets/Living-Spaces-Gardening-Half-Moon-Logo-Terracota.jpg" alt=""></div>
       <h3>Permaculture Design</h3>
       <p>Edible landscapes and food forests that produce while rebuilding soil health and increasing biodiversity across your property.</p>
       <a href="sms:7277107400?body=Hi!%20I%27m%20interested%20in%20permaculture%20design%20for%20my%20property." class="service-sms">Text about this →</a>
@@ -794,7 +840,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
 
     <div class="service-card">
       <span class="service-num">05</span>
-      <div class="service-img-slot"></div>
+      <div class="service-img-slot"><img class="ph-logo" src="assets/Living-Spaces-Gardening-Half-Moon-Logo-Terracota.jpg" alt=""></div>
       <h3>Specimen Tree Sourcing</h3>
       <p>We source and place mature native trees that give your landscape immediate structure and shade. No waiting ten years. Always from trusted Florida growers.</p>
       <a href="sms:7277107400?body=Hi!%20I%27m%20interested%20in%20specimen%20trees%20for%20my%20yard." class="service-sms">Text about this →</a>
@@ -802,7 +848,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
 
     <div class="service-card">
       <span class="service-num">06</span>
-      <div class="service-img-slot"></div>
+      <div class="service-img-slot"><img class="ph-logo" src="assets/Living-Spaces-Gardening-Half-Moon-Logo-Terracota.jpg" alt=""></div>
       <h3>Garden Maintenance</h3>
       <p>Ongoing care for native landscapes. Pruning, seasonal adjustments, and monitoring to keep everything healthy long-term.</p>
       <a href="sms:7277107400?body=Hi!%20I%20need%20help%20keeping%20my%20garden%20healthy." class="service-sms">Text about this →</a>
@@ -817,19 +863,22 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
 <section class="gallery" id="gallery">
   <div class="gallery-item">
     <div class="gallery-placeholder">
-      <span>Project Photo 1</span>
+      <img class="ph-logo" src="assets/Living-Spaces-Gardening-Half-Moon-Logo-Terracota.jpg" alt="">
+      <span class="ph-label">project-1.jpg</span>
     </div>
     <div class="gallery-overlay"><p>Native garden installation</p></div>
   </div>
   <div class="gallery-item">
     <div class="gallery-placeholder">
-      <span>Project Photo 2</span>
+      <img class="ph-logo" src="assets/Living-Spaces-Gardening-Half-Moon-Logo-Terracota.jpg" alt="">
+      <span class="ph-label">project-2.jpg</span>
     </div>
     <div class="gallery-overlay"><p>Hardscape pathway</p></div>
   </div>
   <div class="gallery-item">
     <div class="gallery-placeholder">
-      <span>Project Photo 3</span>
+      <img class="ph-logo" src="assets/Living-Spaces-Gardening-Half-Moon-Logo-Terracota.jpg" alt="">
+      <span class="ph-label">project-3.jpg</span>
     </div>
     <div class="gallery-overlay"><p>Habitat garden</p></div>
   </div>
@@ -929,7 +978,8 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
 <section class="about" id="about">
   <div class="about-photo">
     <div class="about-photo-placeholder">
-      <span>Team Photo Coming Soon</span>
+      <img class="ph-logo" src="assets/Living-Spaces-Gardening-Half-Moon-Logo-Terracota.jpg" alt="">
+      <span class="ph-label">about-team.jpg</span>
     </div>
   </div>
   <div class="about-content">
@@ -992,7 +1042,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
   </div>
   <div class="footer-right">
     <a href="https://www.livingrestorations.com" class="sister-site">Living Restorations ↗</a><br>
-    <a href="/cdn-cgi/l/email-protection#6a03040c052a06031c03040d191a0b090f190d0b180e0f0403040d44090507" style="margin-top:.35rem;display:inline-block;"><span class="__cf_email__" data-cfemail="4821262e270824213e21262f3b38292b2d3b2f293a2c2d2621262f662b2725">[email&#160;protected]</span></a>
+    <a href="mailto:kiamesha@livingspacesgardening.com" style="margin-top:.35rem;display:inline-block;">kiamesha@livingspacesgardening.com</a>
   </div>
 </footer>
 
@@ -1018,7 +1068,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
 <!-- ============================================================
      SCRIPTS
      ============================================================ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // Hero video fallback
 var hv = document.getElementById('heroVideo');
 if (hv) {
@@ -1059,4 +1109,17 @@ document.addEventListener('keydown', function(e) {
 });
 
 // Scroll animations
-var obs = new IntersectionObserver(function(entrie
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(function(el) {
+  obs.observe(el);
+});
+</script>
+
+</body>
+</html>
