@@ -104,8 +104,8 @@ nav.scrolled .nav-links a { color: var(--charcoal); }
 .nav-cta {
   background: var(--terra) !important;
   color: #fff !important;
-  padding: .55rem 1.4rem;
-  border-radius: 2px;
+  min-height: 40px; padding: 8px 18px;
+  font-size: .76rem; font-weight: 600;
 }
 .nav-cta:hover { background: var(--cocoa) !important; }
 .hamburger {
@@ -143,9 +143,8 @@ nav.scrolled .hamburger span { background: var(--charcoal); }
   position: absolute; inset: 0; z-index: 2;
   background: linear-gradient(
     to top,
-    rgba(59,56,54,.55) 0%,
-    rgba(59,56,54,.15) 50%,
-    transparent 100%
+    rgba(248,245,235,.3) 0%,
+    transparent 40%
   );
 }
 .hero-content {
@@ -180,28 +179,40 @@ nav.scrolled .hamburger span { background: var(--charcoal); }
   margin-bottom: 2.75rem;
 }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-.btn {
+
+/* Shared button base */
+.btn-primary,
+.btn-ghost,
+.nav-cta,
+.cta-sms-btn,
+.sms-option {
   display: inline-flex; align-items: center; justify-content: center;
-  gap: .6rem;
-  min-height: 52px;
-  padding: 0 2.2rem;
+  min-height: 48px;
+  padding: 12px 18px;
   border-radius: 2px;
   font-family: 'Noto Sans', sans-serif;
-  font-size: .78rem; font-weight: 600;
-  letter-spacing: .03em; text-transform: none;
+  font-size: .88rem; font-weight: 500;
+  letter-spacing: .02em; text-transform: none;
   text-decoration: none;
+  line-height: 1.2;
   cursor: pointer;
-  transition: background .2s, transform .2s, border-color .2s;
+  transition: background .2s, transform .2s, border-color .2s, color .2s;
 }
+
+/* Hero primary */
 .btn-primary {
   background: var(--mustard); color: #fff;
   border: 1.5px solid var(--mustard);
+  min-width: 220px; font-weight: 600;
 }
 .btn-primary:hover { background: var(--terra); border-color: var(--terra); transform: translateY(-2px); }
+
+/* Hero ghost */
 .btn-ghost {
   background: transparent;
   border: 1.5px solid var(--charcoal);
   color: var(--charcoal);
+  min-width: 220px;
 }
 .btn-ghost:hover { border-color: var(--teal); color: var(--teal); background: transparent; }
 
@@ -249,7 +260,7 @@ nav.scrolled .hamburger span { background: var(--charcoal); }
   align-items: center; justify-content: center;
   gap: .75rem;
 }
-.intro-ph-mark { width: 80px; height: auto; opacity: .12; }
+.intro-ph-mark { width: 80px; height: auto; opacity: .08; }
 .ph-label {
   font-size: .58rem; letter-spacing: .04em;
   font-weight: 500; color: var(--muted); opacity: .5;
@@ -352,7 +363,7 @@ nav.scrolled .hamburger span { background: var(--charcoal); }
   position: relative;
 }
 .service-img-slot .ph-logo {
-  width: 48px; height: auto; opacity: .1;
+  width: 48px; height: auto; opacity: .07;
 }
 .service-img-slot img { width: 100%; height: 100%; object-fit: cover; }
 .service-card h3 {
@@ -409,7 +420,7 @@ nav.scrolled .hamburger span { background: var(--charcoal); }
 }
 .gallery-item:hover .gallery-placeholder { transform: scale(1.04); }
 .gallery-placeholder .ph-logo {
-  width: 60px; height: auto; opacity: .1;
+  width: 60px; height: auto; opacity: .08;
 }
 .gallery-placeholder .ph-label {
   font-size: .58rem; letter-spacing: .04em;
@@ -512,7 +523,7 @@ nav.scrolled .hamburger span { background: var(--charcoal); }
   align-items: center; justify-content: center; gap: .75rem;
 }
 .about-photo-placeholder .ph-logo {
-  width: 80px; height: auto; opacity: .12;
+  width: 80px; height: auto; opacity: .08;
 }
 .about-photo-placeholder .ph-label {
   font-size: .58rem; letter-spacing: .04em;
@@ -572,20 +583,15 @@ nav.scrolled .hamburger span { background: var(--charcoal); }
   gap: .75rem; max-width: 520px; margin: 0 auto 1.5rem;
 }
 .cta-sms-btn {
-  display: block; padding: 1rem 1.2rem;
   border: 1.5px solid rgba(255,255,255,.4);
-  border-radius: 2px; color: #fff;
-  text-decoration: none;
-  font-size: .78rem; font-weight: 400;
-  text-align: left; line-height: 1.45;
-  transition: background .2s, border-color .2s;
+  color: #fff; background: transparent;
+  text-align: left; font-weight: 400;
 }
 .cta-sms-btn:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.7); }
 .cta-sms-wide {
   grid-column: 1/-1;
   background: #fff !important; color: var(--terra) !important;
-  text-align: center; font-weight: 700;
-  letter-spacing: .06em; font-size: .82rem;
+  text-align: center; font-weight: 600;
   border: none !important;
 }
 .cta-sms-wide:hover { background: var(--sand) !important; }
@@ -607,7 +613,10 @@ footer {
   display: grid; grid-template-columns: 1fr auto 1fr;
   align-items: center; gap: 2rem;
 }
-.footer-logo img { height: 88px; width: auto; display: block; }
+.footer-logo img {
+  height: 88px; width: auto; display: block;
+  background: var(--sand); border-radius: 4px; padding: 6px 10px;
+}
 .footer-center { text-align: center; }
 footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
 .footer-right { text-align: right; }
@@ -651,13 +660,10 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
 .sms-sub { font-size: .82rem; color: var(--muted); margin-bottom: 1.75rem; line-height: 1.6; font-weight: 400; }
 .sms-options { display: flex; flex-direction: column; gap: .6rem; }
 .sms-option {
-  display: flex; align-items: center; gap: .75rem;
-  padding: .9rem 1.1rem;
-  border: 1.5px solid rgba(80,142,138,.2); border-radius: 2px;
-  color: var(--charcoal); text-decoration: none;
-  font-size: .83rem; font-weight: 400;
-  transition: background .2s, border-color .2s;
-  line-height: 1.4; background: #fff;
+  gap: .75rem;
+  border: 1.5px solid rgba(80,142,138,.2);
+  color: var(--charcoal); background: #fff;
+  text-align: left; font-weight: 400;
 }
 .sms-option:hover { background: var(--sand); border-color: var(--teal); }
 .sms-option span { opacity: .4; font-size: 1.1rem; flex-shrink: 0; }
@@ -706,7 +712,8 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
   .hero h1 { font-size: 2.4rem; }
   nav { padding: 1rem 4%; }
   .hero-actions { flex-direction: column; align-items: stretch; }
-  .hero-actions .btn { width: 100%; }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-ghost { width: 100%; min-width: 0; }
 }
 </style>
 </head>
@@ -717,7 +724,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
      ============================================================ -->
 <div class="contact-bar">
   <a href="mailto:kiamesha@livingspacesgardening.com">kiamesha@livingspacesgardening.com</a>
-  <a href="tel:7277107400" class="cb-call">Call Kiamesha</a>
+  <a href="tel:+17277107400" class="cb-call">Call Kiamesha</a>
 </div>
 
 <nav id="nav">
@@ -752,8 +759,8 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
     <h1>Your yard should be <em>alive</em>. Not just pretty.</h1>
     <p class="hero-sub">Native plants, hardscaping, and habitat gardens built for Tampa Bay. Florida Master Naturalist–led · Serving since 2018.</p>
     <div class="hero-actions">
-      <a href="#" onclick="openSMS(event)" class="btn btn-primary">Text us your project</a>
-      <a href="#services" class="btn btn-ghost">See our services</a>
+      <a href="#" onclick="openSMS(event)" class="btn-primary">Text us your project</a>
+      <a href="#services" class="btn-ghost">See our services</a>
     </div>
   </div>
 </section>
@@ -783,7 +790,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
   <div class="intro-img">
     <div class="intro-img-placeholder">
       <img class="intro-ph-mark" src="assets/Living-Spaces-Gardening-Half-Moon-Logo-Terracota.jpg" alt="">
-      <span class="ph-label">intro-photo.jpg</span>
+      <span class="ph-label">Intro photo</span>
     </div>
   </div>
   <div class="intro-text">
@@ -864,21 +871,21 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
   <div class="gallery-item">
     <div class="gallery-placeholder">
       <img class="ph-logo" src="assets/Living-Spaces-Gardening-Half-Moon-Logo-Terracota.jpg" alt="">
-      <span class="ph-label">project-1.jpg</span>
+      <span class="ph-label">Project photo 1</span>
     </div>
     <div class="gallery-overlay"><p>Native garden installation</p></div>
   </div>
   <div class="gallery-item">
     <div class="gallery-placeholder">
       <img class="ph-logo" src="assets/Living-Spaces-Gardening-Half-Moon-Logo-Terracota.jpg" alt="">
-      <span class="ph-label">project-2.jpg</span>
+      <span class="ph-label">Project photo 2</span>
     </div>
     <div class="gallery-overlay"><p>Hardscape pathway</p></div>
   </div>
   <div class="gallery-item">
     <div class="gallery-placeholder">
       <img class="ph-logo" src="assets/Living-Spaces-Gardening-Half-Moon-Logo-Terracota.jpg" alt="">
-      <span class="ph-label">project-3.jpg</span>
+      <span class="ph-label">Project photo 3</span>
     </div>
     <div class="gallery-overlay"><p>Habitat garden</p></div>
   </div>
@@ -979,7 +986,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
   <div class="about-photo">
     <div class="about-photo-placeholder">
       <img class="ph-logo" src="assets/Living-Spaces-Gardening-Half-Moon-Logo-Terracota.jpg" alt="">
-      <span class="ph-label">about-team.jpg</span>
+      <span class="ph-label">Team photo</span>
     </div>
   </div>
   <div class="about-content">
@@ -1025,8 +1032,8 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
       </a>
     </div>
 
-    <p class="cta-note">We respond within one business day · 727-710-7400</p>
-    <p class="pricing-note">$125 consultation · applied toward design if you move forward · designs from $350</p>
+    <p class="cta-note">We respond within one business day. Text 727-710-7400.</p>
+    <p class="pricing-note">Consultations are $125 (applied toward design). Designs start at $350.</p>
   </div>
 </section>
 
@@ -1035,7 +1042,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
      ============================================================ -->
 <footer>
   <div class="footer-logo">
-    <img src="assets/LSG-logo-sand.png" alt="Living Spaces Gardening">
+    <img src="assets/Living-Spaces-Gardening-Brand-Lettering-Teal.jpg" alt="Living Spaces Gardening">
   </div>
   <div class="footer-center">
     <p>&copy; 2026 Living Spaces Gardening · St. Petersburg, FL</p>
