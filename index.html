@@ -104,8 +104,6 @@ nav.scrolled .nav-links a { color: var(--charcoal); }
 .nav-cta {
   background: var(--terra) !important;
   color: #fff !important;
-  min-height: 40px; padding: 8px 18px;
-  font-size: .76rem; font-weight: 600;
 }
 .nav-cta:hover { background: var(--cocoa) !important; }
 .hamburger {
@@ -133,11 +131,6 @@ nav.scrolled .hamburger span { background: var(--charcoal); }
 .hero-bg-fill {
   position: absolute; inset: 0;
   background: var(--sand);
-}
-.hero-bg video {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover; z-index: 1;
 }
 .hero-overlay {
   position: absolute; inset: 0; z-index: 2;
@@ -749,15 +742,12 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
 <section class="hero" id="hero">
   <div class="hero-bg">
     <div class="hero-bg-fill"></div>
-    <video id="heroVideo" autoplay muted loop playsinline>
-      <source src="assets/hero-video.mp4" type="video/mp4">
-    </video>
     <div class="hero-overlay"></div>
   </div>
   <div class="hero-content">
     <p class="hero-tag"><span></span> Native Florida Landscape Design</p>
     <h1>Your yard should be <em>alive</em>. Not just pretty.</h1>
-    <p class="hero-sub">Native plants, hardscaping, and habitat gardens built for Tampa Bay. Florida Master Naturalist–led · Serving since 2018.</p>
+    <p class="hero-sub">Native plants, hardscaping, and habitat gardens built for Tampa Bay. Florida Master Naturalist-led. Serving Tampa Bay since 2018.</p>
     <div class="hero-actions">
       <a href="#" onclick="openSMS(event)" class="btn-primary">Text us your project</a>
       <a href="#services" class="btn-ghost">See our services</a>
@@ -993,7 +983,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
     <p class="eyebrow">About Us</p>
     <h2>Kiamesha <em>Wray</em></h2>
     <p>Kiamesha Wray is a certified Florida Master Naturalist and one of the first FANN credentialed professionals in the state.</p>
-    <p>She walks your property and immediately starts mapping what belongs where—what will thrive in your soil, what will draw pollinators, what will anchor the space near your entry.</p>
+    <p>She walks your property and immediately starts mapping what belongs where, what will thrive in your soil, what will draw pollinators, what will anchor the space near your entry.</p>
     <p>Living Spaces Gardening has been serving Tampa Bay since 2018. Kiamesha and her team—Justis, Osiris, and Ether—design landscapes that look beautiful and function as living ecosystems. Native plants sourced from trusted Florida growers. Hardscaping that feels intentional and permanent. Gardens that mature, not deteriorate.</p>
     <p style="color:rgba(255,255,255,.7); font-style:italic; font-size:.92rem;">As featured in Homes &amp; Gardens, November 2025.</p>
     <ul class="creds-list">
@@ -1028,7 +1018,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
         I need help with ongoing care
       </a>
       <a href="sms:7277107400?body=Hi!%20I%27m%20not%20sure%20what%20I%20need%20yet%20%E2%80%94%20can%20we%20talk%20about%20my%20yard?" class="cta-sms-btn cta-sms-wide">
-        I'm not sure yet—let's just talk
+        I'm not sure yet. Let's just talk
       </a>
     </div>
 
@@ -1045,7 +1035,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
     <img src="assets/Living-Spaces-Gardening-Brand-Lettering-Teal.jpg" alt="Living Spaces Gardening">
   </div>
   <div class="footer-center">
-    <p>&copy; 2026 Living Spaces Gardening · St. Petersburg, FL</p>
+    <p>&copy; 2026 Living Spaces Gardening. St. Petersburg, FL</p>
   </div>
   <div class="footer-right">
     <a href="https://www.livingrestorations.com" class="sister-site">Living Restorations ↗</a><br>
@@ -1067,7 +1057,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
       <a href="sms:7277107400?body=Hi!%20I%20need%20help%20picking%20the%20right%20plants%20for%20my%20yard." class="sms-option"><span>🌺</span> Help me pick the right plants</a>
       <a href="sms:7277107400?body=Hi!%20I%27d%20love%20to%20talk%20about%20hardscaping%20for%20my%20yard." class="sms-option"><span>🪨</span> Let's talk hardscaping</a>
       <a href="sms:7277107400?body=Hi!%20I%20need%20help%20keeping%20my%20garden%20healthy." class="sms-option"><span>✂️</span> I need garden maintenance</a>
-      <a href="sms:7277107400?body=Hi!%20I%27m%20not%20sure%20what%20I%20need%20yet%20%E2%80%94%20can%20we%20talk%20about%20my%20yard?" class="sms-option">Not sure yet—let's just talk</a>
+      <a href="sms:7277107400?body=Hi!%20I%27m%20not%20sure%20what%20I%20need%20yet%20%E2%80%94%20can%20we%20talk%20about%20my%20yard?" class="sms-option">Not sure yet. Let's just talk</a>
     </div>
   </div>
 </div>
@@ -1076,12 +1066,6 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
      SCRIPTS
      ============================================================ -->
 <script>
-// Hero video fallback
-var hv = document.getElementById('heroVideo');
-if (hv) {
-  hv.addEventListener('error', function() { hv.style.display = 'none'; });
-}
-
 // Nav scroll behavior
 var nav = document.getElementById('nav');
 window.addEventListener('scroll', function() {
