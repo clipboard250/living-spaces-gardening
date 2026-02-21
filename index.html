@@ -680,6 +680,16 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
    RESPONSIVE
    ============================================================ */
 @media (max-width: 960px) {
+  .hero-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(248,245,235,0.85) 0%,
+      rgba(248,245,235,0.55) 40%,
+      rgba(248,245,235,0.1) 65%,
+      transparent 100%
+    ) !important;
+  }
+  .hero-content { padding-top: 40px !important; }
   .nav-links { display: none; }
   .nav-links.open {
     display: flex; flex-direction: column;
