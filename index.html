@@ -47,6 +47,16 @@ body {
   color: var(--charcoal);
   overflow-x: hidden;
 }
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  z-index: 0;
+  background-image: url('assets/Living-Spaces-Gardening-Mark-Terracota-2.png');
+  background-repeat: repeat;
+  background-size: 280px;
+  opacity: .035;
+  pointer-events: none;
+}
 
 /* ============================================================
    CONTACT BAR (hidden — info moved to footer + contact section)
@@ -292,6 +302,7 @@ background: linear-gradient(
 .services {
   background: var(--sand);
   padding: 7rem 5%;
+  position: relative; z-index: 1;
 }
 .services-header {
   display: flex; justify-content: space-between;
@@ -415,6 +426,7 @@ background: linear-gradient(
 .reviews {
   background: var(--sand);
   padding: 7rem 5%;
+  position: relative; z-index: 1;
 }
 .reviews-header {
   display: flex; justify-content: space-between;
