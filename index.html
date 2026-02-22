@@ -47,16 +47,7 @@ body {
   color: var(--charcoal);
   overflow-x: hidden;
 }
-body::before {
-  content: '';
-  position: fixed; inset: 0;
-  z-index: 0;
-  background-image: url('assets/Living-Spaces-Gardening-Mark-Terracota-2.png');
-  background-repeat: repeat;
-  background-size: 280px;
-  opacity: .035;
-  pointer-events: none;
-}
+
 
 /* ============================================================
    CONTACT BAR (hidden — info moved to footer + contact section)
@@ -302,7 +293,7 @@ background: linear-gradient(
 .services {
   background: var(--sand);
   padding: 7rem 5%;
-  position: relative; z-index: 1;
+  position: relative; overflow: hidden;
 }
 .services-header {
   display: flex; justify-content: space-between;
@@ -426,7 +417,7 @@ background: linear-gradient(
 .reviews {
   background: var(--sand);
   padding: 7rem 5%;
-  position: relative; z-index: 1;
+  position: relative; overflow: hidden;
 }
 .reviews-header {
   display: flex; justify-content: space-between;
@@ -652,7 +643,32 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
 }
 .sms-option:hover { background: var(--sand); border-color: var(--teal); }
 .sms-option span { opacity: .4; font-size: 1.1rem; flex-shrink: 0; }
-
+   
+/* ============================================================
+   WATERMARK (terracotta mark on cream sections)
+   ============================================================ */
+.intro-text,
+.services,
+.reviews {
+  position: relative;
+}
+.intro-text::after,
+.services::after,
+.reviews::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url('assets/Living-Spaces-Gardening-Mark-Terracota-2.png');
+  background-repeat: repeat;
+  background-size: 280px;
+  opacity: .035;
+  pointer-events: none;
+  z-index: 0;
+}
+.intro-text > *,
+.services > *,
+.reviews > * {
+  position: relative; z-index: 1;
+}
 /* ============================================================
    ANIMATIONS
    ============================================================ */
