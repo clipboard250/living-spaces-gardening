@@ -709,7 +709,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
   .nav-links.open a { color: var(--charcoal); }
   .hamburger { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 48px; padding: 0; }   nav { top: 0; display: flex; align-items: center; padding: .75rem 5%; }   .nav-logo img { height: 48px; }   .hamburger span { width: 24px; height: 2px; }
   .intro { grid-template-columns: 1fr; }
-  .intro-img { min-height: 300px; }
+.intro-img { min-height: 300px; background: var(--sand); }
   .services-grid { grid-template-columns: 1fr 1fr; }
   .service-card-full { grid-template-columns: 1fr; }
   .service-card-full .service-img-slot { height: 200px; min-height: unset; }
@@ -1093,11 +1093,11 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
      SCRIPTS
      ============================================================ -->
 <script>
-// Move marquee on mobile
+// Move marquee on mobile — between intro image and services
 if (window.innerWidth <= 960) {
   var marquee = document.querySelector('.marquee-wrap');
-  var introImg = document.querySelector('.intro-img');
-  introImg.parentNode.insertBefore(marquee, introImg);
+  var services = document.querySelector('.services');
+  services.parentNode.insertBefore(marquee, services);
 }
 
 // Nav scroll behavior
