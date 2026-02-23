@@ -684,6 +684,10 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
    ============================================================ */
 @media (max-width: 960px) {
   .contact-bar { display: none; }
+  .intro { display: flex; flex-direction: column; }
+  .intro-text { order: 1; }
+  .intro-img { order: 2; }
+  .marquee-track { animation-duration: 12s; }
   .hero-overlay {
     background: linear-gradient(
       to bottom,
@@ -1091,6 +1095,13 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
      SCRIPTS
      ============================================================ -->
 <script>
+// Move marquee on mobile
+if (window.innerWidth <= 960) {
+  var marquee = document.querySelector('.marquee-wrap');
+  var introImg = document.querySelector('.intro-img');
+  introImg.parentNode.insertBefore(marquee, introImg);
+}
+
 // Nav scroll behavior
 if(!localStorage.getItem('cookies')){document.getElementById('cookieBanner').style.display='flex';}
 var nav = document.getElementById('nav');
