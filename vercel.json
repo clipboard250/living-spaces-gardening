@@ -1,4 +1,15 @@
 {
+  "redirects": [
+    { "source": "/services/landscaping", "destination": "/#services", "statusCode": 301 },
+    { "source": "/services/native-garden-design", "destination": "/#services", "statusCode": 301 },
+    { "source": "/services/garden-design", "destination": "/#services", "statusCode": 301 },
+    { "source": "/services/garden-installation", "destination": "/#services", "statusCode": 301 },
+    { "source": "/services/garden-maintenance", "destination": "/#services", "statusCode": 301 },
+    { "source": "/services/decks", "destination": "/#services", "statusCode": 301 },
+    { "source": "/services/pavers", "destination": "/#services", "statusCode": 301 },
+    { "source": "/services/pergolas", "destination": "/#services", "statusCode": 301 },
+    { "source": "/$", "destination": "/", "statusCode": 301 }
+  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
