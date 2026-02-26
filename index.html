@@ -376,13 +376,16 @@ background: linear-gradient(
    GALLERY
    ============================================================ */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 220px;
-  gap: .75rem;
-  padding: 5rem 5% 6rem;
+  display: flex;
+  gap: 1rem;
+  padding: 4rem 5%;
   background: var(--charcoal);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+.gallery::-webkit-scrollbar { display: none; }
 .gallery-item {
   overflow: hidden; position: relative; cursor: pointer;
   border-radius: 6px;
