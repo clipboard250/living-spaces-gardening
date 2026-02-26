@@ -10,7 +10,8 @@
     { "source": "/services/pergolas", "destination": "/#services", "statusCode": 301 },
 { "source": "/$", "destination": "/", "statusCode": 301 },
 { "source": "/contact", "destination": "/#contact", "statusCode": 301 },
-{ "source": "/consultation-request", "destination": "/#contact", "statusCode": 301 }
+{ "source": "/consultation-request", "destination": "/#contact", "statusCode": 301 },
+{ "source": "/service-areas/dunedin-fl", "destination": "/", "statusCode": 301 }
   ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
