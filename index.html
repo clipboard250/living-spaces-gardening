@@ -373,43 +373,71 @@ background: linear-gradient(
 .service-card-full .service-content { padding: 2.5rem 2rem; }
 
 /* ============================================================
-   GALLERY
+   GALLERY — auto-scroll marquee with hover captions
    ============================================================ */
 .gallery {
+  background: var(--charcoal);
+  padding: 4rem 0;
+  overflow: hidden;
+}
+.gallery-track-wrap {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+}
+.gallery-track {
   display: flex;
   gap: 1rem;
-  padding: 4rem 5%;
-  background: var(--charcoal);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+  width: max-content;
+  animation: galleryScroll 80s linear infinite;
 }
-.gallery::-webkit-scrollbar { display: none; }
+.gallery-track:hover { animation-play-state: paused; }
+@keyframes galleryScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 .gallery-item {
   overflow: hidden; position: relative; cursor: pointer;
   border-radius: 6px;
-  flex: 0 0 320px;
-  height: 280px;
-  scroll-snap-align: start;
+  flex: 0 0 380px;
+  height: 300px;
 }
-.gallery-placeholder {
+.gallery-item img {
   width: 100%; height: 100%;
-  background: var(--sand);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: .75rem;
+  object-fit: cover;
   transition: transform .6s ease;
 }
-.gallery-item:hover .gallery-placeholder { transform: scale(1.05); }
-.gallery-placeholder .ph-logo {
-  width: 50px; height: auto; opacity: .08;
+.gallery-item:hover img { transform: scale(1.05); }
+.gallery-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 2rem 1.25rem 1.25rem;
+  background: linear-gradient(to top, rgba(59,56,54,.85) 0%, transparent 100%);
+  color: var(--sand);
+  font-size: .82rem;
+  font-weight: 500;
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .3s, transform .3s;
 }
-.gallery-placeholder .ph-label {
-  font-size: .58rem; letter-spacing: .04em;
-  font-weight: 500; color: var(--muted); opacity: .5;
+.gallery-caption .caption-location {
+  display: block;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-top: .5rem;
 }
-
+.gallery-item:hover .gallery-caption { opacity: 1; transform: none; }
+@media (max-width: 960px) {
+  .gallery-item { flex: 0 0 300px; height: 260px; }
+}
+@media (max-width: 600px) {
+  .gallery-item { flex: 0 0 260px; height: 240px; }
+}
+   
 /* ============================================================
    REVIEWS
    ============================================================ */
@@ -819,46 +847,135 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
      GALLERY
      ============================================================ -->
 <section class="gallery" id="gallery">
-  <div class="gallery-item" data-service="native-landscape" data-location="Largo FL" data-caption="Rain garden installation - Largo, FL">
-<img src="assets/gallery/native-landscape-001-rain-garden-largo-sq.webp"
-         alt="Rain garden installation with native Florida plants in Largo FL by Living Spaces Gardening" 
-         title="Native rain garden design - Largo, FL" 
-         width="1200" height="1200" loading="lazy"
-         style="object-fit:cover; object-position: 60% 80%;">
-  </div>
-   
-  <div class="gallery-item" data-service="general">
-    <div class="gallery-placeholder">
-      <img class="ph-logo" src="assets/Living-Spaces-Gardening-Mark-Terracota-2.png" alt="Living Spaces Gardening project photo" title="Native Florida landscaping by Living Spaces Gardening" width="1300" height="800" loading="lazy">
-      <span class="ph-label">Gallery image 2</span>
-    </div>
-  </div>
-  <div class="gallery-item" data-service="general">
-    <div class="gallery-placeholder">
-      <img class="ph-logo" src="assets/Living-Spaces-Gardening-Mark-Terracota-2.png" alt="Living Spaces Gardening project photo" title="Native Florida landscaping by Living Spaces Gardening" width="1300" height="800" loading="lazy">
-      <span class="ph-label">Gallery image 3</span>
-    </div>
-  </div>
-  <div class="gallery-item" data-service="general">
-    <div class="gallery-placeholder">
-      <img class="ph-logo" src="assets/Living-Spaces-Gardening-Mark-Terracota-2.png" alt="Living Spaces Gardening project photo" title="Native Florida landscaping by Living Spaces Gardening" width="1300" height="800" loading="lazy">
-      <span class="ph-label">Gallery image 4</span>
-    </div>
-  </div>
-  <div class="gallery-item" data-service="general">
-    <div class="gallery-placeholder">
-      <img class="ph-logo" src="assets/Living-Spaces-Gardening-Mark-Terracota-2.png" alt="Living Spaces Gardening project photo" title="Native Florida landscaping by Living Spaces Gardening" width="1300" height="800" loading="lazy">
-      <span class="ph-label">Gallery image 5</span>
-    </div>
-  </div>
-  <div class="gallery-item" data-service="general">
-    <div class="gallery-placeholder">
-      <img class="ph-logo" src="assets/Living-Spaces-Gardening-Mark-Terracota-2.png" alt="Living Spaces Gardening project photo" title="Native Florida landscaping by Living Spaces Gardening" width="1300" height="800" loading="lazy">
-      <span class="ph-label">Gallery image 6</span>
-    </div>
-  </div>
-</section>
+<div class="gallery-track-wrap">
+<div class="gallery-track">
 
+  <div class="gallery-item" data-service="native-landscape" data-location="Largo, FL">
+    <img src="assets/gallery/native-landscape-001-rain-garden-largo.webp" alt="Rain garden with native grasses and dry river bed installed by Living Spaces Gardening in Largo FL" title="Rain garden installation — Largo, FL" width="1200" height="1200" loading="lazy" style="object-position: center 30%;">
+    <div class="gallery-caption">This yard used to flood every summer. Now it handles the rain and looks like this.<span class="caption-location">Largo, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="native-landscape" data-location="Tarpon Springs, FL">
+    <img src="assets/gallery/native-landscape-002-backyard-pathway-tarpon-springs.webp" alt="Native landscape with crushed shell pathway and specimen palm installed by Living Spaces Gardening in Tarpon Springs FL" title="Native backyard pathway — Tarpon Springs, FL" width="1200" height="1200" loading="lazy" style="object-position: center center;">
+    <div class="gallery-caption">A backyard that used to be all grass. Now it's a destination.<span class="caption-location">Tarpon Springs, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="native-landscape" data-location="St. Petersburg, FL">
+    <img src="assets/gallery/native-landscape-003-salt-tolerant-garden-st-pete.webp" alt="Salt-tolerant native garden with limestone border and mature tree canopy designed by Living Spaces Gardening in St Petersburg FL" title="Salt-tolerant native garden — St. Petersburg, FL" width="1200" height="1200" loading="lazy" style="object-position: center 60%;">
+    <div class="gallery-caption">Built to flood, built to thrive. This garden handles whatever Florida throws at it.<span class="caption-location">St. Petersburg, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="native-landscape" data-location="Tarpon Springs, FL">
+    <img src="assets/gallery/native-landscape-004-oolite-boulders-tarpon-springs.webp" alt="Oolite limestone boulders with native plantings installed by Living Spaces Gardening in Tarpon Springs FL" title="Oolite boulder landscape — Tarpon Springs, FL" width="1200" height="1200" loading="lazy" style="object-position: center 65%;">
+    <div class="gallery-caption">Oolite limestone. Native plants. Zero lawn. This is what letting go of grass looks like.<span class="caption-location">Tarpon Springs, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="hardscape" data-location="Tampa Bay, FL">
+    <img src="assets/gallery/hardscape-001-flagstone-pathway-tampa-bay.webp" alt="Natural flagstone pathway with pine straw mulch and native plantings by Living Spaces Gardening in Tampa Bay FL" title="Flagstone pathway — Tampa Bay, FL" width="1200" height="1200" loading="lazy" style="object-position: center 45%;">
+    <div class="gallery-caption">Every step leads somewhere on purpose. Flagstone that feels like it grew here.<span class="caption-location">Tampa Bay, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="native-landscape" data-location="St. Petersburg, FL">
+    <img src="assets/gallery/native-landscape-005-front-yard-install-st-pete.webp" alt="Native front yard landscape with gravel pathway and pine straw mulch by Living Spaces Gardening in St Petersburg FL" title="Native front yard install — St. Petersburg, FL" width="1200" height="1200" loading="lazy" style="object-position: center 40%;">
+    <div class="gallery-caption">The whole front yard — gone native. Pine straw, gravel paths, and plants that actually belong here.<span class="caption-location">St. Petersburg, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="specimen-tree" data-location="Largo, FL">
+    <img src="assets/gallery/specimen-tree-001-gumbo-limbo-largo.webp" alt="22-foot gumbo limbo specimen tree planted by Living Spaces Gardening in Largo FL" title="Specimen gumbo limbo — Largo, FL" width="1200" height="1200" loading="lazy" style="object-position: center center;">
+    <div class="gallery-caption">Next gen Living Spaces Gardening family member.<span class="caption-location">Largo, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="specimen-tree" data-location="Largo, FL">
+    <img src="assets/gallery/specimen-tree-002-gumbo-limbo-establishing-largo.webp" alt="22-foot gumbo limbo specimen tree establishing in residential yard by Living Spaces Gardening in Largo FL" title="Gumbo limbo establishing — Largo, FL" width="1200" height="1200" loading="lazy" style="object-position: center 40%;">
+    <div class="gallery-caption">22 feet of gumbo limbo. Planted in one day. Shade for the next fifty years.<span class="caption-location">Largo, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="permaculture" data-location="Largo, FL">
+    <img src="assets/gallery/permaculture-001-raised-veggie-beds-largo.webp" alt="Raised metal garden beds with collard greens and rain barrels by Living Spaces Gardening in Largo FL" title="Permaculture raised beds — Largo, FL" width="1200" height="1200" loading="lazy" style="object-position: center center;">
+    <div class="gallery-caption">Collard greens, rain barrels, and a garden that feeds you back. This is permaculture.<span class="caption-location">Largo, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="permaculture" data-location="St. Petersburg, FL">
+    <img src="assets/gallery/permaculture-002-chard-seedling-irrigation-st-pete.webp" alt="Swiss chard seedling with drip irrigation line in raised bed by Living Spaces Gardening in St Petersburg FL" title="Chard seedling with drip irrigation — St. Petersburg, FL" width="1200" height="1200" loading="lazy" style="object-position: center center;">
+    <div class="gallery-caption">Every plant gets exactly the water it needs. Drip irrigation meets permaculture.<span class="caption-location">St. Petersburg, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="native-landscape" data-location="St. Petersburg, FL">
+    <img src="assets/gallery/native-landscape-006-wildflowers-st-pete.webp" alt="Native pink wildflowers blooming in pine straw mulch garden by Living Spaces Gardening in St Petersburg FL" title="Native wildflowers — St. Petersburg, FL" width="1200" height="1200" loading="lazy" style="object-position: center center;">
+    <div class="gallery-caption">We didn't plant these for looks. We planted them for pollinators. The beauty is a bonus.<span class="caption-location">St. Petersburg, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="native-landscape" data-location="Tampa Bay, FL">
+    <img src="assets/gallery/native-landscape-007-hurricane-resistant-landscape-tampa-bay.webp" alt="Hurricane-resistant native landscape with fan palms and limestone border by Living Spaces Gardening in Tampa Bay FL" title="Hurricane-resistant native landscape — Tampa Bay, FL" width="1200" height="1200" loading="lazy" style="object-position: center center;">
+    <div class="gallery-caption">Designed to take a direct hit and still look like this the next morning.<span class="caption-location">Tampa Bay, FL</span></div>
+  </div>
+
+  <!-- ── Duplicate set for seamless scroll ── -->
+
+  <div class="gallery-item" data-service="native-landscape" data-location="Largo, FL">
+    <img src="assets/gallery/native-landscape-001-rain-garden-largo.webp" alt="Rain garden with native grasses and dry river bed installed by Living Spaces Gardening in Largo FL" title="Rain garden installation — Largo, FL" width="1200" height="1200" loading="lazy" style="object-position: center 30%;">
+    <div class="gallery-caption">This yard used to flood every summer. Now it handles the rain and looks like this.<span class="caption-location">Largo, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="native-landscape" data-location="Tarpon Springs, FL">
+    <img src="assets/gallery/native-landscape-002-backyard-pathway-tarpon-springs.webp" alt="Native landscape with crushed shell pathway and specimen palm installed by Living Spaces Gardening in Tarpon Springs FL" title="Native backyard pathway — Tarpon Springs, FL" width="1200" height="1200" loading="lazy" style="object-position: center center;">
+    <div class="gallery-caption">A backyard that used to be all grass. Now it's a destination.<span class="caption-location">Tarpon Springs, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="native-landscape" data-location="St. Petersburg, FL">
+    <img src="assets/gallery/native-landscape-003-salt-tolerant-garden-st-pete.webp" alt="Salt-tolerant native garden with limestone border and mature tree canopy designed by Living Spaces Gardening in St Petersburg FL" title="Salt-tolerant native garden — St. Petersburg, FL" width="1200" height="1200" loading="lazy" style="object-position: center 60%;">
+    <div class="gallery-caption">Built to flood, built to thrive. This garden handles whatever Florida throws at it.<span class="caption-location">St. Petersburg, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="native-landscape" data-location="Tarpon Springs, FL">
+    <img src="assets/gallery/native-landscape-004-oolite-boulders-tarpon-springs.webp" alt="Oolite limestone boulders with native plantings installed by Living Spaces Gardening in Tarpon Springs FL" title="Oolite boulder landscape — Tarpon Springs, FL" width="1200" height="1200" loading="lazy" style="object-position: center 65%;">
+    <div class="gallery-caption">Oolite limestone. Native plants. Zero lawn. This is what letting go of grass looks like.<span class="caption-location">Tarpon Springs, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="hardscape" data-location="Tampa Bay, FL">
+    <img src="assets/gallery/hardscape-001-flagstone-pathway-tampa-bay.webp" alt="Natural flagstone pathway with pine straw mulch and native plantings by Living Spaces Gardening in Tampa Bay FL" title="Flagstone pathway — Tampa Bay, FL" width="1200" height="1200" loading="lazy" style="object-position: center 45%;">
+    <div class="gallery-caption">Every step leads somewhere on purpose. Flagstone that feels like it grew here.<span class="caption-location">Tampa Bay, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="native-landscape" data-location="St. Petersburg, FL">
+    <img src="assets/gallery/native-landscape-005-front-yard-install-st-pete.webp" alt="Native front yard landscape with gravel pathway and pine straw mulch by Living Spaces Gardening in St Petersburg FL" title="Native front yard install — St. Petersburg, FL" width="1200" height="1200" loading="lazy" style="object-position: center 40%;">
+    <div class="gallery-caption">The whole front yard — gone native. Pine straw, gravel paths, and plants that actually belong here.<span class="caption-location">St. Petersburg, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="specimen-tree" data-location="Largo, FL">
+    <img src="assets/gallery/specimen-tree-001-gumbo-limbo-largo.webp" alt="22-foot gumbo limbo specimen tree planted by Living Spaces Gardening in Largo FL" title="Specimen gumbo limbo — Largo, FL" width="1200" height="1200" loading="lazy" style="object-position: center center;">
+    <div class="gallery-caption">Next gen Living Spaces Gardening family member.<span class="caption-location">Largo, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="specimen-tree" data-location="Largo, FL">
+    <img src="assets/gallery/specimen-tree-002-gumbo-limbo-establishing-largo.webp" alt="22-foot gumbo limbo specimen tree establishing in residential yard by Living Spaces Gardening in Largo FL" title="Gumbo limbo establishing — Largo, FL" width="1200" height="1200" loading="lazy" style="object-position: center 40%;">
+    <div class="gallery-caption">22 feet of gumbo limbo. Planted in one day. Shade for the next fifty years.<span class="caption-location">Largo, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="permaculture" data-location="Largo, FL">
+    <img src="assets/gallery/permaculture-001-raised-veggie-beds-largo.webp" alt="Raised metal garden beds with collard greens and rain barrels by Living Spaces Gardening in Largo FL" title="Permaculture raised beds — Largo, FL" width="1200" height="1200" loading="lazy" style="object-position: center center;">
+    <div class="gallery-caption">Collard greens, rain barrels, and a garden that feeds you back. This is permaculture.<span class="caption-location">Largo, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="permaculture" data-location="St. Petersburg, FL">
+    <img src="assets/gallery/permaculture-002-chard-seedling-irrigation-st-pete.webp" alt="Swiss chard seedling with drip irrigation line in raised bed by Living Spaces Gardening in St Petersburg FL" title="Chard seedling with drip irrigation — St. Petersburg, FL" width="1200" height="1200" loading="lazy" style="object-position: center center;">
+    <div class="gallery-caption">Every plant gets exactly the water it needs. Drip irrigation meets permaculture.<span class="caption-location">St. Petersburg, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="native-landscape" data-location="St. Petersburg, FL">
+    <img src="assets/gallery/native-landscape-006-wildflowers-st-pete.webp" alt="Native pink wildflowers blooming in pine straw mulch garden by Living Spaces Gardening in St Petersburg FL" title="Native wildflowers — St. Petersburg, FL" width="1200" height="1200" loading="lazy" style="object-position: center center;">
+    <div class="gallery-caption">We didn't plant these for looks. We planted them for pollinators. The beauty is a bonus.<span class="caption-location">St. Petersburg, FL</span></div>
+  </div>
+
+  <div class="gallery-item" data-service="native-landscape" data-location="Tampa Bay, FL">
+    <img src="assets/gallery/native-landscape-007-hurricane-resistant-landscape-tampa-bay.webp" alt="Hurricane-resistant native landscape with fan palms and limestone border by Living Spaces Gardening in Tampa Bay FL" title="Hurricane-resistant native landscape — Tampa Bay, FL" width="1200" height="1200" loading="lazy" style="object-position: center center;">
+    <div class="gallery-caption">Designed to take a direct hit and still look like this the next morning.<span class="caption-location">Tampa Bay, FL</span></div>
+  </div>
+
+</div>
+</div>
+</section>
+   
 <!-- ============================================================
      SERVICES
      ============================================================ -->
@@ -888,7 +1005,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
     <div class="service-card">
       <span class="service-num">03</span>
      <div class="service-img-slot"><img src="assets/svc-irrigation.webp" alt="Irrigation system for native plants in Tampa Bay" title="Irrigation design by Living Spaces Gardening" width="1200" height="1600" loading="lazy"></div>
-      <h3>Irrigation</h3>
+      <h3>Irrigation & Lighting</h3>
       <p>Florida's dry season (yes we have one of those) runs eight months—October through May. That's most of the year with under three inches of rain per month. We design irrigation that puts water exactly where your plants need it, so nothing dies waiting for June.</p> 
       <a href="sms:7277107400?body=Hi!%20My%20garden%20needs%20better%20irrigation%20before%20dry%20season%20hits." class="service-sms">Text about this →</a>
     </div>
