@@ -18,7 +18,11 @@
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"Living Spaces Gardening","description":"Native Florida landscape design, hardscaping, and habitat gardens in Tampa Bay","telephone":"+17277107400","url":"https://www.livingspacesgardening.com","address":{"@type":"PostalAddress","streetAddress":"2621 4th Ave S","addressLocality":"St. Petersburg","addressRegion":"FL","postalCode":"33712"},"foundingDate":"2018","areaServed":"Tampa Bay, FL","serviceType":["Florida Native Landscape Design","Hardscape Design","Irrigation","Permaculture Design","Specimen Tree Sourcing and Planting","Garden Maintenance & Monitoring"]}
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<!-- Non-render-blocking font loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"></noscript>
 
 <style>
 /* ============================================================
@@ -389,6 +393,7 @@ background: linear-gradient(
   display: flex;
   gap: 1rem;
   width: max-content;
+  will-change: transform;
   animation: galleryScroll 80s linear infinite;
 }
 .gallery-track:hover { animation-play-state: paused; }
@@ -435,7 +440,10 @@ background: linear-gradient(
   .gallery-item { flex: 0 0 300px; height: 260px; }
 }
 @media (max-width: 600px) {
+  .gallery { padding: 2.5rem 0; }
   .gallery-item { flex: 0 0 260px; height: 240px; }
+  .gallery-track { animation-duration: 120s; }
+  .gallery-caption { opacity: 1; transform: none; font-size: .74rem; padding: 1.5rem 1rem 1rem; }
 }
    
 /* ============================================================
@@ -545,7 +553,7 @@ background: linear-gradient(
 }
 .about-content h2 em { font-style: normal; font-weight: 700; color: var(--teal); }
 .about-content p {
-  font-size: .87rem; color: rgba(255,255,255,.6);
+  font-size: .87rem; color: rgba(255,255,255,.75);
   line-height: 1.9; margin-bottom: .9rem; font-weight: 400;
 }
 .creds-list {
@@ -553,7 +561,7 @@ background: linear-gradient(
   display: flex; flex-direction: column; gap: .6rem;
 }
 .creds-list li {
-  font-size: .75rem; color: rgba(255,255,255,.5);
+  font-size: .75rem; color: rgba(255,255,255,.7);
   display: flex; align-items: flex-start; gap: .75rem; line-height: 1.5;
 }
 .creds-list li::before { content: '—'; color: var(--teal); font-weight: 700; flex-shrink: 0; }
@@ -567,18 +575,18 @@ background: linear-gradient(
 }
 .cta-inner { max-width: 640px; margin: 0 auto; }
 .cta .eyebrow {
-  color: rgba(255,255,255,.6);
+  color: rgba(255,255,255,.85);
   justify-content: center; margin-bottom: 1.25rem;
 }
-.cta .eyebrow::before { background: rgba(255,255,255,.4); }
+.cta .eyebrow::before { background: rgba(255,255,255,.6); }
 .cta h2 {
   font-family: 'Noto Sans', sans-serif;
   font-size: clamp(2rem, 4vw, 3.4rem);
   color: #fff; font-weight: 700; line-height: 1.1; margin-bottom: 1.2rem;
 }
-.cta h2 em { font-style: normal; font-weight: 700; color: var(--teal); }
+.cta h2 em { font-style: normal; font-weight: 700; color: #fff; text-decoration: underline; text-decoration-color: var(--teal); text-underline-offset: 4px; }
 .cta p {
-  font-size: .93rem; color: rgba(255,255,255,.8);
+  font-size: .93rem; color: rgba(255,255,255,.85);
   line-height: 1.8; margin-bottom: 3rem; font-weight: 400;
 }
 .cta-grid {
@@ -621,14 +629,14 @@ footer {
   opacity: .7;
 }
 .footer-center { text-align: center; }
-footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
-.footer-right { text-align: right; }
+footer p { color: rgba(255,255,255,.45); font-size: .72rem; font-weight: 400; }
+.footer-right { text-align: right; display: flex; flex-direction: column; gap: .6rem; }
 .footer-right a {
-  color: rgba(255,255,255,.35); text-decoration: none;
-  font-size: .72rem; transition: color .2s;
+  color: rgba(255,255,255,.55); text-decoration: underline; text-decoration-color: rgba(255,255,255,.2);
+  font-size: .75rem; transition: color .2s;
 }
-.footer-right a:hover { color: var(--teal); }
-.sister-site { color: var(--teal) !important; font-weight: 600; }
+.footer-right a:hover { color: var(--teal); text-decoration-color: var(--teal); }
+.sister-site { color: var(--teal) !important; font-weight: 600; text-decoration: none !important; }
 
 /* ============================================================
    SMS MODAL
@@ -714,7 +722,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
   .contact-bar { display: none; }
   .intro { display: flex; flex-direction: column; }
   .intro-text { order: 1; }
-  .intro-img { order: 2; }
+  .intro-img { order: 2; display: none; }
   .marquee-track { animation-duration: 12s; }
   .hero-overlay {
     background: linear-gradient(
@@ -737,17 +745,18 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
   .nav-links.open a { color: var(--charcoal); }
   .hamburger { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 48px; padding: 0; }   nav { top: 0; display: flex; align-items: center; padding: .75rem 5%; }   .nav-logo img { height: 48px; }   .hamburger span { width: 24px; height: 2px; }
   .intro { grid-template-columns: 1fr; }
-.intro-img { min-height: 300px; background: var(--sand); }
+  .intro-img { min-height: 300px; background: var(--sand); }
   .services-grid { grid-template-columns: 1fr 1fr; }
   .service-card-full { grid-template-columns: 1fr; }
   .service-card-full .service-img-slot { height: 200px; min-height: unset; }
-  .gallery-item { flex: 0 0 260px; height: 240px; }
+  .service-sms { opacity: 1; transform: none; }
+  .gallery-item { flex: 0 0 300px; height: 260px; }
   .review-card { width: 280px; }
   .about { grid-template-columns: 1fr; }
   .about-photo { min-height: 360px; }
   .cta-grid { grid-template-columns: 1fr; }
   footer { grid-template-columns: 1fr; text-align: center; }
-  .footer-right { text-align: center; }
+  .footer-right { text-align: center; align-items: center; }
 }
 @media (max-width: 600px) {
   .services-grid { grid-template-columns: 1fr; }
@@ -773,7 +782,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
   <a href="tel:+17277107400" class="cb-call">Call Kiamesha</a>
 </div>
 
-<nav id="nav">
+<nav id="nav" aria-label="Main navigation">
   <div class="nav-logo">
   <img src="assets/Living-Spaces-Gardening-Brand-Lettering-Terracota.jpg" alt="Living Spaces Gardening" id="navLogoImg" width="154" height="64" loading="eager" title="Living Spaces Gardening">
   </div>
@@ -789,12 +798,13 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
   </button>
 </nav>
 
+<main>
 <!-- ============================================================
      HERO
      ============================================================ -->
 <section class="hero" id="hero">
   <div class="hero-bg">
-<img src="assets/lsg-hero.webp" alt="Native Florida landscape design by Living Spaces Gardening" title="Native Florida garden by Living Spaces Gardening" width="1920" height="1080" loading="eager" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.55;">
+<img src="assets/lsg-hero.webp" alt="Native Florida landscape design by Living Spaces Gardening" title="Native Florida garden by Living Spaces Gardening" width="1920" height="1080" loading="eager" fetchpriority="high" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.55;">
     <div class="hero-overlay"></div>
   </div>
   <div class="hero-content">
@@ -811,7 +821,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
 <!-- ============================================================
      MARQUEE
      ============================================================ -->
-<div class="marquee-wrap">
+<div class="marquee-wrap" aria-hidden="true">
   <div class="marquee-track">
     <span>Florida Master Naturalist</span>
     <span>FANN Credentialed</span>
@@ -846,7 +856,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
 <!-- ============================================================
      GALLERY
      ============================================================ -->
-<section class="gallery" id="gallery">
+<section class="gallery" id="gallery" aria-label="Project gallery">
 <div class="gallery-track-wrap">
 <div class="gallery-track">
 
@@ -991,7 +1001,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
       <div class="service-img-slot"><img src="assets/svc-hardscape.webp" alt="Native Florida landscape design in Tampa Bay" title="Native landscape design by Living Spaces Gardening" width="1200" height="675" loading="lazy"></div>
       <h3>Florida Native Landscape Design</h3>
       <p>A full garden design built around plants that belong in Florida. We match every element to your soil, sun, and water so it thrives without constant maintenance.</p>
-      <a href="sms:7277107400?body=Hi!%20I%20want%20a%20native%20Florida%20garden%20that%20takes%20care%20of%20itself.%0A%0AA%20little%20about%20me%20so%20you%20can%20help%3A%0A%0AName%3A%20%0AAddress%3A%20%0AEmail%3A%20%0A%0AWhat%20caught%20my%20eye%3A%20" class="service-sms">Text about this →</a>
+      <a href="sms:7277107400?body=Hi!%20I%20want%20a%20native%20Florida%20garden%20that%20takes%20care%20of%20itself.%0A%0AA%20little%20about%20me%20so%20you%20can%20help%3A%0A%0AName%3A%20%0AAddress%3A%20%0AEmail%3A%20%0A%0AWhat%20caught%20my%20eye%3A%20" class="service-sms" aria-label="Text us about native landscape design">Text about this →</a>
     </div>
 
     <div class="service-card">
@@ -999,7 +1009,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
       <div class="service-img-slot"><img src="assets/svc-hardscape-patio-rocks.webp" alt="Hardscape patio and rock design in Tampa Bay" title="Hardscaping by Living Spaces Gardening" width="591" height="886" loading="lazy"></div>
       <h3>Hardscape Design</h3>
       <p>Patios, pathways, dry river beds, retaining walls—built to work with your landscape—not against it. Functional stonework that feels like it was always there.</p>
-      <a href="sms:7277107400?body=Hi!%20I%27d%20love%20to%20talk%20about%20hardscaping%20for%20my%20garden.%0A%0AA%20little%20about%20me%20so%20you%20can%20help%3A%0A%0AName%3A%20%0AAddress%3A%20%0AEmail%3A%20%0A%0AWhat%20caught%20my%20eye%3A%20" class="service-sms">Text about this →</a>
+      <a href="sms:7277107400?body=Hi!%20I%27d%20love%20to%20talk%20about%20hardscaping%20for%20my%20garden.%0A%0AA%20little%20about%20me%20so%20you%20can%20help%3A%0A%0AName%3A%20%0AAddress%3A%20%0AEmail%3A%20%0A%0AWhat%20caught%20my%20eye%3A%20" class="service-sms" aria-label="Text us about hardscape design">Text about this →</a>
     </div>
 
     <div class="service-card">
@@ -1007,7 +1017,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
      <div class="service-img-slot"><img src="assets/svc-irrigation.webp" alt="Irrigation system for native plants in Tampa Bay" title="Irrigation design by Living Spaces Gardening" width="1200" height="1600" loading="lazy"></div>
       <h3>Irrigation & Lighting</h3>
       <p>Florida's dry season (yes we have one of those) runs eight months—October through May. That's most of the year with under three inches of rain per month. We design irrigation that puts water exactly where your plants need it, so nothing dies waiting for June.</p> 
-      <a href="sms:7277107400?body=Hi!%20My%20garden%20needs%20better%20irrigation%20before%20dry%20season%20hits.%0A%0AA%20little%20about%20me%20so%20you%20can%20help%3A%0A%0AName%3A%20%0AAddress%3A%20%0AEmail%3A%20%0A%0AWhat%20caught%20my%20eye%3A%20" class="service-sms">Text about this →</a>
+      <a href="sms:7277107400?body=Hi!%20My%20garden%20needs%20better%20irrigation%20before%20dry%20season%20hits.%0A%0AA%20little%20about%20me%20so%20you%20can%20help%3A%0A%0AName%3A%20%0AAddress%3A%20%0AEmail%3A%20%0A%0AWhat%20caught%20my%20eye%3A%20" class="service-sms" aria-label="Text us about irrigation and lighting">Text about this →</a>
     </div>
 
     <div class="service-card">
@@ -1015,7 +1025,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
       <div class="service-img-slot"><img src="assets/svc-permaculture.webp" alt="Permaculture food forest design in Tampa Bay" title="Permaculture design by Living Spaces Gardening" width="1200" height="1600" loading="lazy" style="object-position: center 15%;"></div>
       <h3>Permaculture Design</h3>
       <p>A garden that feeds you back. Edible gardens and food forests designed to produce year-round while rebuilding the soil underneath them. Grow what belongs here—and eat it too.</p>
-      <a href="sms:7277107400?body=Hi!%20I%20want%20a%20garden%20that%20feeds%20me%20back.%20Let%27s%20talk%20permaculture.%0A%0AA%20little%20about%20me%20so%20you%20can%20help%3A%0A%0AName%3A%20%0AAddress%3A%20%0AEmail%3A%20%0A%0AWhat%20caught%20my%20eye%3A%20" class="service-sms">Text about this →</a>
+      <a href="sms:7277107400?body=Hi!%20I%20want%20a%20garden%20that%20feeds%20me%20back.%20Let%27s%20talk%20permaculture.%0A%0AA%20little%20about%20me%20so%20you%20can%20help%3A%0A%0AName%3A%20%0AAddress%3A%20%0AEmail%3A%20%0A%0AWhat%20caught%20my%20eye%3A%20" class="service-sms" aria-label="Text us about permaculture design">Text about this →</a>
     </div>
 
     <div class="service-card">
@@ -1023,7 +1033,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
    <div class="service-img-slot"><img src="assets/speciment-tree.webp" alt="Mature native specimen tree installed in Tampa Bay garden" title="Specimen tree sourcing by Living Spaces Gardening" width="1200" height="675" loading="lazy"></div>
       <h3>Specimen Tree Sourcing and Planting</h3>
       <p>Mature native trees placed for immediate impact—structure, shade, and presence from day one. No waiting ten years. Every tree sourced from trusted Florida growers who know what survives here.</p>
-      <a href="sms:7277107400?body=Hi!%20I%20want%20mature%20trees%20in%20my%20garden%20now%20%E2%80%94%20not%20in%20ten%20years.%0A%0AA%20little%20about%20me%20so%20you%20can%20help%3A%0A%0AName%3A%20%0AAddress%3A%20%0AEmail%3A%20%0A%0AWhat%20caught%20my%20eye%3A%20" class="service-sms">Text about this →</a>
+      <a href="sms:7277107400?body=Hi!%20I%20want%20mature%20trees%20in%20my%20garden%20now%20%E2%80%94%20not%20in%20ten%20years.%0A%0AA%20little%20about%20me%20so%20you%20can%20help%3A%0A%0AName%3A%20%0AAddress%3A%20%0AEmail%3A%20%0A%0AWhat%20caught%20my%20eye%3A%20" class="service-sms" aria-label="Text us about specimen tree sourcing">Text about this →</a>
     </div>
 
     <div class="service-card">
@@ -1031,7 +1041,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
      <div class="service-img-slot"><img src="assets/svc-maintenance.webp" alt="Well-maintained native landscape in Tampa Bay" title="Garden maintenance by Living Spaces Gardening" width="1200" height="675" loading="lazy"></div>
       <h3>Garden Maintenance & Monitoring</h3>
 <p>Your landscape changes with every season, even in Florida. We stay with it—pruning, adjusting—and watching for problems before they spread. Most gardens decline after install. Ours get better every year.</p>
-      <a href="sms:7277107400?body=Hi!%20I%20need%20help%20keeping%20my%20garden%20healthy.%0A%0AA%20little%20about%20me%20so%20you%20can%20help%3A%0A%0AName%3A%20%0AAddress%3A%20%0AEmail%3A%20%0A%0AWhat%20caught%20my%20eye%3A%20" class="service-sms">Text about this →</a>
+      <a href="sms:7277107400?body=Hi!%20I%20need%20help%20keeping%20my%20garden%20healthy.%0A%0AA%20little%20about%20me%20so%20you%20can%20help%3A%0A%0AName%3A%20%0AAddress%3A%20%0AEmail%3A%20%0A%0AWhat%20caught%20my%20eye%3A%20" class="service-sms" aria-label="Text us about garden maintenance">Text about this →</a>
     </div>
 
   </div>
@@ -1204,14 +1214,13 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
 <div class="about-photo">
     <img src="assets/about-family.webp" alt="Kiamesha and Justus in a Florida nature preserve" title="The family — Living Spaces Gardening" width="1200" height="800" loading="lazy">
   </div>
-  </div>
   <div class="about-content">
    <p class="eyebrow">Meet us</p>
     <h2>Kiamesha <em>Wray</em></h2>
     <p>Kiamesha Wray is a certified Florida Master Naturalist and one of the first FANN credentialed professionals in the state.</p>
     <p>She walks your property and immediately starts mapping what belongs where, what will thrive in your soil, what will draw pollinators, what will anchor the space near your entry.</p>
     <p>Living Spaces Gardening has been serving Tampa Bay since 2018. Kiamesha and her husband Justis design landscapes that look beautiful and function as living ecosystems. Native plants sourced from trusted Florida growers. Hardscaping that feels intentional and permanent. Gardens that mature, not deteriorate.</p>
-    <p style="color:rgba(255,255,255,.7); font-style:italic; font-size:.92rem;">As featured in Homes &amp; Gardens, November 2025.</p>
+    <p style="color:rgba(255,255,255,.85); font-style:italic; font-size:.92rem;">As featured in Homes &amp; Gardens, November 2025.</p>
     <ul class="creds-list">
       <li>Florida Master Naturalist—certified 2014</li>
       <li>First FANN credentialed professionals in Florida</li>
@@ -1251,6 +1260,7 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
     
   </div>
 </section>
+</main>
 
 <!-- ============================================================
      FOOTER
@@ -1260,19 +1270,19 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
 <img src="assets/Living-Spaces-Gardening-Half-Moon-Logo-Teal.jpg" alt="Living Spaces Gardening" width="46" height="64" loading="lazy">
   </div>
   <div class="footer-center">
-  <p>&copy; 2026 Living Spaces Gardening. St. Petersburg, FL · <a href="privacy.html" style="color:rgba(255,255,255,.35);text-decoration:none;">Privacy Policy</a></p>
+  <p>&copy; 2026 Living Spaces Gardening. St. Petersburg, FL · <a href="privacy.html" style="color:rgba(255,255,255,.55);text-decoration:underline;text-decoration-color:rgba(255,255,255,.25);">Privacy Policy</a></p>
   </div>
   <div class="footer-right">
-    <a href="https://www.livingrestorations.com" class="sister-site">Living Restorations ↗</a><br>
-    <a href="mailto:kiamesha@livingspacesgardening.com" style="margin-top:.35rem;display:inline-block;">kiamesha@livingspacesgardening.com</a>
+    <a href="https://www.livingrestorations.com" class="sister-site">Living Restorations ↗</a>
+    <a href="mailto:kiamesha@livingspacesgardening.com">kiamesha@livingspacesgardening.com</a>
   </div>
 </footer>
-<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:998;background:#3b3836;padding:1rem 5%;font-size:.78rem;color:rgba(255,255,255,.7);">
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:998;background:#3b3836;padding:1rem 5%;font-size:.78rem;color:rgba(255,255,255,.85);">
   <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
-    <p style="margin:0;line-height:1.6;">We use cookies to improve your experience. <a href="privacy.html" style="color:#508e8a;text-decoration:underline;">Privacy Policy</a></p>
+    <p style="margin:0;line-height:1.6;">We use cookies to improve your experience. <a href="privacy.html" style="color:#6bb3ae;text-decoration:underline;">Privacy Policy</a></p>
     <div style="display:flex;gap:.5rem;">
-      <button onclick="document.getElementById('cookieBanner').style.display='none';localStorage.setItem('cookies','accepted')" style="background:#508e8a;color:#fff;border:none;padding:.45rem 1rem;border-radius:2px;font-size:.72rem;font-weight:600;cursor:pointer;">Got it</button>
-      <button onclick="document.getElementById('cookieBanner').style.display='none';localStorage.setItem('cookies','declined')" style="background:transparent;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.2);padding:.45rem 1rem;border-radius:2px;font-size:.72rem;cursor:pointer;">Decline</button>
+      <button onclick="document.getElementById('cookieBanner').style.display='none';localStorage.setItem('cookies','accepted')" style="background:#6bb3ae;color:#1a1a1a;border:none;padding:.45rem 1rem;border-radius:2px;font-size:.72rem;font-weight:600;cursor:pointer;">Got it</button>
+      <button onclick="document.getElementById('cookieBanner').style.display='none';localStorage.setItem('cookies','declined')" style="background:transparent;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.35);padding:.45rem 1rem;border-radius:2px;font-size:.72rem;cursor:pointer;">Decline</button>
     </div>
   </div>
 </div>
@@ -1299,11 +1309,11 @@ footer p { color: rgba(255,255,255,.3); font-size: .72rem; font-weight: 400; }
      SCRIPTS
      ============================================================ -->
 <script>
-// Move marquee on mobile — between intro image and services
+// Move marquee on mobile — between services and reviews
 if (window.innerWidth <= 960) {
   var marquee = document.querySelector('.marquee-wrap');
-  var services = document.querySelector('.services');
-  services.parentNode.insertBefore(marquee, services);
+  var reviews = document.querySelector('.reviews');
+  reviews.parentNode.insertBefore(marquee, reviews);
 }
 
 // Nav scroll behavior
