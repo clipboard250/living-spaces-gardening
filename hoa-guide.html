@@ -29,7 +29,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ── NAV ── */
+/* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 300;
   display: flex; justify-content: space-between; align-items: center;
@@ -82,7 +82,7 @@ nav.scrolled {
   .nav-logo img { height: 48px; }
 }
 
-/* ── HERO ── */
+/* HERO */
 .page-hero {
   background: var(--charcoal);
   padding: 9rem 5% 5rem;
@@ -120,7 +120,7 @@ nav.scrolled {
 }
 .page-hero .intro-p {
   font-size: .97rem;
-  color: rgba(255,255,255,.72);
+  color: rgba(255,255,255,.92);
   line-height: 1.85;
   max-width: 560px;
   margin-bottom: 2.5rem;
@@ -133,7 +133,7 @@ nav.scrolled {
 }
 .prepared-by span { color: var(--terra); }
 
-/* ── MARQUEE ── */
+/* MARQUEE */
 .marquee-wrap {
   background: var(--terra);
   overflow: hidden; padding: .9rem 0;
@@ -155,14 +155,14 @@ nav.scrolled {
   100% { transform: translateX(-50%); }
 }
 
-/* ── LAYOUT ── */
+/* LAYOUT */
 .content-wrap {
   max-width: 820px;
   margin: 0 auto;
   padding: 5rem 5%;
 }
 
-/* ── SECTION INTRO ── */
+/* SECTION INTRO */
 .section-intro {
   margin-bottom: 4rem;
   border-left: 3px solid var(--teal);
@@ -172,7 +172,6 @@ nav.scrolled {
   font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 700; line-height: 1.15;
   color: var(--charcoal);
-  text-transform: uppercase;
   margin-bottom: .75rem;
 }
 .section-intro h2 em { font-style: normal; color: var(--terra); }
@@ -181,14 +180,10 @@ nav.scrolled {
   line-height: 1.85;
 }
 
-/* ── Q&A ITEMS ── */
+/* Q&A ITEMS */
 .qa-list { display: flex; flex-direction: column; gap: 0; }
-
-.qa-item {
-  border-top: 1px solid rgba(99,64,60,.12);
-}
+.qa-item { border-top: 1px solid rgba(99,64,60,.12); }
 .qa-item:last-child { border-bottom: 1px solid rgba(99,64,60,.12); }
-
 .qa-question {
   width: 100%;
   background: none; border: none;
@@ -229,14 +224,12 @@ nav.scrolled {
   border-color: var(--teal);
   color: #fff;
 }
-
 .qa-answer {
   max-height: 0;
   overflow: hidden;
   transition: max-height .45s cubic-bezier(.4,0,.2,1);
 }
 .qa-item.open .qa-answer { max-height: 1200px; }
-
 .answer-inner {
   padding-bottom: 2rem;
   padding-left: 2.5rem;
@@ -250,7 +243,7 @@ nav.scrolled {
 .answer-inner p:last-child { margin-bottom: 0; }
 .answer-inner strong { color: var(--charcoal); font-weight: 600; }
 
-/* ── STATS DROPDOWN ── */
+/* STATS DROPDOWN */
 .stats-toggle {
   display: inline-flex; align-items: center; gap: .6rem;
   background: none; border: 1.5px solid rgba(80,142,138,.3);
@@ -273,7 +266,6 @@ nav.scrolled {
 }
 .stats-toggle.open { background: rgba(80,142,138,.07); border-color: var(--teal); }
 .stats-toggle.open .st-arrow { transform: rotate(180deg); }
-
 .stats-panel {
   max-height: 0;
   overflow: hidden;
@@ -311,7 +303,7 @@ nav.scrolled {
   font-style: italic;
 }
 
-/* ── SECTION DIVIDER ── */
+/* SECTION DIVIDER */
 .section-break {
   background: var(--charcoal);
   padding: 4rem 5%;
@@ -338,7 +330,7 @@ nav.scrolled {
   flex: 1 1 280px;
 }
 
-/* ── PROCESS GRID ── */
+/* PROCESS GRID */
 .process-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -360,15 +352,13 @@ nav.scrolled {
   font-size: 1rem; font-weight: 700;
   color: var(--charcoal);
   margin-bottom: .75rem;
-  text-transform: uppercase;
-  letter-spacing: .02em;
 }
 .process-card p {
   font-size: .83rem; color: var(--muted);
   line-height: 1.8;
 }
 
-/* ── CTA ── */
+/* CTA */
 .page-cta {
   background: var(--terra);
   padding: 6rem 5%;
@@ -382,14 +372,11 @@ nav.scrolled {
 .page-cta h2 {
   font-size: clamp(1.8rem, 3.5vw, 3rem);
   font-weight: 700; color: #fff;
-  text-transform: uppercase;
   line-height: 1.1; margin-bottom: 1rem;
 }
 .page-cta h2 em {
   font-style: normal;
-  text-decoration: underline;
-  text-decoration-color: rgba(255,255,255,.4);
-  text-underline-offset: 4px;
+  color: rgba(255,255,255,.85);
 }
 .page-cta p {
   font-size: .92rem; color: rgba(255,255,255,.8);
@@ -407,7 +394,7 @@ nav.scrolled {
 }
 .cta-btn:hover { background: var(--sand); transform: translateY(-2px); }
 
-/* ── REFERENCES ── */
+/* REFERENCES */
 .references {
   background: var(--charcoal);
   padding: 2.5rem 5%;
@@ -426,7 +413,7 @@ nav.scrolled {
   font-weight: 600;
 }
 
-/* ── HERO BUTTONS ── */
+/* HERO BUTTONS */
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
 .btn-primary, .btn-ghost {
   display: inline-flex; align-items: center; justify-content: center;
@@ -448,11 +435,11 @@ nav.scrolled {
 }
 .btn-ghost:hover { border-color: var(--terra); color: var(--terra); }
 
-/* ── FADE UP ── */
+/* FADE UP */
 .fade-up { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
 .fade-up.visible { opacity: 1; transform: none; }
 
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media (max-width: 640px) {
   .process-grid { grid-template-columns: 1fr; }
   .answer-inner { padding-left: 0; }
@@ -491,7 +478,7 @@ nav.scrolled {
     <p class="intro-p">Florida's unique climate and ecosystems make it one of the most biodiverse states in the nation. HOA communities across Florida are discovering that transitioning to native landscaping is not just an environmental decision, but a smart financial and aesthetic one.</p>
     <div class="hero-actions">
       <a href="/assets/guides/hoa-native-landscaping-guide.pdf" class="btn-primary" target="_blank" rel="noopener">Get the guide</a>
-      <a href="#" onclick="openSMS(event)" class="btn-ghost" id="hoaConnectBtn">Connect your HOA</a>
+      <a href="sms:7277107400?body=Hi!%20I%20represent%20an%20HOA%20and%20want%20to%20explore%20native%20landscaping.%0A%0ACommunity%20name%3A%20%0ALocation%3A%20%0AMy%20name%3A%20" class="btn-ghost" id="hoaConnectBtn">Connect your HOA</a>
     </div>
     <p class="prepared-by">Prepared by <span>Living Spaces Gardening</span></p>
   </div>
@@ -594,7 +581,7 @@ nav.scrolled {
             <ul class="stats-list">
               <li>Native plants support 35 times more native bee species than exotic ornamentals.<span class="stat-source">Dr. Doug Tallamy, University of Delaware — Bringing Nature Home</span></li>
               <li>Florida has lost an estimated 9 million acres of natural habitat since the 1950s. Residential landscapes are increasingly important wildlife corridors.<span class="stat-source">Florida Fish and Wildlife Conservation Commission</span></li>
-              <li>Caterpillars, a critical food source for nesting birds, depend almost entirely on native host plants. Non-native ornamentals support virtually none.<span class="stat-source">Tallamy & Shropshire, 2009</span></li>
+              <li>Caterpillars, a critical food source for nesting birds, depend almost entirely on native host plants. Non-native ornamentals support virtually none.<span class="stat-source">Tallamy &amp; Shropshire, 2009</span></li>
             </ul>
           </div>
         </div>
@@ -702,9 +689,9 @@ nav.scrolled {
 <!-- CTA -->
 <section class="page-cta">
   <p class="eyebrow">Start here</p>
-  <h2>Ready to walk your<br><em>community's grounds?</em></h2>
+  <h2>Let's walk your<br><em>community's grounds</em></h2>
   <p>We welcome the opportunity to learn your goals and present a customized transition plan. Reach Kiamesha directly.</p>
-  <a href="sms:7277107400?body=Hi!%20I%27d%20like%20to%20talk%20about%20converting%20our%20HOA%20to%20native%20landscaping.%0A%0ACommunity%20name%3A%20%0AAddress%3A%20%0AContact%20name%3A%20%0AEmail%3A%20" class="cta-btn">Text us about your community</a>
+  <a href="sms:7277107400?body=Hi!%20I%27d%20like%20to%20talk%20about%20converting%20our%20HOA%20to%20native%20landscaping.%0A%0ACommunity%20name%3A%20%0AAddress%3A%20%0AContact%20name%3A%20%0AEmail%3A%20" class="cta-btn" id="ctaMainBtn">Start the conversation</a>
 </section>
 
 <!-- REFERENCES -->
@@ -747,28 +734,23 @@ function toggleStats(btn) {
   panel.classList.toggle('open', !isOpen);
 }
 
-function fixContactLinks() {
-  const isMobile = /iPhone|Android|iPad/i.test(navigator.userAgent) ||
-                   ('ontouchstart' in window && window.innerWidth < 1024);
-  if (isMobile) return;
-  document.querySelectorAll('a[href^="sms:"]').forEach(function(a) {
-    const body = decodeURIComponent(a.href.split('?body=')[1] || '');
-    const subject = encodeURIComponent('Living Spaces Gardening — HOA Inquiry');
-    a.href = 'mailto:kiamesha@livingspacesgardening.com?subject=' + subject + '&body=' + encodeURIComponent(body);
-  });
-}
-fixContactLinks();
-
 (function() {
   const isMobile = /iPhone|Android|iPad/i.test(navigator.userAgent) ||
                    ('ontouchstart' in window && window.innerWidth < 1024);
   if (isMobile) return;
-  var btn = document.getElementById('hoaConnectBtn');
-  if (!btn) return;
   var subject = encodeURIComponent('Living Spaces Gardening — HOA Inquiry');
-  var body = encodeURIComponent('Hi! I represent an HOA community and want to explore converting to Florida native landscaping.\n\nCommunity name: \nLocation: \nNumber of homes: \nMy name: \nBest way to reach me: ');
-  btn.href = 'mailto:kiamesha@livingspacesgardening.com?subject=' + subject + '&body=' + body;
-  btn.removeAttribute('onclick');
+
+  var connectBtn = document.getElementById('hoaConnectBtn');
+  if (connectBtn) {
+    var body1 = encodeURIComponent('Hi! I represent an HOA community and want to explore converting to Florida native landscaping.\n\nCommunity name: \nLocation: \nNumber of homes: \nMy name: \nBest way to reach me: ');
+    connectBtn.href = 'mailto:kiamesha@livingspacesgardening.com?subject=' + subject + '&body=' + body1;
+  }
+
+  var ctaBtn = document.getElementById('ctaMainBtn');
+  if (ctaBtn) {
+    var body2 = encodeURIComponent('Hi! I\'d like to talk about converting our HOA to native landscaping.\n\nCommunity name: \nAddress: \nContact name: \nEmail: ');
+    ctaBtn.href = 'mailto:kiamesha@livingspacesgardening.com?subject=' + subject + '&body=' + body2;
+  }
 })();
 
 var obs = new IntersectionObserver(function(entries) {
