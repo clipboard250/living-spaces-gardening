@@ -640,6 +640,19 @@ function toggleStats(btn) {
   panel.classList.toggle('open', !isOpen);
 }
 
+// Desktop: swap SMS to pre-filled email
+function fixContactLinks() {
+  const isMobile = /iPhone|Android|iPad/i.test(navigator.userAgent) ||
+                   ('ontouchstart' in window && window.innerWidth < 1024);
+  if (isMobile) return;
+  document.querySelectorAll('a[href^="sms:"]').forEach(function(a) {
+    const body = decodeURIComponent(a.href.split('?body=')[1] || '');
+    const subject = encodeURIComponent('Living Spaces Gardening — HOA Inquiry');
+    a.href = 'mailto:kiamesha@livingspacesgardening.com?subject=' + subject + '&body=' + encodeURIComponent(body);
+  });
+}
+fixContactLinks();
+
 // Scroll animations
 var obs = new IntersectionObserver(function(entries) {
   entries.forEach(function(e) {
