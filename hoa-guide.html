@@ -113,7 +113,7 @@ nav.scrolled {
   font-weight: 700; line-height: 1.08;
   color: #fff;
   margin-bottom: 1.4rem;
- }
+}
 .page-hero h1 em {
   font-style: normal;
   color: var(--teal);
@@ -327,7 +327,6 @@ nav.scrolled {
   font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 700;
   color: #fff;
-  text-transform: uppercase;
   line-height: 1.1;
   flex: 0 0 auto;
 }
@@ -427,6 +426,28 @@ nav.scrolled {
   font-weight: 600;
 }
 
+/* ── HERO BUTTONS ── */
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.btn-primary, .btn-ghost {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 12px 24px; border-radius: 2px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: .88rem; font-weight: 600;
+  text-decoration: none; cursor: pointer;
+  transition: background .2s, transform .2s, border-color .2s, color .2s;
+}
+.btn-primary {
+  background: var(--terra); color: #fff;
+  border: 1.5px solid var(--terra);
+}
+.btn-primary:hover { background: var(--cocoa); border-color: var(--cocoa); transform: translateY(-2px); }
+.btn-ghost {
+  background: transparent;
+  border: 1.5px solid var(--teal);
+  color: var(--teal);
+}
+.btn-ghost:hover { border-color: var(--terra); color: var(--terra); }
+
 /* ── FADE UP ── */
 .fade-up { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
 .fade-up.visible { opacity: 1; transform: none; }
@@ -442,14 +463,33 @@ nav.scrolled {
 </head>
 <body>
 
-<nav id="nav" aria-label="Main navigation">   <div class="nav-logo">     <a href="index.html">       <img src="assets/Living-Spaces-Gardening-Brand-Lettering-Terracota.webp" alt="Living Spaces Gardening" width="154" height="64" loading="eager">     </a>   </div>   <ul class="nav-links" id="navLinks">     <li><a href="index.html#intro">Gardens</a></li>     <li><a href="index.html#gallery">Gallery</a></li>     <li><a href="index.html#services">How we help</a></li>     <li><a href="index.html#about">Meet the family</a></li>     <li><a href="press.html">Press</a></li>     <li><a href="index.html#contact" class="nav-cta">Connect</a></li>   </ul>   <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">     <span></span><span></span><span></span>   </button> </nav>  <!-- HERO -->
+<nav id="nav" aria-label="Main navigation">
+  <div class="nav-logo">
+    <a href="index.html">
+      <img src="assets/Living-Spaces-Gardening-Brand-Lettering-Terracota.webp" alt="Living Spaces Gardening" width="154" height="64" loading="eager">
+    </a>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#intro">Gardens</a></li>
+    <li><a href="index.html#gallery">Gallery</a></li>
+    <li><a href="index.html#services">How we help</a></li>
+    <li><a href="index.html#about">Meet the family</a></li>
+    <li><a href="press.html">Press</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Connect</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
 <section class="page-hero">
   <img src="assets/gallery/dunescaping.webp" alt="Florida native dune landscape restoration by Living Spaces Gardening" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.18;pointer-events:none;">
   <div class="hero-inner">
     <p class="eyebrow">HOA Communities</p>
     <h1>Converting your community<br>to <em>Florida native</em> landscaping.</h1>
     <p class="intro-p">Florida's unique climate and ecosystems make it one of the most biodiverse states in the nation. HOA communities across Florida are discovering that transitioning to native landscaping is not just an environmental decision, but a smart financial and aesthetic one.</p>
- <div class="hero-actions">
+    <div class="hero-actions">
       <a href="/assets/guides/hoa-native-landscaping-guide.pdf" class="btn-primary" target="_blank" rel="noopener">Get the guide</a>
       <a href="#" onclick="openSMS(event)" class="btn-ghost" id="hoaConnectBtn">Connect your HOA</a>
     </div>
@@ -630,7 +670,7 @@ nav.scrolled {
 <!-- PROCESS DIVIDER -->
 <div class="section-break">
   <div class="section-break-inner">
-    <h2>Our<br><em>process.</em></h2>
+    <h2>Our<br><em>process</em></h2>
     <p>Every project starts with a thorough site assessment and a clear understanding of your community's aesthetic standards. Native landscaping does not mean wild or unkempt. Florida's native plant palette is remarkably diverse, and we design to the look your community wants.</p>
   </div>
 </div>
@@ -675,10 +715,21 @@ nav.scrolled {
 </div>
 
 <script>
-var nav = document.getElementById('nav'); window.addEventListener('scroll', function() {   nav.classList.toggle('scrolled', window.scrollY > 60); }); function toggleMenu() {   var menu = document.getElementById('navLinks');   var btn = document.querySelector('.hamburger');   menu.classList.toggle('open');   btn.setAttribute('aria-expanded', menu.classList.contains('open')); }  function toggleQA(btn) {
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function() {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+function toggleMenu() {
+  var menu = document.getElementById('navLinks');
+  var btn = document.querySelector('.hamburger');
+  menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', menu.classList.contains('open'));
+}
+
+function toggleQA(btn) {
   const item = btn.closest('.qa-item');
   const isOpen = item.classList.contains('open');
-  // Close all
   document.querySelectorAll('.qa-item.open').forEach(el => {
     el.classList.remove('open');
     el.querySelector('.qa-question').setAttribute('aria-expanded', 'false');
@@ -696,7 +747,6 @@ function toggleStats(btn) {
   panel.classList.toggle('open', !isOpen);
 }
 
-// Desktop: swap SMS to pre-filled email
 function fixContactLinks() {
   const isMobile = /iPhone|Android|iPad/i.test(navigator.userAgent) ||
                    ('ontouchstart' in window && window.innerWidth < 1024);
@@ -708,7 +758,7 @@ function fixContactLinks() {
   });
 }
 fixContactLinks();
-// Desktop: swap HOA connect button to email
+
 (function() {
   const isMobile = /iPhone|Android|iPad/i.test(navigator.userAgent) ||
                    ('ontouchstart' in window && window.innerWidth < 1024);
@@ -720,7 +770,7 @@ fixContactLinks();
   btn.href = 'mailto:kiamesha@livingspacesgardening.com?subject=' + subject + '&body=' + body;
   btn.removeAttribute('onclick');
 })();
-// Scroll animations
+
 var obs = new IntersectionObserver(function(entries) {
   entries.forEach(function(e) {
     if (e.isIntersecting) { e.target.classList.add('visible'); }
