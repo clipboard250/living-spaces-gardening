@@ -708,7 +708,18 @@ function fixContactLinks() {
   });
 }
 fixContactLinks();
-
+// Desktop: swap HOA connect button to email
+(function() {
+  const isMobile = /iPhone|Android|iPad/i.test(navigator.userAgent) ||
+                   ('ontouchstart' in window && window.innerWidth < 1024);
+  if (isMobile) return;
+  var btn = document.getElementById('hoaConnectBtn');
+  if (!btn) return;
+  var subject = encodeURIComponent('Living Spaces Gardening — HOA Inquiry');
+  var body = encodeURIComponent('Hi! I represent an HOA community and want to explore converting to Florida native landscaping.\n\nCommunity name: \nLocation: \nNumber of homes: \nMy name: \nBest way to reach me: ');
+  btn.href = 'mailto:kiamesha@livingspacesgardening.com?subject=' + subject + '&body=' + body;
+  btn.removeAttribute('onclick');
+})();
 // Scroll animations
 var obs = new IntersectionObserver(function(entries) {
   entries.forEach(function(e) {
