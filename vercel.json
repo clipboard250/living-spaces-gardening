@@ -8,10 +8,13 @@
     { "source": "/services/decks", "destination": "/#services", "statusCode": 301 },
     { "source": "/services/pavers", "destination": "/#services", "statusCode": 301 },
     { "source": "/services/pergolas", "destination": "/#services", "statusCode": 301 },
-    { "source": "/$", "destination": "/", "statusCode": 301 },
     { "source": "/contact", "destination": "/#contact", "statusCode": 301 },
     { "source": "/consultation-request", "destination": "/#contact", "statusCode": 301 },
-    { "source": "/service-areas/dunedin-fl", "destination": "/", "statusCode": 301 }
+    { "source": "/service-areas/dunedin-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/gallery", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/st-petersburg-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/services/specimen-tree-sourcing-and-planting", "destination": "/#services", "statusCode": 301 },
+    { "source": "/service-areas/privacy.html", "destination": "/privacy.html", "statusCode": 301 }
   ],
   "rewrites": [
     { "source": "/hoa-guide", "destination": "/hoa-guide.html" },
