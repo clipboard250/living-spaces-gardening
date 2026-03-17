@@ -785,6 +785,28 @@ footer p { color: rgba(255,255,255,.45); font-size: .72rem; font-weight: 400; }
   position: relative; z-index: 1;
 }
 /* ============================================================
+   EMAIL MODAL (desktop)
+   ============================================================ */
+.email-overlay { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(59,56,54,.7); align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+.email-overlay.open { display: flex; }
+.email-modal { background: var(--sand); border-radius: 3px; padding: 2.75rem; max-width: 500px; width: 90%; position: relative; }
+.email-modal::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--terra), var(--mustard), var(--teal)); border-radius: 3px 3px 0 0; }
+.email-close { position: absolute; top: 1.1rem; right: 1.1rem; background: none; border: none; font-size: 1.25rem; cursor: pointer; color: var(--muted); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: background .2s; }
+.email-close:hover { background: rgba(0,0,0,.07); }
+.email-modal .eyebrow { margin-bottom: 0.5rem; }
+.email-modal h3 { font-family: 'Noto Sans', sans-serif; font-size: 1.45rem; color: var(--charcoal); margin-bottom: 0.4rem; font-weight: 700; }
+.email-modal .form-sub { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.6; font-weight: 400; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 0.75rem; }
+.form-group label { font-size: 0.62rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+.form-group input, .form-group select, .form-group textarea { font-family: 'Noto Sans', sans-serif; font-size: 0.85rem; color: var(--charcoal); background: #fff; border: 1.5px solid rgba(80,142,138,.2); border-radius: 2px; padding: 0.75rem 0.9rem; transition: border-color .2s; font-weight: 400; resize: none; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--teal); }
+.form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23508e8a' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; cursor: pointer; background-color: #fff; }
+.form-submit { width: 100%; background: var(--terra); color: white; border: none; padding: 0.9rem 2rem; border-radius: 2px; font-family: 'Noto Sans', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: .04em; cursor: pointer; transition: background .2s, transform .2s; margin-top: 0.5rem; }
+.form-submit:hover { background: var(--cocoa); transform: translateY(-1px); }
+.form-note { font-size: 0.7rem; color: var(--muted); text-align: center; margin-top: 0.75rem; font-weight: 400; }
+
+/* ============================================================
    ANIMATIONS
    ============================================================ */
 .fade-up { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
@@ -1372,6 +1394,49 @@ footer p { color: rgba(255,255,255,.45); font-size: .72rem; font-weight: 400; }
   </div>
 </div>
 <!-- ============================================================
+     EMAIL MODAL (desktop)
+     ============================================================ -->
+<div class="email-overlay" id="emailModal">
+  <div class="email-modal" role="dialog" aria-label="Get in touch with Living Spaces Gardening" aria-modal="true">
+    <button class="email-close" onclick="closeEmail()" aria-label="Close">&times;</button>
+    <p class="eyebrow">Get in Touch</p>
+    <h3>Tell us about your garden.</h3>
+    <p class="form-sub">Kiamesha responds personally. Consultations start at $125 and that goes toward your design.</p>
+    <form action="https://formspree.io/f/xeerpvjv" method="POST">
+      <input type="hidden" name="_cc" value="kiamesha@livingspacesgardening.com">
+      <input type="hidden" name="_subject" value="Living Spaces Gardening website inquiry">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">Name</label>
+          <input type="text" id="fname" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label for="femail">Email</label>
+          <input type="email" id="femail" name="email" placeholder="your@email.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="ftopic">What's going on with your garden?</label>
+        <select id="ftopic" name="topic" required>
+          <option value="" disabled selected>Select a topic</option>
+          <option value="Native garden that takes care of itself">🌿 I want a garden that takes care of itself</option>
+          <option value="Help picking the right plants">🌺 Help me pick the right plants</option>
+          <option value="Hardscaping">🪨 Let's talk about hardscaping</option>
+          <option value="Ongoing garden care">✂️ I need help with ongoing care</option>
+          <option value="Not sure yet">💬 Not sure yet. Let's just talk</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fmessage">Tell us about your property</label>
+        <textarea id="fmessage" name="message" rows="4" placeholder="Location, size, what you're working with, what you'd love to see..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Message</button>
+      <p class="form-note">You'll hear back within one business day.</p>
+    </form>
+  </div>
+</div>
+
+<!-- ============================================================
      SMS MODAL
      ============================================================ -->
 <div class="sms-overlay" id="smsModal">
@@ -1421,22 +1486,29 @@ document.querySelectorAll('.nav-links a').forEach(function(a) {
   });
 });
 
-// SMS Modal
+// Contact Modal — SMS on mobile, email form on desktop
+var isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
 function openSMS(e) {
   if (e) e.preventDefault();
-  document.getElementById('smsModal').classList.add('open');
+  if (isMobile) {
+    document.getElementById('smsModal').classList.add('open');
+  } else {
+    document.getElementById('emailModal').classList.add('open');
+  }
   document.body.style.overflow = 'hidden';
 }
-function closeSMS() {
-  document.getElementById('smsModal').classList.remove('open');
-  document.body.style.overflow = '';
+function closeSMS() { document.getElementById('smsModal').classList.remove('open'); document.body.style.overflow = ''; }
+function closeEmail() { document.getElementById('emailModal').classList.remove('open'); document.body.style.overflow = ''; }
+document.getElementById('smsModal').addEventListener('click', function(e) { if (e.target === this) closeSMS(); });
+document.getElementById('emailModal').addEventListener('click', function(e) { if (e.target === this) closeEmail(); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeSMS(); closeEmail(); } });
+if (!isMobile) {
+  document.querySelectorAll('a[onclick*="openSMS"], button[onclick*="openSMS"]').forEach(function(el) {
+    el.innerHTML = el.innerHTML
+      .replace(/Text us your project/gi, 'Get in touch')
+      .replace(/Connect/gi, 'Get in touch');
+  });
 }
-document.getElementById('smsModal').addEventListener('click', function(e) {
-  if (e.target === this) closeSMS();
-});
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeSMS();
-});
 
 // Scroll animations
 var obs = new IntersectionObserver(function(entries) {
