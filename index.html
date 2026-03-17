@@ -784,6 +784,25 @@ footer p { color: rgba(255,255,255,.45); font-size: .72rem; font-weight: 400; }
 .reviews > * {
   position: relative; z-index: 1;
 }
+
+/* ============================================================
+   PICKER MODAL
+   ============================================================ */
+.picker-overlay { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(59,56,54,.7); align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+.picker-overlay.open { display: flex; }
+.picker-modal { background: var(--sand); border-radius: 3px; padding: 2.5rem; max-width: 360px; width: 90%; position: relative; text-align: center; }
+.picker-modal::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--terra), var(--mustard), var(--teal)); border-radius: 3px 3px 0 0; }
+.picker-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.25rem; cursor: pointer; color: var(--muted); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+.picker-modal .eyebrow { margin-bottom: .5rem; justify-content: center; }
+.picker-modal h3 { font-family: 'Noto Sans', sans-serif; font-size: 1.3rem; color: var(--charcoal); margin-bottom: .4rem; font-weight: 700; }
+.picker-modal p { font-size: .82rem; color: var(--muted); margin-bottom: 1.75rem; line-height: 1.6; }
+.picker-options { display: flex; flex-direction: column; gap: .75rem; }
+.picker-btn { display: flex; align-items: center; justify-content: center; gap: .75rem; padding: 1rem; border-radius: 2px; font-family: 'Noto Sans', sans-serif; font-size: .9rem; font-weight: 600; cursor: pointer; border: none; transition: background .2s; min-height: 52px; }
+.picker-btn-text { background: var(--terra); color: #fff; }
+.picker-btn-text:hover { background: var(--cocoa); }
+.picker-btn-email { background: #fff; color: var(--charcoal); border: 1.5px solid rgba(80,142,138,.3); }
+.picker-btn-email:hover { border-color: var(--teal); }
+
 /* ============================================================
    EMAIL MODAL (desktop)
    ============================================================ */
@@ -1393,6 +1412,23 @@ footer p { color: rgba(255,255,255,.45); font-size: .72rem; font-weight: 400; }
     </div>
   </div>
 </div>
+
+<!-- ============================================================
+     PICKER MODAL (mobile)
+     ============================================================ -->
+<div class="picker-overlay" id="pickerModal">
+  <div class="picker-modal" role="dialog" aria-modal="true">
+    <button class="picker-close" onclick="closePicker()" aria-label="Close">&times;</button>
+    <p class="eyebrow">Get in Touch</p>
+    <h3>How would you like to reach us?</h3>
+    <p>Text us directly or send an email.</p>
+    <div class="picker-options">
+      <button onclick="closePicker();openSMSDirect();" class="picker-btn picker-btn-text">📱 Text us</button>
+      <button onclick="closePicker();openEmailDirect();" class="picker-btn picker-btn-email">📧 Send an email</button>
+    </div>
+  </div>
+</div>
+
 <!-- ============================================================
      EMAIL MODAL (desktop)
      ============================================================ -->
@@ -1444,15 +1480,15 @@ footer p { color: rgba(255,255,255,.45); font-size: .72rem; font-weight: 400; }
     <button class="sms-close" onclick="closeSMS()" aria-label="Close">&times;</button>
     <p class="eyebrow">Connect</p>
     <h3>What's going on with your garden?</h3>
- <p class="sms-sub">Text us directly or prefer email? Choose what works for you.</p>
-<div class="sms-options">
+    <p class="sms-sub">Text us directly or prefer email? Choose what works for you.</p>
+    <div class="sms-options">
       <a href="sms:7277107400?body=Hi!%20I%20want%20a%20native%20Florida%20garden%20that%20takes%20care%20of%20itself.%0A%0AA%20little%20about%20me%20so%20you%20can%20help%3A%0A%0AName%3A%20%0AAddress%3A%20%0AEmail%3A%20%0A%0AWhat%20caught%20my%20eye%3A%20" class="sms-option"><span>🌿</span> I want a garden that takes care of itself</a>
       <a href="sms:7277107400?body=Hi!%20I%20need%20help%20picking%20the%20right%20plants%20for%20my%20garden.%0A%0AA%20little%20about%20me%20so%20you%20can%20help%3A%0A%0AName%3A%20%0AAddress%3A%20%0AEmail%3A%20%0A%0AWhat%20caught%20my%20eye%3A%20" class="sms-option"><span>🌺</span> Help me pick the right plants</a>
       <a href="sms:7277107400?body=Hi!%20I%27d%20love%20to%20talk%20about%20hardscaping%20for%20my%20garden.%0A%0AA%20little%20about%20me%20so%20you%20can%20help%3A%0A%0AName%3A%20%0AAddress%3A%20%0AEmail%3A%20%0A%0AWhat%20caught%20my%20eye%3A%20" class="sms-option"><span>🪨</span> Let's talk hardscaping</a>
       <a href="sms:7277107400?body=Hi!%20I%20need%20help%20keeping%20my%20garden%20healthy.%0A%0AA%20little%20about%20me%20so%20you%20can%20help%3A%0A%0AName%3A%20%0AAddress%3A%20%0AEmail%3A%20%0A%0AWhat%20caught%20my%20eye%3A%20" class="sms-option"><span>✂️</span> I need garden maintenance</a>
-    <a href="sms:7277107400?body=Hi!%20I%27m%20not%20sure%20what%20I%20need%20yet%20%E2%80%94%20can%20we%20talk%20about%20my%20garden%3F%0A%0AA%20little%20about%20me%20so%20you%20can%20help%3A%0A%0AName%3A%20%0AAddress%3A%20%0AEmail%3A%20%0A%0AWhat%20caught%20my%20eye%3A%20" class="sms-option"><span>💬</span> Not sure yet. Let's just talk</a>
+      <a href="sms:7277107400?body=Hi!%20I%27m%20not%20sure%20what%20I%20need%20yet%20%E2%80%94%20can%20we%20talk%20about%20my%20garden%3F%0A%0AA%20little%20about%20me%20so%20you%20can%20help%3A%0A%0AName%3A%20%0AAddress%3A%20%0AEmail%3A%20%0A%0AWhat%20caught%20my%20eye%3A%20" class="sms-option"><span>💬</span> Not sure yet. Let's just talk</a>
       <div style="height:1px;background:rgba(80,142,138,.15);margin:.25rem 0;"></div>
-      <a href="#" onclick="closeSMS();openEmail(event);" class="sms-option"><span>📧</span> Prefer email? Send us a message instead</a>
+      <a href="#" onclick="closeSMS();openEmailDirect(event);" class="sms-option"><span>📧</span> Prefer email? Send us a message instead</a>
     </div>
   </div>
 </div>
@@ -1488,22 +1524,27 @@ document.querySelectorAll('.nav-links a').forEach(function(a) {
   });
 });
 
-// Contact Modal — SMS on mobile, email form on desktop
+// Contact Modal
 var isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
 function openSMS(e) {
   if (e) e.preventDefault();
   if (isMobile) {
-    document.getElementById('smsModal').classList.add('open');
+    document.getElementById('pickerModal').classList.add('open');
   } else {
     document.getElementById('emailModal').classList.add('open');
   }
   document.body.style.overflow = 'hidden';
 }
+function openSMSDirect() { document.getElementById('smsModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function openEmailDirect(e) { if (e) e.preventDefault(); document.getElementById('emailModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closePicker() { document.getElementById('pickerModal').classList.remove('open'); document.body.style.overflow = ''; }
 function closeSMS() { document.getElementById('smsModal').classList.remove('open'); document.body.style.overflow = ''; }
-function closeEmail() { document.getElementById('emailModal').classList.remove('open'); document.body.style.overflow = ''; } function openEmail(e) { if (e) e.preventDefault(); document.getElementById('emailModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeEmail() { document.getElementById('emailModal').classList.remove('open'); document.body.style.overflow = ''; }
+function openEmail(e) { if (e) e.preventDefault(); document.getElementById('emailModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
+document.getElementById('pickerModal').addEventListener('click', function(e) { if (e.target === this) closePicker(); });
 document.getElementById('smsModal').addEventListener('click', function(e) { if (e.target === this) closeSMS(); });
 document.getElementById('emailModal').addEventListener('click', function(e) { if (e.target === this) closeEmail(); });
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeSMS(); closeEmail(); } });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closePicker(); closeSMS(); closeEmail(); } });
 if (!isMobile) {
   document.querySelectorAll('a[onclick*="openSMS"], button[onclick*="openSMS"]').forEach(function(el) {
     el.innerHTML = el.innerHTML
