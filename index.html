@@ -1500,7 +1500,7 @@ function openSMS(e) {
   document.body.style.overflow = 'hidden';
 }
 function closeSMS() { document.getElementById('smsModal').classList.remove('open'); document.body.style.overflow = ''; }
-function closeEmail() { document.getElementById('emailModal').classList.remove('open'); document.body.style.overflow = ''; }
+function closeEmail() { document.getElementById('emailModal').classList.remove('open'); document.body.style.overflow = ''; } function openEmail(e) { if (e) e.preventDefault(); document.getElementById('emailModal').classList.add('open'); document.body.style.overflow = 'hidden'; }
 document.getElementById('smsModal').addEventListener('click', function(e) { if (e.target === this) closeSMS(); });
 document.getElementById('emailModal').addEventListener('click', function(e) { if (e.target === this) closeEmail(); });
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeSMS(); closeEmail(); } });
