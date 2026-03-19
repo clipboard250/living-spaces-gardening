@@ -1626,6 +1626,19 @@ document.addEventListener('keydown', function(e) {
 document.querySelectorAll('.gallery-item img').forEach(function(img) {
   img.addEventListener('click', function() { openLightbox(this); });
 });
+document.getElementById('lightbox-img').addEventListener('click', function() {
+  if (this.classList.contains('zoomed')) {
+    this.classList.remove('zoomed');
+    this.style.transform = '';
+    this.style.cursor = 'zoom-in';
+  } else {
+    this.classList.add('zoomed');
+    this.style.transform = 'scale(1.85)';
+    this.style.cursor = 'zoom-out';
+  }
+});
+document.getElementById('lightbox-img').style.cursor = 'zoom-in';
+document.getElementById('lightbox-img').style.transition = 'transform .3s ease';
 // Scroll animations
 var obs = new IntersectionObserver(function(entries) {
   entries.forEach(function(entry) {
