@@ -1,21 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.livingspacesgardening.com/</loc>
-    <lastmod>2026-02-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.livingspacesgardening.com/press.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.livingspacesgardening.com/privacy.html</loc>
-    <lastmod>2026-02-21</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-</urlset>
+{
+  "redirects": [
+    { "source": "/services/landscaping", "destination": "/#services", "statusCode": 301 },
+    { "source": "/services/native-garden-design", "destination": "/#services", "statusCode": 301 },
+    { "source": "/services/garden-design", "destination": "/#services", "statusCode": 301 },
+    { "source": "/services/garden-installation", "destination": "/#services", "statusCode": 301 },
+    { "source": "/services/garden-maintenance", "destination": "/#services", "statusCode": 301 },
+    { "source": "/services/decks", "destination": "/#services", "statusCode": 301 },
+    { "source": "/services/pavers", "destination": "/#services", "statusCode": 301 },
+    { "source": "/services/pergolas", "destination": "/#services", "statusCode": 301 },
+    { "source": "/services/specimen-tree-sourcing-and-planting", "destination": "/#services", "statusCode": 301 },
+    { "source": "/services/permaculture-design", "destination": "/#services", "statusCode": 301 },
+    { "source": "/contact", "destination": "/#contact", "statusCode": 301 },
+    { "source": "/contact-us", "destination": "/#contact", "statusCode": 301 },
+    { "source": "/consultation-request", "destination": "/#contact", "statusCode": 301 },
+    { "source": "/about-us", "destination": "/#about", "statusCode": 301 },
+    { "source": "/gallery", "destination": "/", "statusCode": 301 },
+    { "source": "/sitemap", "destination": "/sitemap.xml", "statusCode": 301 },
+    { "source": "/more-information", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/dunedin-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/st-petersburg-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/largo-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/tarpon-springs-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/gulfport-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/tampa-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/pinellas-county-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/manatee-county-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/boca-grande-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/pine-island-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/fort-myers-beach-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/redington-beach-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/sanibel-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/cayo-costa-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/privacy.html", "destination": "/privacy.html", "statusCode": 301 }
+  ],
+  "rewrites": [
+    { "source": "/hoa-guide", "destination": "/hoa-guide.html" },
+    { "source": "/press", "destination": "/press.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
