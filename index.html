@@ -1587,7 +1587,7 @@ document.querySelectorAll('.nav-links a').forEach(function(a) {
 });
 
 // Contact Modal
-var isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+var isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || ('ontouchstart' in window) || window.innerWidth < 1024;
 function openSMS(e) {
   if (e) e.preventDefault();
   if (isMobile) {
