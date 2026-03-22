@@ -216,7 +216,10 @@ body { font-family: 'Noto Sans', sans-serif; background: var(--sand); color: var
     <p class="pw-logo">Living Spaces Gardening</p>
     <h2>Preview page</h2>
     <p>This is a private preview for Kiamesha. Enter the password to view.</p>
-    <input type="password" id="pw-input" placeholder="PASSWORD" onkeydown="if(event.key==='Enter')checkPW()">
+    <div style="position:relative;margin-bottom:.75rem;">
+      <input type="password" id="pw-input" placeholder="PASSWORD" onkeydown="if(event.key==='Enter')checkPW()" style="margin-bottom:0;padding-right:3.5rem;width:100%;">
+      <button onclick="togglePW()" type="button" id="pw-toggle" style="position:absolute;right:.75rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--muted);font-size:.72rem;font-weight:700;letter-spacing:.08em;">SHOW</button>
+    </div>
     <button class="pw-btn" onclick="checkPW()">View preview</button>
     <p class="pw-error" id="pw-error">Incorrect password. Try again.</p>
   </div>
@@ -237,7 +240,7 @@ body { font-family: 'Noto Sans', sans-serif; background: var(--sand); color: var
 
     <div class="note-actions">
       <a href="https://www.livingspacesgardening.com/#contact" target="_blank" rel="noopener" class="note-btn note-btn-approve">✓ Looks good—get in touch</a>
-      <a href="/cdn-cgi/l/email-protection#61080f070e21060e070413020e0f15040f154f020e0c5e1214030b0402155c27203044535131130417080416445351240508151247030e05185c29084453512500180f0040445351284453511304170804160405445351150904445351272030445351111304170804164f445351290413044453510013044453510c184453510405081512445220445120445120" class="note-btn note-btn-sms">✏️ Send edits via email</a>
+      <button onclick="sendEdits()" class="note-btn note-btn-sms" type="button">✏️ Send edits via email</button>
     </div>
   </div>
 </div>
@@ -318,8 +321,22 @@ body { font-family: 'Noto Sans', sans-serif; background: var(--sand); color: var
   </div>
 </section>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // Password check—change "garden2026" to whatever you want
+function sendEdits() {
+  window.location.href = 'mai' + 'lto:info@gofercontent.com?subject=FAQ%20Preview%20Edits&body=Hi%20Dayna!%20I%20reviewed%20the%20FAQ%20preview.%20Here%20are%20my%20edits%3A%0A%0A';
+}
+function togglePW() {
+  var input = document.getElementById('pw-input');
+  var btn = document.getElementById('pw-toggle');
+  if (input.type === 'password') {
+    input.type = 'text';
+    btn.textContent = 'HIDE';
+  } else {
+    input.type = 'password';
+    btn.textContent = 'SHOW';
+  }
+}
 function checkPW() {
   var val = document.getElementById('pw-input').value.trim().toLowerCase();
   if (val === 'nativeflorida') {
