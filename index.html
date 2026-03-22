@@ -94,8 +94,12 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { 'analytics_storage': 'denied' });
   gtag('js', new Date());
   gtag('config', 'G-1XETH7XHDZ');
+  if (localStorage.getItem('cookies') === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
 </script>
 <!-- Non-render-blocking font loading -->
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -1445,7 +1449,7 @@ footer p { color: rgba(255,255,255,.70); font-size: .72rem; font-weight: 400; }
   <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
     <p style="margin:0;line-height:1.6;">We use cookies to see how people find us and what helps. Hit "Got it" if that works for you. "Decline" is fine too — the garden's still here either way. <a href="privacy.html" style="color:#6bb3ae;text-decoration:underline;">Privacy Policy</a></p>
     <div style="display:flex;gap:.5rem;">
-      <button onclick="document.getElementById('cookieBanner').style.display='none';localStorage.setItem('cookies','accepted')" style="background:#6bb3ae;color:#1a1a1a;border:none;padding:.45rem 1rem;border-radius:2px;font-size:.72rem;font-weight:600;cursor:pointer;">Got it</button>
+      <button onclick="document.getElementById('cookieBanner').style.display='none';localStorage.setItem('cookies','accepted');gtag('consent','update',{'analytics_storage':'granted'})" style="background:#6bb3ae;color:#1a1a1a;border:none;padding:.45rem 1rem;border-radius:2px;font-size:.72rem;font-weight:600;cursor:pointer;">Got it</button>
       <button onclick="document.getElementById('cookieBanner').style.display='none';localStorage.setItem('cookies','declined')" style="background:transparent;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.35);padding:.45rem 1rem;border-radius:2px;font-size:.72rem;cursor:pointer;">Decline</button>
     </div>
   </div>
