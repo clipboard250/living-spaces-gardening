@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://livingspacesgardening.com/sitemap.xml
+Sitemap: https://www.livingspacesgardening.com/sitemap.xml
