@@ -36,6 +36,7 @@
   "rewrites": [
     { "source": "/hoa-guide", "destination": "/hoa-guide.html" },
     { "source": "/press", "destination": "/press.html" },
+    { "source": "/faq-preview", "destination": "/faq-preview.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
