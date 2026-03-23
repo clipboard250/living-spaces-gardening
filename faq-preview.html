@@ -3,280 +3,126 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FAQ Preview—Living Spaces Gardening</title>
+<title>FAQ Preview — Living Spaces Gardening</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --terra:    #9e4732;
-  --teal:     #508e8a;
-  --mustard:  #c9802e;
-  --cocoa:    #63403c;
-  --sand:     #f8f5eb;
-  --charcoal: #3b3836;
-  --muted:    #8a7a75;
+  --terra:#9e4732;--teal:#508e8a;--mustard:#c9802e;--cocoa:#63403c;--sand:#f8f5eb;--charcoal:#3b3836;--muted:#8a7a75;
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Noto Sans', sans-serif; background: var(--sand); color: var(--charcoal); }
-
-/* ── PASSWORD SCREEN ── */
-#pw-screen {
-  position: fixed; inset: 0; z-index: 999;
-  background: var(--charcoal);
-  display: flex; align-items: center; justify-content: center;
-}
-.pw-box {
-  background: var(--sand); border-radius: 3px;
-  padding: 3rem 2.5rem; max-width: 380px; width: 90%;
-  text-align: center;
-  position: relative;
-}
-.pw-box::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--terra), var(--mustard), var(--teal));
-  border-radius: 3px 3px 0 0;
-}
-.pw-logo { font-size: .62rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--teal); margin-bottom: 1.5rem; }
-.pw-box h2 { font-size: 1.4rem; font-weight: 700; color: var(--charcoal); margin-bottom: .5rem; }
-.pw-box p { font-size: .82rem; color: var(--muted); margin-bottom: 1.75rem; line-height: 1.6; }
-.pw-box input {
-  width: 100%; padding: .75rem 1rem;
-  border: 1.5px solid rgba(80,142,138,.3); border-radius: 2px;
-  font-family: 'Noto Sans', sans-serif; font-size: .9rem;
-  color: var(--charcoal); background: #fff;
-  margin-bottom: .75rem; text-align: center; letter-spacing: .15em;
-}
-.pw-box input:focus { outline: none; border-color: var(--teal); }
-.pw-btn {
-  width: 100%; background: var(--terra); color: #fff;
-  border: none; padding: .85rem; border-radius: 2px;
-  font-family: 'Noto Sans', sans-serif; font-size: .85rem;
-  font-weight: 600; cursor: pointer;
-}
-.pw-btn:hover { background: var(--cocoa); }
-.pw-error { font-size: .75rem; color: var(--terra); margin-top: .6rem; display: none; }
-
-/* ── CLIENT NOTE BANNER ── */
-.client-note {
-  background: var(--charcoal);
-  padding: 2rem 5%;
-  position: relative;
-}
-.client-note::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--terra), var(--mustard), var(--teal));
-}
-.note-inner { max-width: 820px; margin: 0 auto; }
-.note-label {
-  font-size: .6rem; font-weight: 700; letter-spacing: .2em;
-  text-transform: uppercase; color: var(--teal);
-  margin-bottom: .75rem; display: block;
-}
-.client-note h2 {
-  font-size: 1.1rem; font-weight: 700;
-  color: #fff; margin-bottom: 1rem; line-height: 1.3;
-}
-.client-note p {
-  font-size: .82rem; color: rgba(255,255,255,.7);
-  line-height: 1.85; margin-bottom: .75rem;
-}
-.client-note p strong { color: rgba(255,255,255,.95); font-weight: 600; }
-.client-note p em { color: var(--mustard); font-style: normal; font-weight: 600; }
-.note-actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1.5rem; }
-.note-btn {
-  display: inline-flex; align-items: center; gap: .5rem;
-  padding: .65rem 1.25rem; border-radius: 2px;
-  font-family: 'Noto Sans', sans-serif;
-  font-size: .75rem; font-weight: 600;
-  text-decoration: none; cursor: pointer; border: none;
-}
-.note-btn-approve { background: var(--teal); color: #fff; }
-.note-btn-approve:hover { background: #3d7470; }
-.note-btn-sms { background: transparent; color: rgba(255,255,255,.7); border: 1px solid rgba(255,255,255,.25); }
-.note-btn-sms:hover { color: #fff; border-color: rgba(255,255,255,.5); }
-.aeo-box {
-  background: rgba(80,142,138,.12);
-  border-left: 3px solid var(--teal);
-  border-radius: 0 2px 2px 0;
-  padding: 1rem 1.25rem;
-  margin-top: 1rem;
-}
-.aeo-box p { font-size: .78rem; color: rgba(255,255,255,.65); margin: 0; line-height: 1.75; }
-.aeo-box strong { color: var(--teal); }
-
-/* ── SECTION LABEL ── */
-.section-label {
-  background: rgba(158,71,50,.08);
-  border-bottom: 1px solid rgba(158,71,50,.15);
-  padding: .6rem 5%;
-  font-size: .6rem; font-weight: 700;
-  letter-spacing: .2em; text-transform: uppercase;
-  color: var(--terra); text-align: center;
-}
-
-/* ── FAQ SECTION ── */
-.faq {
-  background: var(--sand);
-  padding: 7rem 5%;
-  position: relative; overflow: hidden;
-}
-.faq::after {
-  content: '';
-  position: absolute; inset: 0;
-  background-image: url('https://www.livingspacesgardening.com/assets/Living-Spaces-Gardening-Mark-Terracota-2.png');
-  background-repeat: repeat;
-  background-size: 280px;
-  opacity: .035;
-  pointer-events: none;
-  z-index: 0;
-}
-.faq > * { position: relative; z-index: 1; }
-.faq-header { max-width: 820px; margin: 0 auto 4rem; }
-.eyebrow {
-  font-size: .65rem; font-weight: 700;
-  letter-spacing: .08em;
-  color: var(--teal);
-  margin-bottom: 1rem;
-  display: flex; align-items: center; gap: .75rem;
-}
-.eyebrow::before {
-  content: ''; display: block;
-  width: 24px; height: 2px;
-  background: var(--teal);
-}
-.faq-header h2 {
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
-  font-weight: 700; line-height: 1.15;
-  color: var(--charcoal);
-  text-transform: uppercase;
-}
-.faq-header h2 em { font-style: normal; color: var(--terra); }
-.faq-list { max-width: 820px; margin: 0 auto; }
-.faq-item { border-top: 1px solid rgba(99,64,60,.12); }
-.faq-item:last-child { border-bottom: 1px solid rgba(99,64,60,.12); }
-.faq-question {
-  width: 100%; background: none; border: none;
-  text-align: left; padding: 1.75rem 0;
-  cursor: pointer;
-  display: flex; justify-content: space-between; align-items: flex-start;
-  gap: 1.5rem;
-}
-.faq-question h3 {
-  font-family: 'Noto Sans', sans-serif;
-  font-size: 1rem; font-weight: 600;
-  color: var(--charcoal); line-height: 1.4;
-  text-align: left;
-}
-.faq-question:hover h3 { color: var(--terra); }
-.faq-arrow {
-  width: 28px; height: 28px;
-  border: 1.5px solid rgba(80,142,138,.35);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; margin-top: .1rem;
-  color: var(--teal); font-size: .8rem;
-  transition: transform .3s, background .2s, border-color .2s;
-}
-.faq-item.open .faq-arrow {
-  transform: rotate(180deg);
-  background: var(--teal); border-color: var(--teal); color: #fff;
-}
-.faq-answer {
-  max-height: 0; overflow: hidden;
-  transition: max-height .45s cubic-bezier(.4,0,.2,1);
-}
-.faq-item.open .faq-answer { max-height: 600px; }
-.answer-inner { padding-bottom: 2rem; padding-left: 0; }
-.answer-inner p {
-  font-size: .88rem; color: var(--muted);
-  line-height: 1.9; margin-bottom: .75rem;
-}
-.answer-inner p:last-child { margin-bottom: 0; }
-.answer-inner strong { color: var(--charcoal); font-weight: 600; }
-.review-flag {
-  display: inline-block;
-  background: rgba(201,128,46,.15);
-  border: 1px dashed var(--mustard);
-  color: var(--mustard);
-  font-size: .6rem; font-weight: 700;
-  letter-spacing: .1em; text-transform: uppercase;
-  padding: .25rem .6rem; border-radius: 2px;
-  margin-top: .75rem;
-}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans',sans-serif;background:var(--sand);color:var(--charcoal);}
+#pw-screen{position:fixed;inset:0;z-index:999;background:var(--charcoal);display:flex;align-items:center;justify-content:center;}
+.pw-box{background:var(--sand);border-radius:3px;padding:3rem 2.5rem;max-width:380px;width:90%;text-align:center;position:relative;}
+.pw-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--terra),var(--mustard),var(--teal));border-radius:3px 3px 0 0;}
+.pw-logo{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:1.5rem;}
+.pw-box h2{font-size:1.4rem;font-weight:700;color:var(--charcoal);margin-bottom:.5rem;}
+.pw-box p{font-size:.82rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.6;}
+.pw-input-wrap{position:relative;margin-bottom:.75rem;}
+.pw-input-wrap input{width:100%;padding:.75rem 3rem .75rem 1rem;border:1.5px solid rgba(80,142,138,.3);border-radius:2px;font-family:'Noto Sans',sans-serif;font-size:.9rem;color:var(--charcoal);background:#fff;text-align:center;letter-spacing:.15em;}
+.pw-input-wrap input:focus{outline:none;border-color:var(--teal);}
+.pw-show{position:absolute;right:.75rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--muted);font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:0;}
+.pw-btn{width:100%;background:var(--terra);color:#fff;border:none;padding:.85rem;border-radius:2px;font-family:'Noto Sans',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;margin-top:.25rem;}
+.pw-btn:hover{background:var(--cocoa);}
+.pw-error{font-size:.75rem;color:var(--terra);margin-top:.6rem;display:none;}
+.client-note{background:var(--charcoal);padding:2rem 5%;position:relative;}
+.client-note::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--terra),var(--mustard),var(--teal));}
+.note-inner{max-width:820px;margin:0 auto;}
+.note-label{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:.75rem;display:block;}
+.client-note h2{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.75rem;line-height:1.3;}
+.client-note p{font-size:.82rem;color:rgba(255,255,255,.7);line-height:1.85;margin-bottom:.6rem;}
+.client-note p strong{color:rgba(255,255,255,.95);}
+.client-note p em{color:var(--mustard);font-style:normal;font-weight:600;}
+.note-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem;}
+.note-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.25rem;border-radius:2px;font-family:'Noto Sans',sans-serif;font-size:.75rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;}
+.note-btn-approve{background:var(--teal);color:#fff;}
+.note-btn-email{background:transparent;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.25);}
+.section-label{background:rgba(158,71,50,.08);border-bottom:1px solid rgba(158,71,50,.15);padding:.6rem 5%;font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);text-align:center;}
+.faq{background:var(--sand);padding:7rem 5%;position:relative;overflow:hidden;}
+.faq::after{content:'';position:absolute;inset:0;background-image:url('https://www.livingspacesgardening.com/assets/Living-Spaces-Gardening-Mark-Terracota-2.png');background-repeat:repeat;background-size:280px;opacity:.035;pointer-events:none;z-index:0;}
+.faq>*{position:relative;z-index:1;}
+.faq-header{max-width:820px;margin:0 auto 4rem;}
+.eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.08em;color:var(--teal);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;}
+.eyebrow::before{content:'';display:block;width:24px;height:2px;background:var(--teal);}
+.faq-header h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;line-height:1.15;color:var(--charcoal);text-transform:uppercase;}
+.faq-header h2 em{font-style:normal;color:var(--terra);}
+.faq-list{max-width:820px;margin:0 auto;}
+.faq-item{border-top:1px solid rgba(99,64,60,.12);}
+.faq-item:last-child{border-bottom:1px solid rgba(99,64,60,.12);}
+.faq-question{width:100%;background:none;border:none;text-align:left;padding:1.75rem 0;cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;}
+.faq-question h3{font-family:'Noto Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--charcoal);line-height:1.4;text-align:left;}
+.faq-question:hover h3{color:var(--terra);}
+.faq-arrow{width:28px;height:28px;border:1.5px solid rgba(80,142,138,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem;color:var(--teal);font-size:.8rem;transition:transform .3s,background .2s,border-color .2s;}
+.faq-item.open .faq-arrow{transform:rotate(180deg);background:var(--teal);border-color:var(--teal);color:#fff;}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1);}
+.faq-item.open .faq-answer{max-height:400px;}
+.answer-inner{padding-bottom:2rem;}
+.answer-inner p{font-size:.88rem;color:var(--muted);line-height:1.9;}
+.answer-inner strong{color:var(--charcoal);font-weight:600;}
+.review-flag{display:inline-block;background:rgba(201,128,46,.15);border:1px dashed var(--mustard);color:var(--mustard);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .6rem;border-radius:2px;margin-top:.75rem;}
 </style>
 </head>
 <body>
 
-<!-- PASSWORD SCREEN -->
 <div id="pw-screen">
   <div class="pw-box">
     <p class="pw-logo">Living Spaces Gardening</p>
     <h2>Preview page</h2>
-    <p>This is a private preview for Kiamesha. Enter the password to view.</p>
-    <div style="position:relative;margin-bottom:.75rem;">
-      <input type="password" id="pw-input" placeholder="PASSWORD" onkeydown="if(event.key==='Enter')checkPW()" style="margin-bottom:0;padding-right:3.5rem;width:100%;">
-      <button onclick="togglePW()" type="button" id="pw-toggle" style="position:absolute;right:.75rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--muted);font-size:.72rem;font-weight:700;letter-spacing:.08em;">SHOW</button>
+    <p>Private preview for Kiamesha. Enter the password to view.</p>
+    <div class="pw-input-wrap">
+      <input type="password" id="pw-input" placeholder="PASSWORD" onkeydown="if(event.key==='Enter')checkPW()">
+      <button class="pw-show" type="button" id="pw-show-btn" onclick="var i=document.getElementById('pw-input');var b=document.getElementById('pw-show-btn');if(i.type==='password'){i.type='text';b.textContent='HIDE';}else{i.type='password';b.textContent='SHOW';}">SHOW</button>
     </div>
     <button class="pw-btn" onclick="checkPW()">View preview</button>
     <p class="pw-error" id="pw-error">Incorrect password. Try again.</p>
   </div>
 </div>
 
-<!-- CLIENT NOTE -->
 <div class="client-note" id="main-content" style="display:none;">
   <div class="note-inner">
-    <span class="note-label">For Kiamesha—Preview Only</span>
-    <h2>I built a FAQ section for your website. It takes 2 minutes to review.</h2>
-    <p>Below is exactly how this section will look on <strong>livingspacesgardening.com</strong>. I built it from questions your clients actually ask, using only information already on your site—nothing made up.</p>
-    <p>This section is important because of something called <em>AEO and GEO</em>—Answer Engine Optimization and Generative Engine Optimization. That's how your site shows up when someone asks ChatGPT, Google AI, or Perplexity a question like "do Florida native plants need less water?" Right now, there's nothing on the site structured to answer those questions directly. This FAQ fixes that.</p>
-    <p><strong>All I need from you: scroll down, read it, and either approve it or leave a note on anything you'd change.</strong> These are a starting point—you can always add more later. The goal is to get something live fast.</p>
-
-    <div class="aeo-box">
-      <p><strong>What is AEO/GEO?</strong> When someone asks an AI assistant a question, the AI pulls its answer from websites it trusts. A FAQ section with the right structure tells AI engines exactly what you do and how to answer questions about it—so Living Spaces Gardening gets cited instead of a competitor.</p>
-    </div>
-
+    <span class="note-label">For Kiamesha — Preview Only</span>
+   <h2>I built this FAQ based on questions people already ask about native landscaping. Two minutes to review.</h2>
+    <p>Scroll down to see it. Nothing is made up—every question comes from real research into what your clients search for.</p>
+    <p><strong>AEO/GEO in plain English:</strong> When someone asks ChatGPT or Google AI "do Florida native plants need less water?"—this FAQ is what gets your site cited as the answer instead of a competitor's.</p>
+    <p><strong>Approve it or send me edits. More will be added per service page over time.</strong></p>
     <div class="note-actions">
-      <a href="https://www.livingspacesgardening.com/#contact" target="_blank" rel="noopener" class="note-btn note-btn-approve">✓ Looks good—get in touch</a>
-      <button onclick="sendEdits()" class="note-btn note-btn-sms" type="button">✏️ Send edits via email</button>
+      <a href="https://www.livingspacesgardening.com/#contact" target="_blank" rel="noopener" class="note-btn note-btn-approve">✓ Looks good — get in touch</a>
+      <a href="mailto:info@gofercontent.com?subject=FAQ%20Edits&body=Hi%20Dayna!%20Here%20are%20my%20edits%3A%0A%0A" class="note-btn note-btn-email">✏️ Send edits</a>
     </div>
   </div>
 </div>
 
-<div class="section-label" id="section-label" style="display:none;">↓ This is how the FAQ section will appear on your website ↓</div>
+<div class="section-label" id="section-label" style="display:none;">↓ This is how it will look on your site ↓</div>
 
-<!-- FAQ SECTION -->
 <section class="faq" id="faq" style="display:none;" aria-labelledby="faq-heading">
   <div class="faq-header">
     <p class="eyebrow">Good questions</p>
-    <h2 id="faq-heading">Questions homeowners ask us<br>about <em>native landscaping</em></h2>
+    <h2 id="faq-heading">Questions homeowners ask<br>about <em>native landscaping</em></h2>
   </div>
-
   <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
 
     <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
       <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
-        <h3 itemprop="name">What does a real Florida native yard actually look like?</h3>
+        <h3 itemprop="name">What does a real Florida native yard look like?</h3>
         <span class="faq-arrow" aria-hidden="true">↓</span>
       </button>
       <div class="faq-answer">
         <div class="answer-inner" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Native yards look intentional, not wild. We use plants that belong in Florida—firebush, muhly grass, gumbo limbo, coontie, sunshine mimosa—arranged around your soil, sun, and drainage. The result is a landscape that looks designed and feels alive. The gallery on this page shows real projects we've installed across Tampa Bay since 2018.</p>
-          <span class="review-flag">Kiamesha—want to add any specific plant names or project examples?</span>
+          <p itemprop="text">Intentional, not wild. Native yards use plants that belong here—firebush, muhly grass, gumbo limbo, coontie—arranged around your soil, sun, and drainage. They look designed and feel alive.</p>
+          <span class="review-flag">Kiamesha — want to add or change any plant names?</span>
         </div>
       </div>
     </div>
 
     <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
       <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
-        <h3 itemprop="name">Do Florida native plants really need less water and maintenance?</h3>
+        <h3 itemprop="name">Do native plants really need less water?</h3>
         <span class="faq-arrow" aria-hidden="true">↓</span>
       </button>
       <div class="faq-answer">
         <div class="answer-inner" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Yes—once established. Most native plantings need little to no supplemental irrigation after the first rainy season, typically 6 to 12 months depending on species. Florida's dry season runs October through May. Native plants are built for it. Non-native turf and ornamentals aren't—which is why they keep dying and costing money to replace.</p>
+          <p itemprop="text">Yes—once established. Florida's dry season runs October through May. Native plants are built for it. Non-native turf isn't—which is why it keeps dying and costing money to replace.</p>
         </div>
       </div>
     </div>
@@ -288,8 +134,8 @@ body { font-family: 'Noto Sans', sans-serif; background: var(--sand); color: var
       </button>
       <div class="faq-answer">
         <div class="answer-inner" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Planting for looks without considering the climate. Non-native plants need constant watering, fertilizing, and replacing because they're fighting the environment they're in. We see it on almost every property we visit—beautiful plants that keep dying because they were never meant to grow here. Native plants work with Florida's heat, salt, drought, and storms instead of against them.</p>
-          <span class="review-flag">Kiamesha—is this accurate to what you see on site visits?</span>
+          <p itemprop="text">Planting for looks without considering the climate. Beautiful plants keep dying because they were never meant to grow here. Native plants work with Florida's heat, salt, and drought instead of against them.</p>
+          <span class="review-flag">Kiamesha — accurate to what you see on site visits?</span>
         </div>
       </div>
     </div>
@@ -301,19 +147,19 @@ body { font-family: 'Noto Sans', sans-serif; background: var(--sand); color: var
       </button>
       <div class="faq-answer">
         <div class="answer-inner" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Better than most alternatives. Deep-rooted native plants anchor soil and handle flooding that would drown conventional turf. Several of our projects were specifically designed as rain gardens to manage standing water that used to flood the yard every summer. Native plants are also more wind-resilient than shallow-rooted ornamentals.</p>
+          <p itemprop="text">Better than most. Deep-rooted natives anchor soil and absorb flooding that drowns conventional turf. Several of our projects were rain gardens built specifically for yards that flooded every summer.</p>
         </div>
       </div>
     </div>
 
     <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
       <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
-        <h3 itemprop="name">How do I get started with Living Spaces Gardening?</h3>
+        <h3 itemprop="name">How do I get started?</h3>
         <span class="faq-arrow" aria-hidden="true">↓</span>
       </button>
       <div class="faq-answer">
         <div class="answer-inner" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-          <p itemprop="text">Use the <a href="https://www.livingspacesgardening.com/#contact" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:underline;">Get in Touch section on the homepage</a>—it scrolls down to contact options where you can text or email directly. Consultations start at $125 and that fee applies toward your design. Kiamesha responds personally. We'll ask a few questions about your property—size, sun exposure, what's not working—and go from there. Most clients hear back the same day.</p>
+          <p itemprop="text">Use the <a href="https://www.livingspacesgardening.com/#contact" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:underline;">Get in Touch section</a> on the homepage. Consultations start at $125 and that goes toward your design. Kiamesha responds personally—most clients hear back the same day.</p>
         </div>
       </div>
     </div>
@@ -321,22 +167,7 @@ body { font-family: 'Noto Sans', sans-serif; background: var(--sand); color: var
   </div>
 </section>
 
-<script data-cfasync="false">
-// Password check—change "garden2026" to whatever you want
-function sendEdits() {
-  window.location.href = 'mai' + 'lto:info@gofercontent.com?subject=FAQ%20Preview%20Edits&body=Hi%20Dayna!%20I%20reviewed%20the%20FAQ%20preview.%20Here%20are%20my%20edits%3A%0A%0A';
-}
-function togglePW() {
-  var input = document.getElementById('pw-input');
-  var btn = document.getElementById('pw-toggle');
-  if (input.type === 'password') {
-    input.type = 'text';
-    btn.textContent = 'HIDE';
-  } else {
-    input.type = 'password';
-    btn.textContent = 'SHOW';
-  }
-}
+<script>
 function checkPW() {
   var val = document.getElementById('pw-input').value.trim().toLowerCase();
   if (val === 'nativeflorida') {
@@ -348,9 +179,15 @@ function checkPW() {
     document.getElementById('pw-error').style.display = 'block';
   }
 }
-
-// FAQ accordion
 function toggleFAQ(btn) {
   var item = btn.closest('.faq-item');
   var isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open
+  document.querySelectorAll('.faq-item.open').forEach(function(el) {
+    el.classList.remove('open');
+    el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+  });
+  if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+}
+</script>
+</body>
+</html>
