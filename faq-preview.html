@@ -72,7 +72,7 @@ body{font-family:'Noto Sans',sans-serif;background:var(--sand);color:var(--charc
     <p>Private preview for Kiamesha. Enter the password to view.</p>
     <div class="pw-input-wrap">
       <input type="password" id="pw-input" placeholder="PASSWORD" onkeydown="if(event.key==='Enter')checkPW()">
-      <button class="pw-show" type="button" id="pw-show-btn" onclick="var i=document.getElementById('pw-input');var b=document.getElementById('pw-show-btn');if(i.type==='password'){i.type='text';b.textContent='HIDE';}else{i.type='password';b.textContent='SHOW';}">SHOW</button>
+      <button class="pw-show" type="button" id="pw-show-btn" onclick="togglePW()">SHOW</button>
     </div>
     <button class="pw-btn" onclick="checkPW()">View preview</button>
     <p class="pw-error" id="pw-error">Incorrect password. Try again.</p>
@@ -168,7 +168,7 @@ body{font-family:'Noto Sans',sans-serif;background:var(--sand);color:var(--charc
 </section>
 
 <script>
-function checkPW() {
+function togglePW() {   var i = document.getElementById('pw-input');   var b = document.getElementById('pw-show-btn');   if (i.type === 'password') { i.type = 'text'; b.textContent = 'HIDE'; }   else { i.type = 'password'; b.textContent = 'SHOW'; } } function checkPW() {
   var val = document.getElementById('pw-input').value.trim().toLowerCase();
   if (val === 'nativeflorida') {
     document.getElementById('pw-screen').style.display = 'none';
