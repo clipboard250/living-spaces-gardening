@@ -420,6 +420,13 @@ footer p{color:rgba(255,255,255,.70);font-size:.72rem;font-weight:400;}
       <a href="https://www.instagram.com/livingspacesgardening/" target="_blank" rel="noopener" aria-label="Living Spaces Gardening on Instagram"><img src="assets/gallery/icon-instagram.svg" alt="Instagram" width="20" height="20" style="opacity:.6;vertical-align:middle;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'"></a>
       <a href="https://www.facebook.com/livingspacesgardening" target="_blank" rel="noopener" aria-label="Living Spaces Gardening on Facebook"><img src="assets/gallery/icon-facebook.jpeg" alt="Facebook" width="20" height="20" style="opacity:.6;vertical-align:middle;border-radius:50%;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'"></a>
     </div>
+    <div class="footer-right">
+  <a href="https://www.livingrestorations.com" class="sister-site">Living Restorations ↗</a>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/livingspacesgardening/" target="_blank" rel="noopener" aria-label="Living Spaces Gardening on Instagram"><img src="/assets/gallery/icon-instagram.svg" alt="Instagram" width="20" height="20" style="opacity:.6;vertical-align:middle;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'"></a>
+    <a href="https://www.facebook.com/livingspacesgardening" target="_blank" rel="noopener" aria-label="Living Spaces Gardening on Facebook"><img src="/assets/gallery/icon-facebook.jpeg" alt="Facebook" width="20" height="20" style="opacity:.6;vertical-align:middle;border-radius:50%;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'"></a>
+  </div>
+</div>
   </div>
 </footer>
 
@@ -452,30 +459,40 @@ footer p{color:rgba(255,255,255,.70);font-size:.72rem;font-weight:400;}
   <div class="email-modal" role="dialog" aria-modal="true">
     <button class="email-close" onclick="closeEmail()" aria-label="Close">&times;</button>
     <p class="eyebrow">Get in Touch</p>
-    <p class="modal-h">Tell us about your garden.</p>
-    <p class="modal-sub">Kiamesha responds personally. Consultations start at $125 and that goes toward your design.</p>
-    <form action="https://formspree.io/f/mnjlazez" method="POST">
-      <input type="hidden" name="_cc" value="kiamesha@livingspacesgardening.com"> 
-     <input type="hidden" name="_next" value="https://www.livingspacesgardening.com/thank-you.html">
-      <input type="hidden" name="_subject" value="Garden Maintenance Inquiry — Living Spaces Gardening">
+    <h3>Tell us about your garden.</h3>
+    <p class="form-sub">Kiamesha responds personally. Consultations start at $125 and that goes toward your design.</p>
+   <form action="https://formspree.io/f/xeerpvjv" method="POST">
+      <input type="hidden" name="_cc" value="kiamesha@livingspacesgardening.com">
+      <input type="hidden" name="_subject" value="Living Spaces Gardening website inquiry">
       <div class="form-row">
-        <div class="form-group"><label>Name</label><input type="text" name="name" placeholder="Your name" required></div>
-        <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required></div>
+        <div class="form-group"><label for="fname">Name</label><input type="text" id="fname" name="name" placeholder="Your name" required></div>
+        <div class="form-group"><label for="femail">Email</label><input type="email" id="femail" name="email" placeholder="your@email.com" required></div>
       </div>
-      <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="727-555-1234" required></div>
-      <div class="form-group"><label>Address or Zip Code</label><input type="text" name="address" placeholder="St. Petersburg, FL or just your zip"></div>
+     <div class="form-group">
+        <label for="fphone">Phone</label>
+        <input type="tel" id="fphone" name="phone" placeholder="727-555-1234" required>
+        <span style="font-size:.65rem;color:var(--muted);margin-top:.25rem;">No spam, no cold calls. We use this to follow up personally.</span>
+      </div>
       <div class="form-group">
-        <label>What's going on with your garden?</label>
-        <select name="topic" required>
+        <label for="faddress">Address or Zip Code</label>
+        <input type="text" id="faddress" name="address" placeholder="123 Main St, St. Petersburg, FL (or just your zip code)">
+        <span style="font-size:.65rem;color:var(--muted);margin-top:.25rem;">Helps us understand your area. We never show up unannounced.</span>
+      </div>
+      <div class="form-group">
+        <label for="ftopic">What's going on with your garden?</label>
+        <select id="ftopic" name="topic" required>
           <option value="" disabled selected>Select a topic</option>
-          <option value="Monthly maintenance plan">✂️ I need a monthly maintenance plan</option>
-          <option value="Garden checkup">🌿 My garden needs a checkup</option>
-          <option value="Invasive removal">🔬 I have invasives taking over</option>
-          <option value="Irrigation issues">💧 Irrigation problems</option>
+          <option value="Native garden that takes care of itself">🌿 I want a garden that takes care of itself</option>
+          <option value="Help picking the right plants">🌺 Help me pick the right plants</option>
+          <option value="Hardscaping">🪨 Let's talk about hardscaping</option>
+          <option value="Ongoing garden care">✂️ I need help with ongoing care</option>
           <option value="Not sure yet">💬 Not sure yet. Let's just talk</option>
         </select>
       </div>
-      <div class="form-group"><label>Tell us about your garden</label><textarea name="message" rows="4" placeholder="Where it is, how long you've had it, what's going on..."></textarea></div>
+<div class="form-group">
+        <label for="fmessage">Tell us about your property</label>
+        <textarea id="fmessage" name="message" rows="4" placeholder="Location, size, what you're working with, what you'd love to see..."></textarea>
+      </div>
       <button type="submit" class="form-submit">Send Message</button>
       <p class="form-note">You'll hear back within one business day.</p>
     </form>
