@@ -256,7 +256,19 @@ footer p{color:rgba(255,255,255,.70);font-size:.72rem;font-weight:400;}
 .form-note{font-size:.7rem;color:var(--muted);text-align:center;margin-top:.75rem;}
 .fade-up{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
 .fade-up.visible{opacity:1;transform:none;}
+.cta-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;max-width:520px;margin:0 auto 1.5rem;}
+.cta-sms-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;border-radius:2px;font-family:'Noto Sans',sans-serif;font-size:.88rem;font-weight:400;letter-spacing:.02em;text-decoration:none;line-height:1.2;cursor:pointer;transition:background .2s,border-color .2s;border:1.5px solid rgba(255,255,255,.2);color:var(--charcoal);background:rgba(255,255,255,.9);text-align:left;}
+.cta-sms-btn:hover{background:#fff;border-color:rgba(255,255,255,1);}
+.cta-sms-wide{grid-column:1/-1;background:#fff!important;color:var(--terra)!important;text-align:center;font-weight:600;border:none!important;}
+.cta-sms-wide:hover{background:var(--sand)!important;}
+.cta{background:var(--terra);padding:7rem 5%;text-align:center;}
+.cta .eyebrow{color:rgba(255,255,255,.85);justify-content:center;}
+.cta .eyebrow::before{background:rgba(255,255,255,.6);}
+.cta h2{font-size:clamp(2rem,3.5vw,3rem);font-weight:700;color:#fff;line-height:1.1;margin:1rem 0;text-transform:uppercase;}
+.cta h2 em{font-style:normal;text-decoration:underline;text-decoration-color:var(--teal);text-underline-offset:4px;}
+.cta p{font-size:.9rem;color:rgba(255,255,255,.8);line-height:1.85;margin-bottom:2.5rem;}
 @media(max-width:960px){
+  .cta-grid{grid-template-columns:1fr;}
   .nav-links{display:none;}
   .nav-links.open{display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--sand);padding:1.5rem 5%;gap:1.25rem;box-shadow:0 8px 24px rgba(0,0,0,.12);}
   .nav-links.open a{color:var(--charcoal);}
@@ -392,41 +404,35 @@ footer p{color:rgba(255,255,255,.70);font-size:.72rem;font-weight:400;}
   </div>
 </section>
 
-<section class="page-cta" id="contact">
+<section class="cta" id="contact">
   <div class="cta-inner">
     <p class="eyebrow">Start here</p>
-    <h2>Let's talk about <em>your garden</em>.</h2>
-    <p>Tell Kiamesha where things stand. Whether you have an existing native landscape that needs care or you are starting from scratch, she responds personally and most clients hear back the same day.</p>
-    <div class="cta-actions">
-      <button onclick="openSMS(event)" class="cta-btn-white">✂️ Talk about maintenance</button>
-      <a href="tel:7277107400" class="cta-btn-outline">📞 727-710-7400</a>
+    <h2>Let's talk about <em>your property</em>.</h2>
+    <p>Pick a topic below. Kiamesha responds personally. Consultations start at $125 and that goes toward your design.</p>
+    <div class="cta-grid">
+      <a href="#contact" onclick="openSMS(event)" class="cta-sms-btn">🌿 I want a garden that takes care of itself</a>
+      <a href="#contact" onclick="openSMS(event)" class="cta-sms-btn">🌺 Help me pick the right plants</a>
+      <a href="#contact" onclick="openSMS(event)" class="cta-sms-btn">🪨 Let's talk about hardscaping</a>
+      <a href="#contact" onclick="openSMS(event)" class="cta-sms-btn">✂️ I need help with ongoing care</a>
+      <a href="#contact" onclick="openSMS(event)" class="cta-sms-btn cta-sms-wide">I'm not sure yet. Let's just talk</a>
     </div>
-    <p class="cta-note">Serving St. Petersburg, Tampa, Clearwater, Largo, Tarpon Springs, and surrounding Tampa Bay communities.</p>
   </div>
 </section>
-
 </main>
 
 <footer>
   <div class="footer-logo">
-    <img src="assets/Living-Spaces-Gardening-Mark-Terracota-2.png" alt="Living Spaces Gardening" width="46" height="46" loading="lazy">
+    <img src="/assets/Living-Spaces-Gardening-Mark-Terracota-2.png" alt="Living Spaces Gardening" width="46" height="46" loading="lazy">
   </div>
   <div class="footer-center">
-    <p>&copy; 2026 Living Spaces Gardening. St. Petersburg, FL &middot; <a href="privacy.html" style="color:rgba(255,255,255,.55);text-decoration:underline;text-decoration-color:rgba(255,255,255,.25);">Privacy Policy</a></p>
+    <p>&copy; 2026 Living Spaces Gardening. St. Petersburg, FL &middot; <a href="/privacy.html" style="color:rgba(255,255,255,.55);text-decoration:underline;text-decoration-color:rgba(255,255,255,.25);">Privacy Policy</a></p>
   </div>
   <div class="footer-right">
     <a href="https://www.livingrestorations.com" class="sister-site">Living Restorations ↗</a>
     <div class="footer-social">
-      <a href="https://www.instagram.com/livingspacesgardening/" target="_blank" rel="noopener" aria-label="Living Spaces Gardening on Instagram"><img src="assets/gallery/icon-instagram.svg" alt="Instagram" width="20" height="20" style="opacity:.6;vertical-align:middle;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'"></a>
-      <a href="https://www.facebook.com/livingspacesgardening" target="_blank" rel="noopener" aria-label="Living Spaces Gardening on Facebook"><img src="assets/gallery/icon-facebook.jpeg" alt="Facebook" width="20" height="20" style="opacity:.6;vertical-align:middle;border-radius:50%;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'"></a>
+      <a href="https://www.instagram.com/livingspacesgardening/" target="_blank" rel="noopener" aria-label="Living Spaces Gardening on Instagram"><img src="/assets/gallery/icon-instagram.svg" alt="Instagram" width="20" height="20" style="opacity:.6;vertical-align:middle;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'"></a>
+      <a href="https://www.facebook.com/livingspacesgardening" target="_blank" rel="noopener" aria-label="Living Spaces Gardening on Facebook"><img src="/assets/gallery/icon-facebook.jpeg" alt="Facebook" width="20" height="20" style="opacity:.6;vertical-align:middle;border-radius:50%;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'"></a>
     </div>
-    <div class="footer-right">
-  <a href="https://www.livingrestorations.com" class="sister-site">Living Restorations ↗</a>
-  <div class="footer-social">
-    <a href="https://www.instagram.com/livingspacesgardening/" target="_blank" rel="noopener" aria-label="Living Spaces Gardening on Instagram"><img src="/assets/gallery/icon-instagram.svg" alt="Instagram" width="20" height="20" style="opacity:.6;vertical-align:middle;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'"></a>
-    <a href="https://www.facebook.com/livingspacesgardening" target="_blank" rel="noopener" aria-label="Living Spaces Gardening on Facebook"><img src="/assets/gallery/icon-facebook.jpeg" alt="Facebook" width="20" height="20" style="opacity:.6;vertical-align:middle;border-radius:50%;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'"></a>
-  </div>
-</div>
   </div>
 </footer>
 
