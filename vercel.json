@@ -4,7 +4,6 @@
     { "source": "/services/native-garden-design", "destination": "/#services", "statusCode": 301 },
     { "source": "/services/garden-design", "destination": "/#services", "statusCode": 301 },
     { "source": "/services/garden-installation", "destination": "/#services", "statusCode": 301 },
-    { "source": "/services/garden-maintenance", "destination": "/#services", "statusCode": 301 },
     { "source": "/services/decks", "destination": "/#services", "statusCode": 301 },
     { "source": "/services/pavers", "destination": "/#services", "statusCode": 301 },
     { "source": "/services/pergolas", "destination": "/#services", "statusCode": 301 },
@@ -35,8 +34,8 @@
   ],
   "rewrites": [
     { "source": "/hoa-guide", "destination": "/hoa-guide.html" },
-    { "source": "/press", "destination": "/press.html" },
-    { "source": "/faq-preview", "destination": "/faq-preview.html" },
+    { "source": "/press", "destination": "/press.html" },     
+    { "source": "/services/garden-maintenance", "destination": "/garden-maintenance.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
