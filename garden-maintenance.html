@@ -132,8 +132,8 @@ nav.scrolled{background:rgba(248,245,235,.97);backdrop-filter:blur(10px);box-sha
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.4rem;}
 .hamburger span{display:block;width:22px;height:1.5px;background:var(--charcoal);transition:.3s;}
 .page-hero{background:var(--charcoal);padding:9rem 5% 5rem;position:relative;overflow:hidden;}
-.page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(158,71,50,.3) 0%,transparent 60%);pointer-events:none;}
-.page-hero::after{content:'';position:absolute;inset:0;background-image:url('/assets/Living-Spaces-Gardening-Mark-Terracota-2.png');background-repeat:repeat;background-size:280px;opacity:.03;pointer-events:none;}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:url('/assets/svc-maintenance.webp');background-size:cover;background-position:center;opacity:0.35;pointer-events:none;}
+.page-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(158,71,50,.3) 0%,transparent 60%);pointer-events:none;}
 .hero-inner{position:relative;z-index:1;max-width:760px;}
 .eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.08em;color:var(--teal);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;}
 .eyebrow::before{content:'';display:block;width:24px;height:2px;background:var(--teal);}
@@ -217,12 +217,14 @@ nav.scrolled{background:rgba(248,245,235,.97);backdrop-filter:blur(10px);box-sha
 .cta-btn-outline:hover{border-color:rgba(255,255,255,.7);color:#fff;}
 .cta-note{margin-top:1.25rem;font-size:.72rem;color:rgba(255,255,255,.4);}
 footer{background:var(--charcoal);padding:3rem 5%;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:2rem;}
-.footer-logo img{height:46px;width:auto;display:block;opacity:.7;}
+.footer-logo img{height:64px;width:auto;display:block;opacity:.7;}
 .footer-center{text-align:center;}
-footer p{color:rgba(255,255,255,.35);font-size:.72rem;}
-footer a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s;}
-footer a:hover{color:var(--teal);}
-.footer-right{text-align:right;}
+footer p{color:rgba(255,255,255,.70);font-size:.72rem;font-weight:400;}
+.footer-right{text-align:right;display:flex;flex-direction:column;gap:.6rem;align-items:flex-end;}
+.footer-social{display:flex;gap:.75rem;align-items:center;}
+.footer-right a{color:rgba(255,255,255,.80);text-decoration:underline;text-decoration-color:rgba(255,255,255,.2);font-size:.75rem;transition:color .2s;}
+.footer-right a:hover{color:var(--teal);text-decoration-color:var(--teal);}
+.sister-site{color:var(--teal)!important;font-weight:600;text-decoration:none!important;}
 .sms-overlay,.picker-overlay,.email-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(59,56,54,.7);align-items:center;justify-content:center;backdrop-filter:blur(4px);}
 .sms-overlay.open,.picker-overlay.open,.email-overlay.open{display:flex;}
 .sms-modal,.picker-modal,.email-modal{background:var(--sand);border-radius:3px;padding:2.75rem;width:90%;position:relative;}
@@ -300,7 +302,7 @@ footer a:hover{color:var(--teal);}
 
 <section class="page-hero">
   <div class="hero-inner">
-    <nav aria-label="Breadcrumb" style="margin-bottom:1.5rem;">
+    <div aria-label="Breadcrumb" style="margin-bottom:1.5rem;">
       <ol style="list-style:none;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;">
         <li><a href="/" style="font-size:.65rem;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.4);text-decoration:none;text-transform:uppercase;">Home</a></li>
         <li style="font-size:.65rem;color:rgba(255,255,255,.25);">/</li>
@@ -308,7 +310,7 @@ footer a:hover{color:var(--teal);}
         <li style="font-size:.65rem;color:rgba(255,255,255,.25);">/</li>
         <li style="font-size:.65rem;font-weight:700;letter-spacing:.1em;color:var(--teal);text-transform:uppercase;">Garden Maintenance</li>
       </ol>
-    </nav>
+    </div>
     <p class="eyebrow">Garden Maintenance and Monitoring</p>
     <h1>Your native garden needs someone <em>watching it</em>.</h1>
     <p>Most Florida landscapes decline after installation. Not because the plants were wrong. Because no one was paying attention. Living Spaces Gardening stays with your garden through every season so it keeps getting better.</p>
@@ -406,9 +408,19 @@ footer a:hover{color:var(--teal);}
 </main>
 
 <footer>
-  <div class="footer-logo"><img src="/assets/Living-Spaces-Gardening-Mark-Terracota-2.png" alt="Living Spaces Gardening" width="46" height="46" loading="lazy"></div>
-  <div class="footer-center"><p>&copy; 2026 Living Spaces Gardening. St. Petersburg, FL &middot; <a href="/privacy.html">Privacy Policy</a></p></div>
-  <div class="footer-right"><p><a href="/">Main Site</a> &middot; <a href="https://www.livingrestorations.com" style="color:var(--teal);">Living Restorations ↗</a></p></div>
+  <div class="footer-logo">
+    <img src="assets/Living-Spaces-Gardening-Mark-Terracota-2.png" alt="Living Spaces Gardening" width="64" height="64" loading="lazy">
+  </div>
+  <div class="footer-center">
+    <p>&copy; 2026 Living Spaces Gardening. St. Petersburg, FL &middot; <a href="privacy.html" style="color:rgba(255,255,255,.55);text-decoration:underline;text-decoration-color:rgba(255,255,255,.25);">Privacy Policy</a></p>
+  </div>
+  <div class="footer-right">
+    <a href="https://www.livingrestorations.com" class="sister-site">Living Restorations ↗</a>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/livingspacesgardening/" target="_blank" rel="noopener" aria-label="Living Spaces Gardening on Instagram"><img src="assets/gallery/icon-instagram.svg" alt="Instagram" width="20" height="20" style="opacity:.6;vertical-align:middle;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'"></a>
+      <a href="https://www.facebook.com/livingspacesgardening" target="_blank" rel="noopener" aria-label="Living Spaces Gardening on Facebook"><img src="assets/gallery/icon-facebook.jpeg" alt="Facebook" width="20" height="20" style="opacity:.6;vertical-align:middle;border-radius:50%;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'"></a>
+    </div>
+  </div>
 </footer>
 
 <div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:998;background:#3b3836;padding:1rem 5%;font-size:.78rem;color:rgba(255,255,255,.85);">
