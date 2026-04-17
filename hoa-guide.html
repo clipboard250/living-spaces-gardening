@@ -5,6 +5,75 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Florida Native Landscaping for HOAs | Living Spaces Gardening</title>
 <meta name="description" content="Florida native plants reduce HOA irrigation costs, satisfy stormwater requirements, and create community landscapes residents value. Living Spaces Gardening serves Tampa Bay HOAs.">
+<link rel="canonical" href="https://www.livingspacesgardening.com/hoa-guide">
+<meta property="og:url" content="https://www.livingspacesgardening.com/hoa-guide">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Florida Native Landscaping for HOAs | Living Spaces Gardening">
+<meta property="og:description" content="Florida native plants reduce HOA irrigation costs, satisfy stormwater requirements, and create community landscapes residents value.">
+<meta property="og:image" content="https://www.livingspacesgardening.com/assets/og-image.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Will switching to native plants actually lower our HOA water bills?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and significantly so. Florida-native plants are adapted to local rainfall patterns and soil conditions, so once established they handle Florida's seasonal rainfall on their own. Florida-Friendly landscaping practices can reduce outdoor water use by 30 to 50 percent compared to conventional turf-dominated landscapes. Once established, typically within one to two growing seasons, most native plantings require little to no supplemental irrigation beyond natural rainfall."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can we reduce fertilizer, pesticide, and herbicide use with native landscaping?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, dramatically. Native plants have co-evolved with Florida's soils and pest populations over thousands of years and do not need the chemical inputs that keep non-native turf and ornamentals alive. Florida Statute 373.185, the Florida-Friendly Landscaping Law, prevents HOAs from prohibiting native landscaping practices."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will HOA residents notice more wildlife with native landscaping?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and it becomes one of the most talked-about benefits. Butterflies, native bees, and birds are a visible daily reminder that the transition is working. Native plants support 35 times more native bee species than exotic ornamentals. Conventional turf functions as a biological desert while native plant communities feed caterpillars, which feed birds, which draw in pollinators."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can native plants help HOA communities with stormwater and flooding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Florida's flat topography and sandy soils make stormwater management a constant challenge. Turf grass roots reach 2 to 6 inches into the soil, while many native Florida plants develop root systems reaching 6 to 15 feet deep. Deep-rooted native landscapes can reduce stormwater runoff by up to 30 percent compared to conventional turf."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does native landscaping reduce HOA maintenance crew costs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Weekly mowing, edging, and blowing drops substantially once native groundcovers and perennials establish. Most mature native landscapes require seasonal trimming visits rather than weekly equipment runs, typically twice a year. This translates to lower maintenance labor costs, reduced noise complaints, and reduced fuel expenditure."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "HOA Native Landscaping Conversion",
+      "provider": { "@id": "https://www.livingspacesgardening.com/#business" },
+      "description": "Living Spaces Gardening helps Florida HOA communities transition from conventional turf landscapes to Florida native plantings. Services include site assessment, design documentation for HOA board approval, installation, and ongoing maintenance.",
+      "areaServed": ["Tampa Bay", "St. Petersburg, FL", "Pinellas County", "Hillsborough County"],
+      "serviceType": "HOA Landscaping Conversion",
+      "url": "https://www.livingspacesgardening.com/hoa-guide"
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -707,6 +776,7 @@ nav.scrolled {
 </div>
 
 <script>
+if(!localStorage.getItem('cookies')){document.getElementById('cookieBanner').style.display='flex';}
 var nav = document.getElementById('nav');
 window.addEventListener('scroll', function() {
   nav.classList.toggle('scrolled', window.scrollY > 60);
@@ -765,5 +835,16 @@ var obs = new IntersectionObserver(function(entries) {
 }, { threshold: 0.08 });
 document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 </script>
+
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:998;background:#3b3836;padding:1rem 5%;font-size:.78rem;color:rgba(255,255,255,.85);">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+    <p style="margin:0;line-height:1.6;">We use cookies to see how people find us. <a href="/privacy.html" style="color:#6bb3ae;text-decoration:underline;">Privacy Policy</a></p>
+    <div style="display:flex;gap:.5rem;">
+      <button onclick="document.getElementById('cookieBanner').style.display='none';localStorage.setItem('cookies','accepted');gtag('consent','update',{'analytics_storage':'granted'})" style="background:#6bb3ae;color:#1a1a1a;border:none;padding:.45rem 1rem;border-radius:2px;font-size:.72rem;font-weight:600;cursor:pointer;">Got it</button>
+      <button onclick="document.getElementById('cookieBanner').style.display='none';localStorage.setItem('cookies','declined')" style="background:transparent;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.35);padding:.45rem 1rem;border-radius:2px;font-size:.72rem;cursor:pointer;">Decline</button>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
