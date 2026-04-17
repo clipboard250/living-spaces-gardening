@@ -551,12 +551,35 @@ nav.scrolled {
     <h1>Converting your community<br>to <em>Florida native</em> landscaping.</h1>
     <p class="intro-p">Florida's unique climate and ecosystems make it one of the most biodiverse states in the nation. HOA communities across Florida are discovering that transitioning to native landscaping is not just an environmental decision, but a smart financial and aesthetic one.</p>
     <div class="hero-actions">
-      <a href="/assets/guides/hoa-native-landscaping-guide.pdf" class="btn-primary" target="_blank" rel="noopener">Download the guide</a>
+      <button onclick="openGate()" class="btn-primary" style="border:0;font-family:inherit;">Get the guide</button>
       <a href="sms:7277107400?body=Hi!%20I%20represent%20an%20HOA%20and%20want%20to%20explore%20native%20landscaping.%0A%0ACommunity%20name%3A%20%0ALocation%3A%20%0AMy%20name%3A%20" class="btn-ghost" id="hoaConnectBtn">Connect your HOA</a>
     </div>
     <p class="prepared-by">Prepared by <span>Living Spaces Gardening</span></p>
   </div>
 </section>
+
+<div class="gate-overlay" id="gateModal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(59,56,54,.75);align-items:center;justify-content:center;backdrop-filter:blur(4px);padding:1rem;">
+  <div style="background:var(--sand);border-radius:3px;padding:2.75rem;max-width:500px;width:100%;position:relative;">
+    <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--terra),var(--mustard),var(--teal));border-radius:3px 3px 0 0;"></div>
+    <button onclick="closeGate()" aria-label="Close" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--muted);width:32px;height:32px;border-radius:50%;">&times;</button>
+    <p style="font-size:.65rem;font-weight:700;letter-spacing:.1em;color:var(--teal);margin-bottom:.5rem;text-transform:uppercase;">Free HOA Guide</p>
+    <h3 style="font-size:1.4rem;color:var(--charcoal);margin-bottom:.5rem;font-weight:700;line-height:1.25;">Converting your community to Florida native landscaping.</h3>
+    <p style="font-size:.85rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.6;">Tell us where to send this guide. You'll get it instantly, no waiting on email.</p>
+    <form action="https://formspree.io/f/xgonwdze" method="POST">
+      <input type="hidden" name="_cc" value="info@gofercontent.com">
+      <input type="hidden" name="_subject" value="HOA Guide Download — Living Spaces Gardening">
+      <input type="hidden" name="_next" value="https://www.livingspacesgardening.com/hoa-guide-delivered">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem;">
+        <div><label style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.35rem;">Your name</label><input type="text" name="name" required style="width:100%;font-family:inherit;font-size:.88rem;color:var(--charcoal);background:#fff;border:1.5px solid rgba(80,142,138,.2);border-radius:2px;padding:.75rem .9rem;"></div>
+        <div><label style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.35rem;">Community name</label><input type="text" name="community" required style="width:100%;font-family:inherit;font-size:.88rem;color:var(--charcoal);background:#fff;border:1.5px solid rgba(80,142,138,.2);border-radius:2px;padding:.75rem .9rem;"></div>
+      </div>
+      <div style="margin-bottom:.75rem;"><label style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.35rem;">Email</label><input type="email" name="email" required style="width:100%;font-family:inherit;font-size:.88rem;color:var(--charcoal);background:#fff;border:1.5px solid rgba(80,142,138,.2);border-radius:2px;padding:.75rem .9rem;"></div>
+      <div style="margin-bottom:1rem;"><label style="font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.35rem;">Your role on the board</label><select name="role" required style="width:100%;font-family:inherit;font-size:.88rem;color:var(--charcoal);background:#fff;border:1.5px solid rgba(80,142,138,.2);border-radius:2px;padding:.75rem .9rem;cursor:pointer;"><option value="" disabled selected>Select one</option><option>Board President</option><option>Board Member</option><option>Property Manager</option><option>Landscape Committee</option><option>Resident / Homeowner</option><option>Other</option></select></div>
+      <button type="submit" style="width:100%;background:var(--terra);color:#fff;border:none;padding:.95rem 2rem;border-radius:2px;font-family:inherit;font-size:.88rem;font-weight:700;letter-spacing:.04em;cursor:pointer;text-transform:uppercase;">Get the guide</button>
+      <p style="font-size:.7rem;color:var(--muted);text-align:center;margin-top:.85rem;line-height:1.5;">Instant access. No spam. We never share your info.</p>
+    </form>
+  </div>
+</div>
 
 <!-- MARQUEE -->
 <div class="marquee-wrap" aria-hidden="true">
@@ -776,7 +799,7 @@ nav.scrolled {
 </div>
 
 <script>
-if(!localStorage.getItem('cookies')){document.getElementById('cookieBanner').style.display='flex';}
+window.addEventListener('DOMContentLoaded',function(){var cb=document.getElementById('cookieBanner');if(cb&&!localStorage.getItem('cookies')){cb.style.display='flex';}});
 var nav = document.getElementById('nav');
 window.addEventListener('scroll', function() {
   nav.classList.toggle('scrolled', window.scrollY > 60);
@@ -808,6 +831,11 @@ function toggleStats(btn) {
   btn.classList.toggle('open', !isOpen);
   panel.classList.toggle('open', !isOpen);
 }
+
+function openGate(){var m=document.getElementById('gateModal');if(m){m.style.display='flex';document.body.style.overflow='hidden';}}
+function closeGate(){var m=document.getElementById('gateModal');if(m){m.style.display='none';document.body.style.overflow='';}}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeGate();});
+document.addEventListener('click',function(e){var m=document.getElementById('gateModal');if(m&&e.target===m)closeGate();});
 
 (function() {
   const isMobile = /iPhone|Android|iPad/i.test(navigator.userAgent) ||
