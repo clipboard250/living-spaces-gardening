@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service Radius — 5 Quick Questions for Kiamesha</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --terra:#9e4732;--teal:#508e8a;--mustard:#c9802e;--cocoa:#63403c;--sand:#f8f5eb;--charcoal:#3b3836;--muted:#8a7a75;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans',sans-serif;background:var(--sand);color:var(--charcoal);}
+
+/* GATE */
+#pw-screen{position:fixed;inset:0;z-index:999;background:var(--charcoal);display:flex;align-items:center;justify-content:center;padding:1rem;}
+.pw-box{background:var(--sand);border-radius:3px;padding:3rem 2.5rem;max-width:380px;width:100%;text-align:center;position:relative;}
+.pw-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--terra),var(--mustard),var(--teal));border-radius:3px 3px 0 0;}
+.pw-logo{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:1.5rem;}
+.pw-box h2{font-size:1.4rem;font-weight:700;color:var(--charcoal);margin-bottom:.5rem;}
+.pw-box p{font-size:.82rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.6;}
+.pw-input-wrap{position:relative;margin-bottom:.75rem;}
+.pw-input-wrap input{width:100%;padding:.75rem 3rem .75rem 1rem;border:1.5px solid rgba(80,142,138,.3);border-radius:2px;font-family:'Noto Sans',sans-serif;font-size:.9rem;color:var(--charcoal);background:#fff;text-align:center;letter-spacing:.15em;}
+.pw-input-wrap input:focus{outline:none;border-color:var(--teal);}
+.pw-show{position:absolute;right:.75rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--muted);font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:0;}
+.pw-btn{width:100%;background:var(--terra);color:#fff;border:none;padding:.85rem;border-radius:2px;font-family:'Noto Sans',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;margin-top:.25rem;}
+.pw-btn:hover{background:var(--cocoa);}
+.pw-error{font-size:.75rem;color:var(--terra);margin-top:.6rem;display:none;}
+
+/* CLIENT NOTE */
+.client-note{background:var(--charcoal);padding:2.5rem 5%;position:relative;}
+.client-note::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--terra),var(--mustard),var(--teal));}
+.note-inner{max-width:820px;margin:0 auto;}
+.note-label{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:.75rem;display:block;}
+.client-note h2{font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:.85rem;line-height:1.3;}
+.client-note p{font-size:.82rem;color:rgba(255,255,255,.7);line-height:1.85;margin-bottom:.6rem;}
+.client-note p strong{color:rgba(255,255,255,.95);}
+.client-note p em{color:var(--mustard);font-style:normal;font-weight:600;}
+
+/* FORM */
+.form-section{padding:5rem 5%;position:relative;overflow:hidden;}
+.form-section::after{content:'';position:absolute;inset:0;background-image:url('https://www.livingspacesgardening.com/assets/Living-Spaces-Gardening-Mark-Terracota-2.png');background-repeat:repeat;background-size:280px;opacity:.035;pointer-events:none;z-index:0;}
+.form-section>*{position:relative;z-index:1;}
+.form-header{max-width:720px;margin:0 auto 3rem;}
+.eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.08em;color:var(--teal);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;}
+.eyebrow::before{content:'';display:block;width:24px;height:2px;background:var(--teal);}
+.form-header h1{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:700;line-height:1.2;color:var(--charcoal);text-transform:uppercase;margin-bottom:1rem;}
+.form-header h1 em{font-style:normal;color:var(--terra);}
+.form-header p{font-size:.95rem;color:var(--muted);line-height:1.7;}
+
+form{max-width:720px;margin:0 auto;background:#fff;padding:2.5rem;border-radius:3px;border-top:3px solid var(--teal);}
+.q{margin-bottom:2.25rem;}
+.q:last-of-type{margin-bottom:1.5rem;}
+.q-num{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.15em;color:var(--teal);margin-bottom:.5rem;}
+.q label{display:block;font-size:1rem;font-weight:600;color:var(--charcoal);margin-bottom:.85rem;line-height:1.4;}
+.q .helper{font-size:.78rem;color:var(--muted);margin-bottom:.85rem;line-height:1.6;font-weight:400;}
+.q input[type="text"],.q textarea{width:100%;padding:.8rem 1rem;border:1.5px solid rgba(99,64,60,.18);border-radius:2px;font-family:'Noto Sans',sans-serif;font-size:.92rem;color:var(--charcoal);background:var(--sand);}
+.q input[type="text"]:focus,.q textarea:focus{outline:none;border-color:var(--teal);background:#fff;}
+.q textarea{min-height:90px;resize:vertical;}
+
+.radio-group{display:flex;flex-direction:column;gap:.6rem;}
+.radio-group label{display:flex;align-items:flex-start;gap:.7rem;padding:.75rem 1rem;border:1.5px solid rgba(99,64,60,.15);border-radius:2px;cursor:pointer;font-size:.9rem;font-weight:500;background:var(--sand);margin-bottom:0;}
+.radio-group label:hover{border-color:var(--teal);}
+.radio-group input[type="radio"]{margin-top:.2rem;accent-color:var(--teal);}
+.radio-group input[type="radio"]:checked + span{color:var(--terra);font-weight:600;}
+
+.checkbox-group{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.5rem;}
+.checkbox-group label{display:flex;align-items:center;gap:.6rem;padding:.6rem .85rem;border:1.5px solid rgba(99,64,60,.15);border-radius:2px;cursor:pointer;font-size:.85rem;font-weight:500;background:var(--sand);margin-bottom:0;}
+.checkbox-group label:hover{border-color:var(--teal);}
+.checkbox-group input[type="checkbox"]{accent-color:var(--teal);}
+
+.submit-btn{width:100%;background:var(--terra);color:#fff;border:none;padding:1rem;border-radius:2px;font-family:'Noto Sans',sans-serif;font-size:.9rem;font-weight:600;letter-spacing:.05em;cursor:pointer;text-transform:uppercase;margin-top:1rem;}
+.submit-btn:hover{background:var(--cocoa);}
+
+.thanks{display:none;max-width:720px;margin:0 auto;background:#fff;padding:3rem 2.5rem;border-radius:3px;border-top:3px solid var(--teal);text-align:center;}
+.thanks h2{font-size:1.5rem;color:var(--charcoal);margin-bottom:1rem;}
+.thanks p{color:var(--muted);font-size:.95rem;line-height:1.7;}
+</style>
+</head>
+<body>
+
+<div id="pw-screen">
+  <div class="pw-box">
+    <p class="pw-logo">Living Spaces Gardening</p>
+    <h2>Preview page</h2>
+    <p>Private preview for Kiamesha. Enter the password to view.</p>
+    <div class="pw-input-wrap">
+      <input type="password" id="pw-input" placeholder="PASSWORD" onkeydown="if(event.key==='Enter')checkPW()">
+      <button class="pw-show" type="button" id="pw-show-btn" onclick="togglePW()">SHOW</button>
+    </div>
+    <button class="pw-btn" onclick="checkPW()">View preview</button>
+    <p class="pw-error" id="pw-error">Incorrect password. Try again.</p>
+  </div>
+</div>
+
+<div class="client-note" id="main-content" style="display:none;">
+  <div class="note-inner">
+    <span class="note-label">For Kiamesha — 5 Quick Questions</span>
+    <h2>Before I build out your service area pages, I need 5 answers from you.</h2>
+    <p>We're rebuilding the service area pages on your site so the organic traffic Google is sending you actually has a home. Before I write a word of content, I need to know <em>where you actually want to take jobs</em> so I'm not building pages for places you'd never drive to.</p>
+    <p><strong>Takes about 3 minutes.</strong> No wrong answers. Just be honest about your real radius.</p>
+  </div>
+</div>
+
+<section class="form-section" id="form-wrap" style="display:none;">
+  <div class="form-header">
+    <p class="eyebrow">Service area planning</p>
+    <h1>Where do you actually <em>want to work?</em></h1>
+    <p>Answer these so I can build location pages that match your real business, not a guess.</p>
+  </div>
+
+  <form id="radius-form" action="https://formspree.io/f/mzdankle" method="POST">
+    <input type="hidden" name="_subject" value="Service Radius — 5 Answers from Kiamesha">
+
+    <div class="q">
+      <span class="q-num">QUESTION 1 OF 5</span>
+      <label for="q1">What's your realistic service radius for residential native landscaping?</label>
+      <p class="helper">From St. Pete, how far are you willing to drive for a typical residential install?</p>
+      <div class="radio-group">
+        <label><input type="radio" name="q1_radius" value="Within 30 miles of St. Pete" required><span>Within 30 miles of St. Pete</span></label>
+        <label><input type="radio" name="q1_radius" value="All of Pinellas County only"><span>All of Pinellas County only</span></label>
+        <label><input type="radio" name="q1_radius" value="All of Tampa Bay (Pinellas, Hillsborough, parts of Pasco)"><span>All of Tampa Bay (Pinellas, Hillsborough, parts of Pasco)</span></label>
+        <label><input type="radio" name="q1_radius" value="Tampa Bay plus surrounding counties"><span>Tampa Bay plus surrounding counties</span></label>
+        <label><input type="radio" name="q1_radius" value="Other (write in below)"><span>Other (write in below)</span></label>
+      </div>
+      <input type="text" name="q1_radius_other" placeholder="If other, describe here" style="margin-top:.6rem;">
+    </div>
+
+    <div class="q">
+      <span class="q-num">QUESTION 2 OF 5</span>
+      <label for="q2">Are you still taking jobs in Cape Coral or Fort Myers Beach?</label>
+      <p class="helper">Both are roughly a 2 hour drive each way. Old site had pages for these.</p>
+      <div class="radio-group">
+        <label><input type="radio" name="q2_southwest" value="No, too far now" required><span>No, too far now</span></label>
+        <label><input type="radio" name="q2_southwest" value="Only for big commercial or restoration projects"><span>Only for big commercial or restoration projects</span></label>
+        <label><input type="radio" name="q2_southwest" value="Yes, still taking residential too"><span>Yes, still taking residential too</span></label>
+      </div>
+    </div>
+
+    <div class="q">
+      <span class="q-num">QUESTION 3 OF 5</span>
+      <label for="q3">Cayo Costa is an island. Do you still want to be found in search for it?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="q3_cayocosta" value="No, drop it" required><span>No, drop it</span></label>
+        <label><input type="radio" name="q3_cayocosta" value="Yes, keep it for restoration work"><span>Yes, keep it for restoration work</span></label>
+        <label><input type="radio" name="q3_cayocosta" value="Move it to Living Restorations instead"><span>Move it to Living Restorations instead</span></label>
+      </div>
+    </div>
+
+    <div class="q">
+      <span class="q-num">QUESTION 4 OF 5</span>
+      <label for="q4">Which Tampa Bay cities and neighborhoods do you most want to be known for?</label>
+      <p class="helper">Check all that apply. These become your priority location pages.</p>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="q4_cities" value="St. Petersburg"> St. Petersburg</label>
+        <label><input type="checkbox" name="q4_cities" value="Gulfport"> Gulfport</label>
+        <label><input type="checkbox" name="q4_cities" value="Pinellas Park"> Pinellas Park</label>
+        <label><input type="checkbox" name="q4_cities" value="Largo"> Largo</label>
+        <label><input type="checkbox" name="q4_cities" value="Clearwater"> Clearwater</label>
+        <label><input type="checkbox" name="q4_cities" value="Dunedin"> Dunedin</label>
+        <label><input type="checkbox" name="q4_cities" value="Tarpon Springs"> Tarpon Springs</label>
+        <label><input type="checkbox" name="q4_cities" value="Redington Beach"> Redington Beach</label>
+        <label><input type="checkbox" name="q4_cities" value="Treasure Island"> Treasure Island</label>
+        <label><input type="checkbox" name="q4_cities" value="Madeira Beach"> Madeira Beach</label>
+        <label><input type="checkbox" name="q4_cities" value="Tampa"> Tampa</label>
+        <label><input type="checkbox" name="q4_cities" value="South Tampa"> South Tampa</label>
+        <label><input type="checkbox" name="q4_cities" value="Pasco County"> Pasco County</label>
+        <label><input type="checkbox" name="q4_cities" value="Hillsborough County"> Hillsborough County</label>
+      </div>
+      <input type="text" name="q4_cities_other" placeholder="Anywhere else? Add it here" style="margin-top:.85rem;">
+    </div>
+
+    <div class="q">
+      <span class="q-num">QUESTION 5 OF 5</span>
+      <label for="q5">Are there commercial or HOA jobs you'd travel further for than residential?</label>
+      <p class="helper">Some businesses extend their radius for bigger contracts. Do you?</p>
+      <textarea name="q5_commercial" placeholder="Example: Yes, I'll drive up to 3 hours for HOA contracts over $X. Or: No, same radius for everything."></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Send my answers to Dayna</button>
+  </form>
+
+  <div class="thanks" id="thanks">
+    <h2>Got it. Thanks Kiamesha.</h2>
+    <p>Your answers are on their way to Dayna. Next you'll see draft location pages built around the cities you selected.</p>
+  </div>
+</section>
+
+<script>
+function togglePW(){
+  var i=document.getElementById('pw-input');
+  var b=document.getElementById('pw-show-btn');
+  if(i.type==='password'){i.type='text';b.textContent='HIDE';}
+  else{i.type='password';b.textContent='SHOW';}
+}
+function checkPW(){
+  var val=document.getElementById('pw-input').value.trim().toLowerCase();
+  if(val==='nativeflorida'){
+    document.getElementById('pw-screen').style.display='none';
+    document.getElementById('main-content').style.display='block';
+    document.getElementById('form-wrap').style.display='block';
+  } else {
+    document.getElementById('pw-error').style.display='block';
+  }
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+  var form=document.getElementById('radius-form');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var data=new FormData(form);
+    fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}})
+      .then(function(r){
+        if(r.ok){
+          form.style.display='none';
+          document.getElementById('thanks').style.display='block';
+          window.scrollTo({top:0,behavior:'smooth'});
+        } else {
+          alert('Something went wrong. Try again or email info@gofercontent.com');
+        }
+      })
+      .catch(function(){alert('Something went wrong. Try again or email info@gofercontent.com');});
+  });
+});
+</script>
+</body>
+</html>
