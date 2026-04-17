@@ -471,6 +471,16 @@ footer p { color: rgba(255,255,255,.45); font-size: .72rem; font-weight: 400; }
   </div>
 </footer>
 
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:998;background:#3b3836;padding:1rem 5%;font-size:.78rem;color:rgba(255,255,255,.85);">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+    <p style="margin:0;line-height:1.6;">We use cookies to see how people find us. <a href="/privacy.html" style="color:#6bb3ae;text-decoration:underline;">Privacy Policy</a></p>
+    <div style="display:flex;gap:.5rem;">
+      <button onclick="document.getElementById('cookieBanner').style.display='none';localStorage.setItem('cookies','accepted');gtag('consent','update',{'analytics_storage':'granted'})" style="background:#6bb3ae;color:#1a1a1a;border:none;padding:.45rem 1rem;border-radius:2px;font-size:.72rem;font-weight:600;cursor:pointer;">Got it</button>
+      <button onclick="document.getElementById('cookieBanner').style.display='none';localStorage.setItem('cookies','declined')" style="background:transparent;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.35);padding:.45rem 1rem;border-radius:2px;font-size:.72rem;cursor:pointer;">Decline</button>
+    </div>
+  </div>
+</div>
+
 <div class="sms-overlay" id="smsModal">
   <div class="sms-modal" role="dialog" aria-label="Text us about your garden" aria-modal="true">
     <button class="sms-close" onclick="closeSMS()" aria-label="Close">&times;</button>
@@ -488,6 +498,7 @@ footer p { color: rgba(255,255,255,.45); font-size: .72rem; font-weight: 400; }
 </div>
 
 <script>
+if(!localStorage.getItem('cookies')){document.getElementById('cookieBanner').style.display='flex';}
 var nav = document.getElementById('nav');
 window.addEventListener('scroll', function() {
   nav.classList.toggle('scrolled', window.scrollY > 60);
