@@ -12,7 +12,6 @@
 :root{--terra:#9e4732;--teal:#508e8a;--mustard:#c9802e;--cocoa:#63403c;--sand:#f8f5eb;--charcoal:#3b3836;--muted:#8a7a75;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Noto Sans',sans-serif;background:var(--sand);color:var(--charcoal);}
-
 #pw-screen{position:fixed;inset:0;z-index:999;background:var(--charcoal);display:flex;align-items:center;justify-content:center;padding:1rem;}
 .pw-box{background:var(--sand);border-radius:3px;padding:3rem 2.5rem;max-width:380px;width:100%;text-align:center;position:relative;}
 .pw-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--terra),var(--mustard),var(--teal));border-radius:3px 3px 0 0;}
@@ -36,12 +35,22 @@ body{font-family:'Noto Sans',sans-serif;background:var(--sand);color:var(--charc
 .client-note p strong{color:rgba(255,255,255,.95);}
 .client-note p em{color:var(--mustard);font-style:normal;font-weight:600;}
 .note-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem;}
-.note-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.25rem;border-radius:2px;font-family:'Noto Sans',sans-serif;font-size:.75rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;min-height:44px;}
+.note-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.25rem;border-radius:2px;font-family:'Noto Sans',sans-serif;font-size:.75rem;font-weight:600;cursor:pointer;border:none;min-height:44px;}
 .note-btn-approve{background:var(--teal);color:#fff;}
-.note-btn-email{background:transparent;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.25);}
+.note-btn-approve:hover{background:#3f7773;}
+.note-btn-edit{background:transparent;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.25);}
+.note-btn-edit:hover{color:#fff;border-color:rgba(255,255,255,.5);}
+
+.edits-form{display:none;margin-top:1.5rem;background:rgba(0,0,0,.2);padding:1.25rem;border-radius:2px;}
+.edits-form textarea{width:100%;min-height:120px;padding:.85rem 1rem;border:1.5px solid rgba(255,255,255,.2);border-radius:2px;font-family:'Noto Sans',sans-serif;font-size:.85rem;background:rgba(255,255,255,.05);color:#fff;resize:vertical;}
+.edits-form textarea::placeholder{color:rgba(255,255,255,.4);}
+.edits-form textarea:focus{outline:none;border-color:var(--teal);}
+.edits-form button{margin-top:.75rem;background:var(--teal);color:#fff;border:none;padding:.75rem 1.5rem;border-radius:2px;font-family:'Noto Sans',sans-serif;font-size:.8rem;font-weight:600;cursor:pointer;}
+.edits-form button:hover{background:#3f7773;}
+
+.thanks-msg{display:none;background:rgba(80,142,138,.15);border:1px solid var(--teal);padding:1rem 1.25rem;border-radius:2px;margin-top:1rem;color:#7dbfbb;font-size:.85rem;font-weight:600;}
 
 .section-label{background:rgba(158,71,50,.08);border-bottom:1px solid rgba(158,71,50,.15);padding:.6rem 5%;font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);text-align:center;}
-
 .page-iframe{display:block;width:100%;border:none;min-height:100vh;}
 </style>
 </head>
@@ -68,22 +77,27 @@ body{font-family:'Noto Sans',sans-serif;background:var(--sand);color:var(--charc
     <p>Based on your survey answers, we're building location pages for every Tampa Bay city you service. <em>This is page #1 of 13</em>, St. Pete. Once you approve this template, the others come fast.</p>
     <p><strong>What's on it:</strong> Same look and feel as your homepage, with St. Pete specific content, sandy soil, salt air, hurricane prep, plus the neighborhoods you work in (Old Northeast, Kenwood, Snell Isle, etc). Gallery pulls only your St. Pete projects. FAQ is built around real St. Pete questions for Google and AI answer engines.</p>
     <p><strong>Quick checks:</strong> Did I get the neighborhood list right? Any projects missing from the gallery? Any St. Pete specific thing I should add?</p>
+
     <div class="note-actions">
-      <form action="https://formspree.io/f/mzdankle" method="POST" style="display:inline;">   <input type="hidden" name="_subject" value="St. Pete Page APPROVED by Kiamesha">   <input type="hidden" name="approval" value="Approved — publish St. Pete page and build the rest">   <button type="submit" class="note-btn note-btn-approve">✓ Looks good, publish it</button> </form>
-      <a href="mailto:info@gofercontent.com?subject=St.%20Petersburg%20Page%20Edits&body=Hi%20Dayna%2C%20here%20are%20my%20edits%3A%0A%0A" class="note-btn note-btn-email">✏️ Send edits</a>
+      <button type="button" class="note-btn note-btn-approve" onclick="sendApproval()">✓ Looks good, publish it</button>
+      <button type="button" class="note-btn note-btn-edit" onclick="showEdits()">✏️ Send edits</button>
     </div>
+
+    <form id="edits-form" class="edits-form" action="https://formspree.io/f/mzdankle" method="POST">
+      <input type="hidden" name="_subject" value="St. Pete Page — EDITS from Kiamesha">
+      <input type="hidden" name="page" value="St. Petersburg location page">
+      <textarea name="edits" placeholder="Type your edits here and hit send..." required></textarea>
+      <button type="submit">Send edits to Dayna</button>
+    </form>
+
+    <div id="approved-msg" class="thanks-msg">✓ Approval sent. Dayna will publish and build the other 12 cities.</div>
+    <div id="edits-sent-msg" class="thanks-msg">✓ Edits sent. Dayna will get to it.</div>
   </div>
 </div>
 
 <div class="section-label" id="section-label" style="display:none;">↓ This is how it will look on your site ↓</div>
 
-<iframe
-  id="page-iframe"
-  class="page-iframe"
-  src="/service-areas/st-petersburg-fl"
-  title="St. Petersburg page preview"
-  style="display:none;"
-></iframe>
+<iframe id="page-iframe" class="page-iframe" src="/service-areas/st-petersburg-fl" title="St. Petersburg page preview" style="display:none;"></iframe>
 
 <script>
 function togglePW(){
@@ -103,6 +117,48 @@ function checkPW(){
     document.getElementById('pw-error').style.display='block';
   }
 }
+
+function sendApproval(){
+  var data=new FormData();
+  data.append('_subject','St. Pete Page — APPROVED by Kiamesha');
+  data.append('page','St. Petersburg location page');
+  data.append('decision','APPROVED — publish St. Pete page and build the rest');
+  fetch('https://formspree.io/f/mzdankle',{method:'POST',body:data,headers:{'Accept':'application/json'}})
+    .then(function(r){
+      if(r.ok){
+        document.querySelector('.note-actions').style.display='none';
+        document.getElementById('edits-form').style.display='none';
+        document.getElementById('approved-msg').style.display='block';
+      } else {
+        alert('Something went wrong. Try again or email info@gofercontent.com');
+      }
+    })
+    .catch(function(){alert('Something went wrong. Try again or email info@gofercontent.com');});
+}
+
+function showEdits(){
+  document.getElementById('edits-form').style.display='block';
+  document.getElementById('edits-form').querySelector('textarea').focus();
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+  var editsForm=document.getElementById('edits-form');
+  editsForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    var data=new FormData(editsForm);
+    fetch(editsForm.action,{method:'POST',body:data,headers:{'Accept':'application/json'}})
+      .then(function(r){
+        if(r.ok){
+          document.querySelector('.note-actions').style.display='none';
+          editsForm.style.display='none';
+          document.getElementById('edits-sent-msg').style.display='block';
+        } else {
+          alert('Something went wrong. Try again or email info@gofercontent.com');
+        }
+      })
+      .catch(function(){alert('Something went wrong. Try again or email info@gofercontent.com');});
+  });
+});
 </script>
 </body>
 </html>
