@@ -18,12 +18,35 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "In the Press",
-  "url": "https://www.livingspacesgardening.com/press.html",
-  "description": "Media coverage and press features for Living Spaces Gardening and founder Kiamesha Wray.",
-  "isPartOf": { "@id": "https://www.livingspacesgardening.com/#website" },
-  "about": { "@id": "https://www.livingspacesgardening.com/#business" }
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "In the Press",
+      "url": "https://www.livingspacesgardening.com/press.html",
+      "description": "Media coverage and press features for Living Spaces Gardening and founder Kiamesha Wray.",
+      "isPartOf": { "@id": "https://www.livingspacesgardening.com/#website" },
+      "about": { "@id": "https://www.livingspacesgardening.com/#business" }
+    },
+    {
+      "@type": "NewsArticle",
+      "headline": "Coastal Resilience is the Next Big Luxury Landscape Trend",
+      "url": "https://www.homesandgardens.com/gardens/coastal-resilience-landscape-trend",
+      "datePublished": "2025-11-22",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Homes & Gardens",
+        "url": "https://www.homesandgardens.com"
+      },
+      "about": { "@id": "https://www.livingspacesgardening.com/#business" },
+      "mentions": {
+        "@type": "Person",
+        "name": "Kiamesha Wray",
+        "jobTitle": "Founder",
+        "worksFor": { "@id": "https://www.livingspacesgardening.com/#business" }
+      },
+      "isBasedOn": "https://www.homesandgardens.com/gardens/coastal-resilience-landscape-trend"
+    }
+  ]
 }
 </script>
 
