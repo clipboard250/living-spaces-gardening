@@ -239,18 +239,64 @@ ul.checklist li::before{content:'';position:absolute;left:0;top:.85rem;width:14p
     </div>
   </div>
 
-  <div class="done-box">
+  <div class="done-box" id="done-box">
     <h3>Done or stuck?</h3>
     <p>Tap whichever applies — I'll take it from there.</p>
     <div class="done-actions">
-      <a href="mailto:info@gofercontent.com?subject=GBP%20Verification%20-%20Video%20Submitted&body=Hi%20Dayna%2C%20I%20submitted%20the%20verification%20video%20for%20Living%20Spaces%20Gardening.%20Now%20we%20wait." class="done-btn done-btn-done">✓ Video submitted</a>
-      <a href="mailto:info@gofercontent.com?subject=GBP%20Verification%20-%20Stuck&body=Hi%20Dayna%2C%20I%20got%20stuck%20on%20step%3A%20%0A%0AWhat%20happened%3A%20" class="done-btn done-btn-stuck">✏️ I'm stuck, help</a>
+      <button type="button" class="done-btn done-btn-done" onclick="submitStatus('submitted')">✓ Video submitted</button>
+      <button type="button" class="done-btn done-btn-stuck" onclick="showStuckForm()">✏️ I'm stuck, help</button>
     </div>
+    <div id="stuck-form" style="display:none;margin-top:1.5rem;text-align:left;">
+      <label style="display:block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cocoa);margin-bottom:.5rem;">Which step are you on?</label>
+      <input type="text" id="stuck-step" placeholder="e.g. Step 3" style="width:100%;padding:.7rem .9rem;border:1.5px solid rgba(80,142,138,.3);border-radius:2px;font-family:'Noto Sans',sans-serif;font-size:.9rem;margin-bottom:.75rem;background:#fff;">
+      <label style="display:block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cocoa);margin-bottom:.5rem;">What's happening?</label>
+      <textarea id="stuck-note" rows="3" placeholder="Quick note — what are you seeing?" style="width:100%;padding:.7rem .9rem;border:1.5px solid rgba(80,142,138,.3);border-radius:2px;font-family:'Noto Sans',sans-serif;font-size:.9rem;background:#fff;resize:vertical;"></textarea>
+      <button type="button" class="done-btn done-btn-done" style="margin-top:.9rem;" onclick="submitStatus('stuck')">Send to Dayna</button>
+    </div>
+    <div id="status-msg" style="display:none;margin-top:1.25rem;padding:1rem;background:rgba(80,142,138,.12);border-radius:2px;font-size:.88rem;color:var(--teal);font-weight:600;"></div>
   </div>
 
 </div>
 
 <script>
+function showStuckForm(){
+  document.getElementById('stuck-form').style.display='block';
+}
+function submitStatus(type){
+  var payload = {
+    _subject: type === 'submitted'
+      ? 'LSG — Kiamesha submitted verification video'
+      : 'LSG — Kiamesha needs help with verification',
+    site: 'Living Spaces Gardening',
+    status: type === 'submitted' ? 'Video submitted' : 'Stuck',
+    step: type === 'stuck' ? (document.getElementById('stuck-step').value || 'Not specified') : 'N/A',
+    note: type === 'stuck' ? (document.getElementById('stuck-note').value || '') : 'Video uploaded, awaiting Google review'
+  };
+  fetch('https://formspree.io/f/mzdankle', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(payload)
+  }).then(function(r){
+    var msg = document.getElementById('status-msg');
+    if(r.ok){
+      msg.textContent = type === 'submitted'
+        ? '✓ Got it. Dayna will follow up once Google responds.'
+        : '✓ Message sent. Dayna will reach out shortly.';
+      msg.style.display = 'block';
+      document.getElementById('stuck-form').style.display = 'none';
+      document.querySelector('.done-actions').style.display = 'none';
+    } else {
+      msg.textContent = 'Something went wrong. Text Dayna at the office number.';
+      msg.style.color = '#9e4732';
+      msg.style.display = 'block';
+    }
+  }).catch(function(){
+    var msg = document.getElementById('status-msg');
+    msg.textContent = 'Network issue. Text Dayna at the office number.';
+    msg.style.color = '#9e4732';
+    msg.style.display = 'block';
+  });
+}
 function togglePW(){
   var i=document.getElementById('pw-input');
   var b=document.getElementById('pw-show-btn');
