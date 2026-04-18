@@ -17,7 +17,6 @@
     { "source": "/sitemap", "destination": "/sitemap.xml", "statusCode": 301 },
     { "source": "/more-information", "destination": "/", "statusCode": 301 },
     { "source": "/service-areas/dunedin-fl", "destination": "/", "statusCode": 301 },
-    { "source": "/service-areas/st-petersburg-fl", "destination": "/", "statusCode": 301 },
     { "source": "/service-areas/largo-fl", "destination": "/", "statusCode": 301 },
     { "source": "/service-areas/tarpon-springs-fl", "destination": "/", "statusCode": 301 },
     { "source": "/service-areas/gulfport-fl", "destination": "/", "statusCode": 301 },
@@ -32,10 +31,11 @@
     { "source": "/service-areas/cayo-costa-fl", "destination": "/", "statusCode": 301 },
     { "source": "/service-areas/privacy.html", "destination": "/privacy.html", "statusCode": 301 }
   ],
-  "rewrites": [
+ "rewrites": [
     { "source": "/hoa-guide", "destination": "/hoa-guide.html" },
     { "source": "/press", "destination": "/press.html" },     
     { "source": "/services/garden-maintenance", "destination": "/garden-maintenance.html" },
+    { "source": "/service-areas/st-petersburg-fl", "destination": "/service-areas/st-petersburg-fl.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
