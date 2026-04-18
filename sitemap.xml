@@ -2,43 +2,116 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.livingspacesgardening.com/</loc>
-    <lastmod>2026-02-21</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.livingspacesgardening.com/press.html</loc>
-    <lastmod>2026-03-04</lastmod>
-    <changefreq>yearly</changefreq>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.livingspacesgardening.com/for-hoa</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.livingspacesgardening.com/hoa-guide</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.livingspacesgardening.com/services/garden-maintenance</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.livingspacesgardening.com/privacy.html</loc>
-    <lastmod>2026-02-21</lastmod>
+    <lastmod>2026-04-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-<url>
-    <loc>https://www.livingspacesgardening.com/services/garden-maintenance</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
- <url>
-    <loc>https://www.livingspacesgardening.com/hoa-guide</loc>
-    <lastmod>2026-02-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
   <url>
-    <loc>https://www.livingspacesgardening.com/for-hoa</loc>
-    <lastmod>2026-04-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-<url>
     <loc>https://www.livingspacesgardening.com/service-areas/st-petersburg-fl</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.livingspacesgardening.com/service-areas/gulfport-fl</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.livingspacesgardening.com/service-areas/pinellas-park-fl</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.livingspacesgardening.com/service-areas/largo-fl</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.livingspacesgardening.com/service-areas/clearwater-fl</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.livingspacesgardening.com/service-areas/dunedin-fl</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.livingspacesgardening.com/service-areas/tarpon-springs-fl</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.livingspacesgardening.com/service-areas/redington-beach-fl</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.livingspacesgardening.com/service-areas/treasure-island-fl</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.livingspacesgardening.com/service-areas/madeira-beach-fl</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.livingspacesgardening.com/service-areas/tampa-fl</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.livingspacesgardening.com/service-areas/south-tampa-fl</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.livingspacesgardening.com/service-areas/pinellas-county-fl</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
