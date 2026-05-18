@@ -823,6 +823,73 @@ footer p{color:rgba(255,255,255,.70);font-size:.72rem;font-weight:400;}
   </div>
 </div>
 
+<!-- EXIT INTENT POPUP -->
+<div class="exit-overlay" id="exitModal">
+  <div class="exit-modal" role="dialog" aria-modal="true" aria-labelledby="exitTitle">
+    <button class="exit-close" onclick="closeExit()" aria-label="Close">&times;</button>
+    <p class="eyebrow">Before you go</p>
+    <h3 id="exitTitle">Save <em>$25</em> on your<br>garden consultation.</h3>
+    <p class="exit-sub">Limited-time offer for new clients. Consultation now $100 (regularly $125) and goes toward your design.</p>
+    <a href="/promo" class="exit-cta" onclick="dismissExit()">Claim $25 off →</a>
+    <button class="exit-decline" onclick="closeExit()">No thanks, I'll keep my lawn</button>
+  </div>
+</div>
+
+<style>
+.exit-overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(59,56,54,.75);align-items:center;justify-content:center;backdrop-filter:blur(6px);}
+.exit-overlay.open{display:flex;animation:exitFadeIn .25s ease;}
+.exit-modal{background:var(--sand);border-radius:3px;padding:3rem 2.5rem;max-width:480px;width:90%;position:relative;text-align:center;animation:exitSlideUp .35s cubic-bezier(.4,0,.2,1);}
+.exit-modal::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--terra),var(--mustard),var(--teal));border-radius:3px 3px 0 0;}
+.exit-close{position:absolute;top:1.1rem;right:1.1rem;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--muted);width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background .2s;}
+.exit-close:hover{background:rgba(0,0,0,.07);}
+.exit-modal .eyebrow{justify-content:center;margin-bottom:1rem;}
+.exit-modal h3{font-family:'Noto Sans',sans-serif;font-size:clamp(1.5rem,3vw,2rem);color:var(--charcoal);margin-bottom:.85rem;font-weight:700;line-height:1.15;}
+.exit-modal h3 em{font-style:normal;color:var(--terra);}
+.exit-sub{font-size:.88rem;color:var(--muted);margin-bottom:2rem;line-height:1.7;font-weight:400;}
+.exit-cta{display:inline-flex;align-items:center;justify-content:center;background:var(--terra);color:#fff;border:none;padding:1rem 2.25rem;border-radius:2px;font-family:'Noto Sans',sans-serif;font-size:.92rem;font-weight:600;letter-spacing:.04em;text-decoration:none;cursor:pointer;transition:background .2s,transform .2s;width:100%;}
+.exit-cta:hover{background:var(--cocoa);transform:translateY(-2px);}
+.exit-decline{display:block;background:none;border:none;color:var(--muted);font-family:'Noto Sans',sans-serif;font-size:.78rem;margin-top:1rem;cursor:pointer;text-decoration:underline;text-decoration-color:rgba(138,122,117,.3);transition:color .2s;}
+.exit-decline:hover{color:var(--charcoal);}
+@keyframes exitFadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes exitSlideUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+@media(max-width:600px){.exit-modal{padding:2.25rem 1.5rem;}}
+</style>
+
+<script>
+(function(){
+  if(window.innerWidth < 1024 || 'ontouchstart' in window) return;
+  if(sessionStorage.getItem('exitShown')) return;
+  var armed = false;
+  setTimeout(function(){ armed = true; }, 10000);
+  function showExit(){
+    if(!armed) return;
+    if(sessionStorage.getItem('exitShown')) return;
+    sessionStorage.setItem('exitShown', '1');
+    document.getElementById('exitModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  document.addEventListener('mouseout', function(e){
+    if(e.clientY <= 0 && !e.relatedTarget && !e.toElement){ showExit(); }
+  });
+  window.closeExit = function(){
+    document.getElementById('exitModal').classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  window.dismissExit = function(){
+    document.getElementById('exitModal').classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  document.getElementById('exitModal').addEventListener('click', function(e){
+    if(e.target === this) closeExit();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && document.getElementById('exitModal').classList.contains('open')){
+      closeExit();
+    }
+  });
+})();
+</script>
+
 <script>
 if(window.innerWidth<=960){var marquee=document.querySelector('.marquee-wrap');var reviews=document.querySelector('.reviews');reviews.parentNode.insertBefore(marquee,reviews);}
 if(!localStorage.getItem('cookies')){document.getElementById('cookieBanner').style.display='flex';}
