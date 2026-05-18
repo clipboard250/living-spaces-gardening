@@ -41,6 +41,8 @@
     { "source": "/service-areas/tampa-fl", "destination": "/service-areas/tampa-fl.html" },
     { "source": "/service-areas/south-tampa-fl", "destination": "/service-areas/south-tampa-fl.html" },
     { "source": "/service-areas/pinellas-county-fl", "destination": "/service-areas/pinellas-county-fl.html" },
+    { "source": "/promo", "destination": "/promo.html" },
+    { "source": "/promo-thank-you", "destination": "/promo-thank-you.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
