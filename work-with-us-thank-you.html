@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Application Received | Living Spaces Gardening</title>
+<meta name="description" content="Your application to join the Living Spaces Gardening crew has been received. Kiamesha will review it personally.">
+<link rel="canonical" href="https://www.livingspacesgardening.com/work-with-us-thank-you">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="assets/Living-Spaces-Gardening-Mark-Terracota-2.png">
+<link rel="apple-touch-icon" href="assets/Living-Spaces-Gardening-Mark-Terracota-2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --terra:#9e4732;--teal:#508e8a;--mustard:#c9802e;--cocoa:#63403c;
+  --sand:#f8f5eb;--charcoal:#3b3836;--muted:#8a7a75;--white:#ffffff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+*:focus-visible{outline:2px solid var(--terra);outline-offset:2px;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans',sans-serif;background:var(--sand);color:var(--charcoal);overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column;}
+
+nav{display:flex;justify-content:center;align-items:center;padding:1.25rem 5%;background:rgba(248,245,235,0.97);border-bottom:1px solid rgba(99,64,60,0.1);}
+.nav-logo img{height:56px;width:auto;display:block;}
+
+.page-bg{position:fixed;inset:0;z-index:0;pointer-events:none;}
+.page-bg::after{content:'';position:absolute;inset:0;background-image:url('assets/Living-Spaces-Gardening-Mark-Terracota-2.png');background-repeat:repeat;background-size:320px;opacity:0.03;}
+
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:4rem 5%;position:relative;z-index:1;}
+
+.card{background:var(--white);border-radius:3px;padding:4rem 3.5rem;max-width:600px;width:100%;box-shadow:0 8px 60px rgba(59,56,54,0.08),0 2px 12px rgba(59,56,54,0.05);text-align:center;position:relative;overflow:hidden;}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--terra),var(--mustard),var(--teal));}
+
+.mark-wrap{margin-bottom:1.75rem;display:flex;justify-content:center;animation:pulseIn .6s ease .2s both;}
+.mark-circle{width:72px;height:72px;border-radius:50%;background:rgba(158,71,50,0.08);border:1.5px solid rgba(158,71,50,0.2);display:flex;align-items:center;justify-content:center;}
+.checkmark{width:32px;height:32px;stroke:var(--terra);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+.checkmark path{stroke-dasharray:50;stroke-dashoffset:50;animation:drawCheck .5s ease .6s forwards;}
+@keyframes drawCheck{to{stroke-dashoffset:0;}}
+@keyframes pulseIn{from{opacity:0;transform:scale(0.7);}to{opacity:1;transform:scale(1);}}
+
+.eyebrow{font-size:.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:.65rem;animation:fadeUp .6s ease .4s both;}
+
+h1{font-family:'Noto Sans',sans-serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;color:var(--charcoal);line-height:1.15;margin-bottom:1rem;animation:fadeUp .6s ease .5s both;}
+h1 em{font-style:normal;color:var(--terra);}
+
+.message{font-size:.9rem;color:var(--muted);line-height:1.85;font-weight:400;margin-bottom:2rem;animation:fadeUp .6s ease .6s both;}
+.message strong{color:var(--charcoal);font-weight:600;}
+
+.divider{width:48px;height:2px;background:linear-gradient(90deg,var(--terra),var(--mustard));margin:0 auto 2rem;animation:fadeUp .6s ease .65s both;}
+
+.next-steps{background:var(--sand);border-radius:2px;border-left:3px solid var(--teal);padding:1.35rem 1.5rem;margin-bottom:2rem;text-align:left;animation:fadeUp .6s ease .7s both;}
+.next-steps p.ns-label{font-size:.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:.85rem;}
+.next-steps ul{list-style:none;display:flex;flex-direction:column;gap:.65rem;}
+.next-steps li{font-size:.85rem;color:var(--muted);font-weight:400;line-height:1.55;display:flex;align-items:flex-start;gap:.7rem;}
+.next-steps li::before{content:'';display:block;width:5px;height:5px;min-width:5px;border-radius:50%;background:var(--mustard);margin-top:.55rem;}
+
+.btn-back{display:inline-flex;align-items:center;gap:.6rem;background:var(--terra);color:#fff;padding:.95rem 2rem;border-radius:2px;font-family:'Noto Sans',sans-serif;font-size:.85rem;font-weight:600;text-decoration:none;letter-spacing:.04em;transition:background .2s,transform .2s;animation:fadeUp .6s ease .8s both;}
+.btn-back:hover{background:var(--cocoa);transform:translateY(-2px);}
+
+.contact-line{margin-top:1.25rem;font-size:.75rem;color:var(--muted);font-weight:400;animation:fadeUp .6s ease .85s both;}
+.contact-line a{color:var(--teal);text-decoration:none;font-weight:600;}
+.contact-line a:hover{text-decoration:underline;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+footer{position:relative;z-index:1;background:var(--charcoal);padding:1.75rem 5%;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:2rem;}
+.footer-logo img{height:40px;width:auto;opacity:0.7;}
+.footer-center{text-align:center;}
+footer p{color:rgba(255,255,255,0.35);font-size:0.72rem;font-weight:400;}
+footer a{color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;}
+footer a:hover{color:var(--teal);}
+.footer-right{text-align:right;}
+
+@media(max-width:600px){
+  .card{padding:2.5rem 1.5rem;}
+  footer{grid-template-columns:1fr;text-align:center;}
+  .footer-right{text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<div class="page-bg" aria-hidden="true"></div>
+
+<nav>
+  <div class="nav-logo">
+    <a href="/"><img src="assets/Living-Spaces-Gardening-Brand-Lettering-Terracota.webp" alt="Living Spaces Gardening" width="154" height="56" loading="eager"></a>
+  </div>
+</nav>
+
+<main>
+  <div class="card">
+
+    <div class="mark-wrap">
+      <div class="mark-circle">
+        <svg class="checkmark" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M6 17 L13 24 L26 10"/>
+        </svg>
+      </div>
+    </div>
+
+    <p class="eyebrow">Application received</p>
+    <h1>Thanks for <em>applying</em>.</h1>
+    <p class="message">
+      We got your application and we appreciate you taking the time. <strong>Kiamesha reviews every one personally.</strong> Here is what happens next.
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="next-steps">
+      <p class="ns-label">What to expect</p>
+      <ul>
+        <li>Kiamesha reads every application herself — no automated screening</li>
+        <li>If we think there is a fit, we reach out within one week</li>
+        <li>If timing is off, we may keep your information on file for future openings</li>
+        <li>While you wait, take a look at the <a href="/#gallery" style="color:var(--teal);font-weight:600;">project gallery</a> to see the kind of work we do</li>
+      </ul>
+    </div>
+
+    <a href="/" class="btn-back">Back to Living Spaces Gardening</a>
+
+    <p class="contact-line">
+      Questions? Reach Kiamesha at <a href="sms:7277107400">727-710-7400</a>
+    </p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-logo">
+    <img src="assets/Living-Spaces-Gardening-Mark-Terracota-2.png" alt="Living Spaces Gardening" width="46" height="46" loading="lazy">
+  </div>
+  <div class="footer-center">
+    <p>&copy; 2026 Living Spaces Gardening. St. Petersburg, FL</p>
+  </div>
+  <div class="footer-right">
+    <p><a href="/">Return home</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
