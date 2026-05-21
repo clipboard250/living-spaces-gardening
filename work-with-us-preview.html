@@ -203,7 +203,7 @@ footer p{color:rgba(255,255,255,.70);font-size:.72rem;font-weight:400;}
 .pw-error{font-size:.78rem;color:var(--terra);margin-top:.75rem;display:none;}
 
 /* KIAMESHA REVIEW BANNER */
-.review-banner{background:var(--terra);padding:1.25rem 5%;position:relative;}
+.review-banner{background:var(--terra);padding:1.25rem 5%;position:relative;margin-top:0;} body.preview-active nav{display:none!important;}
 .review-banner::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--mustard),var(--teal));}
 .review-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;}
 .review-text{color:#fff;}
@@ -671,6 +671,7 @@ function checkPW(){
     document.getElementById('pw-screen').style.display='none';
     document.getElementById('reviewBanner').style.display='block';
     document.getElementById('preview-content').style.display='block';
+    document.body.classList.add('preview-active');
   } else {
     document.getElementById('pw-error').style.display='block';
   }
