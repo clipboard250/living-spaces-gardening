@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post-Consult Survey | Living Spaces Gardening</title>
+<meta name="description" content="Tell us how your consult went. Two quick questions — your feedback helps us keep getting better.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://www.livingspacesgardening.com/post-consult-survey">
+<link rel="icon" href="assets/Living-Spaces-Gardening-Mark-Terracota-2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --terra:#9e4732;--teal:#508e8a;--mustard:#c9802e;--cocoa:#63403c;--sand:#f8f5eb;--charcoal:#3b3836;--muted:#8a7a75;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+*:focus-visible{outline:2px solid var(--terra);outline-offset:2px;}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans',sans-serif;background:var(--sand);color:var(--charcoal);min-height:100vh;display:flex;flex-direction:column;}
+
+/* Watermark */
+body::before{content:'';position:fixed;inset:0;background-image:url('assets/Living-Spaces-Gardening-Mark-Terracota-2.png');background-repeat:repeat;background-size:280px;opacity:.035;pointer-events:none;z-index:0;}
+
+/* Header */
+.survey-header{padding:1.75rem 5%;display:flex;justify-content:center;position:relative;z-index:1;}
+.survey-header img{height:64px;width:auto;}
+
+/* Main */
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:2rem 5% 4rem;position:relative;z-index:1;}
+
+.survey-card{max-width:620px;width:100%;background:#fff;border-radius:3px;padding:3.5rem 3rem;border-top:4px solid var(--terra);box-shadow:0 1px 0 rgba(99,64,60,.08);}
+
+.eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.18em;color:var(--teal);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;text-transform:uppercase;}
+.eyebrow::before{content:'';display:block;width:24px;height:2px;background:var(--teal);}
+
+h1{font-family:'Noto Sans',sans-serif;font-size:clamp(1.8rem,3.5vw,2.4rem);line-height:1.15;color:var(--charcoal);font-weight:700;margin-bottom:1rem;text-transform:uppercase;}
+h1 em{font-style:normal;color:var(--terra);}
+
+.lead{font-size:.92rem;color:var(--muted);line-height:1.75;margin-bottom:2.5rem;font-weight:400;}
+
+/* Form */
+.form-group{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.5rem;}
+label{font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
+input,textarea{font-family:'Noto Sans',sans-serif;font-size:.9rem;color:var(--charcoal);background:var(--sand);border:1.5px solid rgba(80,142,138,.2);border-radius:2px;padding:.9rem 1rem;transition:border-color .2s,background .2s;font-weight:400;resize:vertical;width:100%;}
+input:focus,textarea:focus{outline:none;border-color:var(--teal);background:#fff;}
+textarea{min-height:110px;line-height:1.6;}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.5rem;}
+.form-row .form-group{margin-bottom:0;}
+
+.optional-note{font-size:.7rem;color:var(--muted);margin-top:-1rem;margin-bottom:1.75rem;font-style:italic;}
+
+button[type="submit"]{width:100%;background:var(--terra);color:#fff;border:none;padding:1rem 2rem;border-radius:2px;font-family:'Noto Sans',sans-serif;font-size:.88rem;font-weight:600;letter-spacing:.04em;cursor:pointer;transition:background .2s,transform .2s;min-height:52px;}
+button[type="submit"]:hover{background:var(--cocoa);transform:translateY(-1px);}
+
+.honeypot{position:absolute;left:-9999px;}
+
+/* Footer */
+footer{padding:2rem 5%;text-align:center;font-size:.72rem;color:var(--muted);position:relative;z-index:1;}
+footer a{color:var(--teal);text-decoration:underline;text-decoration-color:rgba(80,142,138,.3);}
+
+@media(max-width:600px){
+  .survey-card{padding:2.5rem 1.75rem;}
+  .form-row{grid-template-columns:1fr;}
+  h1{font-size:1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<header class="survey-header">
+  <a href="/" aria-label="Living Spaces Gardening home">
+    <img src="assets/Living-Spaces-Gardening-Brand-Lettering-Terracota.webp" alt="Living Spaces Gardening">
+  </a>
+</header>
+
+<main>
+  <div class="survey-card">
+    <p class="eyebrow">Post-Consult</p>
+    <h1>How was your <em>consult</em>?</h1>
+    <p class="lead">Two quick questions. Your answers help us keep getting better — and Kiamesha reads every one personally.</p>
+
+    <form action="https://formspree.io/f/xaqkayrl" method="POST">
+      <input type="hidden" name="_cc" value="kiamesha@livingspacesgardening.com,info@gofercontent.com">
+      <input type="hidden" name="_subject" value="LSG Post-Consult Survey Response">
+
+      <div class="form-group">
+        <label for="experience">How was your consult experience?</label>
+        <textarea id="experience" name="consult_experience" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="stood-out">What stood out to you?</label>
+        <textarea id="stood-out" name="stood_out" required></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Your name (optional)</label>
+          <input type="text" id="name" name="name" autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="email">Your email (optional)</label>
+          <input type="email" id="email" name="email" autocomplete="email">
+        </div>
+      </div>
+
+      <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <button type="submit">Send feedback</button>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 Living Spaces Gardening &middot; St. Petersburg, FL &middot; <a href="/">Back to home</a></p>
+</footer>
+
+</body>
+</html>
