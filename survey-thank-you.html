@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You | Living Spaces Gardening</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="assets/Living-Spaces-Gardening-Mark-Terracota-2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --terra:#9e4732;--teal:#508e8a;--mustard:#c9802e;--cocoa:#63403c;--sand:#f8f5eb;--charcoal:#3b3836;--muted:#8a7a75;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+*:focus-visible{outline:2px solid var(--terra);outline-offset:2px;}
+body{font-family:'Noto Sans',sans-serif;background:var(--sand);color:var(--charcoal);min-height:100vh;display:flex;flex-direction:column;}
+
+body::before{content:'';position:fixed;inset:0;background-image:url('assets/Living-Spaces-Gardening-Mark-Terracota-2.png');background-repeat:repeat;background-size:280px;opacity:.035;pointer-events:none;z-index:0;}
+
+.ty-header{padding:1.75rem 5%;display:flex;justify-content:center;position:relative;z-index:1;}
+.ty-header img{height:64px;width:auto;}
+
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:2rem 5% 4rem;position:relative;z-index:1;}
+
+.ty-card{max-width:620px;width:100%;text-align:center;padding:2rem;}
+
+.ty-mark{width:80px;height:80px;margin:0 auto 2rem;background:var(--terra);border-radius:50%;display:flex;align-items:center;justify-content:center;animation:popIn .5s cubic-bezier(.34,1.56,.64,1) .1s both;}
+.ty-mark svg{width:36px;height:36px;stroke:#fff;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+
+.eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.18em;color:var(--teal);margin-bottom:1rem;text-transform:uppercase;display:inline-flex;align-items:center;gap:.75rem;}
+.eyebrow::before,.eyebrow::after{content:'';display:block;width:24px;height:2px;background:var(--teal);}
+
+h1{font-family:'Noto Sans',sans-serif;font-size:clamp(2rem,4vw,2.8rem);line-height:1.1;color:var(--charcoal);font-weight:700;margin-bottom:1.25rem;text-transform:uppercase;}
+h1 em{font-style:normal;color:var(--terra);}
+
+.lead{font-size:1rem;color:var(--charcoal);line-height:1.8;margin-bottom:1rem;font-weight:400;max-width:480px;margin-left:auto;margin-right:auto;}
+.sub{font-size:.88rem;color:var(--muted);line-height:1.75;margin-bottom:2.5rem;max-width:460px;margin-left:auto;margin-right:auto;}
+
+.ty-actions{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.85rem 1.5rem;border-radius:2px;font-family:'Noto Sans',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.02em;text-decoration:none;cursor:pointer;transition:background .2s,transform .2s,border-color .2s,color .2s;}
+.btn-primary{background:var(--terra);color:#fff;border:1.5px solid var(--terra);}
+.btn-primary:hover{background:var(--cocoa);border-color:var(--cocoa);transform:translateY(-2px);}
+.btn-ghost{background:transparent;border:1.5px solid var(--teal);color:var(--teal);}
+.btn-ghost:hover{border-color:var(--terra);color:var(--terra);}
+
+@keyframes popIn{from{opacity:0;transform:scale(.5);}to{opacity:1;transform:scale(1);}}
+
+footer{padding:2rem 5%;text-align:center;font-size:.72rem;color:var(--muted);position:relative;z-index:1;}
+
+@media(max-width:600px){
+  .ty-actions{flex-direction:column;}
+  .btn{width:100%;}
+}
+</style>
+</head>
+<body>
+
+<header class="ty-header">
+  <a href="/" aria-label="Living Spaces Gardening home">
+    <img src="assets/Living-Spaces-Gardening-Brand-Lettering-Terracota.webp" alt="Living Spaces Gardening">
+  </a>
+</header>
+
+<main>
+  <div class="ty-card">
+    <div class="ty-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    </div>
+    <p class="eyebrow">Got it</p>
+    <h1>Thank <em>you</em>.</h1>
+    <p class="lead">Your feedback just landed in Kiamesha's inbox.</p>
+    <p class="sub">Every response shapes how we show up for the next homeowner. We appreciate you taking the time.</p>
+    <div class="ty-actions">
+      <a href="/" class="btn btn-primary">Back to home</a>
+      <a href="/#gallery" class="btn btn-ghost">See more gardens</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 Living Spaces Gardening &middot; St. Petersburg, FL</p>
+</footer>
+
+</body>
+</html>
