@@ -34,6 +34,7 @@
     { "source": "/hoa-guide", "destination": "/hoa-guide.html" },
     { "source": "/press", "destination": "/press.html" },
     { "source": "/services/garden-maintenance", "destination": "/garden-maintenance.html" },
+        { "source": "/services/food-forest-permaculture", "destination": "/food-forest-permaculture.html" },
     { "source": "/service-areas/st-petersburg-fl", "destination": "/service-areas/st-petersburg-fl.html" },
     { "source": "/service-areas/gulfport-fl", "destination": "/service-areas/gulfport-fl.html" },
     { "source": "/service-areas/pinellas-park-fl", "destination": "/service-areas/pinellas-park-fl.html" },
