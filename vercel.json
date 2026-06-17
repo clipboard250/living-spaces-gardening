@@ -21,12 +21,12 @@
     { "source": "/service-areas/pine-island-fl", "destination": "/", "statusCode": 301 },
     { "source": "/service-areas/fort-myers-beach-fl", "destination": "/", "statusCode": 301 },
     { "source": "/service-areas/sanibel-fl", "destination": "/", "statusCode": 301 },
-    { "source": "/service-areas/cayo-costa-fl", "destination": "/", "statusCode": 301 },     
-    { "source": "/service-areas/cape-coral-fl", "destination": "/", "statusCode": 301 },     
-    { "source": "/service-areas/captiva-fl", "destination": "/", "statusCode": 301 },     
-    { "source": "/service-areas/hillsborough-county-fl", "destination": "/", "statusCode": 301 },     
-    { "source": "/service-areas/pasco-county-fl", "destination": "/", "statusCode": 301 },     
-    { "source": "/service-areas/bowmans-beach-road-fl", "destination": "/", "statusCode": 301 },     
+    { "source": "/service-areas/cayo-costa-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/cape-coral-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/captiva-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/hillsborough-county-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/pasco-county-fl", "destination": "/", "statusCode": 301 },
+    { "source": "/service-areas/bowmans-beach-road-fl", "destination": "/", "statusCode": 301 },
     { "source": "/service-areas/indian-rocks-beach-fl", "destination": "/", "statusCode": 301 },
     { "source": "/service-areas/privacy.html", "destination": "/privacy.html", "statusCode": 301 }
   ],
@@ -34,7 +34,7 @@
     { "source": "/hoa-guide", "destination": "/hoa-guide.html" },
     { "source": "/press", "destination": "/press.html" },
     { "source": "/services/garden-maintenance", "destination": "/garden-maintenance.html" },
-        { "source": "/services/food-forest-permaculture", "destination": "/food-forest-permaculture.html" },
+    { "source": "/services/food-forest-permaculture", "destination": "/food-forest-permaculture.html" },
     { "source": "/service-areas/st-petersburg-fl", "destination": "/service-areas/st-petersburg-fl.html" },
     { "source": "/service-areas/gulfport-fl", "destination": "/service-areas/gulfport-fl.html" },
     { "source": "/service-areas/pinellas-park-fl", "destination": "/service-areas/pinellas-park-fl.html" },
@@ -50,6 +50,8 @@
     { "source": "/service-areas/pinellas-county-fl", "destination": "/service-areas/pinellas-county-fl.html" },
     { "source": "/promo", "destination": "/promo.html" },
     { "source": "/promo-thank-you", "destination": "/promo-thank-you.html" },
+    { "source": "/blog", "destination": "/blog.html" },
+    { "source": "/florida-plants-that-repel-roof-rats", "destination": "/florida-plants-that-repel-roof-rats.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
