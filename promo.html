@@ -39,13 +39,74 @@
      PROMO CONFIG — EDIT THESE 5 LINES PER PROMO
      ============================================================ -->
 <script>
-window.PROMO_CONFIG = {
-  holidayName: "Memorial Day",            // e.g. "Memorial Day", "Summer Solstice", "Fourth of July"
-  endDate: "2026-05-25T23:59:59-04:00",   // ISO format with Eastern time zone
-  promoCode: "NATIVEGARDEN2026",          // Discount code (stays same)
-  discountAmount: "$25",                  // Display amount
-  newPrice: "$100",                       // Price after discount
-  regularPrice: "$125"                    // Original price
+// ============================================================
+// 2026 PROMO SCHEDULE — set once, runs all year.
+// Offer never changes: $25 off, $100 (reg $125), code NATIVEGARDEN2026.
+// Only the holiday name + end date rotate. Each ends Sunday 11:59pm ET.
+// The script below auto-picks whichever promo is live right now.
+// ============================================================
+window.PROMO_SCHEDULE = [
+  { name: "New Year",           endDate: "2026-01-04T23:59:59-05:00" },
+  { name: "This Week Only",     endDate: "2026-01-11T23:59:59-05:00" },
+  { name: "This Week Only",     endDate: "2026-01-18T23:59:59-05:00" },
+  { name: "This Week Only",     endDate: "2026-01-25T23:59:59-05:00" },
+  { name: "This Week Only",     endDate: "2026-02-01T23:59:59-05:00" },
+  { name: "This Week Only",     endDate: "2026-02-08T23:59:59-05:00" },
+  { name: "Valentine's Day",    endDate: "2026-02-15T23:59:59-05:00" },
+  { name: "This Week Only",     endDate: "2026-02-22T23:59:59-05:00" },
+  { name: "This Week Only",     endDate: "2026-03-01T23:59:59-05:00" },
+  { name: "This Week Only",     endDate: "2026-03-08T23:59:59-05:00" },
+  { name: "This Week Only",     endDate: "2026-03-15T23:59:59-04:00" },
+  { name: "Spring Equinox",     endDate: "2026-03-22T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-03-29T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-04-05T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-04-12T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-04-19T23:59:59-04:00" },
+  { name: "Earth Day",          endDate: "2026-04-26T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-05-03T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-05-10T23:59:59-04:00" },
+  { name: "Mother's Day",       endDate: "2026-05-17T23:59:59-04:00" },
+  { name: "Memorial Day",       endDate: "2026-05-25T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-05-31T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-06-07T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-06-14T23:59:59-04:00" },
+  { name: "Summer Solstice",    endDate: "2026-06-21T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-06-28T23:59:59-04:00" },
+  { name: "Fourth of July",     endDate: "2026-07-05T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-07-12T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-07-19T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-07-26T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-08-02T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-08-09T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-08-16T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-08-23T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-08-30T23:59:59-04:00" },
+  { name: "Labor Day",          endDate: "2026-09-07T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-09-13T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-09-20T23:59:59-04:00" },
+  { name: "Fall Equinox",       endDate: "2026-09-27T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-10-04T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-10-11T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-10-18T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-10-25T23:59:59-04:00" },
+  { name: "Halloween",          endDate: "2026-11-01T23:59:59-04:00" },
+  { name: "This Week Only",     endDate: "2026-11-08T23:59:59-05:00" },
+  { name: "This Week Only",     endDate: "2026-11-15T23:59:59-05:00" },
+  { name: "This Week Only",     endDate: "2026-11-22T23:59:59-05:00" },
+  { name: "Thanksgiving",       endDate: "2026-11-29T23:59:59-05:00" },
+  { name: "This Week Only",     endDate: "2026-12-06T23:59:59-05:00" },
+  { name: "This Week Only",     endDate: "2026-12-13T23:59:59-05:00" },
+  { name: "Winter Solstice",    endDate: "2026-12-21T23:59:59-05:00" },
+  { name: "This Week Only",     endDate: "2026-12-27T23:59:59-05:00" },
+  { name: "New Year",           endDate: "2027-01-03T23:59:59-05:00" }
+];
+
+// Fixed offer details — these never change.
+window.PROMO_FIXED = {
+  promoCode: "NATIVEGARDEN2026",
+  discountAmount: "$25",
+  newPrice: "$100",
+  regularPrice: "$125"
 };
 </script>
 
@@ -349,9 +410,40 @@ h1{animation:heroIn .9s ease .3s both;}
 </footer>
 
 <script>
-// ── INJECT PROMO CONFIG INTO PAGE ──
+// ── PICK THE LIVE PROMO FROM THE SCHEDULE ──
+// Finds the first promo whose end date is still in the future and uses it.
+// Everything below is automatic — never needs editing.
 (function(){
-  var cfg = window.PROMO_CONFIG;
+  var fixed = window.PROMO_FIXED;
+  var schedule = window.PROMO_SCHEDULE || [];
+  var now = new Date().getTime();
+
+  // Find the next promo that hasn't ended yet.
+  var current = null;
+  for (var i = 0; i < schedule.length; i++){
+    if (new Date(schedule[i].endDate).getTime() > now){
+      current = schedule[i];
+      break;
+    }
+  }
+
+  // If the whole schedule has passed, fall back to the last entry so the
+  // page still renders cleanly (expired state shows automatically).
+  if (!current){
+    current = schedule.length ? schedule[schedule.length - 1] : { name: "Limited-Time", endDate: new Date().toISOString() };
+  }
+
+  // Build the active config from the chosen promo + the fixed offer.
+  var cfg = {
+    holidayName:    current.name,
+    endDate:        current.endDate,
+    promoCode:      fixed.promoCode,
+    discountAmount: fixed.discountAmount,
+    newPrice:       fixed.newPrice,
+    regularPrice:   fixed.regularPrice
+  };
+
+  // ── INJECT INTO PAGE ──
   document.title = cfg.holidayName + " Special: " + cfg.discountAmount + " Off Your Garden Consultation | Living Spaces Gardening";
   document.getElementById('badgeText').textContent = cfg.holidayName + " Special";
   document.getElementById('discountHeadline').textContent = cfg.discountAmount;
@@ -362,11 +454,9 @@ h1{animation:heroIn .9s ease .3s both;}
   document.getElementById('hiddenPromoCode').value = cfg.promoCode;
   document.getElementById('hiddenHoliday').value = cfg.holidayName;
   document.getElementById('submitDiscount').textContent = cfg.discountAmount.replace('$','');
-})();
 
-// ── COUNTDOWN ──
-(function(){
-  var endTime = new Date(window.PROMO_CONFIG.endDate).getTime();
+  // ── COUNTDOWN ──
+  var endTime = new Date(cfg.endDate).getTime();
   var els = {
     days: document.getElementById('cd-days'),
     hours: document.getElementById('cd-hours'),
@@ -374,9 +464,9 @@ h1{animation:heroIn .9s ease .3s both;}
     secs: document.getElementById('cd-secs')
   };
   function pad(n){return n<10?'0'+n:''+n;}
+  var interval;
   function tick(){
-    var now = new Date().getTime();
-    var diff = endTime - now;
+    var diff = endTime - new Date().getTime();
     if(diff <= 0){
       document.body.classList.add('promo-expired');
       document.getElementById('expiredBanner').classList.add('show');
@@ -391,7 +481,7 @@ h1{animation:heroIn .9s ease .3s both;}
     els.days.textContent=pad(d);els.hours.textContent=pad(h);els.mins.textContent=pad(m);els.secs.textContent=pad(s);
   }
   tick();
-  var interval = setInterval(tick, 1000);
+  interval = setInterval(tick, 1000);
 })();
 </script>
 
