@@ -31,7 +31,8 @@
     { "source": "/service-areas/privacy.html", "destination": "/privacy.html", "statusCode": 301 }
   ],
   "rewrites": [
-    { "source": "/hoa-guide", "destination": "/hoa-guide.html" },
+    { "source": "/hoa-guide", "destination": "/hoa-guide.html" },     
+    { "source": "/for-hoa", "destination": "/for-hoa.html" },
     { "source": "/press", "destination": "/press.html" },
     { "source": "/services/garden-maintenance", "destination": "/garden-maintenance.html" },
     { "source": "/services/food-forest-permaculture", "destination": "/food-forest-permaculture.html" },
