@@ -1,4 +1,16 @@
 {
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Strict-Transport-Security", "value": "max-age=3600; includeSubDomains" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+      ]
+    }
+  ],
   "redirects": [
     { "source": "/services/landscaping", "destination": "/#services", "statusCode": 301 },
     { "source": "/services/native-garden-design", "destination": "/#services", "statusCode": 301 },
@@ -31,7 +43,7 @@
     { "source": "/service-areas/privacy.html", "destination": "/privacy.html", "statusCode": 301 }
   ],
   "rewrites": [
-    { "source": "/hoa-guide", "destination": "/hoa-guide.html" },     
+    { "source": "/hoa-guide", "destination": "/hoa-guide.html" },
     { "source": "/for-hoa", "destination": "/for-hoa.html" },
     { "source": "/press", "destination": "/press.html" },
     { "source": "/services/garden-maintenance", "destination": "/garden-maintenance.html" },
