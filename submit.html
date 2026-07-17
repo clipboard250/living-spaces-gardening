@@ -1,150 +1,516 @@
-Housing Solutions
-Standards
-How it Works
-Portfolio
-Resources
-Get Started
-Hero (3).png
-Old Gladstone Hollow
-ADU
-Sleeping Loft
-1 Bath
-<500 Sqft
-ADU
-Overview
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Send a Project | Living Spaces Gardening</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/Living-Spaces-Gardening-Mark-Terracota-2.png">
+<link rel="apple-touch-icon" href="assets/Living-Spaces-Gardening-Mark-Terracota-2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--terra:#9e4732;--teal:#508e8a;--mustard:#c9802e;--cocoa:#63403c;--sand:#f8f5eb;--charcoal:#3b3836;--muted:#8a7a75;--line:rgba(99,64,60,.12);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+*:focus-visible{outline:2px solid var(--terra);outline-offset:2px;}
+body{font-family:'Noto Sans',sans-serif;background:var(--sand);color:var(--charcoal);}
+img{display:block;}
+.bar{position:sticky;top:0;z-index:60;background:rgba(248,245,235,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:.9rem 5%;display:flex;align-items:center;gap:1rem;}
+.bar img{height:44px;width:auto;}
+.saved{margin-left:auto;font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.wrap{max-width:720px;margin:0 auto;padding:3rem 5% 6rem;}
+.eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.08em;color:var(--teal);margin-bottom:1rem;display:flex;align-items:center;gap:.75rem;text-transform:uppercase;}
+.eyebrow::before{content:'';display:block;width:24px;height:2px;background:var(--teal);}
+h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;line-height:1.12;margin-bottom:1rem;}
+h1 em{font-style:normal;color:var(--terra);}
+.lede{font-size:.92rem;color:var(--muted);line-height:1.85;}
+fieldset{border:none;border-top:1px solid var(--line);padding:2rem 0;}
+legend{font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);padding-right:1rem;}
+.note{font-size:.78rem;color:var(--muted);line-height:1.7;margin:-.5rem 0 1.5rem;}
+.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.9rem;}
+.fg{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1.15rem;}
+.fg label{font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
+.req{color:var(--terra);}
+input[type=text],input[type=url],select,textarea{font-family:inherit;font-size:.88rem;color:var(--charcoal);background:#fff;border:1.5px solid rgba(80,142,138,.2);border-radius:2px;padding:.8rem .9rem;width:100%;resize:vertical;transition:border-color .2s;}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal);}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23508e8a' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;cursor:pointer;background-color:#fff;}
+.hint{font-size:.68rem;color:var(--muted);line-height:1.55;}
+.err{border-color:var(--terra)!important;}
+.errmsg{font-size:.68rem;color:var(--terra);font-weight:600;display:none;}
+.errmsg.on{display:block;}
+.other{display:none;margin-top:.5rem;}
+.other.on{display:block;}
+.drop{border:1.5px dashed rgba(80,142,138,.45);border-radius:3px;background:rgba(255,255,255,.55);padding:1.75rem 1.25rem;text-align:center;cursor:pointer;transition:border-color .2s,background .2s;}
+.drop.over{border-color:var(--terra);background:#fff;}
+.drop.full{border-style:solid;border-color:var(--line);background:rgba(255,255,255,.3);cursor:default;}
+.drop p{font-size:.88rem;font-weight:600;margin-bottom:.3rem;}
+.drop span{font-size:.72rem;color:var(--muted);}
+.meter{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:.75rem;font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+.meter b{color:var(--charcoal);}
+.meter.warn{color:var(--terra);}
+.meter.warn b{color:var(--terra);}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.75rem;margin-top:1rem;}
+.pic{position:relative;border-radius:3px;overflow:hidden;background:#e9e3d5;aspect-ratio:1/1;border:1px solid var(--line);}
+.pic img{width:100%;height:100%;object-fit:cover;}
+.pic-flag{position:absolute;top:.35rem;left:.35rem;font-size:.55rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .4rem;border-radius:2px;color:#fff;background:var(--charcoal);}
+.pic-flag.main{background:var(--teal);}
+.pic-flag.before{background:var(--cocoa);}
+.pic-tools{position:absolute;bottom:0;left:0;right:0;display:flex;gap:1px;background:var(--line);}
+.pic-tools button{flex:1;background:rgba(248,245,235,.94);border:none;font-family:inherit;font-size:.55rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.4rem .2rem;cursor:pointer;color:var(--charcoal);}
+.pic-tools button:hover{background:#fff;color:var(--terra);}
+.vid{background:#fff;border:1px solid var(--line);border-radius:3px;padding:1rem;margin-bottom:.75rem;}
+.vid-h{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.6rem;}
+.vid-n{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);}
+.drive{display:flex;align-items:center;justify-content:center;gap:.6rem;background:#fff;border:1.5px solid var(--teal);color:var(--teal);border-radius:2px;padding:1rem;font-size:.85rem;font-weight:600;text-decoration:none;transition:background .2s,color .2s;min-height:52px;}
+.drive:hover{background:var(--teal);color:#fff;}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem;}
+.chip{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:600;border:1.5px solid var(--line);border-radius:2px;padding:.45rem .6rem;background:#fff;}
+.chip button{background:none;border:none;color:var(--muted);cursor:pointer;font-size:.85rem;line-height:1;padding:0;}
+.chip button:hover{color:var(--terra);}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:14px 22px;border-radius:2px;font-family:inherit;font-size:.9rem;font-weight:600;cursor:pointer;border:1.5px solid transparent;transition:background .2s,transform .2s,border-color .2s,color .2s;text-decoration:none;}
+.btn-primary{background:var(--terra);color:#fff;border-color:var(--terra);width:100%;}
+.btn-primary:hover{background:var(--cocoa);transform:translateY(-2px);}
+.btn-primary:disabled{opacity:.6;cursor:default;transform:none;}
+.btn-ghost{background:none;border-color:var(--line);color:var(--muted);font-size:.75rem;min-height:44px;}
+.btn-ghost:hover{border-color:var(--terra);color:var(--terra);}
+.btn-add{background:none;border:1.5px solid var(--line);color:var(--charcoal);border-radius:2px;padding:.7rem 1rem;font-family:inherit;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;min-height:44px;}
+.btn-add:hover{border-color:var(--teal);color:var(--teal);}
+.btn-add:disabled{opacity:.4;cursor:default;}
+.mini{background:none;border:none;font-family:inherit;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);cursor:pointer;padding:.2rem;}
+.mini:hover{color:var(--terra);}
+.actions{padding-top:1.5rem;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:.75rem;}
+.sending{display:none;font-size:.78rem;color:var(--muted);text-align:center;}
+.done{display:none;text-align:center;padding:5rem 1rem;}
+.done h2{font-size:1.8rem;font-weight:700;margin-bottom:.75rem;}
+.done p{color:var(--muted);line-height:1.8;font-size:.9rem;margin-bottom:1.5rem;}
+.toast{position:fixed;bottom:1.5rem;left:50%;transform:translate(-50%,120%);background:var(--charcoal);color:var(--sand);font-size:.8rem;font-weight:600;padding:.85rem 1.25rem;border-radius:2px;z-index:99;transition:transform .3s;max-width:90vw;text-align:center;line-height:1.5;}
+.toast.on{transform:translate(-50%,0);}
+@media(max-width:600px){.row{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;}}
+</style>
+</head>
+<body>
 
-Our project in Andes, NY includes a custom main house and an ADU. We advised that our clients start with the construction of the ADU, which features three sleeping areas, living, kitchen and dining space in a 468 SF footprint.
+<div class="bar">
+  <img src="assets/Living-Spaces-Gardening-Brand-Lettering-Terracota.webp" alt="Living Spaces Gardening">
+  <span class="saved" id="saved">Saved</span>
+</div>
 
-Size
+<div class="wrap" id="formWrap">
+  <p class="eyebrow">Send a project</p>
+  <h1>Send a project to <em>Dayna</em>.</h1>
+  <p class="lede">Photos and the story. That's all — Dayna builds the page from this. It saves as you type, so you can stop halfway and come back. Nothing goes live until she says so.</p>
 
-468 sqft
+  <form id="f" method="POST" enctype="multipart/form-data" novalidate>
+    <input type="hidden" name="_subject" value="New portfolio project for the website">
 
-Lot Size
+    <fieldset>
+      <legend>Photos</legend>
+      <p class="note">Between 1 and 10. Mark the best one <b>Main</b> — that's the one people see first. If you've got a shot of what it looked like <b>before</b>, mark that too. Same spot, same angle as the after shot is what makes it land.</p>
 
-10 Acres
+      <div class="drop" id="drop" tabindex="0" role="button" aria-label="Add photos">
+        <p id="dropCopy">Drop photos here, or tap to choose</p>
+        <span>Straight off the phone is fine</span>
+      </div>
+      <input type="file" id="file" name="photos" accept="image/*" multiple hidden>
+      <div class="meter" id="meter">
+        <span><b id="picCount">0</b> of 10 photos</span>
+        <span id="sizeNote"></span>
+      </div>
+      <span class="errmsg" data-for="drop" style="margin-top:.6rem;">Add at least one photo.</span>
+      <div class="grid" id="grid"></div>
+    </fieldset>
 
-Environment
+    <fieldset>
+      <legend>Video</legend>
+      <p class="note">Up to 3, and they're too big to send through here. Put them in the shared folder, then tell Dayna what's in each one so she can match them up.</p>
 
-Meadow
+      <a class="drive" id="driveBtn" href="#" target="_blank" rel="noopener">📁 Open the video folder</a>
+      <p class="hint" style="margin:.6rem 0 1.5rem;">Drag the videos in, then come back and fill this in.</p>
 
-Status
+      <div id="vids"></div>
+      <button type="button" class="btn-add" id="addVid">+ Add a video</button>
+      <input type="hidden" name="Videos" id="vidsOut">
+    </fieldset>
 
-Completed
+    <fieldset>
+      <legend>Where and what</legend>
+      <div class="fg">
+        <label for="title">What do you call this project? <span class="req">*</span></label>
+        <input type="text" id="title" name="Project" placeholder="The Largo yard that flooded every summer">
+        <span class="errmsg" data-for="title">Needs a name.</span>
+      </div>
+      <div class="row">
+        <div class="fg">
+          <label for="service">Service <span class="req">*</span></label>
+          <select id="service" name="Service">
+            <option value="" disabled selected>Select</option>
+            <option>Native Landscape Design</option>
+            <option>Hardscape Design</option>
+            <option>Permaculture Design</option>
+            <option>Specimen Trees</option>
+            <option>Irrigation &amp; Lighting</option>
+            <option>Garden Maintenance</option>
+            <option value="Other">Other</option>
+          </select>
+          <input type="text" class="other" id="serviceOther" name="Service (other)" placeholder="What was it?" aria-label="Other service">
+          <span class="errmsg" data-for="service">Pick one.</span>
+        </div>
+        <div class="fg">
+          <label for="location">City <span class="req">*</span></label>
+          <select id="location" name="City">
+            <option value="" disabled selected>Select</option>
+            <option>St. Petersburg</option><option>Largo</option><option>Tarpon Springs</option>
+            <option>Tampa Bay</option><option>Gulfport</option><option>Pinellas Park</option>
+            <option>Clearwater</option><option>Dunedin</option><option>Treasure Island</option>
+            <option>Madeira Beach</option><option>Redington Beach</option><option>Tampa</option>
+            <option>South Tampa</option>
+            <option value="Other">Other</option>
+          </select>
+          <input type="text" class="other" id="locationOther" name="City (other)" placeholder="Which city?" aria-label="Other city">
+          <span class="errmsg" data-for="location">Pick one.</span>
+        </div>
+        <div class="fg">
+          <label for="year">Year <span class="req">*</span></label>
+          <select id="year" name="Year">
+            <option value="" disabled selected>Select</option>
+            <option value="Other">Other / not sure</option>
+          </select>
+          <input type="text" class="other" id="yearOther" name="Year (other)" placeholder="Roughly when?" aria-label="Other year">
+          <span class="errmsg" data-for="year">Pick one.</span>
+        </div>
+      </div>
+      <div class="fg">
+        <label for="scope">What went in? <span class="req">*</span></label>
+        <input type="text" id="scope" name="Scope" placeholder="Rain garden, dry river bed, native grasses">
+        <span class="hint">Just the list. Commas between things.</span>
+        <span class="errmsg" data-for="scope">Add what went in.</span>
+      </div>
+    </fieldset>
 
-A Simple Form
-Purposefully modest, the ADU utilizes simple lines and simple materials to keep the build costs down, without sacrificing experience.
+    <fieldset>
+      <legend>The story</legend>
+      <p class="note">Say it how you'd say it standing in the yard. Don't polish it — that's Dayna's job. If a question doesn't fit this project, put <b>n/a</b> and say why in the notes.</p>
+      <div class="fg">
+        <label for="problem">What was wrong when you got there? <span class="req">*</span></label>
+        <textarea id="problem" name="What was wrong" rows="4" placeholder="Held water for days after every storm. They'd replaced the sod three years running."></textarea>
+        <span class="errmsg" data-for="problem">Needs an answer — n/a is fine.</span>
+      </div>
+      <div class="fg">
+        <label for="approach">What did you do about it? <span class="req">*</span></label>
+        <textarea id="approach" name="What we did" rows="4" placeholder="Regraded the low corner into a rain garden, cut a dry river bed to feed it, planted deep-rooted natives around the basin."></textarea>
+        <span class="errmsg" data-for="approach">Needs an answer — n/a is fine.</span>
+      </div>
+      <div class="fg">
+        <label for="result">What does it do now? <span class="req">*</span></label>
+        <textarea id="result" name="What it does now" rows="4" placeholder="Drinks the storm instead of pooling. No more sod bill. Full of pollinators every spring."></textarea>
+        <span class="errmsg" data-for="result">Needs an answer — n/a is fine.</span>
+      </div>
+    </fieldset>
 
-Mountain Outlook
-The entry to the house is modest, with minimal openings and a simple front door. The house is oriented towards a long view of the northern foothills of the Catskill Mountains, with a wide expanse of glass on the rear of the structure.
+    <fieldset>
+      <legend>Plants</legend>
+      <div class="fg">
+        <label for="plantIn">What's growing there? <span class="req">*</span></label>
+        <input type="text" id="plantIn" placeholder="Type one and hit Enter — muhly grass">
+        <span class="hint">Common names are fine. Latin name for specimen trees. Don't know one? Type what you call it.</span>
+        <span class="errmsg" data-for="plantIn">Add at least one.</span>
+      </div>
+      <div class="chips" id="chips"></div>
+      <input type="hidden" name="Plants" id="plantsOut">
+    </fieldset>
 
-Precise Space Planning
-Each area of this +/- 500 SF cabin serves multiple functions. The sofa includes custom, built-in dining millwork. The kitchen includes storage for managing the property. The stairs are bookshelves. The loft is both an office and principal bedroom.
+    <fieldset>
+      <legend>Anything else</legend>
+      <div class="fg">
+        <label for="extra">Notes for Dayna</label>
+        <textarea id="extra" name="Notes" rows="3" placeholder="Client's fine being named. Where the boulders came from. Don't show the neighbor's fence. Anything."></textarea>
+      </div>
+      <div class="fg">
+        <label for="who">Who's sending this?</label>
+        <input type="text" id="who" name="From" placeholder="Kiamesha">
+      </div>
+    </fieldset>
 
-Building Plans
+    <input type="hidden" name="Photo notes" id="picsOut">
 
+    <div class="actions">
+      <button type="submit" class="btn btn-primary" id="send">Send to Dayna</button>
+      <p class="sending" id="sending">Sending — photos can take a minute…</p>
+      <button type="button" class="btn btn-ghost" id="reset">Clear and start over</button>
+    </div>
+  </form>
+</div>
 
+<div class="done" id="done">
+  <p class="eyebrow" style="justify-content:center;">Sent</p>
+  <h2>Got it. Dayna has it.</h2>
+  <p>She'll build the page and send you a link before anything goes live.</p>
+  <button type="button" class="btn btn-primary" style="max-width:280px;margin:0 auto;" onclick="location.reload()">Send another project</button>
+</div>
 
+<div class="toast" id="toast"></div>
 
+<script>
+/* ============================================================
+   DAYNA — set these two, nothing else.
+   ============================================================ */
+var CONFIG = {
+  FORM:  'https://formspree.io/f/xeerpvjv',                    // ← your endpoint, not the contact one
+  DRIVE: 'https://drive.google.com/drive/folders/YOUR_FOLDER_ID' // ← folder shared "anyone with link can edit"
+};
+/* ============================================================ */
 
+(function(){
+  'use strict';
+  var $ = function(s){ return document.querySelector(s); };
+  var KEY = 'lsg-project-intake';
+  var MAX_PICS = 10, MAX_VIDS = 3, SOFT_LIMIT = 20 * 1024 * 1024; // 20MB
+  var plants = [], pics = [], vids = [];
+  var dt = new DataTransfer();
 
-220cc2f5f1e37a7449f2f20fdaea097fc3399ade-2048x1176.jpg
-Exterior Rendering
+  $('#f').action = CONFIG.FORM;
+  $('#driveBtn').href = CONFIG.DRIVE;
 
-Site Photos
-cc.huts_andes-ext_hires-74.jpg
-cc.huts_andes-ext_hires-59.jpg
-cc.huts_andes-ext_hires-28.jpg
-cc.huts_andes-ext_hires-32.jpg
-46066424d760df5a81bb3c6a8af4d0b8a4d43d59-1333x1000.jpg
-5011dfb199a5810fa27350c778d5740fbc0dab35-1333x1000.jpg
-8d8c9fa98d46801b17e29fc269fd8024bf8406fd-1152x768.png
-b30483e2253d8ea77de4daac944ef63f13a25e93-1152x768.png
-1cbfe7d74b1f9066179916c1bef79523650bc15d-1152x768.png
-f2e015f0b631fa8b05f98f7da245ec99f7981c5b-1152x768.jpg
-cc.huts_andes-ext_hires-12.jpg
-cc.huts_andes-ext_hires-49.jpg
-cc.huts_andes-ext_hires-70.jpg
-cc.huts_andes-ext_hires-55.jpg
-aee4a249118640c499fffd95e3ab1ee901f29ffc-1333x1000.jpg
-5fbe52ea15c5fea6a838f51700f22456cbe22db9-1152x768.jpg
-d3eaf6db19697c2c8235fdbd4dc52cc00b7dc015-1152x768.png
-59a698d6dfc11014c40ecb2ba449638e81198950-1152x768.jpg
-8914a3620c3543c93982bac32d928fb18eb353ca-1152x768.jpg
-Related Projects
-6015a1a13a97d8b2cf7e19d320b7fc3292d6e5b9-2160x1440.jpg
-Blueberry Hill ADU
-Callicoon, NY
+  var yr = new Date().getFullYear();
+  var yearSel = $('#year');
+  for (var n = yr; n >= yr - 8; n--) {
+    var o = document.createElement('option'); o.textContent = n;
+    yearSel.insertBefore(o, yearSel.lastElementChild);
+  }
+  function toast(m){ var t=$('#toast'); t.textContent=m; t.classList.add('on'); setTimeout(function(){t.classList.remove('on');},3200); }
+  function mb(b){ return (b/1048576).toFixed(1) + ' MB'; }
 
-ADU
-Sleeping Loft
-1 Bath
-<500 Sqft
-ADU
-7bb07a50531bdf9297376cdbfdf5e41c55151642-3000x1688.jpg
-Bloomer Lane
-Livingston Manor, NY
+  /* ---------- "Other" fill-ins ---------- */
+  [['service','serviceOther'],['location','locationOther'],['year','yearOther']].forEach(function(pair){
+    var sel = $('#'+pair[0]), inp = $('#'+pair[1]);
+    sel.addEventListener('change', function(){
+      var on = this.value === 'Other';
+      inp.classList.toggle('on', on);
+      if (on) inp.focus(); else inp.value = '';
+      save();
+    });
+  });
 
-ADU
-Sleeping Loft
-1 Bath
-<500 Sqft
-ADU
-All Projects
-daydream-sock.svg
-Let’s find that place you’ve been dreaming about
-Get Started
-Housing Solutions
+  /* ---------- photos ---------- */
+  function totalSize(){ return pics.reduce(function(a,p){ return a + p.size; }, 0); }
 
-Starter Home
-Forever Home
-Second Home
-Hybrid Home
-ADU
-Investment Property
-Micro-Hospitality
-Multi-Gen Compound
-Standards
+  function renderMeter(){
+    $('#picCount').textContent = pics.length;
+    var big = totalSize() > SOFT_LIMIT;
+    $('#meter').classList.toggle('warn', big);
+    $('#sizeNote').textContent = pics.length
+      ? (big ? mb(totalSize()) + ' — too big to send, drop some' : mb(totalSize()))
+      : '';
+    var full = pics.length >= MAX_PICS;
+    $('#drop').classList.toggle('full', full);
+    $('#dropCopy').textContent = full ? "That's 10 — the limit" : 'Drop photos here, or tap to choose';
+  }
 
-What is a Standard?
-ADU
-Small L
-Small Bar
-Medium Bar
-Big L
-Dogtrot
-Village
-Big Bar
-Company
+  function renderPics(){
+    $('#grid').innerHTML = pics.map(function(p,i){
+      var flag = p.flag === 'main' ? '<span class="pic-flag main">Main</span>'
+               : p.flag === 'before' ? '<span class="pic-flag before">Before</span>' : '';
+      return '<div class="pic">' + flag +
+        '<img src="' + p.url + '" alt="">' +
+        '<div class="pic-tools">' +
+          '<button type="button" data-m="' + i + '">' + (p.flag==='main'?'Unmark':'Main') + '</button>' +
+          '<button type="button" data-b="' + i + '">' + (p.flag==='before'?'Unmark':'Before') + '</button>' +
+          '<button type="button" data-x="' + i + '" aria-label="Remove photo">✕</button>' +
+        '</div></div>';
+    }).join('');
 
-Portfolio
-About
-Other Operations
+    $('#grid').querySelectorAll('[data-m]').forEach(function(b){
+      b.addEventListener('click', function(){
+        var i = +b.dataset.m, was = pics[i].flag === 'main';
+        pics.forEach(function(p){ if (p.flag === 'main') p.flag = ''; });
+        pics[i].flag = was ? '' : 'main';
+        renderPics();
+      });
+    });
+    $('#grid').querySelectorAll('[data-b]').forEach(function(b){
+      b.addEventListener('click', function(){
+        var i = +b.dataset.b;
+        pics[i].flag = pics[i].flag === 'before' ? '' : 'before';
+        renderPics();
+      });
+    });
+    $('#grid').querySelectorAll('[data-x]').forEach(function(b){
+      b.addEventListener('click', function(){
+        var gone = pics.splice(+b.dataset.x, 1)[0];
+        var next = new DataTransfer();
+        Array.prototype.forEach.call(dt.files, function(f){
+          if (!(f.name === gone.name && f.size === gone.size)) next.items.add(f);
+        });
+        dt = next; $('#file').files = dt.files;
+        renderPics();
+      });
+    });
+    renderMeter();
+  }
 
-Courses
-The Department of Leisure
-The Starter Home
-How It Works
+  function addFiles(list){
+    var skipped = 0;
+    Array.prototype.forEach.call(list, function(f){
+      if (!f.type.match(/^image\//)) {
+        if (f.type.match(/^video\//)) skipped = -1;
+        return;
+      }
+      if (pics.length >= MAX_PICS) { skipped++; return; }
+      if (pics.some(function(p){ return p.name === f.name && p.size === f.size; })) return;
+      dt.items.add(f);
+      var r = new FileReader();
+      r.onload = function(e){
+        pics.push({ name:f.name, size:f.size, url:e.target.result, flag: pics.length === 0 ? 'main' : '' });
+        renderPics();
+      };
+      r.readAsDataURL(f);
+    });
+    $('#file').files = dt.files;
+    if (skipped === -1) toast('Video goes in the Drive folder — the section below');
+    else if (skipped > 0) toast('10 photos is the limit — pick your best');
+  }
 
-The HUTS Approach
-Services
-Resources
+  $('#drop').addEventListener('click', function(){ if (pics.length < MAX_PICS) $('#file').click(); });
+  $('#drop').addEventListener('keydown', function(e){ if((e.key==='Enter'||e.key===' ') && pics.length < MAX_PICS){ e.preventDefault(); $('#file').click(); } });
+  $('#file').addEventListener('change', function(){ addFiles(this.files); });
+  ['dragenter','dragover'].forEach(function(ev){ $('#drop').addEventListener(ev, function(e){ e.preventDefault(); this.classList.add('over'); }); });
+  ['dragleave','drop'].forEach(function(ev){ $('#drop').addEventListener(ev, function(e){ e.preventDefault(); this.classList.remove('over'); }); });
+  $('#drop').addEventListener('drop', function(e){ addFiles(e.dataTransfer.files); });
 
-The Field Report
-The Land Report
-HUTS Guides
-Development Opportunities
-Contact
+  /* ---------- videos (name + what's in it, files live in Drive) ---------- */
+  function renderVids(){
+    $('#vids').innerHTML = vids.map(function(v,i){
+      return '<div class="vid">' +
+        '<div class="vid-h"><span class="vid-n">Video ' + (i+1) + '</span>' +
+        '<button type="button" class="mini" data-vx="' + i + '">Remove</button></div>' +
+        '<div class="fg"><label for="vn' + i + '">File name in the folder</label>' +
+          '<input type="text" id="vn' + i + '" data-vk="name" data-vi="' + i + '" value="' + (v.name||'').replace(/"/g,'&quot;') + '" placeholder="IMG_4482.MOV"></div>' +
+        '<div class="fg" style="margin-bottom:0;"><label for="vd' + i + '">What\'s in it?</label>' +
+          '<input type="text" id="vd' + i + '" data-vk="desc" data-vi="' + i + '" value="' + (v.desc||'').replace(/"/g,'&quot;') + '" placeholder="Walkthrough of the finished pathway"></div>' +
+      '</div>';
+    }).join('');
+    $('#vids').querySelectorAll('input').forEach(function(el){
+      el.addEventListener('input', function(){ vids[+el.dataset.vi][el.dataset.vk] = el.value; save(); });
+    });
+    $('#vids').querySelectorAll('[data-vx]').forEach(function(b){
+      b.addEventListener('click', function(){ vids.splice(+b.dataset.vx,1); renderVids(); save(); });
+    });
+    $('#addVid').disabled = vids.length >= MAX_VIDS;
+    $('#addVid').textContent = vids.length >= MAX_VIDS ? '3 videos is the limit' : '+ Add a video';
+  }
+  $('#addVid').addEventListener('click', function(){
+    if (vids.length >= MAX_VIDS) return;
+    vids.push({name:'',desc:''}); renderVids(); save();
+  });
 
-hello@huts.com
-For Partners
-Newsletter
-social-youtube.svg
-social-tik-tok.svg
-social-instagram.svg
-social-linkedin.svg
-social-pinterest.svg
-social-spotify.svg
-©2026 Huts
+  /* ---------- plants ---------- */
+  function renderPlants(){
+    $('#chips').innerHTML = plants.map(function(p,i){
+      return '<span class="chip">' + p.replace(/</g,'&lt;') + '<button type="button" data-i="' + i + '" aria-label="Remove">&times;</button></span>';
+    }).join('');
+    $('#chips').querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click', function(){ plants.splice(+b.dataset.i,1); renderPlants(); save(); });
+    });
+    $('#plantsOut').value = plants.join(', ');
+  }
+  $('#plantIn').addEventListener('keydown', function(e){
+    if (e.key === 'Enter' || e.key === ',') {
+      e.preventDefault();
+      var v = this.value.trim().replace(/,$/,'');
+      if (v && plants.indexOf(v) === -1) { plants.push(v); this.value=''; renderPlants(); save(); }
+    }
+  });
 
-Privacy Policy
-Terms of Use
+  /* ---------- draft (text only) ---------- */
+  var TEXT = ['title','service','serviceOther','location','locationOther','year','yearOther','scope','problem','approach','result','extra','who'];
+  function save(){
+    var d = { plants: plants, vids: vids };
+    TEXT.forEach(function(id){ d[id] = $('#'+id).value; });
+    try { localStorage.setItem(KEY, JSON.stringify(d)); $('#saved').textContent = 'Saved'; }
+    catch(e){ $('#saved').textContent = 'Not saved'; }
+  }
+  function load(){
+    var raw = localStorage.getItem(KEY); if (!raw) return;
+    try {
+      var d = JSON.parse(raw);
+      TEXT.forEach(function(id){ if (d[id]) $('#'+id).value = d[id]; });
+      ['service','location','year'].forEach(function(k){
+        if ($('#'+k).value === 'Other') $('#'+k+'Other').classList.add('on');
+      });
+      plants = d.plants || []; vids = d.vids || [];
+      renderPlants(); renderVids();
+    } catch(e){}
+  }
+  $('#f').addEventListener('input', save);
+  $('#f').addEventListener('change', save);
+
+  $('#reset').addEventListener('click', function(){
+    if (!confirm('Clear everything and start over?')) return;
+    localStorage.removeItem(KEY); location.reload();
+  });
+
+  /* ---------- send ---------- */
+  var REQ = ['title','service','location','year','scope','problem','approach','result'];
+  $('#f').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var bad = null;
+    REQ.forEach(function(id){
+      var el = $('#'+id), empty = !el.value.trim();
+      if (!empty && el.value === 'Other' && !$('#'+id+'Other').value.trim()) empty = true;
+      el.classList.toggle('err', empty);
+      var m = document.querySelector('.errmsg[data-for="'+id+'"]');
+      if (m) m.classList.toggle('on', empty);
+      if (empty && !bad) bad = el;
+    });
+    var noP = plants.length === 0;
+    $('.errmsg[data-for="plantIn"]').classList.toggle('on', noP);
+    if (noP && !bad) bad = $('#plantIn');
+    var noPics = pics.length === 0;
+    $('.errmsg[data-for="drop"]').classList.toggle('on', noPics);
+    if (noPics && !bad) bad = $('#drop');
+
+    if (bad) { bad.scrollIntoView({block:'center',behavior:'smooth'}); bad.focus({preventScroll:true}); toast('Something still needs filling in'); return; }
+
+    if (totalSize() > SOFT_LIMIT) {
+      toast('Those photos add up to ' + mb(totalSize()) + '. Remove a few, or put them in the Drive folder.');
+      $('#meter').scrollIntoView({block:'center',behavior:'smooth'});
+      return;
+    }
+
+    $('#picsOut').value = pics.map(function(p){
+      return p.name + (p.flag ? '  —  ' + p.flag.toUpperCase() : '');
+    }).join('\n');
+    $('#vidsOut').value = vids.length
+      ? vids.map(function(v,i){ return 'Video ' + (i+1) + ': ' + (v.name||'(no file name)') + ' — ' + (v.desc||'(no description)'); }).join('\n')
+      : 'None';
+
+    $('#send').disabled = true;
+    $('#send').textContent = 'Sending…';
+    $('#sending').style.display = 'block';
+
+    fetch(this.action, { method:'POST', body:new FormData(this), headers:{ 'Accept':'application/json' } })
+      .then(function(r){ if(!r.ok) return r.json().then(function(j){ throw new Error((j.errors&&j.errors[0]&&j.errors[0].message)||'failed'); }); return r.json(); })
+      .then(function(){
+        localStorage.removeItem(KEY);
+        $('#formWrap').style.display = 'none';
+        $('#done').style.display = 'block';
+        window.scrollTo(0,0);
+      })
+      .catch(function(err){
+        $('#send').disabled = false;
+        $('#send').textContent = 'Send to Dayna';
+        $('#sending').style.display = 'none';
+        toast(String(err.message).match(/file|upload|size|large/i)
+          ? 'Photos too big for the form — put them in the Drive folder and send again'
+          : "Didn't send. Try again, or text Dayna.");
+      });
+  });
+
+  load(); renderPics(); renderVids();
+})();
+</script>
+</body>
+</html>
