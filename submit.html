@@ -107,7 +107,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
     <fieldset>
       <legend>Photos</legend>
-      <p class="note">Between 1 and 10. Mark the best one <b>Main</b> — that's the one people see first. If you've got a shot of what it looked like <b>before</b>, mark that too. Same spot, same angle as the after shot is what makes it land.</p>
+      <p class="note">Between 1 and 10. The first one is the one people see before they see anything else — make it the money shot. Mark it <b>Main</b> — that's the one people see first. If you've got a shot of what it looked like <b>before</b>, mark that too. Same spot, same angle as the after shot is what makes it land.</p>
 
       <div class="drop" id="drop" tabindex="0" role="button" aria-label="Add photos">
         <p id="dropCopy">Drop photos here, or tap to choose</p>
@@ -124,7 +124,7 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
     <fieldset>
       <legend>Video</legend>
-      <p class="note">Up to 3, and they're too big to send through here. Put them in the shared folder, then tell Dayna what's in each one so she can match them up.</p>
+      <p class="note">Up to 3. A slow walk through the finished garden beats a highlight reel. Too big to send through here, so: Put them in the shared folder, then tell Dayna what's in each one so she can match them up.</p>
 
       <a class="drive" id="driveBtn" href="#" target="_blank" rel="noopener">📁 Open the video folder</a>
       <p class="hint" style="margin:.6rem 0 1.5rem;">Drag the videos in, then come back and fill this in.</p>
@@ -135,10 +135,25 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
     </fieldset>
 
     <fieldset>
+      <legend>Project plans</legend>
+      <p class="note">The stuff from the design book — site plan, planting plan, the care guide. People pay for that book, and showing it is why. A photo of a printed page is fine. Up to 4.</p>
+
+      <div class="drop" id="dropPlan" tabindex="0" role="button" aria-label="Add plans">
+        <p id="planCopy">Drop plans here, or tap to choose</p>
+        <span>Images or PDF</span>
+      </div>
+      <input type="file" id="filePlan" name="plans" accept="image/*,.pdf,application/pdf" multiple hidden>
+      <div class="meter"><span><b id="planCount">0</b> of 4</span></div>
+      <div id="planList"></div>
+      <input type="hidden" name="Plan notes" id="plansOut">
+    </fieldset>
+
+    <fieldset>
       <legend>Where and what</legend>
       <div class="fg">
         <label for="title">What do you call this project? <span class="req">*</span></label>
         <input type="text" id="title" name="Project" placeholder="The Largo yard that flooded every summer">
+        <span class="hint">Say what happened, not what it is. "22 feet of gumbo limbo, planted in one day" beats "Specimen tree install."</span>
         <span class="errmsg" data-for="title">Needs a name.</span>
       </div>
       <div class="row">
@@ -191,34 +206,34 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
     <fieldset>
       <legend>The story</legend>
-      <p class="note">Say it how you'd say it standing in the yard. Don't polish it — that's Dayna's job. If a question doesn't fit this project, put <b>n/a</b> and say why in the notes.</p>
+      <p class="note">This is the whole project page — it's what makes someone call instead of scroll. Say it how you'd say it standing in the yard. Don't polish it, that's Dayna's job. If a question doesn't fit, put <b>n/a</b> and say why in the notes.</p>
       <div class="fg">
         <label for="problem">What was wrong when you got there? <span class="req">*</span></label>
         <textarea id="problem" name="What was wrong" rows="4" placeholder="Held water for days after every storm. They'd replaced the sod three years running."></textarea>
+        <span class="hint">What the property was doing before you got there — and what it was costing them.</span>
         <span class="errmsg" data-for="problem">Needs an answer — n/a is fine.</span>
       </div>
       <div class="fg">
         <label for="approach">What did you do about it? <span class="req">*</span></label>
         <textarea id="approach" name="What we did" rows="4" placeholder="Regraded the low corner into a rain garden, cut a dry river bed to feed it, planted deep-rooted natives around the basin."></textarea>
+        <span class="hint">The decisions and why. Materials, grading, plant choices, where you sourced the good stuff.</span>
         <span class="errmsg" data-for="approach">Needs an answer — n/a is fine.</span>
       </div>
       <div class="fg">
         <label for="result">What does it do now? <span class="req">*</span></label>
         <textarea id="result" name="What it does now" rows="4" placeholder="Drinks the storm instead of pooling. No more sod bill. Full of pollinators every spring."></textarea>
+        <span class="hint">What changed for the homeowner. What it handles now that it couldn't before.</span>
         <span class="errmsg" data-for="result">Needs an answer — n/a is fine.</span>
       </div>
     </fieldset>
 
     <fieldset>
-      <legend>Plants</legend>
-      <div class="fg">
-        <label for="plantIn">What's growing there? <span class="req">*</span></label>
-        <input type="text" id="plantIn" placeholder="Type one and hit Enter — muhly grass">
-        <span class="hint">Common names are fine. Latin name for specimen trees. Don't know one? Type what you call it.</span>
-        <span class="errmsg" data-for="plantIn">Add at least one.</span>
-      </div>
-      <div class="chips" id="chips"></div>
-      <input type="hidden" name="Plants" id="plantsOut">
+      <legend>Species guide</legend>
+      <p class="note">What's growing there and what each one is doing. Common name is all that's required — you're the naturalist, so the Latin name and the job it does are worth the extra ten seconds if you've got them.</p>
+      <div id="spList"></div>
+      <button type="button" class="btn-add" id="addSp">+ Add a plant</button>
+      <span class="errmsg" data-for="addSp" style="margin-top:.6rem;">Add at least one plant.</span>
+      <input type="hidden" name="Species guide" id="plantsOut">
     </fieldset>
 
     <fieldset>
@@ -228,8 +243,15 @@ select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
         <textarea id="extra" name="Notes" rows="3" placeholder="Client's fine being named. Where the boulders came from. Don't show the neighbor's fence. Anything."></textarea>
       </div>
       <div class="fg">
-        <label for="who">Who's sending this?</label>
-        <input type="text" id="who" name="From" placeholder="Kiamesha">
+        <label for="who">Who's sending this? <span class="req">*</span></label>
+        <select id="who" name="From">
+          <option value="" disabled selected>Select</option>
+          <option>Kiamesha</option>
+          <option>Justus</option>
+          <option value="Other">Someone else</option>
+        </select>
+        <input type="text" class="other" id="whoOther" name="From (other)" placeholder="Who's sending?" aria-label="Who's sending">
+        <span class="errmsg" data-for="who">Let Dayna know who to reply to.</span>
       </div>
     </fieldset>
 
@@ -267,8 +289,11 @@ var CONFIG = {
   var $ = function(s){ return document.querySelector(s); };
   var KEY = 'lsg-project-intake';
   var MAX_PICS = 10, MAX_VIDS = 3, SOFT_LIMIT = 20 * 1024 * 1024; // 20MB
-  var plants = [], pics = [], vids = [];
-  var dt = new DataTransfer();
+  var species = [], pics = [], vids = [], plans = [];
+  var dt = new DataTransfer();       // photos
+  var dtPlan = new DataTransfer();   // plans
+  var MAX_PLANS = 4;
+  var PLAN_LABELS = ['Site plan','Planting plan','Design book page','Care guide','Other'];
 
   $('#f').action = CONFIG.FORM;
   $('#driveBtn').href = CONFIG.DRIVE;
@@ -283,7 +308,7 @@ var CONFIG = {
   function mb(b){ return (b/1048576).toFixed(1) + ' MB'; }
 
   /* ---------- "Other" fill-ins ---------- */
-  [['service','serviceOther'],['location','locationOther'],['year','yearOther']].forEach(function(pair){
+  [['service','serviceOther'],['location','locationOther'],['year','yearOther'],['who','whoOther']].forEach(function(pair){
     var sel = $('#'+pair[0]), inp = $('#'+pair[1]);
     sel.addEventListener('change', function(){
       var on = this.value === 'Other';
@@ -294,7 +319,10 @@ var CONFIG = {
   });
 
   /* ---------- photos ---------- */
-  function totalSize(){ return pics.reduce(function(a,p){ return a + p.size; }, 0); }
+  function totalSize(){
+    return pics.reduce(function(a,p){ return a + p.size; }, 0) +
+           plans.reduce(function(a,p){ return a + p.size; }, 0);
+  }
 
   function renderMeter(){
     $('#picCount').textContent = pics.length;
@@ -405,28 +433,109 @@ var CONFIG = {
     vids.push({name:'',desc:''}); renderVids(); save();
   });
 
-  /* ---------- plants ---------- */
-  function renderPlants(){
-    $('#chips').innerHTML = plants.map(function(p,i){
-      return '<span class="chip">' + p.replace(/</g,'&lt;') + '<button type="button" data-i="' + i + '" aria-label="Remove">&times;</button></span>';
+  /* ---------- project plans ---------- */
+  function renderPlans(){
+    $('#planCount').textContent = plans.length;
+    var full = plans.length >= MAX_PLANS;
+    $('#dropPlan').classList.toggle('full', full);
+    $('#planCopy').textContent = full ? "That's 4 — the limit" : 'Drop plans here, or tap to choose';
+
+    $('#planList').innerHTML = plans.map(function(p,i){
+      return '<div class="vid">' +
+        '<div class="vid-h"><span class="vid-n">' + p.name.replace(/</g,'&lt;') + '</span>' +
+        '<button type="button" class="mini" data-px="' + i + '">Remove</button></div>' +
+        (p.url ? '<img src="' + p.url + '" alt="" style="max-height:120px;width:auto;border:1px solid var(--line);border-radius:2px;margin-bottom:.6rem;">' : '') +
+        '<div class="fg" style="margin-bottom:0;"><label for="pl' + i + '">What is it?</label>' +
+        '<select id="pl' + i + '" data-pi="' + i + '">' +
+          PLAN_LABELS.map(function(l){ return '<option' + (p.label===l?' selected':'') + '>' + l + '</option>'; }).join('') +
+        '</select></div>' +
+        '<input type="text" class="other' + (p.label==='Other'?' on':'') + '" data-po="' + i + '" value="' + (p.other||'').replace(/"/g,'&quot;') + '" placeholder="What is this one?" style="margin-top:.5rem;">' +
+      '</div>';
     }).join('');
-    $('#chips').querySelectorAll('button').forEach(function(b){
-      b.addEventListener('click', function(){ plants.splice(+b.dataset.i,1); renderPlants(); save(); });
+
+    $('#planList').querySelectorAll('select').forEach(function(el){
+      el.addEventListener('change', function(){
+        var i = +el.dataset.pi;
+        plans[i].label = el.value;
+        renderPlans(); save();
+      });
     });
-    $('#plantsOut').value = plants.join(', ');
+    $('#planList').querySelectorAll('[data-po]').forEach(function(el){
+      el.addEventListener('input', function(){ plans[+el.dataset.po].other = el.value; save(); });
+    });
+    $('#planList').querySelectorAll('[data-px]').forEach(function(b){
+      b.addEventListener('click', function(){
+        var gone = plans.splice(+b.dataset.px,1)[0];
+        var next = new DataTransfer();
+        Array.prototype.forEach.call(dtPlan.files, function(f){
+          if (!(f.name === gone.name && f.size === gone.size)) next.items.add(f);
+        });
+        dtPlan = next; $('#filePlan').files = dtPlan.files;
+        renderPlans(); save();
+      });
+    });
+    renderMeter();
   }
-  $('#plantIn').addEventListener('keydown', function(e){
-    if (e.key === 'Enter' || e.key === ',') {
-      e.preventDefault();
-      var v = this.value.trim().replace(/,$/,'');
-      if (v && plants.indexOf(v) === -1) { plants.push(v); this.value=''; renderPlants(); save(); }
-    }
+
+  function addPlans(list){
+    var skipped = 0;
+    Array.prototype.forEach.call(list, function(f){
+      var ok = f.type.match(/^image\//) || f.type === 'application/pdf' || /\.pdf$/i.test(f.name);
+      if (!ok) return;
+      if (plans.length >= MAX_PLANS) { skipped++; return; }
+      if (plans.some(function(p){ return p.name === f.name && p.size === f.size; })) return;
+      dtPlan.items.add(f);
+      var entry = { name:f.name, size:f.size, url:'', label:PLAN_LABELS[0], other:'' };
+      plans.push(entry);
+      if (f.type.match(/^image\//)) {
+        var r = new FileReader();
+        r.onload = function(e){ entry.url = e.target.result; renderPlans(); };
+        r.readAsDataURL(f);
+      }
+      renderPlans();
+    });
+    $('#filePlan').files = dtPlan.files;
+    if (skipped > 0) toast('4 plans is the limit');
+  }
+
+  $('#dropPlan').addEventListener('click', function(){ if (plans.length < MAX_PLANS) $('#filePlan').click(); });
+  $('#dropPlan').addEventListener('keydown', function(e){ if((e.key==='Enter'||e.key===' ') && plans.length < MAX_PLANS){ e.preventDefault(); $('#filePlan').click(); } });
+  $('#filePlan').addEventListener('change', function(){ addPlans(this.files); });
+  ['dragenter','dragover'].forEach(function(ev){ $('#dropPlan').addEventListener(ev, function(e){ e.preventDefault(); this.classList.add('over'); }); });
+  ['dragleave','drop'].forEach(function(ev){ $('#dropPlan').addEventListener(ev, function(e){ e.preventDefault(); this.classList.remove('over'); }); });
+  $('#dropPlan').addEventListener('drop', function(e){ addPlans(e.dataTransfer.files); });
+
+  /* ---------- species guide ---------- */
+  function renderPlants(){
+    $('#spList').innerHTML = species.map(function(sp,i){
+      return '<div class="vid">' +
+        '<div class="vid-h"><span class="vid-n">Plant ' + (i+1) + '</span>' +
+        '<button type="button" class="mini" data-sx="' + i + '">Remove</button></div>' +
+        '<div class="fg"><label for="sc' + i + '">Common name <span class="req">*</span></label>' +
+          '<input type="text" id="sc' + i + '" data-sk="common" data-si="' + i + '" value="' + (sp.common||'').replace(/"/g,'&quot;') + '" placeholder="Muhly grass"></div>' +
+        '<div class="fg"><label for="sl' + i + '">Latin name</label>' +
+          '<input type="text" id="sl' + i + '" data-sk="latin" data-si="' + i + '" value="' + (sp.latin||'').replace(/"/g,'&quot;') + '" placeholder="Muhlenbergia capillaris"></div>' +
+        '<div class="fg" style="margin-bottom:0;"><label for="sr' + i + '">What\'s it doing there?</label>' +
+          '<input type="text" id="sr' + i + '" data-sk="role" data-si="' + i + '" value="' + (sp.role||'').replace(/"/g,'&quot;') + '" placeholder="Holds the basin edge and takes the flooding"></div>' +
+      '</div>';
+    }).join('');
+    $('#spList').querySelectorAll('input').forEach(function(el){
+      el.addEventListener('input', function(){ species[+el.dataset.si][el.dataset.sk] = el.value; save(); });
+    });
+    $('#spList').querySelectorAll('[data-sx]').forEach(function(b){
+      b.addEventListener('click', function(){ species.splice(+b.dataset.sx,1); renderPlants(); save(); });
+    });
+  }
+  $('#addSp').addEventListener('click', function(){
+    species.push({common:'',latin:'',role:''}); renderPlants(); save();
+    var last = $('#spList').querySelector('.vid:last-child input');
+    if (last) last.focus();
   });
 
   /* ---------- draft (text only) ---------- */
-  var TEXT = ['title','service','serviceOther','location','locationOther','year','yearOther','scope','problem','approach','result','extra','who'];
+  var TEXT = ['title','service','serviceOther','location','locationOther','year','yearOther','scope','problem','approach','result','extra','who','whoOther'];
   function save(){
-    var d = { plants: plants, vids: vids };
+    var d = { species: species, vids: vids, plans: plans.map(function(p){ return {name:p.name,size:p.size,label:p.label,other:p.other}; }) };
     TEXT.forEach(function(id){ d[id] = $('#'+id).value; });
     try { localStorage.setItem(KEY, JSON.stringify(d)); $('#saved').textContent = 'Saved'; }
     catch(e){ $('#saved').textContent = 'Not saved'; }
@@ -436,10 +545,10 @@ var CONFIG = {
     try {
       var d = JSON.parse(raw);
       TEXT.forEach(function(id){ if (d[id]) $('#'+id).value = d[id]; });
-      ['service','location','year'].forEach(function(k){
+      ['service','location','year','who'].forEach(function(k){
         if ($('#'+k).value === 'Other') $('#'+k+'Other').classList.add('on');
       });
-      plants = d.plants || []; vids = d.vids || [];
+      species = d.species || []; vids = d.vids || [];
       renderPlants(); renderVids();
     } catch(e){}
   }
@@ -452,7 +561,7 @@ var CONFIG = {
   });
 
   /* ---------- send ---------- */
-  var REQ = ['title','service','location','year','scope','problem','approach','result'];
+  var REQ = ['title','service','location','year','scope','problem','approach','result','who'];
   $('#f').addEventListener('submit', function(e){
     e.preventDefault();
 
@@ -465,9 +574,10 @@ var CONFIG = {
       if (m) m.classList.toggle('on', empty);
       if (empty && !bad) bad = el;
     });
-    var noP = plants.length === 0;
-    $('.errmsg[data-for="plantIn"]').classList.toggle('on', noP);
-    if (noP && !bad) bad = $('#plantIn');
+    var named = species.filter(function(sp){ return sp.common.trim(); });
+    var noP = named.length === 0;
+    $('.errmsg[data-for="addSp"]').classList.toggle('on', noP);
+    if (noP && !bad) bad = $('#addSp');
     var noPics = pics.length === 0;
     $('.errmsg[data-for="drop"]').classList.toggle('on', noPics);
     if (noPics && !bad) bad = $('#drop');
@@ -483,6 +593,12 @@ var CONFIG = {
     $('#picsOut').value = pics.map(function(p){
       return p.name + (p.flag ? '  —  ' + p.flag.toUpperCase() : '');
     }).join('\n');
+    $('#plantsOut').value = named.map(function(sp){
+      return sp.common.trim() + (sp.latin.trim() ? '  (' + sp.latin.trim() + ')' : '') + (sp.role.trim() ? '  —  ' + sp.role.trim() : '');
+    }).join('\n');
+    $('#plansOut').value = plans.length
+      ? plans.map(function(p){ return p.name + '  —  ' + (p.label === 'Other' ? (p.other || 'Other') : p.label); }).join('\n')
+      : 'None';
     $('#vidsOut').value = vids.length
       ? vids.map(function(v,i){ return 'Video ' + (i+1) + ': ' + (v.name||'(no file name)') + ' — ' + (v.desc||'(no description)'); }).join('\n')
       : 'None';
@@ -509,7 +625,8 @@ var CONFIG = {
       });
   });
 
-  load(); renderPics(); renderVids();
+  load(); renderPics(); renderVids(); renderPlans();
+  if (!species.length) { species.push({common:'',latin:'',role:''}); renderPlants(); }
 })();
 </script>
 </body>
