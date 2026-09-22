@@ -17,7 +17,7 @@ img{display:block;}
 .skip-nav:focus{position:fixed;left:16px;top:16px;width:auto;height:auto;overflow:visible;}
 
 /* ---------- nav (homepage parity) ---------- */
-nav{position:fixed;top:0;left:0;right:0;z-index:600;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 5%;transition:background .35s,box-shadow .35s;}
+#nav{position:fixed;top:0;left:0;right:0;z-index:600;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 5%;transition:background .35s,box-shadow .35s;}
 nav.scrolled{background:rgba(248,245,235,.97);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);}
 .nav-logo img{height:64px;width:auto;}
 .nav-links{display:flex;gap:2.5rem;align-items:center;list-style:none;}
@@ -367,7 +367,7 @@ footer p{color:rgba(255,255,255,.70);font-size:.72rem;}
 .sp-figure img{width:100%;height:auto;display:block;border-radius:2px;}
 .sp-credit{font-size:.6rem;color:var(--muted);margin-top:.4rem;letter-spacing:.02em;}
 /* when a card has a photo, let it span wider so the image has room */
-.sp:has(.sp-figure){grid-column:1 / -1;display:grid;grid-template-columns:1fr 1.4fr;gap:1.5rem;align-items:start;}
+.sp:has(.sp-figure){grid-column:1 / -1;display:grid;grid-template-columns:1fr 1.4fr;gap:1.5rem;align-items:center;}
 .sp:has(.sp-figure) .sp-figure{margin-top:0;}
 @media(max-width:700px){
   .sp:has(.sp-figure){grid-template-columns:1fr;gap:1rem;}
