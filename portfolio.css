@@ -344,7 +344,7 @@ footer p{color:rgba(255,255,255,.70);font-size:.72rem;}
   border-radius:3px;
   overflow:hidden;
 }
-\.sp:has(.sp-figure) .sp-textwrap{
+.sp:has(.sp-figure) .sp-textwrap{
   display:flex;
   flex-direction:column;
   justify-content:center;
