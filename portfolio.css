@@ -344,13 +344,26 @@ footer p{color:rgba(255,255,255,.70);font-size:.72rem;}
   border-radius:3px;
   overflow:hidden;
 }
-.sp:has(.sp-figure) .sp-textwrap{
+\.sp:has(.sp-figure) .sp-textwrap{
   display:flex;
   flex-direction:column;
-  justify-content:center;   /* fill the whitespace, centered */
+  justify-content:center;
   gap:.55rem;
   padding:1.75rem;
+  position:relative;
+  overflow:hidden;
 }
+.sp:has(.sp-figure) .sp-textwrap::after{
+  content:'';
+  position:absolute;
+  left:-14px;
+  bottom:-18px;
+  width:120px;height:120px;
+  background:url('assets/Living-Spaces-Gardening-Mark-Terracota-2.png') no-repeat center/contain;
+  opacity:.06;
+  pointer-events:none;
+}
+.sp:has(.sp-figure) .sp-textwrap > *{position:relative;z-index:1;}
 .sp:has(.sp-figure) .sp-common{font-size:1.05rem;font-weight:700;color:var(--charcoal);margin:0;}
 .sp:has(.sp-figure) .sp-latin{font-size:.8rem;font-style:italic;color:var(--teal);margin:0;}
 .sp:has(.sp-figure) .sp-role{font-size:.82rem;color:var(--muted);line-height:1.6;margin:0;}
