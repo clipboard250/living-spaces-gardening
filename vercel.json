@@ -68,6 +68,7 @@
     { "source": "/blog", "destination": "/blog.html" },
     { "source": "/florida-plants-that-repel-roof-rats", "destination": "/florida-plants-that-repel-roof-rats.html" },
     { "source": "/links", "destination": "/links.html" },
+    { "source": "/portfolio", "destination": "/portfolio.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
