@@ -335,7 +335,9 @@ footer p{color:rgba(255,255,255,.70);font-size:.72rem;}
 }
 .sp:has(.sp-figure){
   display:grid;
-  grid-template-columns:300px 1fr;   /* text block | wide photo */
+  height:240px;
+  grid-template-columns:200px 1fr;   /* narrow text | long wide photo */
+  max-height:240px;                  /* short strip, photo stretches long */
   align-items:stretch;
   background:var(--sand);
   border:1px solid var(--line);
