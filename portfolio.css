@@ -362,35 +362,35 @@ footer p{color:rgba(255,255,255,.70);font-size:.72rem;}
 /* keep the filters honest — the soon tile never hides or counts as a result */
 .pf-grid.is-list .pcard-soon{grid-template-columns:minmax(0,320px) minmax(0,1fr);}
 
-/* Species card — big zoomed photo banner, small text tucked left */
+/* Species card — wide short rectangle. Text left, photo fills the whole right edge-to-edge */
 .sp:has(.sp-figure){
   grid-column:1 / -1;
   display:flex;
-  align-items:stretch;
+  align-items:stretch;      /* photo stretches full card height */
   gap:0;
+  padding:0;                /* kill card padding so photo hits the edges */
   overflow:hidden;
-  min-height:300px;
+  min-height:200px;
 }
 .sp-textwrap{
-  flex:0 0 26%;
+  flex:0 0 40%;
   display:flex;
   flex-direction:column;
   justify-content:center;
   gap:.35rem;
-  padding:1.75rem;
+  padding:1.5rem 1.75rem;
 }
 .sp-textwrap .sp-role{margin:0;}
 .sp-figure{
-  flex:1;
+  flex:1;                   /* photo takes the entire rest of the card */
   margin:0;
   position:relative;
   overflow:hidden;
-  background:#e9e3d5;
 }
 .sp-figure img{width:100%;height:100%;object-fit:cover;display:block;}
 .sp-credit{position:absolute;bottom:.4rem;right:.5rem;margin:0;background:rgba(59,56,54,.6);color:rgba(255,255,255,.85);padding:.2rem .45rem;border-radius:2px;font-size:.55rem;}
 @media(max-width:700px){
   .sp:has(.sp-figure){flex-direction:column;min-height:0;}
   .sp-textwrap{flex:none;padding:1.4rem;}
-  .sp-figure{min-height:220px;}
+  .sp-figure{min-height:200px;}
 }
