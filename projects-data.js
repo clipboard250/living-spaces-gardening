@@ -28,7 +28,7 @@ const PROJECTS = [
     facts: { size: '', lot: '', environment: 'Established neighborhood', status: 'Completed' },
     plans: [],
     species: [
-      { common: 'Wild coffee', latin: 'Psychotria nervosa', role: 'Shade-loving native shrub that fills the beds and feeds pollinators' }
+      { common: 'Wild coffee', latin: 'Psychotria nervosa', role: 'Shade-loving native shrub that fills the beds and feeds pollinators', photo: 'assets/gallery/species-wild-coffee-psychotria-nervosa.webp', credit: 'Photo: Sam Sailor, CC BY-SA 4.0' }
     ],
     scope: 'Native plants, pavers, rocks, mulch, an irrigation system and a French drain',
     summary: 'Water pooled along the side of the house. We drained it and planted it native.',

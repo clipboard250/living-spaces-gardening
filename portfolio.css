@@ -17,7 +17,7 @@ img{display:block;}
 .skip-nav:focus{position:fixed;left:16px;top:16px;width:auto;height:auto;overflow:visible;}
 
 /* ---------- nav (homepage parity) ---------- */
-#nav{position:fixed;top:0;left:0;right:0;z-index:600;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 5%;transition:background .35s,box-shadow .35s;}
+nav{position:fixed;top:0;left:0;right:0;z-index:600;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 5%;transition:background .35s,box-shadow .35s;}
 nav.scrolled{background:rgba(248,245,235,.97);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);}
 .nav-logo img{height:64px;width:auto;}
 .nav-links{display:flex;gap:2.5rem;align-items:center;list-style:none;}
@@ -153,7 +153,7 @@ nav.scrolled{background:rgba(248,245,235,.97);backdrop-filter:blur(10px);box-sha
 .proj-shots{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;padding:0 5% 5rem;}
 .proj-shots-single{grid-template-columns:1fr;max-width:900px;margin:0 auto;}
 .shot{border-radius:3px;overflow:hidden;background:#e9e3d5;}
-.shot img{width:100%;height:auto;max-height:70vh;object-fit:contain;background:#f0ece0;}
+.shot img{width:100%;aspect-ratio:4/3;object-fit:cover;}
 .shot figcaption{font-size:.78rem;color:var(--muted);line-height:1.7;padding:.85rem .25rem 0;}
 
 .proj-nav{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:2.5rem 5%;border-top:1px solid var(--line);}
@@ -361,3 +361,14 @@ footer p{color:rgba(255,255,255,.70);font-size:.72rem;}
 .pcard-soon .pcard-title{color:var(--charcoal);}
 /* keep the filters honest — the soon tile never hides or counts as a result */
 .pf-grid.is-list .pcard-soon{grid-template-columns:minmax(0,320px) minmax(0,1fr);}
+
+/* Species card — photo fills the box, credit small under it */
+.sp-figure{margin-top:1rem;border-radius:2px;overflow:hidden;}
+.sp-figure img{width:100%;height:auto;display:block;border-radius:2px;}
+.sp-credit{font-size:.6rem;color:var(--muted);margin-top:.4rem;letter-spacing:.02em;}
+/* when a card has a photo, let it span wider so the image has room */
+.sp:has(.sp-figure){grid-column:1 / -1;display:grid;grid-template-columns:1fr 1.4fr;gap:1.5rem;align-items:start;}
+.sp:has(.sp-figure) .sp-figure{margin-top:0;}
+@media(max-width:700px){
+  .sp:has(.sp-figure){grid-template-columns:1fr;gap:1rem;}
+}

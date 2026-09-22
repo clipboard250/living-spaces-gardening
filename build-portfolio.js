@@ -436,6 +436,7 @@ function buildProject(p, idx) {
       <p class="sp-common">${esc(s.common)}</p>
       ${s.latin ? `<p class="sp-latin">${esc(s.latin)}</p>` : ''}
       ${s.role ? `<p class="sp-role">${esc(s.role)}</p>` : ''}
+      ${s.photo ? `<figure class="sp-figure"><img src="${s.photo}" alt="${esc(s.common)} (${esc(s.latin || '')}) foliage" width="1200" height="800" loading="lazy">${s.credit ? `<figcaption class="sp-credit">${esc(s.credit)}</figcaption>` : ''}</figure>` : ''}
     </li>`).join('\n    ')}
   </ul>
 </section>`
